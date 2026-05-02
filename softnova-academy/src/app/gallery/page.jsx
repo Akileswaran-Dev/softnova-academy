@@ -15,21 +15,28 @@ import styles from "./gallery.module.css";
 
 const CATEGORIES = [
   { id: "all", label: "All", icon: <Layout size={20} /> },
-  { id: "campus", label: "Campus", icon: <Globe size={20} /> },
-  { id: "events", label: "Events", icon: <Zap size={20} /> },
+  { id: "Intern", label: "Campus", icon: <Globe size={20} /> },
+  { id: "Celebration", label: "Events", icon: <Zap size={20} /> },
   { id: "students", label: "Students", icon: <Users size={20} /> },
+  { id: "interns", label: "Interns", icon: <Award size={20} /> },
 ];
 
 const GALLERY_IMAGES = [
-  { id: 1, title: "Our Modern Campus", category: "campus", img: "/gallery/classroom1.png", size: "tall" },
-  { id: 2, title: "Student Collaboration", category: "students", img: "/gallery/celebration1.png", size: "short" },
-  { id: 3, title: "Annual Tech Event", category: "events", img: "/gallery/event1.png", size: "tall" },
-  { id: 4, title: "Learning in Progress", category: "students", img: "/gallery/Akka.png", size: "short" },
-  { id: 5, title: "Team Leadership", category: "students", img: "/gallery/dharshi.jpg", size: "tall" },
-  { id: 6, title: "Dev Spirit", category: "events", img: "/gallery/dev.jpg", size: "short" },
-  { id: 7, title: "Tech Workshop", category: "events", img: "/gallery/classroom1.png", size: "tall" },
-  { id: 8, title: "Vibrant Campus", category: "campus", img: "/gallery/celebration1.png", size: "short" },
-  { id: 9, title: "Student Success", category: "students", img: "/gallery/event1.png", size: "tall" },
+  { id: 1,  title: "Celebration Vibes",       category: "events",   img: "/gallery/cel-1.webp",         size: "short" },
+  { id: 2,  title: "Moments of Joy",          category: "events",   img: "/gallery/cel-2.webp",         size: "tall" },
+  { id: 3, title: "Recognition 2024",        category: "events",   img: "/gallery/rec-1.webp",         size: "short" },
+  { id: 4, title: "Award Ceremony",          category: "events",   img: "/gallery/rec-2.webp",         size: "tall" },
+  { id: 5, title: "Recognition Day",         category: "events",   img: "/gallery/rec-3.webp",         size: "short" },
+  { id: 6, title: "Intern Batch 2024",       category: "interns",  img: "/gallery/intern1.webp",       size: "tall" },
+  { id: 7, title: "Intern Team Work",        category: "interns",  img: "/gallery/intern2.webp",       size: "short" },
+  { id: 8, title: "Intern Collaboration",    category: "interns",  img: "/gallery/intern3.webp",       size: "tall" },
+  { id: 9, title: "Intern Project Day",      category: "interns",  img: "/gallery/intern4.webp",       size: "short" },
+  { id: 10, title: "Intern Showcase",         category: "interns",  img: "/gallery/intern5.webp",       size: "tall" },
+  { id: 11, title: "Skill Development",       category: "students", img: "/gallery/skill1.webp",        size: "short" },
+  { id: 12, title: "Hands-On Training",       category: "students", img: "/gallery/skill2.webp",        size: "tall" },
+  { id: 13, title: "Practical Sessions",      category: "students", img: "/gallery/skill3.webp",        size: "short" },
+  { id: 14, title: "Live Project Work",       category: "students", img: "/gallery/skill4.webp",        size: "tall" },
+  { id: 15, title: "Workshop Highlights",     category: "students", img: "/gallery/skill5.webp",        size: "short" },
 ];
 
 const Column = ({ images, y, onImageClick }) => {

@@ -1,14 +1,15 @@
 "use client";
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
+import { ArrowRight, BookOpen, Star, Heart, Bookmark, Share2, Download, Search, Settings, Play } from 'lucide-react';
 import styles from './BookPage.module.css';
 
 const BOOKS = [
-  { id: 1, title: 'Web Design Fundamentals', author: 'James Carter', rating: 5, voters: '1,987,765', desc: 'Master the art of creating visually stunning and user-friendly websites. This guide covers layout theory, color palettes, and modern UI principles for beginners.', imgColor: '#ff7c30' },
-  { id: 2, title: 'UI/UX Masterclass', author: 'Emily Watson', rating: 4, voters: '856,120', desc: 'Deep dive into user research, wireframing, and interactive prototyping. Learn how to craft digital experiences that users will love and return to.', imgColor: '#6c5ce7' },
-  { id: 3, title: 'Advanced React Patterns', author: 'Sarah Jenkins', rating: 5, voters: '2,110,400', desc: 'Take your React skills to the professional level. Master high-order components, custom hooks, and scalable state management for large enterprise apps.', imgColor: '#00cec9' },
-  { id: 4, title: 'Full Stack Roadmap', author: 'David Miller', rating: 5, voters: '1,200,890', desc: 'The ultimate guide to becoming a full stack developer. From database architecture to modern cloud deployments, learn the entire delivery pipeline.', imgColor: '#fab1a0' },
-  { id: 5, title: 'Digital Marketing Tech', author: 'Michael Ross', rating: 4, voters: '540,230', desc: 'Learn how to leverage technology to drive business growth. SEO, lead generation, and social media automation strategies tailored for tech startups.', imgColor: '#fd79a8' },
-  { id: 6, title: 'Cyber Security Basics', author: 'Anna Smith', rating: 5, voters: '980,111', desc: 'Protect your digital assets in the modern age. Understand the fundamentals of network security, encryption, and safe application development.', imgColor: '#55efc4' }
+  { id: 1, title: 'Web Design', subtitle: 'Fundamentals', author: 'James Carter', rating: 5, voters: '1,987,765', desc: 'Master the art of creating visually stunning and user-friendly websites.', imgColor: '#00cec9', hue: 150, color: '#00cec9' },
+  { id: 2, title: 'UI/UX', subtitle: 'Masterclass', author: 'Emily Watson', rating: 4, voters: '856,120', desc: 'Deep dive into user research, wireframing, and interactive prototyping.', imgColor: '#ff7c30', hue: 0, color: '#ff9f43' },
+  { id: 3, title: 'Advanced React', subtitle: 'Patterns', author: 'Sarah Jenkins', rating: 5, voters: '2,110,400', desc: 'Take your React skills to the professional level.', imgColor: '#6c5ce7', hue: 200, color: '#0984e3' },
+  { id: 4, title: 'Full Stack', subtitle: 'Roadmap', author: 'David Miller', rating: 5, voters: '1,200,890', desc: 'The ultimate guide to becoming a full stack developer.', imgColor: '#e84393', hue: 300, color: '#e84393' },
+  { id: 5, title: 'Machine', subtitle: 'Learning', author: 'Alan Turing', rating: 5, voters: '3,450,100', desc: 'Introduction to neural networks and modern AI.', imgColor: '#10ac84', hue: 80, color: '#10ac84' },
 ];
 
 const BookCard = ({ book }) => (
@@ -36,86 +37,156 @@ const BookCard = ({ book }) => (
 );
 
 const BookPage = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % BOOKS.length);
+    }, 4500); // 4.5 seconds auto-cycle
+    return () => clearInterval(interval);
+  }, []);
+
+  const activeItem = BOOKS[activeIndex];
+
   return (
     <div className={styles.section}>
-      {/* HERO SECTION */}
-      <section className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <h1 className={styles.heroTitle} suppressHydrationWarning>
-            Expand your mind, <br /> reading a book
-          </h1>
-          <p className={styles.heroSubtitle} suppressHydrationWarning>
-            Reading books is a wonderful way to spend your time. Here at Softnova Academy, 
-            we believe reading will help you make deeper technical connections.
-          </p>
-          <div className={styles.btnGroup}>
-            <button className={styles.primaryBtn} suppressHydrationWarning>Download Now</button>
-            <button className={styles.secondaryBtn} suppressHydrationWarning>Read Free Book</button>
-          </div>
-
-          <div className={styles.heroImageContainer}>
-            {/* Glowing 3D Lightbulb */}
-            <div className={styles.ideaBulb}>
-                <svg viewBox="0 0 100 120" fill="none">
-                    <defs>
-                        <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%" stopColor="#ffb800" />
-                            <stop offset="100%" stopColor="#ff7c30" />
-                        </radialGradient>
-                    </defs>
-                    <path d="M50 90h15M45 85h25M50 75c-15-10-22-25-22-40 0-12 10-22 22-22s22 10 22 22c0 15-7 30-22 40" stroke="#2d3436" strokeWidth="2" fill="url(#bulbGlow)" />
-                    <rect x="42" y="90" width="16" height="5" rx="2" fill="#dcdde1" />
-                    <rect x="42" y="97" width="16" height="5" rx="2" fill="#dcdde1" />
-                    <circle cx="50" cy="35" r="15" fill="white" opacity="0.2" />
-                </svg>
+      
+      {/* NEW GLASSMORPHISM HERO */}
+      <div className={styles.heroGlassContainer}>
+         <div className={styles.ambientBackground} style={{ background: `radial-gradient(circle at 30% 70%, ${activeItem.color}88, transparent 50%)` }}></div>
+         
+         <div className={styles.glassCard}>
+            
+            {/* Top Left Icons */}
+            <div className={styles.topLeftIcons}>
+               <div className={styles.iconCircle}><BookOpen size={16} /></div>
+               <div className={styles.iconCircleSmall}><Search size={14} /></div>
             </div>
 
-            <div className={styles.bookComposition}>
-                {/* Layered Book Stacks matching image composition */}
-                <div className={styles.bookStack}>
-                    <svg viewBox="0 0 600 200" fill="none">
-                        {/* Pink / Red Stack Behind */}
-                        <g opacity="0.9">
-                            <rect x="50" y="80" width="160" height="40" rx="4" fill="#fd79a8" />
-                            <rect x="50" y="82" width="160" height="4" fill="rgba(0,0,0,0.05)" />
-                            <rect x="60" y="40" width="140" height="40" rx="4" fill="#fc5c9c" />
-                        </g>
-                        {/* Blue Stack Right */}
-                        <g opacity="0.9">
-                            <rect x="400" y="70" width="170" height="45" rx="4" fill="#74b9ff" />
-                            <rect x="420" y="25" width="150" height="45" rx="4" fill="#0984e3" />
-                            <rect x="520" y="30" width="10" height="30" rx="2" fill="#ff7c30" /> {/* Ribbon */}
-                        </g>
-                        {/* Yellow / Orange Stack */}
-                        <g opacity="0.8">
-                            <rect x="80" y="20" width="120" height="30" rx="4" fill="#ffeaa7" />
-                        </g>
-                    </svg>
-                </div>
-
-                {/* Main Open Book with Bookmark (Yellow) */}
-                <div className={styles.openBookMain}>
-                   <svg viewBox="0 0 400 200" fill="none">
-                      <path d="M200 180 C 150 180 40 160 40 60 L 40 40 C 40 40 140 40 200 55 C 260 40 360 40 360 40 L 360 60 C 360 160 250 180 200 180" fill="white" stroke="#2d3436" strokeWidth="1" />
-                      <path d="M200 180 C 150 180 40 160 40 60 L 40 40 L 200 55 Z" fill="#f8f9fa" opacity="0.5" />
-                      
-                      {/* Spine */}
-                      <path d="M200 55 V 180" stroke="#dcdde1" strokeWidth="2" />
-                      
-                      {/* Accurate Yellow Bookmark */}
-                      <path d="M210 52 V 195 L 218 188 L 226 195 V 53" fill="#ffb800" />
-                      
-                      {/* Faint lines for pages */}
-                      <g stroke="#f1f2f6" strokeWidth="2">
-                        <path d="M70 70 h 90 M70 90 h 90 M70 110 h 70" />
-                        <path d="M240 75 h 90 M240 95 h 90 M240 115 h 60" />
-                      </g>
-                   </svg>
-                </div>
+            {/* Left Content */}
+            <div className={styles.leftContent}>
+               <AnimatePresence mode="wait">
+                  <motion.div 
+                     key={activeIndex}
+                     initial={{ opacity: 0, y: 20 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     exit={{ opacity: 0, y: -20 }}
+                     transition={{ duration: 0.4 }}
+                  >
+                     <h1 className={styles.mainTitle}>
+                        {activeItem.title} <br/> 
+                        <span className={styles.subtitle}>{activeItem.subtitle}</span>
+                     </h1>
+                  </motion.div>
+               </AnimatePresence>
+               <button className={styles.actionBtn} style={{ backgroundColor: activeItem.color }}>
+                  Read Book <ArrowRight size={18} style={{ marginLeft: '5px' }}/>
+               </button>
             </div>
-          </div>
-        </div>
-      </section>
+
+            {/* Center 3D Showcase (Orbital Carousel) */}
+            <div className={styles.centerShowcase}>
+               <div className={styles.milkSplash}></div>
+               
+               <LayoutGroup>
+                  {/* The Orbiting Ring */}
+                  <motion.div 
+                    className={styles.orbitContainer}
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                  >
+                     {BOOKS.map((book, idx) => {
+                        if (idx === activeIndex) return null;
+
+                        // Calculate orbit index (0 to 3)
+                        let orbitIdx = idx;
+                        if (idx > activeIndex) orbitIdx = idx - 1;
+
+                        const angle = (orbitIdx * 90); // 360 / 4 = 90 degrees
+                        const radius = 170; // Distance from center
+
+                        return (
+                           <div 
+                              key={`orbit-wrapper-${book.id}`}
+                              className={styles.orbitItemWrapper}
+                              style={{ transform: `rotate(${angle}deg) translateX(${radius}px)` }}
+                           >
+                              {/* Counter-rotate to stay upright */}
+                              <motion.div
+                                 animate={{ rotate: -360 }}
+                                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                 className={styles.counterRotate}
+                              >
+                                 <motion.img 
+                                    layoutId={`book-img-${book.id}`}
+                                    src="/3d_book_icon_transparent.png" 
+                                    className={styles.orbitBookImage}
+                                    onClick={() => setActiveIndex(idx)}
+                                    whileHover={{ scale: 1.15 }}
+                                    style={{ 
+                                       filter: `hue-rotate(${book.hue}deg) contrast(1.1) drop-shadow(0 10px 15px rgba(0,0,0,0.2))`,
+                                       cursor: 'pointer'
+                                    }}
+                                 />
+                              </motion.div>
+                           </div>
+                        );
+                     })}
+                  </motion.div>
+
+                  {/* Center Book Slot */}
+                  <div className={styles.centerSlot}>
+                     <motion.img 
+                        key={`center-book-${activeItem.id}`}
+                        layoutId={`book-img-${activeItem.id}`}
+                        src="/3d_book_icon_transparent.png" 
+                        className={styles.centerBookImage}
+                        style={{ filter: `hue-rotate(${activeItem.hue}deg) contrast(1.1) drop-shadow(0 20px 40px rgba(0,0,0,0.4))` }}
+                     />
+                  </div>
+               </LayoutGroup>
+               
+               {/* Floating Orbs (mimicking fruits) */}
+               <motion.div className={styles.floatingOrb1} animate={{ y: [0, -15, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+               <motion.div className={styles.floatingOrb2} animate={{ y: [0, 20, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+               <motion.div className={styles.floatingOrb3} animate={{ y: [0, -10, 0], x: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+            </div>
+
+            {/* Right Icon Grid */}
+            <div className={styles.rightIconGrid}>
+               <div className={styles.iconBtn}><Heart size={20} /></div>
+               <div className={styles.iconBtn}><Star size={20} /></div>
+               <div className={styles.iconBtnActive} style={{ color: activeItem.color }}><Bookmark size={20} /></div>
+               <div className={styles.iconBtn}><Share2 size={20} /></div>
+               <div className={styles.iconBtn}><Download size={20} /></div>
+               <div className={styles.iconBtn}><Settings size={20} /></div>
+               <div className={styles.iconBtn}><BookOpen size={20} /></div>
+               <div className={styles.iconBtn}><Search size={20} /></div>
+            </div>
+
+            {/* Bottom List */}
+            <div className={styles.bottomList}>
+               {BOOKS.map((book, idx) => (
+                  <div 
+                    key={book.id} 
+                    className={idx === activeIndex ? styles.bottomItemActive : styles.bottomItem}
+                    onClick={() => setActiveIndex(idx)}
+                  >
+                     <div className={styles.bottomIcon} style={{ color: idx === activeIndex ? book.color : 'rgba(255,255,255,0.5)' }}>
+                        <BookOpen size={20} />
+                     </div>
+                     <span className={styles.bottomTitleText}>{book.title}</span>
+                     <span className={styles.bottomSubtitleText}>{book.subtitle}</span>
+                     <div className={styles.dots}>
+                        <span style={{ background: idx === activeIndex ? book.color : 'rgba(255,255,255,0.2)' }}></span>
+                        <span style={{ background: idx === activeIndex ? book.color : 'rgba(255,255,255,0.2)' }}></span>
+                     </div>
+                  </div>
+               ))}
+            </div>
+
+         </div>
+      </div>
 
       {/* COLLECTION GRID */}
       <div className={styles.container} style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 5%' }}>

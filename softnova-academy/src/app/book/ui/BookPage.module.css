@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 .section {
   min-height: 100vh;
   background: var(--background);
@@ -99,58 +101,380 @@
   transition: all 0.3s ease;
 }
 
-/* BOOK COMPOSITION STYLES */
-.heroImageContainer {
+/* GLASSMORPHISM HERO */
+.heroGlassContainer {
   position: relative;
   width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding-top: 100px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
+  /* Mild orange-cream brand gradient */
+  background: 
+    radial-gradient(at 15% 15%, rgba(255, 124, 48, 0.45) 0%, transparent 55%),
+    radial-gradient(at 85% 10%, rgba(255, 124, 48, 0.25) 0%, transparent 50%),
+    radial-gradient(at 10% 85%, rgba(255, 124, 48, 0.3) 0%, transparent 50%),
+    radial-gradient(at 80% 80%, rgba(255, 124, 48, 0.2) 0%, transparent 45%),
+    #e3d4cc;
+  overflow: hidden;
 }
 
-.bookComposition {
+.ambientBackground {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  transition: background 0.8s ease;
+  mix-blend-mode: overlay;
+  opacity: 0.7;
+}
+
+.glassCard {
   position: relative;
-  width: 100%;
+  width: 90%;
+  max-width: 1300px;
+  height: 650px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.2);
+  z-index: 2;
   display: flex;
+  overflow: hidden;
+}
+
+/* Top Left Icons inside Card */
+.topLeftIcons {
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  display: flex;
+  gap: 15px;
+  z-index: 10;
+}
+
+.iconCircle {
+  width: 40px; height: 40px;
+  background: white;
+  border-radius: 12px;
+  display: flex; justify-content: center; align-items: center;
+  color: #333;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.iconCircleSmall {
+  width: 30px; height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 10px;
+  display: flex; justify-content: center; align-items: center;
+  color: white;
+  margin-top: 5px;
+}
+
+/* Left Content */
+.leftContent {
+  flex: 1.2;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: flex-end;
-}
-
-.ideaBulb {
-  position: absolute;
-  top: -120px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 140px;
-  z-index: 15;
-  animation: glow 3s ease-in-out infinite;
-}
-
-.bookStack {
-  position: absolute;
-  bottom: 0;
   z-index: 5;
-  width: 100%;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
 }
 
-.openBookMain {
-  width: 100%;
-  max-width: 750px;
+.mainTitle {
+  font-size: 5rem;
+  font-weight: 900;
+  color: white;
+  line-height: 1.1;
+  margin-bottom: 40px;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.actionBtn {
+  padding: 18px 40px;
+  border-radius: 40px;
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
+}
+
+.actionBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* Center Showcase */
+.centerShowcase {
+  flex: 1.5;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  overflow: visible;
+}
+
+.milkSplash {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 60px rgba(255,255,255,0.1), inset 0 0 40px rgba(255,255,255,0.05);
+  z-index: 1;
+}
+
+@keyframes splashMorph {
+  0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+  100% { border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%; }
+}
+
+/* ORBITAL CAROUSEL STYLES */
+.orbitContainer {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+  will-change: transform;
+}
+
+.orbitItemWrapper {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-origin: center center;
+}
+
+.counterRotate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  will-change: transform;
+}
+
+.orbitBookImage {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  transition: transform 0.3s;
+  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.25));
+}
+
+.centerSlot {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerBookImage {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.4));
+}
+
+.bookWrapper {
   position: relative;
   z-index: 10;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes glow {
-  0%, 100% { filter: drop-shadow(0 0 10px #ff7c30); transform: translateX(-50%) translateY(0); }
-  50% { filter: drop-shadow(0 0 30px #ff7c30); transform: translateX(-50%) translateY(-10px); }
+.book3DImage {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.playBtnOverlay {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #333;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.playBtnOverlay:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.floatingOrb1, .floatingOrb2, .floatingOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.2);
+  z-index: 15;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+}
+
+.floatingOrb1 {
+  width: 80px; height: 100px; border-radius: 40% 60% 50% 50%;
+  left: 10%; top: 30%;
+  transform: rotate(20deg);
+}
+
+.floatingOrb2 {
+  width: 120px; height: 80px; border-radius: 60% 40% 50% 50%;
+  right: 5%; bottom: 35%;
+  transform: rotate(-15deg);
+}
+
+.floatingOrb3 {
+  width: 50px; height: 50px;
+  right: 20%; top: 20%;
+}
+
+/* Right Icon Grid */
+.rightIconGrid {
+  width: 200px;
+  padding: 40px 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: min-content;
+  gap: 25px;
+  align-content: center;
+  border-left: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.02);
+  z-index: 5;
+}
+
+.iconBtn, .iconBtnActive {
+  width: 55px;
+  height: 55px;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.iconBtn {
+  background: rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.iconBtn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.1);
+}
+
+.iconBtnActive {
+  background: white;
+  color: #333;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+  transform: scale(1.15);
+}
+
+/* Bottom List */
+.bottomList {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: calc(100% - 200px); /* Exclude right grid width */
+  height: 140px;
+  display: flex;
+  padding: 0 60px;
+  gap: 50px;
+  align-items: center;
+  background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
+  z-index: 10;
+}
+
+.bottomItem, .bottomItemActive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.bottomItem {
+  opacity: 0.6;
+}
+
+.bottomItem:hover {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+.bottomItemActive {
+  opacity: 1;
+  transform: translateY(-8px);
+}
+
+.bottomIcon {
+  color: white;
+  margin-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.bottomTitleText {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.bottomSubtitleText {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  transition: background 0.3s;
 }
 
 /* CARDS STYLES REFINEMENT */

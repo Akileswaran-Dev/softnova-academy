@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import styles from './InternshipPage.module.css';
 
 const INTERNSHIPS = [
@@ -34,6 +35,18 @@ const INTERNSHIPS = [
 
 const InternshipPage = () => {
   const contactFormRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const mainInternships = INTERNSHIPS.slice(0, 3); // Get top 3 for carousel
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % mainInternships.length);
+    }, 4500); // 4.5 seconds auto-cycle
+    return () => clearInterval(interval);
+  }, [mainInternships.length]);
+
+  const activeItem = mainInternships[activeIndex];
 
   const handleApplyClick = () => {
     contactFormRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -52,18 +65,102 @@ const InternshipPage = () => {
       <div className={styles.blob3}></div>
 
       <div className={styles.container}>
-        <section className={styles.hero}>
-          <div className={styles.heroCard}>
-            <h1 className={styles.heading}>Internship <br/> <span style={{ color: "var(--primary)" }}>Program</span></h1>
-            <p className={styles.description}>
-              Kick start your tech career with our hands-on
-              internship programs designed for students and fresh graduates.
-              Gain real-world experience by working on live projects, guided 
-              by industry experts. Whether you're into web development, design,
-              digital marketing or software testing, our internship equips 
-              you with practical skills, portfolio-worthy work, and the
-              confidence to step into the professional world.
-            </p>
+        <section className={styles.hero3d}>
+          <div className={styles.baseBlob}></div>
+          
+          {/* Architectural Lines */}
+          <div className={styles.linesHorizontal}></div>
+          <div className={styles.linesVertical}></div>
+          <div className={styles.linesCorner}></div>
+
+          {/* Left Elements */}
+          <div className={styles.leftElements}>
+            <div className={styles.glassHalfSphere}></div>
+            <div className={styles.whiteSphereLarge}></div>
+            <div className={styles.whiteDish}></div>
+            <div className={styles.smallCardLeft}>
+              <div className={styles.miniHeader}>PRACTICAL SKILLS</div>
+              <div className={styles.miniLines}>
+                <span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+          </div>
+
+          {/* Central Tablet */}
+          <div className={styles.centerTablet}>
+            <div className={styles.tabletInner}>
+               <div className={styles.tealBand}></div>
+               <div className={styles.tabletContentCard}>
+                 <AnimatePresence mode="wait">
+                   <motion.div
+                     key={activeIndex}
+                     initial={{ opacity: 0, y: 15 }}
+                     animate={{ opacity: 1, y: 0 }}
+                     exit={{ opacity: 0, y: -15 }}
+                     transition={{ duration: 0.4 }}
+                     className={styles.carouselContent}
+                   >
+                     <h1 className={styles.mainTitle} style={{ fontSize: '1.8rem', marginBottom: '15px' }}>
+                       {activeItem.title}
+                     </h1>
+                     <p className={styles.mainDesc} style={{ fontSize: '0.8rem', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
+                       {activeItem.description.substring(0, 160)}...
+                     </p>
+                   </motion.div>
+                 </AnimatePresence>
+                 <button className={styles.exploreBtn} onClick={handleApplyClick}>
+                   APPLY NOW
+                 </button>
+               </div>
+            </div>
+          </div>
+
+          {/* Right Elements */}
+          <div className={styles.rightElements}>
+             <div className={styles.rightCardStack}>
+                {mainInternships.map((item, index) => (
+                  <motion.div 
+                    key={item.id}
+                    className={styles.stackedCard}
+                    onClick={() => setActiveIndex(index)}
+                    animate={{ 
+                      x: index === activeIndex ? -20 : 0,
+                      opacity: index === activeIndex ? 1 : 0.5,
+                      scale: index === activeIndex ? 1.05 : 1
+                    }}
+                    whileHover={{ scale: 1.05, opacity: 1, x: -10 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    style={{ cursor: 'pointer', position: 'relative' }}
+                  >
+                     {/* Show a colored indicator strip if active */}
+                     <motion.div 
+                        className={styles.activeIndicator}
+                        initial={false}
+                        animate={{ opacity: index === activeIndex ? 1 : 0 }}
+                        style={{
+                          position: 'absolute',
+                          left: '0',
+                          top: '10px',
+                          bottom: '10px',
+                          width: '5px',
+                          background: '#4cc9b0',
+                          borderRadius: '0 5px 5px 0'
+                        }}
+                     />
+                     <div className={styles.miniHeader}>{item.title.substring(0, 20)}</div>
+                     <div className={styles.miniLines}>
+                       <span></span><span></span><span></span>
+                     </div>
+                  </motion.div>
+                ))}
+             </div>
+          </div>
+
+          {/* Bottom Elements */}
+          <div className={styles.bottomSpheres}>
+             <div className={styles.whiteSphereMedium}></div>
+             <div className={styles.whiteSphereSmall}></div>
+             <div className={styles.tinyCone}></div>
           </div>
         </section>
 
