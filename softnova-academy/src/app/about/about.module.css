@@ -42,32 +42,23 @@
   border-radius: 50%;
 }
 
-/* Scroll Progress */
-.scrollProgress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--primary);
-  transform-origin: 0%;
-  z-index: 1000;
-}
-
 /* Common Section */
 .section {
-  padding: 100px 5%;
+  padding: 120px 5%;
   max-width: 1400px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .sectionTitle {
-  font-size: 3rem;
+  font-size: var(--font-h2);
   font-weight: 800;
   margin-bottom: 4rem;
   text-align: center;
   position: relative;
   width: 100%;
+  color: var(--foreground);
 }
 
 /* Neumorphic Card Base */
@@ -76,26 +67,13 @@
   border-radius: var(--radius-md);
   box-shadow: var(--neumorph-shadow);
   padding: 2.5rem;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid rgba(255,255,255,0.4);
 }
 
 .neuCard:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
   box-shadow: var(--neumorph-shadow-lg);
-}
-
-.glassCard {
-  background: var(--background);
-  border-radius: var(--radius-md);
-  box-shadow: var(--neumorph-shadow);
-  padding: 3rem;
-  transition: all 0.3s ease;
-}
-
-.glassCard:hover {
-  transform: scale(0.98);
-  box-shadow: var(--neumorph-inset);
 }
 
 /* Hero Section 3D Scene */
@@ -105,7 +83,6 @@
   justify-content: center;
   align-items: center;
   padding: 100px 5% 60px;
-  background: #f2e8dc;
   position: relative;
   overflow: hidden;
   perspective: 1200px;
@@ -263,7 +240,6 @@
   box-shadow: 
     0 40px 60px rgba(150, 130, 110, 0.3),
     inset 0 0 0 2px rgba(255,255,255,0.6);
-  /* The glowing border effect */
 }
 
 .centralScreenWrapper::before {
@@ -359,218 +335,121 @@
   letter-spacing: 1px;
 }
 
-@media (max-width: 1024px) {
-  .centralScreenWrapper {
-    width: 90%;
-    height: 400px;
-  }
-  .mainTitle {
-    font-size: 2.2rem;
-  }
-  .leftSphere { width: 100px; height: 100px; }
-  .rightSphere { width: 100px; height: 100px; }
-  .floatingCards { display: none; }
-  .bottomIcons { gap: 20px; }
-}
-
-@media (max-width: 768px) {
-  .hero3d { padding: 120px 5% 60px; }
-  .mainTitle { font-size: 1.8rem; }
-  .podiumRing { display: none; }
-}
-
-/* About Split & Container */
+/* About Softnova Section */
 .aboutContainer {
+  width: 100%;
   background: var(--background);
   border-radius: var(--radius-lg);
-  padding: 90px 70px;
-  box-shadow: var(--neumorph-shadow-lg);
-  margin: 60px auto;
-  max-width: 1300px;
-  position: relative;
-  z-index: 10;
+  padding: 80px 60px;
+  box-shadow: var(--neumorph-shadow);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .aboutSplit {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
   align-items: center;
-}
-
-.aboutImageWrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--radius-md);
-  box-shadow: var(--neumorph-inset);
-  padding: 20px;
-}
-
-.aboutImage, .aboutVideo {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16/10;
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-  transition: all 0.5s ease;
-  box-shadow: var(--neumorph-shadow-sm);
 }
 
 .aboutText h2 {
   font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 2rem;
+  line-height: 1.1;
   color: var(--foreground);
 }
 
 .aboutText p {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.8;
-  color: var(--text-muted);
   margin-bottom: 1.5rem;
+  color: var(--foreground);
+  opacity: 0.85;
 }
 
-/* Innovative Bento Grid (Why Choose Us) */
+.aboutImageWrapper {
+  position: relative;
+  border-radius: var(--radius-md);
+  padding: 15px;
+  background: var(--background);
+  box-shadow: var(--neumorph-inset);
+}
+
+.aboutVideo {
+  width: 100%;
+  border-radius: 30px;
+  display: block;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Features Section */
 .featureGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(300px, auto);
-  gap: 2.5rem;
-  margin-top: 5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
 }
 
 .featureCard {
   background: var(--background);
-  border-radius: 40px;
-  padding: 3.5rem;
-  position: relative;
-  overflow: hidden;
+  padding: 3rem;
+  border-radius: var(--radius-md);
   box-shadow: var(--neumorph-shadow);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  z-index: 1;
-}
-
-.featureCard:nth-child(1) { grid-column: span 2; }
-.featureCard:nth-child(4) { grid-column: span 2; }
-
-.featureCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255,124,48,0.05) 0%, rgba(255,255,255,0) 100%);
-  z-index: -1;
-  transition: opacity 0.5s ease;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.3);
+  text-align: center;
 }
 
 .featureCard:hover {
-  transform: scale(1.02);
+  transform: translateY(-10px);
   box-shadow: var(--neumorph-shadow-lg);
 }
 
-.featureCard:hover::before {
-  opacity: 1;
-}
-
 .iconWrapper {
-  width: 85px;
-  height: 85px;
-  border-radius: 28px;
+  width: 70px;
+  height: 70px;
   background: var(--background);
-  margin-bottom: 2.5rem;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  margin: 0 auto 2rem;
   box-shadow: var(--neumorph-shadow-sm);
-  position: absolute;
-  top: 3.5rem;
-  right: 3.5rem;
-  transition: all 0.5s ease;
-}
-
-.featureCard:hover .iconWrapper {
-  transform: rotate(15deg) scale(1.1);
-  color: white;
-  background: var(--primary);
-  box-shadow: 0 10px 30px rgba(255, 124, 48, 0.3);
+  color: var(--primary);
 }
 
 .featureCard h3 {
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: 1.8rem;
+  font-weight: 800;
   margin-bottom: 1rem;
-  color: var(--foreground);
-  text-align: left;
 }
 
 .featureCard p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: var(--text-muted);
-  text-align: left;
-  max-width: 80%;
-}
-
-@media (max-width: 1100px) {
-  .featureGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .featureCard:nth-child(1),
-  .featureCard:nth-child(4) {
-    grid-column: span 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .featureGrid {
-    grid-template-columns: 1fr;
-  }
-  .featureCard:nth-child(1),
-  .featureCard:nth-child(4) {
-    grid-column: span 1;
-  }
-  .iconWrapper {
-    position: relative;
-    top: 0;
-    right: 0;
-    margin-bottom: 2rem;
-  }
+  color: var(--foreground);
+  opacity: 0.7;
+  line-height: 1.6;
 }
 
 /* Stats Section */
 .statsSection {
-  padding: 100px 0;
+  padding: 100px 5%;
   background: var(--background);
 }
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 4rem;
-  padding: 0 5%;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .statItem {
   background: var(--background);
   padding: 3rem 2rem;
   border-radius: var(--radius-md);
-  box-shadow: var(--neumorph-shadow);
-  transition: all 0.3s ease;
-  text-align: center;
-}
-
-.statItem:hover {
-  transform: scale(0.98);
   box-shadow: var(--neumorph-inset);
+  text-align: center;
 }
 
 .statItem h3 {
@@ -580,11 +459,123 @@
   margin-bottom: 0.5rem;
 }
 
+.statItem p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+/* Vision & Mission */
+.visionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.glassCard {
+  background: var(--background);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neumorph-shadow);
+  padding: 4rem;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.glassCard:hover {
+  transform: scale(0.98);
+  box-shadow: var(--neumorph-inset);
+}
+
+.glassCard h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1.5rem;
+}
+
 /* Team Section */
 .teamGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-top: 4rem;
+}
+
+/* Founder Section */
+.founderSection {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 120px;
+  padding: 60px;
+  background: var(--background);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--neumorph-shadow);
+  border: 1px solid rgba(255,255,255,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.founderImageWrapper {
+  position: relative;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--neumorph-inset);
+  padding: 15px;
+  background: var(--background);
+}
+
+.founderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.founderContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.founderHeader {
+  margin-bottom: 2rem;
+}
+
+.founderName {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+  line-height: 1.1;
+}
+
+.founderRole {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.founderBio {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--foreground);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+}
+
+.founderQuote {
+  font-style: italic;
+  font-size: 1.2rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 1.5rem;
+  color: var(--primary);
+  margin-top: 1rem;
 }
 
 .teamCard {
@@ -593,131 +584,131 @@
   border-radius: var(--radius-md);
   box-shadow: var(--neumorph-shadow);
   transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .teamCard:hover {
-  transform: translateY(-10px);
   box-shadow: var(--neumorph-shadow-lg);
 }
 
 .teamImage {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
   transition: transform 0.5s ease;
-  box-shadow: 4px 4px 8px var(--dark-shadow), -4px -4px 8px var(--light-shadow);
 }
 
 .teamCard:hover .teamImage {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .teamInfo {
-  padding: 1.5rem 1rem 0.5rem;
   text-align: center;
+  padding: 1rem 0;
 }
 
 .teamInfo h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.3rem;
-}
-
-/* Vision Mission - Innovative Split */
-.visionGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: stretch;
-}
-
-.visionGrid .glassCard {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 50px;
-  padding: 4.5rem;
-}
-
-.visionGrid .glassCard::after {
-  content: '';
-  position: absolute;
-  top: -20%;
-  right: -20%;
-  width: 250px;
-  height: 250px;
-  background: radial-gradient(circle, rgba(255,124,48,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-  z-index: 0;
-}
-
-.visionGrid h2 {
-  font-size: 2.8rem;
-  margin-bottom: 1.5rem;
-  position: relative;
-  z-index: 1;
-}
-
-.visionGrid p {
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 900px) {
-  .visionGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-/* Gallery */
-.galleryGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-}
-
-.galleryItem {
-  padding: 1rem;
-  background: var(--background);
-  border-radius: 35px;
-  box-shadow: var(--neumorph-shadow);
-}
-
-.galleryItem img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: var(--neumorph-inset-sm);
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
 /* CTA Footer */
 .ctaFooter {
   background: var(--background);
   margin: 100px 5%;
-  padding: 8rem 2rem;
+  padding: 80px 40px;
   border-radius: var(--radius-lg);
+  box-shadow: var(--neumorph-shadow);
   text-align: center;
-  box-shadow: var(--neumorph-shadow-lg);
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: var(--primary);
+  filter: blur(150px);
+  opacity: 0.1;
+  z-index: 0;
 }
 
 .ctaFooter h2 {
   font-size: 3.5rem;
   font-weight: 900;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.ctaButton {
+  position: relative;
+  z-index: 5;
+  padding: 1.2rem 3.5rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: var(--background);
+  color: var(--primary);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--neumorph-shadow-sm);
+  margin-top: 2rem;
+  display: inline-block;
+  outline: none;
+}
+
+.ctaButton:hover {
+  box-shadow: var(--neumorph-shadow);
+  transform: translateY(-3px) scale(1.05);
+  color: var(--secondary);
+}
+
+.ctaButton:active {
+  box-shadow: var(--neumorph-inset-sm);
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .aboutText h2 { font-size: 3rem; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 1024px) {
+  .centralScreenWrapper { width: 95%; height: 450px; }
+  .mainTitle { font-size: 2.5rem; }
+  .aboutSplit { grid-template-columns: 1fr; gap: 40px; }
+  .aboutContainer { padding: 60px 40px; }
+  .visionGrid { grid-template-columns: 1fr; }
+  .founderSection { 
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    padding: 40px;
+    margin-bottom: 80px;
+  }
+  .founderName { font-size: 2.5rem; text-align: center; }
+  .founderRole { text-align: center; }
+  .founderBio { text-align: center; }
 }
 
 @media (max-width: 768px) {
-  .aboutSplit, .visionGrid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .heroHeading {
-    font-size: 3.5rem;
-  }
+  .section { padding: 80px 5%; }
+  .sectionTitle { font-size: 2.5rem; }
+  .hero3d { padding-top: 120px; }
+  .podiumRing, .floatingCards { display: none; }
+  .mainTitle { font-size: 2rem; }
+  .aboutText h2 { font-size: 2.5rem; text-align: center; }
+  .aboutText p { text-align: center; }
+  .statItem h3 { font-size: 2.8rem; }
+  .ctaFooter h2 { font-size: 2.5rem; }
+}
+
+@media (max-width: 480px) {
+  .statsGrid { grid-template-columns: 1fr; }
+  .centralScreenWrapper { height: 350px; }
+  .mainTitle { font-size: 1.5rem; }
+  .aboutContainer { padding: 40px 20px; }
+  .featureCard, .glassCard { padding: 2.5rem 1.5rem; }
 }

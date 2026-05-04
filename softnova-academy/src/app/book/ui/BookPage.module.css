@@ -619,6 +619,101 @@
     grid-template-columns: 1fr;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 5%;
+  }
+  
+  .glassCard {
+    height: auto;
+    flex-direction: column;
+    padding-bottom: 40px;
+  }
+  
+  .rightIconGrid {
+    width: 100%;
+    height: auto;
+    grid-template-columns: repeat(4, 1fr);
+    border-left: none;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding: 20px;
+  }
+  
+  .bottomList {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mainTitle {
+    font-size: 3.5rem;
+  }
+  
+  .heroGlassContainer {
+    padding-top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 3rem;
+  }
+  
+  .mainTitle {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .btnGroup {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .primaryBtn, .secondaryBtn {
+    width: 80%;
+    padding: 15px;
+  }
+
+  .topLeftIcons {
+    left: 20px;
+    top: 20px;
+  }
+  
+  .leftContent {
+    padding: 40px 20px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .centerShowcase {
+    height: 400px;
+  }
+  
+  .milkSplash {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .orbitContainer {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .centerBookImage {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .orbitBookImage {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .collectionTitle {
+    font-size: 2.2rem;
   }
 }
 
@@ -626,11 +721,41 @@
   .card {
     flex-direction: column;
     text-align: center;
+    padding: 20px;
   }
   .seeBookBtn {
     margin: 10px auto;
   }
   .infoSide {
     align-items: center;
+  }
+  .coverWrapper {
+    width: 160px;
+    height: 240px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2.2rem;
+  }
+  
+  .mainTitle {
+    font-size: 2rem;
+  }
+  
+  .rightIconGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .bottomList {
+    gap: 20px;
+  }
+  
+  .bottomTitleText {
+    font-size: 0.9rem;
   }
 }

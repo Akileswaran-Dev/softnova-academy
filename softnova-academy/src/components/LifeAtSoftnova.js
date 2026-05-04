@@ -7,25 +7,25 @@ import styles from './LifeAtSoftnova.module.css';
 const galleryItems = [
   { 
     id: 1, 
-    src: '/about/gallery_life_1.png', 
+    src: '/Images/about/gallery_life_1.png', 
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-laptop-34448-large.mp4',
     delay: 0.1 
   },
   { 
     id: 2, 
-    src: '/about/gallery_life_2.png', 
+    src: '/Images/about/gallery_life_2.png', 
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-young-woman-working-on-a-laptop-in-a-library-41009-large.mp4',
     delay: 0.2 
   },
   { 
     id: 3, 
-    src: '/about/gallery_life_3.png', 
+    src: '/Images/about/gallery_life_3.png', 
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-teamwork-in-a-modern-office-42502-large.mp4',
     delay: 0.3 
   },
   { 
     id: 4, 
-    src: '/about/gallery_life_4.png', 
+    src: '/Images/about/gallery_life_4.png', 
     videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-working-on-a-laptop-in-a-coffee-shop-42284-large.mp4',
     delay: 0.4 
   },
@@ -39,13 +39,7 @@ const LifeAtSoftnova = () => {
       <div className={styles.container}>
         <div className={styles.contentGrid}>
           {/* Left Side Content */}
-          <motion.div 
-            className={styles.textContent}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
+          <div className={`${styles.textContent} gsap-fade-left`}>
             <h1 className={styles.title}>
               DISCOVER AND<br />
               EXPERIENCE LIFE AT<br />
@@ -69,18 +63,14 @@ const LifeAtSoftnova = () => {
               Our campus is designed to inspire creativity, foster collaboration, and provide the perfect environment for 
               future tech leaders to thrive and build groundbreaking solutions.
             </p>
-          </motion.div>
+          </div>
 
           {/* Right Side Gallery */}
-          <div className={styles.galleryGrid}>
+          <div className={`${styles.galleryGrid} gsap-stagger-group`}>
             {galleryItems.map((item) => (
               <motion.div
                 key={item.id}
-                className={styles.galleryCard}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: item.delay }}
+                className={`${styles.galleryCard} gsap-card`}
                 whileHover={{ y: -10 }}
                 onClick={() => setSelectedVideo(item.videoUrl)}
               >

@@ -1,12 +1,12 @@
 .section {
   max-width: 1300px;
   margin: 0 auto;
-  padding: 80px 5%;
+  padding: 20px 5%;
   background: var(--background);
 }
 
 .header {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   text-align: center;
 }
 

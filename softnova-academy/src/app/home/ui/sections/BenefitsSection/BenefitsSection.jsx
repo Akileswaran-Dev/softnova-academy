@@ -1,4 +1,5 @@
 import styles from "./BenefitsSection.module.css";
+import FloatingElement from "@/components/FloatingElement";
 
 const ICONS = {
   clock: (
@@ -94,23 +95,25 @@ export default function BenefitsSection() {
       </div>
 
       <div className={styles.grid}>
-        {BENEFITS.map((b) => (
-          <article className={styles.card} key={b.number}>
-            <div className={styles.iconCircle}>
-               <div className={styles.iconInner}>
-                   {b.icon}
-               </div>
-            </div>
-            
-            <div className={styles.stepWrapper}>
-                <span className={styles.stepText}>STEP</span>
-                <span className={styles.stepNumber}>{b.number}</span>
-            </div>
+        {BENEFITS.map((b, index) => (
+          <FloatingElement key={b.number} yRange={[10, -10]} duration={4.5 + (index % 3) * 0.5} delay={index * 0.2}>
+            <article className={styles.card}>
+              <div className={styles.iconCircle}>
+                 <div className={styles.iconInner}>
+                     {b.icon}
+                 </div>
+              </div>
+              
+              <div className={styles.stepWrapper}>
+                  <span className={styles.stepText}>STEP</span>
+                  <span className={styles.stepNumber}>{b.number}</span>
+              </div>
 
-            <h3 className={styles.cardTitle}>{b.title}</h3>
-            <p className={styles.cardDesc}>{b.description}</p>
-            
-          </article>
+              <h3 className={styles.cardTitle}>{b.title}</h3>
+              <p className={styles.cardDesc}>{b.description}</p>
+              
+            </article>
+          </FloatingElement>
         ))}
       </div>
     </section>

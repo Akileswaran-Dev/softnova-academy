@@ -401,3 +401,88 @@
 .footicons a:hover .svgsicons {
   transform: rotate(12deg) scale(0.9);
 }
+
+@media (max-width: 1024px) {
+  .cardsSection {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .splitSection {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .formWrapper {
+    padding: 3rem 2rem;
+  }
+  
+  .mapContainer {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 100px 0 40px;
+  }
+
+  .heroCard {
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cardsSection {
+    grid-template-columns: 1fr;
+  }
+
+  .formWrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .formWrapper h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .mapOverlay {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+  }
+
+  .cta h2 {
+    font-size: 2.2rem;
+  }
+
+  .ctaBtn {
+    padding: 1.2rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .footicons a {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .svgsicons {
+    font-size: 1.6rem !important;
+  }
+}

@@ -90,28 +90,36 @@ const InternshipPage = () => {
           <div className={styles.centerTablet}>
             <div className={styles.tabletInner}>
                <div className={styles.tealBand}></div>
-               <div className={styles.tabletContentCard}>
-                 <AnimatePresence mode="wait">
-                   <motion.div
-                     key={activeIndex}
-                     initial={{ opacity: 0, y: 15 }}
-                     animate={{ opacity: 1, y: 0 }}
-                     exit={{ opacity: 0, y: -15 }}
-                     transition={{ duration: 0.4 }}
-                     className={styles.carouselContent}
-                   >
+               <AnimatePresence mode="wait">
+                 <motion.div
+                   key={activeIndex}
+                   initial={{ 
+                     opacity: 0, 
+                     x: 350, 
+                     y: (activeIndex - 1) * 120, // Calculates dynamic Y based on stack position (-120, 0, 120)
+                     scale: 0.35, // Starts at the size of the mini card
+                     rotateZ: -5, 
+                     rotateY: -20 
+                   }}
+                   animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotateZ: 0, rotateY: 0 }}
+                   exit={{ opacity: 0, x: -300, y: 50, scale: 0.7, rotateZ: -10, rotateY: -30 }}
+                   transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                   className={styles.tabletContentCard}
+                   style={{ transformOrigin: "center center", transformPerspective: 1200 }}
+                 >
+                   <div className={styles.carouselContent}>
                      <h1 className={styles.mainTitle} style={{ fontSize: '1.8rem', marginBottom: '15px' }}>
                        {activeItem.title}
                      </h1>
                      <p className={styles.mainDesc} style={{ fontSize: '0.8rem', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
                        {activeItem.description.substring(0, 160)}...
                      </p>
-                   </motion.div>
-                 </AnimatePresence>
-                 <button className={styles.exploreBtn} onClick={handleApplyClick}>
-                   APPLY NOW
-                 </button>
-               </div>
+                   </div>
+                   <button className={styles.exploreBtn} onClick={handleApplyClick}>
+                     APPLY NOW
+                   </button>
+                 </motion.div>
+               </AnimatePresence>
             </div>
           </div>
 

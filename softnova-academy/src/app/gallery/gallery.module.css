@@ -47,117 +47,134 @@
 
 .header {
   text-align: center;
-  margin-bottom: 100px;
+  margin-bottom: 180px;
   margin-top: 50px;
-  background: var(--background);
-  border-radius: var(--radius-lg);
-  padding: 80px 60px;
-  box-shadow: var(--neumorph-shadow-lg);
+  perspective: 1000px;
+}
+
+.headerGlass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border-radius: 50px;
+  padding: 100px 60px;
+  box-shadow: 
+    0 40px 80px rgba(0,0,0,0.05),
+    inset 0 2px 15px rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.4);
+  transform-style: preserve-3d;
 }
 
 .tagline {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 800;
-  color: var(--primary);
-  letter-spacing: 4px;
+  color: white;
+  letter-spacing: 6px;
   text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  padding: 12px 25px;
-  border-radius: var(--radius-pill);
-  background: var(--background);
-  box-shadow: var(--neumorph-shadow-sm);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  opacity: 0.8;
-  cursor: pointer;
-  user-select: none;
+  margin-bottom: 2rem;
+  padding: 15px 30px;
+  border-radius: 100px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 10px 20px rgba(230, 81, 0, 0.3);
+  transform: translateZ(50px);
 }
 
 .header h1 {
-  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 2rem;
-  color: var(--foreground);
+  background: linear-gradient(to right, var(--primary), #ff9100);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-transform: uppercase;
-  letter-spacing: -1px;
+  letter-spacing: -2px;
+  transform: translateZ(30px);
 }
 
 .header p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--foreground);
   opacity: 0.8;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+  font-weight: 500;
+  transform: translateZ(20px);
 }
 
-/* Neumorphic Sidebar */
-.sidebarFilter {
-  position: sticky;
-  left: 30px;
-  top: 180px; /* Stay below the navbar during scroll */
-  margin-top: 550px; /* Start lower to align with the grid */
+/* Floating Dynamic Island Dock */
+.floatingDock {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
   display: flex;
-  flex-direction: column;
-  gap: 1.8rem;
-  z-index: 900; /* Ensure it stays behind the fixed navbar */
-  background: var(--background);
-  padding: 35px 20px;
-  border-radius: 40px;
-  box-shadow: var(--neumorph-shadow);
-  flex-shrink: 0;
-  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Let clicks pass through the container */
 }
 
-.filterIcon {
+.dockInner {
   display: flex;
   align-items: center;
-  gap: 15px;
-  cursor: pointer;
-  position: relative;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(40px);
+  padding: 12px 15px;
+  border-radius: 100px;
+  box-shadow: 
+    0 30px 60px rgba(0,0,0,0.1),
+    inset 0 2px 5px rgba(255,255,255,0.8),
+    inset 0 -2px 5px rgba(0,0,0,0.05);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  pointer-events: auto; /* Re-enable clicks for the dock */
 }
 
-.iconBox {
-  width: 60px;
-  height: 60px;
-  border-radius: 20px;
-  background: var(--background);
+.dockItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: var(--foreground);
+  opacity: 0.7;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  z-index: 1;
+}
+
+.dockItemActive {
+  opacity: 1;
+  color: white;
+}
+
+.dockIndicator {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  z-index: -1;
+  box-shadow: 0 10px 20px rgba(230, 81, 0, 0.3);
+}
+
+.dockIcon {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--neumorph-shadow-sm);
-  transition: all 0.3s ease;
-  color: var(--foreground);
-  opacity: 0.7;
+  margin-bottom: 4px;
 }
 
-.activeIcon .iconBox {
-  box-shadow: var(--neumorph-inset-sm);
-  color: var(--primary);
-  opacity: 1;
-  transform: scale(0.95);
-}
-
-.iconLabel {
-  position: absolute;
-  left: 75px;
-  white-space: nowrap;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: #594a42;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-  pointer-events: none;
-  background: #f6efe9;
-  padding: 10px 18px;
-  border-radius: 15px;
-  box-shadow: 4px 4px 8px #dcd0c8, -4px -4px 8px #ffffff;
-}
-
-.filterIcon:hover .iconLabel {
-  opacity: 1;
-  transform: translateX(0);
+.dockLabel {
+  font-size: 0.65rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Stadium Grid */
@@ -177,28 +194,28 @@
   will-change: transform;
 }
 
+/* 3D Tilt Card Styles */
+.cardWrapper {
+  width: 100%;
+  cursor: pointer;
+}
+
 .card {
   position: relative;
   width: 100%;
-  cursor: pointer;
+  height: 100%;
   background: var(--background);
-  border-radius:25% 0 25% 0;
-  padding: 0;
-  box-shadow: var(--neumorph-shadow);
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 7px solid var(--primary);
-  overflow: hidden;
+  border-radius: 40px;
+  padding: 20px;
+  box-shadow: 
+    0 15px 35px rgba(0,0,0,0.05),
+    inset 0 2px 5px rgba(255,255,255,0.8);
+  border: 1px solid rgba(255,255,255,0.4);
   display: block;
+  will-change: transform;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--neumorph-shadow-lg);
-}
 
-.card:active {
-  box-shadow: var(--neumorph-inset);
-}
 
 .tall, .short { aspect-ratio: auto; }
 
@@ -206,29 +223,24 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 25% 0 25% 0;
-  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card:hover .cardImg {
-  transform: scale(1.05);
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.2);
 }
 
 .cardOverlay {
   position: absolute;
-  bottom: 60px;
+  bottom: 50px;
   left: 0;
   right: 0;
   text-align: center;
   padding: 0 20px;
   opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
-.card:hover .cardOverlay {
+.cardWrapper:hover .cardOverlay {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .cardTitle {
@@ -248,35 +260,52 @@
   .galleryPage {
     flex-direction: column;
     align-items: center;
-    padding: 60px 5%;
+    padding: 80px 4%;
   }
+
   .stadiumGrid {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0 20px;
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
+    gap: 2rem;
   }
-  .sidebarFilter {
-    position: relative;
-    top: 0;
-    left: 0;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 50px;
-    width: 100%;
-    max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 60px 30px;
+    margin-bottom: 60px;
   }
-  .iconLabel {
-    display: none;
+
+  .header h1 {
+    font-size: 2.2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .floatingDock {
+    bottom: 20px;
+  }
+  
+  .dockItem {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .dockLabel {
+    font-size: 0.55rem;
   }
 }
 
 @media (max-width: 640px) {
   .stadiumGrid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-  .header h1 {
-    font-size: 2.8rem;
+  
+  .card {
+    border-width: 5px;
   }
 }
 
@@ -371,4 +400,27 @@
   color: #9dc0d4;
   text-transform: uppercase;
   letter-spacing: 2px;
+}
+
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: 15px;
+  }
+  
+  .closeBtn {
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .modalContent {
+    padding: 10px;
+    border-width: 4px;
+    border-radius: 15% 0 15% 0;
+  }
+  
+  .modalFooter h3 {
+    font-size: 1.1rem;
+  }
 }

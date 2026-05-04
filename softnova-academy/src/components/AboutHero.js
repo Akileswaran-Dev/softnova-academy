@@ -78,7 +78,7 @@ export default function AboutHero() {
               </div>
               
               <h1 className={styles.mainTitle}>
-                FUTURISTIC<br/>WEBMIUM HERO-<br/>SECTION-SLIDER
+                EMPOWERING THE<br/>NEXT GENERATION<br/>OF TECH LEADERS
               </h1>
 
               <div className={styles.bottomIcons}>

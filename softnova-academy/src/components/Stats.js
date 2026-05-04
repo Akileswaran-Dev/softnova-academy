@@ -42,21 +42,17 @@ function Counter({ from, to, suffix }) {
 export default function Stats() {
   return (
     <section className={styles.statsSection}>
-      <div className={styles.statsGrid}>
+      <div className={`${styles.statsGrid} gsap-stagger-group`}>
         {stats.map((stat, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={styles.statItem}
+            className={`${styles.statItem} gsap-card`}
           >
             <h3>
               <Counter from={0} to={stat.value} suffix={stat.suffix} />
             </h3>
             <p>{stat.label}</p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

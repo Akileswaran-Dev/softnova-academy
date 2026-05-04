@@ -30,33 +30,24 @@ const features = [
 export default function AboutCards() {
   return (
     <section className={styles.section}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="gsap-fade-up">
         <h2 className={styles.sectionTitle}>
           Why Choose Us
         </h2>
-      </motion.div>
+      </div>
 
-      <div className={styles.featureGrid}>
+      <div className={`${styles.featureGrid} gsap-stagger-group`}>
         {features.map((feature, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={styles.featureCard}
+            className={`${styles.featureCard} gsap-card`}
           >
             <div className={styles.iconWrapper}>{feature.icon}</div>
             <h3>{feature.title}</h3>
             <p>
               {feature.desc}
             </p>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

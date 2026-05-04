@@ -33,6 +33,14 @@
   --radius-md: 40px;
   --radius-sm: 25px;
   --radius-pill: 100px;
+
+  /* Responsive Font Sizes */
+  --font-h1: clamp(2.5rem, 8vw, 4.5rem);
+  --font-h2: clamp(2rem, 6vw, 3.5rem);
+  --font-h3: clamp(1.5rem, 4vw, 2.2rem);
+  --font-body: clamp(0.95rem, 2vw, 1.1rem);
+  
+  --section-padding: clamp(3rem, 10vw, 100px);
 }
 
 * {

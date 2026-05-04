@@ -6,12 +6,6 @@ import styles from './AboutSection.module.css';
 export default function AboutSection() {
   return (
     <section className={styles.section} aria-labelledby="about-title">
-      <div className={styles.liquidWrapper}>
-        <div className={styles.liquidBlob1}></div>
-        <div className={styles.liquidBlob2}></div>
-        <div className={styles.liquidBlob3}></div>
-      </div>
-      
       <div className={styles.glassCard}>
         <h2 className={styles.heading} id="about-title">About Our Softnova Technology Pvt.,</h2>
         <p className={styles.paragraph}>
