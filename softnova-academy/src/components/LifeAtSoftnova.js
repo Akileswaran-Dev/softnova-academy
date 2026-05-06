@@ -59,7 +59,7 @@ const LifeAtSoftnova = () => {
             </div>
 
             <p className={styles.description}>
-              Softnova Academy is more than just a learning center; it's a vibrant ecosystem where innovation meets passion. 
+              Softnova Academy is more than just a learning center; it&apos;s a vibrant ecosystem where innovation meets passion. 
               Our campus is designed to inspire creativity, foster collaboration, and provide the perfect environment for 
               future tech leaders to thrive and build groundbreaking solutions.
             </p>

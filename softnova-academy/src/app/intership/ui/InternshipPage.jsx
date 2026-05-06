@@ -2,6 +2,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './InternshipPage.module.css';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 import FloatingElement from "@/components/FloatingElement";
 
@@ -59,8 +63,54 @@ const InternshipPage = () => {
     alert("Thank you! Your message has been sent successfully.");
   };
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Fade Up
+      gsap.utils.toArray(".gsap-fade-up").forEach((elem) => {
+        gsap.fromTo(
+          elem,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: elem,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Stagger Cards
+      gsap.utils.toArray(".gsap-stagger-group").forEach((group) => {
+        const cards = group.querySelectorAll(".gsap-card");
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1, y: 0, scale: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: group,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className={styles.section}>
+    <div className={styles.section} ref={containerRef}>
       {/* Background Blobs */}
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
@@ -174,26 +224,12 @@ const InternshipPage = () => {
           </div>
         </section>
 
-        <div className={styles.grid}>
+        <div className={`${styles.grid} gsap-stagger-group`}>
           {INTERNSHIPS.map((item, index) => (
-            <FloatingElement key={item.id} yRange={[10, -10]} duration={4.5 + (index % 3) * 0.5} delay={index * 0.1}>
-              <div className={styles.card}>
-                <div className={styles.cardHeader}>
-                  <div className={styles.iconBox}>
-                    <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
-                  </div>
-                </div>
-                <div className={styles.cardContent}>
-                  <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.cardText}>{item.description}</p>
-                </div>
-                <div className={styles.cardFooter}>
-                  <button className={styles.applyButton} onClick={handleApplyClick} suppressHydrationWarning>
-                    Apply Now
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ marginLeft: '10px' }}>
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </button>
+            <div key={item.id} className={`${styles.card} gsap-card`}>
+              <div className={styles.cardHeader}>
+                <div className={styles.iconBox}>
+                  <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
                 </div>
               </div>
             </FloatingElement>
@@ -201,7 +237,7 @@ const InternshipPage = () => {
         </div>
 
         {/* Contact Section */}
-        <section className={styles.contactSection} ref={contactFormRef}>
+        <section className={`${styles.contactSection} gsap-fade-up`} ref={contactFormRef}>
           <div className={styles.contactGrid}>
             <div className={styles.formWrapper}>
               <form onSubmit={handleSubmit}>

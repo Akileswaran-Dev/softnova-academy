@@ -64,7 +64,7 @@ const EnrollModal = ({ isOpen, onClose }) => {
               >
                 <CheckCircle2 size={60} color="#ff7c30" />
                 <h2>Enrollment Success!</h2>
-                <p>We've received your application. See you soon!</p>
+                <p>We&apos;ve received your application. See you soon!</p>
               </motion.div>
             ) : (
               <>

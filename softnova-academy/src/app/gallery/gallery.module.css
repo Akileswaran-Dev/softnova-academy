@@ -23,7 +23,9 @@
 }
 
 /* Liquid Blobs */
-.blob1, .blob2, .blob3 {
+.blob1,
+.blob2,
+.blob3 {
   position: absolute;
   filter: blur(100px);
   z-index: 0;
@@ -31,9 +33,32 @@
   pointer-events: none;
 }
 
-.blob1 { width: 500px; height: 500px; background: var(--primary); top: 5%; left: -10%; border-radius: 50%; }
-.blob2 { width: 400px; height: 400px; background: var(--secondary); bottom: 10%; right: -5%; border-radius: 50%; }
-.blob3 { width: 300px; height: 300px; background: var(--primary); top: 40%; right: 20%; border-radius: 50%; }
+.blob1 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: 5%;
+  left: -10%;
+  border-radius: 50%;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: var(--secondary);
+  bottom: 10%;
+  right: -5%;
+  border-radius: 50%;
+}
+
+.blob3 {
+  width: 300px;
+  height: 300px;
+  background: var(--primary);
+  top: 40%;
+  right: 20%;
+  border-radius: 50%;
+}
 
 .contentWrapper {
   flex: 1;
@@ -41,7 +66,8 @@
 }
 
 .bottomSpacer {
-  height: 250px; /* Large space for parallax to finish */
+  height: 250px;
+  /* Large space for parallax to finish */
   width: 100%;
 }
 
@@ -57,10 +83,10 @@
   backdrop-filter: blur(30px);
   border-radius: 50px;
   padding: 100px 60px;
-  box-shadow: 
-    0 40px 80px rgba(0,0,0,0.05),
-    inset 0 2px 15px rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.05),
+    inset 0 2px 15px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   transform-style: preserve-3d;
 }
 
@@ -112,7 +138,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  pointer-events: none; /* Let clicks pass through the container */
+  pointer-events: none;
+  /* Let clicks pass through the container */
 }
 
 .dockInner {
@@ -123,12 +150,13 @@
   backdrop-filter: blur(40px);
   padding: 12px 15px;
   border-radius: 100px;
-  box-shadow: 
-    0 30px 60px rgba(0,0,0,0.1),
-    inset 0 2px 5px rgba(255,255,255,0.8),
-    inset 0 -2px 5px rgba(0,0,0,0.05);
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.1),
+    inset 0 2px 5px rgba(255, 255, 255, 0.8),
+    inset 0 -2px 5px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  pointer-events: auto; /* Re-enable clicks for the dock */
+  pointer-events: auto;
+  /* Re-enable clicks for the dock */
 }
 
 .dockItem {
@@ -207,24 +235,34 @@
   background: var(--background);
   border-radius: 40px;
   padding: 20px;
-  box-shadow: 
-    0 15px 35px rgba(0,0,0,0.05),
-    inset 0 2px 5px rgba(255,255,255,0.8);
-  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.05),
+    inset 0 2px 5px rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   display: block;
   will-change: transform;
 }
 
 
 
-.tall, .short { aspect-ratio: auto; }
+.tall,
+.short {
+  aspect-ratio: auto;
+}
+
+.cardImgWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/2; /* Uniform size for all images */
+  overflow: hidden;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
 
 .cardImg {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 25px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.2);
+  object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .cardOverlay {
@@ -283,16 +321,16 @@
   .header p {
     font-size: 1rem;
   }
-  
+
   .floatingDock {
     bottom: 20px;
   }
-  
+
   .dockItem {
     width: 60px;
     height: 60px;
   }
-  
+
   .dockLabel {
     font-size: 0.55rem;
   }
@@ -303,7 +341,7 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .card {
     border-width: 5px;
   }
@@ -352,38 +390,30 @@
   max-width: 90vw;
   max-height: 90vh;
   background: #f6efe9;
-  border-radius: 20% 0 20% 0;
+  border-radius: 24px; /* Standard Rectangle Shape */
   box-shadow: 20px 20px 40px #dcd0c8, -20px -20px 40px #ffffff;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 15px;
-  border: 7px solid rgb(230, 81, 0); /* Premium Orange Border for Lightbox */
+  padding: 10px;
 }
 
 .fullImgWrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  border-radius: 20% 0 20% 0;
+  width: 80vw;
+  height: 70vh;
+  border-radius: 16px; /* Matching inner rounding */
   overflow: hidden;
   box-shadow: inset 6px 6px 12px #dcd0c8, inset -6px -6px 12px #ffffff;
   background: #f6efe9;
 }
 
 .fullImg {
-  width: auto !important;
-  height: auto !important;
-  max-width: 100% !important;
-  max-height: 70vh !important;
-  position: relative !important;
   object-fit: contain;
 }
 
 .modalFooter {
-  padding-top: 30px;
+  padding: 10px 0;
   text-align: center;
 }
 
@@ -406,20 +436,19 @@
   .modalOverlay {
     padding: 15px;
   }
-  
+
   .closeBtn {
     top: 20px;
     right: 20px;
     width: 45px;
     height: 45px;
   }
-  
+
   .modalContent {
     padding: 10px;
-    border-width: 4px;
-    border-radius: 15% 0 15% 0;
+    border-radius: 16px;
   }
-  
+
   .modalFooter h3 {
     font-size: 1.1rem;
   }

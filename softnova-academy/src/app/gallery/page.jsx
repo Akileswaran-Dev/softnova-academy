@@ -2,11 +2,12 @@
 
 import React, { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionValue } from "framer-motion";
-import { 
-  X, 
-  Camera, 
-  Users, 
-  Zap, 
+import Image from "next/image";
+import {
+  X,
+  Camera,
+  Users,
+  Zap,
   Globe,
   Layout,
   Award
@@ -14,56 +15,56 @@ import {
 import styles from "./gallery.module.css";
 
 const CATEGORIES = [
-  { id: "all",      label: "All",      icon: <Layout size={20} /> },
-  { id: "events",   label: "Events",   icon: <Zap size={20} /> },
-  { id: "interns",  label: "Interns",  icon: <Award size={20} /> },
-  { id: "students", label: "Students", icon: <Users size={20} /> },
+  { id: "all", label: "All", icon: <Layout size={20} /> },
+  { id: "events", label: "Events", icon: <Zap size={20} /> },
+  { id: "interns", label: "Interns", icon: <Award size={20} /> },
+  { id: "students", label: "pupils", icon: <Users size={20} /> },
 ];
 
 const GALLERY_IMAGES = [
   // Events (cel-* and rec-*)
-  { id: 1,  title: "Celebration Vibes",    category: "events",   img: "/gallery/cel-1.webp",    size: "short" },
-  { id: 2,  title: "Moments of Joy",       category: "events",   img: "/gallery/cel-2.webp",    size: "tall" },
-  { id: 3,  title: "Academy Life",         category: "events",   img: "/gallery/cel-3.webp",    size: "short" },
-  { id: 4,  title: "Team Bonding",         category: "events",   img: "/gallery/cel-4.webp",    size: "tall" },
-  { id: 5,  title: "Festival Spirit",      category: "events",   img: "/gallery/cel-5.webp",    size: "short" },
-  { id: 6,  title: "Campus Gathering",     category: "events",   img: "/gallery/cel-6.webp",    size: "tall" },
-  { id: 7,  title: "Special Event",        category: "events",   img: "/gallery/cel-7.webp",    size: "short" },
-  { id: 8,  title: "Softnova Moments",     category: "events",   img: "/gallery/cel-8.webp",    size: "tall" },
-  { id: 9,  title: "Batch Celebration",    category: "events",   img: "/gallery/cel-9.webp",    size: "short" },
-  { id: 10, title: "Cultural Event",       category: "events",   img: "/gallery/cel-12.webp",   size: "tall" },
-  { id: 11, title: "Academy Meetup",       category: "events",   img: "/gallery/cel-13.webp",   size: "short" },
-  { id: 12, title: "Joyful Session",       category: "events",   img: "/gallery/cel-14.webp",   size: "tall" },
-  { id: 13, title: "Student Interaction",  category: "events",   img: "/gallery/cel-15.webp",   size: "short" },
-  { id: 14, title: "Evening Vibe",         category: "events",   img: "/gallery/cel-16.webp",   size: "tall" },
-  { id: 15, title: "Memorable Day",        category: "events",   img: "/gallery/cel-17.webp",   size: "short" },
-  { id: 16, title: "Tech Gathering",       category: "events",   img: "/gallery/cel-18.webp",   size: "tall" },
-  { id: 17, title: "Academy Vibes",        category: "events",   img: "/gallery/cel-19.webp",   size: "short" },
-  { id: 18, title: "Celebration 2024",     category: "events",   img: "/gallery/cel-20.webp",   size: "tall" },
-  { id: 19, title: "Award Ceremony",       category: "events",   img: "/gallery/rec-1.webp",    size: "short" },
-  { id: 20, title: "Achievement Day",      category: "events",   img: "/gallery/rec-2.webp",    size: "tall" },
-  { id: 21, title: "Recognition Gala",     category: "events",   img: "/gallery/rec-3.webp",    size: "short" },
+  { id: 1, title: "Celebration Vibes", category: "events", img: "/gallery/cel-1.webp", size: "short" },
+  { id: 2, title: "Moments of Joy", category: "events", img: "/gallery/cel-2.webp", size: "tall" },
+  { id: 3, title: "Academy Life", category: "events", img: "/gallery/cel-3.webp", size: "short" },
+  { id: 4, title: "Team Bonding", category: "events", img: "/gallery/cel-4.webp", size: "tall" },
+  { id: 5, title: "Festival Spirit", category: "events", img: "/gallery/cel-5.webp", size: "short" },
+  { id: 6, title: "Campus Gathering", category: "events", img: "/gallery/cel-6.webp", size: "tall" },
+  { id: 7, title: "Special Event", category: "events", img: "/gallery/cel-7.webp", size: "short" },
+  { id: 8, title: "Softnova Moments", category: "events", img: "/gallery/cel-8.webp", size: "tall" },
+  { id: 9, title: "Batch Celebration", category: "events", img: "/gallery/cel-9.webp", size: "short" },
+  { id: 10, title: "Cultural Event", category: "events", img: "/gallery/cel-12.webp", size: "tall" },
+  { id: 11, title: "Academy Meetup", category: "events", img: "/gallery/cel-13.webp", size: "short" },
+  { id: 12, title: "Joyful Session", category: "events", img: "/gallery/cel-14.webp", size: "tall" },
+  { id: 13, title: "Student Interaction", category: "events", img: "/gallery/cel-15.webp", size: "short" },
+  { id: 14, title: "Evening Vibe", category: "events", img: "/gallery/cel-16.webp", size: "tall" },
+  { id: 15, title: "Memorable Day", category: "events", img: "/gallery/cel-17.webp", size: "short" },
+  { id: 16, title: "Tech Gathering", category: "events", img: "/gallery/cel-18.webp", size: "tall" },
+  { id: 17, title: "Academy Vibes", category: "events", img: "/gallery/cel-19.webp", size: "short" },
+  { id: 18, title: "Celebration 2024", category: "events", img: "/gallery/cel-20.webp", size: "tall" },
+  { id: 19, title: "Award Ceremony", category: "events", img: "/gallery/rec-1.webp", size: "short" },
+  { id: 20, title: "Achievement Day", category: "events", img: "/gallery/rec-2.webp", size: "tall" },
+  { id: 21, title: "Recognition Gala", category: "events", img: "/gallery/rec-3.webp", size: "short" },
 
   // Interns (intern-*)
-  { id: 22, title: "Intern Batch 2024",    category: "interns",  img: "/gallery/intern1.webp",  size: "short" },
-  { id: 23, title: "Intern Team Work",     category: "interns",  img: "/gallery/intern2.webp",  size: "tall" },
-  { id: 24, title: "Workspace Vibe",       category: "interns",  img: "/gallery/intern3.webp",  size: "short" },
-  { id: 25, title: "Internship Project",   category: "interns",  img: "/gallery/intern4.webp",  size: "tall" },
-  { id: 26, title: "Intern Showcase",      category: "interns",  img: "/gallery/intern5.webp",  size: "short" },
+  { id: 22, title: "Intern Batch 2024", category: "interns", img: "/gallery/intern1.webp", size: "short" },
+  { id: 23, title: "Intern Team Work", category: "interns", img: "/gallery/intern2.webp", size: "tall" },
+  { id: 24, title: "Workspace Vibe", category: "interns", img: "/gallery/intern3.webp", size: "short" },
+  { id: 25, title: "Internship Project", category: "interns", img: "/gallery/intern4.webp", size: "tall" },
+  { id: 26, title: "Intern Showcase", category: "interns", img: "/gallery/intern5.webp", size: "short" },
 
   // Students (skill-* and new image)
-  { id: 27, title: "Skill Up Session",     category: "students", img: "/gallery/skill1.webp",   size: "tall" },
-  { id: 28, title: "Practical Training",   category: "students", img: "/gallery/skill2.webp",   size: "short" },
-  { id: 29, title: "Tech Workshop",        category: "students", img: "/gallery/skill3.webp",   size: "tall" },
-  { id: 30, title: "Hands-on Experience",  category: "students", img: "/gallery/skill4.webp",   size: "short" },
-  { id: 31, title: "Learning Journey",     category: "students", img: "/gallery/skill5.webp",   size: "tall" },
-  { id: 32, title: "Campus Interaction",   category: "students", img: "/gallery/Image20260504101812.jpg", size: "short" },
+  { id: 27, title: "Skill Up Session", category: "students", img: "/gallery/skill1.webp", size: "tall" },
+  { id: 28, title: "Practical Training", category: "students", img: "/gallery/skill2.webp", size: "short" },
+  { id: 29, title: "Tech Workshop", category: "students", img: "/gallery/skill3.webp", size: "tall" },
+  { id: 30, title: "Hands-on Experience", category: "students", img: "/gallery/skill4.webp", size: "short" },
+  { id: 31, title: "Learning Journey", category: "students", img: "/gallery/skill5.webp", size: "tall" },
+  { id: 32, title: "Campus Interaction", category: "students", img: "/gallery/Image20260504101812.jpg", size: "short" },
 ];
 
 const TiltCard = ({ img, onImageClick, idx }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  
+
   const rotateX = useTransform(y, [-150, 150], [15, -15]);
   const rotateY = useTransform(x, [-150, 150], [-15, 15]);
 
@@ -96,7 +97,15 @@ const TiltCard = ({ img, onImageClick, idx }) => {
         onClick={() => onImageClick(img)}
         className={styles.card}
       >
-        <img src={img.img} alt={img.title} className={styles.cardImg} style={{ transform: "translateZ(20px)" }} />
+        <div className={styles.cardImgWrapper} style={{ transform: "translateZ(20px)" }}>
+          <Image
+            src={img.img}
+            alt={img.title}
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+            className={styles.cardImg}
+          />
+        </div>
         <div className={styles.cardOverlay} style={{ transform: "translateZ(40px)" }}>
           <span className={styles.cardTitle}>{img.title}</span>
         </div>
@@ -131,8 +140,8 @@ export default function GalleryPage() {
   const smY3 = useTransform(scrollYProgress, [0, 1], [0, -350]);
 
   const filteredImages = useMemo(() => {
-    return activeCat === "all" 
-      ? GALLERY_IMAGES 
+    return activeCat === "all"
+      ? GALLERY_IMAGES
       : GALLERY_IMAGES.filter(img => img.category === activeCat);
   }, [activeCat]);
 
@@ -156,7 +165,7 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedImg && (
-          <motion.div 
+          <motion.div
             className={styles.modalOverlay}
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
@@ -166,7 +175,7 @@ export default function GalleryPage() {
             <button className={styles.closeBtn} onClick={() => setSelectedImg(null)}>
               <X size={32} />
             </button>
-            <motion.div 
+            <motion.div
               className={styles.modalContent}
               initial={{ scale: 0.8, opacity: 0, rotateY: -20 }}
               animate={{ scale: 1, opacity: 1, rotateY: 0 }}
@@ -175,9 +184,11 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.fullImgWrapper}>
-                <img 
-                  src={selectedImg.img} 
-                  alt={selectedImg.title} 
+                <Image
+                  src={selectedImg.img}
+                  alt={selectedImg.title}
+                  fill
+                  priority
                   className={styles.fullImg}
                 />
               </div>
@@ -192,7 +203,7 @@ export default function GalleryPage() {
 
       <div className={styles.contentWrapper}>
         {/* Holographic Header */}
-        <motion.header 
+        <motion.header
           className={styles.header}
           initial={{ opacity: 0, y: -50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -217,7 +228,7 @@ export default function GalleryPage() {
       </div>
 
       {/* Floating Dynamic Island Dock for Filters */}
-      <motion.nav 
+      <motion.nav
         className={styles.floatingDock}
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -234,11 +245,12 @@ export default function GalleryPage() {
                   onClick={() => setActiveCat(cat.id)}
                   whileHover={{ scale: 1.1, y: -5 }}
                   whileTap={{ scale: 0.95 }}
+                  suppressHydrationWarning
                 >
                   {isActive && (
-                    <motion.div 
-                      layoutId="dockIndicator" 
-                      className={styles.dockIndicator} 
+                    <motion.div
+                      layoutId="dockIndicator"
+                      className={styles.dockIndicator}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
+import Image from "next/image";
 import AboutSection from "./sections/AboutSection/AboutSection";
 import BenefitsSection from "./sections/BenefitsSection/BenefitsSection";
 import TestimonialsSection from "./sections/TestimonialsSection/TestimonialsSection";
@@ -189,11 +190,13 @@ export default function HomePage() {
           <div className={styles.cardCenter}>
             <FloatingElement yRange={[8, -8]} duration={5}>
               <div className={styles.imageCircle}>
-                <img
+                <Image
                   src="/Images/premium-learning.png"
                   alt="Students learning"
+                  width={600}
+                  height={600}
+                  priority
                   className={styles.learningImg}
-                 
                 />
                 {/* Spinning Rings around image */}
                 <div className={styles.ring1}></div>

@@ -326,13 +326,13 @@ const ContactUsPage = () => {
               Book a free demo class and experience our teaching style firsthand.
             </p>
             <Link href="/book">
-              <motion.button 
+              <motion.div 
                 className={styles.ctaBtn}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
               >
                 Book Free Demo <ArrowRight size={20} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
-              </motion.button>
+              </motion.div>
             </Link>
           </motion.div>
         </section>
