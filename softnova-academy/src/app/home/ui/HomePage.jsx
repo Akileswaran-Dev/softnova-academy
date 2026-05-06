@@ -9,6 +9,7 @@ import AboutSection from "./sections/AboutSection/AboutSection";
 import BenefitsSection from "./sections/BenefitsSection/BenefitsSection";
 import TestimonialsSection from "./sections/TestimonialsSection/TestimonialsSection";
 import FAQSection from "./sections/FAQSection/FAQSection";
+import CoursesSection from "./sections/CoursesSection/CoursesSection";
 import styles from "./HomePage.module.css";
 import FloatingElement from "@/components/FloatingElement";
 import Magnetic from "@/components/Magnetic";
@@ -272,6 +273,8 @@ export default function HomePage() {
           </FloatingElement>
         </div>
       </section>
+
+      <CoursesSection />
 
       <main className={styles.main}>
         <div id="benefits" className="gsap-fade-left">
