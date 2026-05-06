@@ -2,6 +2,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './InternshipPage.module.css';
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const INTERNSHIPS = [
   { id: 1, title: 'Web Design', description: 'Web Design – A Creative and Technical Skill Web design involves creating visually appealing, user-friendly websites using layout, colours or theory, typography, and UX principles.It blends aesthetics with functionality, ensuring responsive design, smooth navigation, and fast performance.Using tools like HTML, CSS and Figma web designers build sites that enhance digital presence and drive success.', 
@@ -57,8 +61,54 @@ const InternshipPage = () => {
     alert("Thank you! Your message has been sent successfully.");
   };
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      // Fade Up
+      gsap.utils.toArray(".gsap-fade-up").forEach((elem) => {
+        gsap.fromTo(
+          elem,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1, y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: elem,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Stagger Cards
+      gsap.utils.toArray(".gsap-stagger-group").forEach((group) => {
+        const cards = group.querySelectorAll(".gsap-card");
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1, y: 0, scale: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            stagger: 0.1,
+            scrollTrigger: {
+              trigger: group,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className={styles.section}>
+    <div className={styles.section} ref={containerRef}>
       {/* Background Blobs */}
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
@@ -172,9 +222,9 @@ const InternshipPage = () => {
           </div>
         </section>
 
-        <div className={styles.grid}>
+        <div className={`${styles.grid} gsap-stagger-group`}>
           {INTERNSHIPS.map((item, index) => (
-            <div key={item.id} className={styles.card}>
+            <div key={item.id} className={`${styles.card} gsap-card`}>
               <div className={styles.cardHeader}>
                 <div className={styles.iconBox}>
                   <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
@@ -197,7 +247,7 @@ const InternshipPage = () => {
         </div>
 
         {/* Contact Section */}
-        <section className={styles.contactSection} ref={contactFormRef}>
+        <section className={`${styles.contactSection} gsap-fade-up`} ref={contactFormRef}>
           <div className={styles.contactGrid}>
             <div className={styles.formWrapper}>
               <form onSubmit={handleSubmit}>
