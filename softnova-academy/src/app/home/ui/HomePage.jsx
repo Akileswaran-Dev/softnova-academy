@@ -19,9 +19,12 @@ export default function HomePage() {
   const containerRef = useRef(null);
 
   useEffect(() => {
+    // Normalize scroll for mobile touch events
+    ScrollTrigger.normalizeScroll(true);
+
     let ctx = gsap.context(() => {
 
-      // --- Fade from LEFT (repeats every scroll in/out) ---
+      // --- Fade from LEFT ---
       gsap.utils.toArray(".gsap-fade-left").forEach((elem) => {
         gsap.fromTo(
           elem,
@@ -32,14 +35,14 @@ export default function HomePage() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: elem,
-              start: "top 95%",
+              start: "top bottom",
               toggleActions: "play none none reverse",
             },
           }
         );
       });
 
-      // --- Fade from RIGHT (repeats every scroll in/out) ---
+      // --- Fade from RIGHT ---
       gsap.utils.toArray(".gsap-fade-right").forEach((elem) => {
         gsap.fromTo(
           elem,
@@ -50,14 +53,14 @@ export default function HomePage() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: elem,
-              start: "top 95%",
+              start: "top bottom",
               toggleActions: "play none none reverse",
             },
           }
         );
       });
 
-      // --- Fade UP (for titles, headings etc.) ---
+      // --- Fade UP ---
       gsap.utils.toArray(".gsap-fade-up").forEach((elem) => {
         gsap.fromTo(
           elem,
@@ -68,14 +71,14 @@ export default function HomePage() {
             ease: "power2.out",
             scrollTrigger: {
               trigger: elem,
-              start: "top 95%",
+              start: "top bottom",
               toggleActions: "play none none reverse",
             },
           }
         );
       });
 
-      // --- Staggered CARDS (each card pops in one by one) ---
+      // --- Staggered CARDS ---
       gsap.utils.toArray(".gsap-stagger-group").forEach((group) => {
         const cards = group.querySelectorAll(".gsap-card");
         gsap.fromTo(
@@ -88,7 +91,7 @@ export default function HomePage() {
             stagger: 0.12,
             scrollTrigger: {
               trigger: group,
-              start: "top 95%",
+              start: "top bottom",
               toggleActions: "play none none reverse",
             },
           }
@@ -106,7 +109,7 @@ export default function HomePage() {
             ease: "expo.out",
             scrollTrigger: {
               trigger: elem,
-              start: "top 85%",
+              start: "top bottom",
               toggleActions: "play none none reverse",
             },
           }
@@ -115,7 +118,13 @@ export default function HomePage() {
 
     }, containerRef);
 
-    return () => ctx.revert();
+    // Refresh ScrollTrigger after a short delay to ensure DOM is fully painted
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 300);
+
+    return () => {
+      ctx.revert();
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -191,7 +200,9 @@ export default function HomePage() {
               </div>
             </FloatingElement>
             <FloatingElement yRange={[-5, 5]} duration={4} delay={0.5}>
-              <div className={styles.priceTag}>JOIN SOFTNOVA</div>
+              <Link href="/intership">
+                <div className={styles.priceTag} style={{ cursor: "pointer" }}>JOIN SOFTNOVA</div>
+              </Link>
             </FloatingElement>
           </div>
 

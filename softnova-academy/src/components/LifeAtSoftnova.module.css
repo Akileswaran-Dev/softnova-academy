@@ -65,54 +65,61 @@
   max-width: 600px;
 }
 
-.galleryGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-}
-
-.galleryCard {
+.videoShowcase {
   position: relative;
-  aspect-ratio: 16/10;
-  border-radius: 20px;
+  width: 100%;
+}
+
+.videoCard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 30px;
   overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
 }
 
-.galleryImage {
+.featuredVideo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.galleryCard:hover .galleryImage {
-  transform: scale(1.1);
-}
-
-.cardOverlay {
+.videoOverlay {
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
+  opacity: 0.6;
   transition: opacity 0.3s ease;
 }
 
-.galleryCard:hover .cardOverlay {
+.videoCard:hover .videoOverlay {
   opacity: 1;
 }
 
-.miniPlayBtn {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 87, 34, 0.9);
+.mainPlayBtn {
+  width: 80px;
+  height: 80px;
+  background: var(--primary, #ff5722);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 30px rgba(255, 87, 34, 0.5);
+  transition: all 0.3s ease;
 }
+
+.mainPlayBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 50px rgba(255, 87, 34, 0.7);
+}
+
 
 /* Wavy Divider */
 .waveDivider {
@@ -150,13 +157,21 @@
 }
 
 @media (max-width: 640px) {
-  .galleryGrid {
-    grid-template-columns: 1fr;
-  }
-  
   .title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
+  .mainPlayBtn {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .container { max-width: 2200px; }
+  .title { font-size: 5rem; }
+  .description { font-size: 1.8rem; max-width: 1000px; }
+  .mainPlayBtn { width: 120px; height: 120px; }
+  .subTitle { font-size: 1.5rem; }
 }
 
 /* Modal Styles */

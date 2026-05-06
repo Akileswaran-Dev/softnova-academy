@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 import { 
@@ -15,16 +15,16 @@ import {
 import styles from "./contact.module.css";
 // Reusing our custom icons for brand consistency and to avoid lucide version issues
 import { Github, Twitter, Linkedin, Instagram, Facebook } from "../../components/Icons";
-
+import emailjs from "@emailjs/browser";
 const ContactUsPage = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    course: "",
-    message: "",
-  });
-
+  name: "",
+  email: "",
+  number: "", // 👈 change here
+  course: "",
+  message: "",
+});
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -34,10 +34,24 @@ const ContactUsPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Basic validation
+    
     if (formData.name && formData.email) {
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
+      emailjs.sendForm(
+        "service_7pm66nn",
+        "template_e4yvn0c",
+        formRef.current,
+        "TFYCoxnoh3Oi4SMYl"
+      ).then(
+        () => {
+          setIsSubmitted(true);
+          setFormData({ name: "", email: "", number: "", course: "", message: "" });
+          setTimeout(() => setIsSubmitted(false), 5000);
+        },
+        (error) => {
+          console.error("Failed to send email:", error);
+          alert("EmailJS Error: " + (error.text || error.message || "Unknown error"));
+        }
+      );
     }
   };
 
@@ -118,7 +132,7 @@ const ContactUsPage = () => {
             viewport={{ once: true }}
           >
             <h2>Send us a Message</h2>
-            <form onSubmit={handleSubmit}>
+            <form ref={formRef} onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
                 <input 
                   type="text" 
@@ -146,10 +160,10 @@ const ContactUsPage = () => {
               <div className={styles.formGroup}>
                 <input 
                   type="tel" 
-                  name="phone"
+                  name="number"
                   className={styles.input} 
                   placeholder="Phone Number" 
-                  value={formData.phone}
+                  value={formData.number}
                   onChange={handleInputChange}
                 />
               </div>

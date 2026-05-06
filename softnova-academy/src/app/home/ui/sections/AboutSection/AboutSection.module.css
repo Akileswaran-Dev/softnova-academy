@@ -22,6 +22,8 @@
   position: relative;
   z-index: 1;
   max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
   padding: 80px 60px;
   text-align: center;
   background: var(--background);
@@ -43,7 +45,7 @@
   color: var(--foreground);
   opacity: 0.85;
   margin-bottom: 40px;
-  text-align: justify;
+  text-align: center;
 }
 
 .button {

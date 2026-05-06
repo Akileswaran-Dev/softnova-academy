@@ -65,28 +65,28 @@ const LifeAtSoftnova = () => {
             </p>
           </div>
 
-          {/* Right Side Gallery */}
-          <div className={`${styles.galleryGrid} gsap-stagger-group`}>
-            {galleryItems.map((item) => (
-              <motion.div
-                key={item.id}
-                className={`${styles.galleryCard} gsap-card`}
-                whileHover={{ y: -10 }}
-                onClick={() => setSelectedVideo(item.videoUrl)}
-              >
-                <Image
-                  src={item.src}
-                  alt={`Life at Softnova ${item.id}`}
-                  fill
-                  className={styles.galleryImage}
-                />
-                <div className={styles.cardOverlay}>
-                  <div className={styles.miniPlayBtn}>
-                    <Play fill="white" size={14} />
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          {/* Right Side Video Showcase */}
+          <div className={`${styles.videoShowcase} gsap-fade-right`}>
+            <div className={styles.videoCard}>
+              <video 
+                src="/Images/about/softnova.mp4" 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className={styles.featuredVideo}
+              />
+              <div className={styles.videoOverlay}>
+                <motion.div 
+                  className={styles.mainPlayBtn}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => setSelectedVideo('/Images/about/softnova.mp4')}
+                >
+                  <Play fill="white" size={30} />
+                </motion.div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

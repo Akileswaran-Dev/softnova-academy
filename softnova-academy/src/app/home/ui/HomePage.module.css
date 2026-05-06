@@ -337,8 +337,13 @@
     grid-template-columns: 1fr;
     padding: 60px 40px;
     margin-top: 40px;
+    gap: 40px;
   }
-  
+
+  .cardLeft {
+    text-align: center;
+  }
+
   .cardsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -346,53 +351,73 @@
 
 @media (max-width: 1024px) {
   .mainTitleUpper {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
-  
+
   .academyTitle {
     font-size: 2.8rem;
+    text-align: center;
   }
-  
+
+  .tagline {
+    text-align: center;
+  }
+
   .imageCircle {
     width: 320px;
     height: 320px;
   }
-  
+
   .techStackContainer {
     width: 250px;
     height: 250px;
   }
-  
+
   .techOrbit {
     width: 180px;
     height: 180px;
   }
-  
+
   .orbitItem {
     width: 60px;
     height: 60px;
     font-size: 1.8rem;
     transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(90px) rotate(calc(var(--i) * (-360deg / 5)));
   }
+
+  .joinBtn {
+    font-size: 1.1rem;
+    padding: 14px 28px;
+  }
 }
 
 @media (max-width: 768px) {
   .productHero {
-    padding: 60px 4%;
+    padding: 40px 4% 60px;
+  }
+
+  .topYellowBg {
+    top: 20px;
+    left: 15px;
+    right: 15px;
+    height: 55%;
   }
 
   .mainTitleUpper {
-    font-size: 2.5rem;
-    top: 15px;
+    font-size: 2rem;
+    top: 12px;
+    letter-spacing: -1px;
   }
 
   .glassCard {
-    padding: 40px 20px;
+    grid-template-columns: 1fr;
+    padding: 50px 20px 40px;
     gap: 30px;
+    margin-top: 30px;
   }
 
   .academyTitle {
-    font-size: 2.2rem;
+    font-size: 2rem;
     text-align: center;
   }
 
@@ -407,12 +432,12 @@
 
   .cardCenter {
     order: -1;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
 
   .imageCircle {
-    width: 260px;
-    height: 260px;
+    width: 240px;
+    height: 240px;
   }
 
   .priceTag {
@@ -428,107 +453,191 @@
   }
 
   .techOrbit {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
   }
 
   .orbitItem {
-    width: 50px;
-    height: 50px;
+    width: 52px;
+    height: 52px;
     font-size: 1.5rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(70px) rotate(calc(var(--i) * (-360deg / 5)));
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(75px) rotate(calc(var(--i) * (-360deg / 5)));
+  }
+
+  .joinBtn {
+    font-size: 1rem;
+    padding: 12px 24px;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cardsSection {
+    padding: 0 4%;
+    margin: 20px auto 40px;
   }
 
   .cardsTitle {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 40px;
   }
 
   .cardsGrid {
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 20px;
   }
 
   .featureCard {
-    padding: 40px 20px;
+    padding: 35px 20px;
   }
-  
+
   .main {
-    padding: 40px 4%;
-    gap: 40px;
+    padding: 30px 4%;
+    gap: 30px;
   }
 }
 
 @media (max-width: 480px) {
+  .productHero {
+    padding: 30px 3% 50px;
+  }
+
   .mainTitleUpper {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    top: 10px;
+    letter-spacing: -0.5px;
   }
-  
+
+  .glassCard {
+    padding: 40px 15px 30px;
+    gap: 24px;
+    margin-top: 20px;
+  }
+
   .academyTitle {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
-  
+
+  .tagline {
+    font-size: 0.9rem;
+  }
+
   .imageCircle {
     width: 200px;
     height: 200px;
   }
-  
+
+  .cardIconRow {
+    width: 70px;
+    height: 70px;
+  }
+
   .techStackContainer {
-    display: none; /* Hide orbit on very small screens to save space */
+    display: none;
+  }
+
+  .cardsTitle {
+    font-size: 1.5rem;
+  }
+
+  .featureCard {
+    padding: 30px 15px;
+  }
+
+  .main {
+    padding: 20px 3%;
+    gap: 24px;
   }
 }
 @media (min-width: 2560px) {
-  .glassCard {
-    max-width: 2400px;
-    padding: 100px 80px;
-    gap: 120px;
+  .productHero {
+    padding: 120px 5% 80px;
   }
-  
-  .academyTitle {
+
+  .mainTitleUpper {
     font-size: 6rem;
+    top: 30px;
   }
-  
-  .tagline {
-    font-size: 2rem;
-  }
-  
-  .imageCircle {
-    width: 700px;
-    height: 700px;
-  }
-  
-  .techStackContainer {
-    width: 600px;
-    height: 600px;
-  }
-  
-  .techOrbit {
-    width: 500px;
-    height: 500px;
-  }
-  
-  .orbitItem {
-    width: 140px;
-    height: 140px;
-    font-size: 4rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(250px) rotate(calc(var(--i) * (-360deg / 5)));
-  }
-  
-  .cardsSection {
+
+  .glassCard {
     max-width: 2600px;
+    padding: 120px 100px;
+    gap: 140px;
+    margin-top: 120px;
   }
-  
+
+  .academyTitle {
+    font-size: 7rem;
+  }
+
+  .tagline {
+    font-size: 2.2rem;
+  }
+
+  .miniBox {
+    width: 120px;
+    height: 120px;
+  }
+
+  .imageCircle {
+    width: 750px;
+    height: 750px;
+  }
+
+  .priceTag {
+    font-size: 2.5rem;
+    width: 350px;
+    padding: 12px 20px;
+  }
+
+  .techStackContainer {
+    width: 650px;
+    height: 650px;
+  }
+
+  .techOrbit {
+    width: 520px;
+    height: 520px;
+  }
+
+  .orbitItem {
+    width: 150px;
+    height: 150px;
+    font-size: 4.5rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(260px) rotate(calc(var(--i) * (-360deg / 5)));
+  }
+
+  .joinBtn {
+    font-size: 2.2rem;
+    padding: 28px 60px;
+  }
+
+  .cardsSection {
+    max-width: 2800px;
+    margin: 60px auto 100px;
+  }
+
   .cardsTitle {
-    font-size: 5rem;
+    font-size: 6rem;
+    margin-bottom: 120px;
   }
-  
+
+  .cardsGrid {
+    gap: 80px;
+  }
+
   .featureCard {
     padding: 120px 60px;
+    border-radius: 60px;
   }
-  
+
   .cardIconRow {
-    width: 160px;
-    height: 160px;
-    font-size: 5rem;
+    width: 180px;
+    height: 180px;
+    font-size: 6rem;
+  }
+
+  .main {
+    padding: 100px 5%;
+    gap: 120px;
   }
 }

@@ -3,6 +3,8 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './InternshipPage.module.css';
 
+import FloatingElement from "@/components/FloatingElement";
+
 const INTERNSHIPS = [
   { id: 1, title: 'Web Design', description: 'Web Design – A Creative and Technical Skill Web design involves creating visually appealing, user-friendly websites using layout, colours or theory, typography, and UX principles.It blends aesthetics with functionality, ensuring responsive design, smooth navigation, and fast performance.Using tools like HTML, CSS and Figma web designers build sites that enhance digital presence and drive success.', 
     icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>) 
@@ -174,25 +176,27 @@ const InternshipPage = () => {
 
         <div className={styles.grid}>
           {INTERNSHIPS.map((item, index) => (
-            <div key={item.id} className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={styles.iconBox}>
-                  <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
+            <FloatingElement key={item.id} yRange={[10, -10]} duration={4.5 + (index % 3) * 0.5} delay={index * 0.1}>
+              <div className={styles.card}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.iconBox}>
+                    <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
+                  </div>
+                </div>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardText}>{item.description}</p>
+                </div>
+                <div className={styles.cardFooter}>
+                  <button className={styles.applyButton} onClick={handleApplyClick} suppressHydrationWarning>
+                    Apply Now
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ marginLeft: '10px' }}>
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </button>
                 </div>
               </div>
-              <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.description}</p>
-              </div>
-              <div className={styles.cardFooter}>
-                <button className={styles.applyButton} onClick={handleApplyClick} suppressHydrationWarning>
-                  Apply Now
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" style={{ marginLeft: '10px' }}>
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-            </div>
+            </FloatingElement>
           ))}
         </div>
 
