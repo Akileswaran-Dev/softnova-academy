@@ -21,10 +21,24 @@
 
 
 .container {
-  max-width: 1500px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 5%;
+  width: 100%;
 }
+
+@media (min-width: 1600px) {
+  .container { max-width: 1550px; }
+}
+
+@media (min-width: 1920px) {
+  .container { max-width: 1850px; }
+}
+
+@media (min-width: 2560px) {
+  .container { max-width: 2200px; }
+}
+
 
 /* Hero Section 3D Scene (Internship) */
 .hero3d {
@@ -625,26 +639,92 @@
   transform: translateY(-3px);
 }
 
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .contactGrid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 1200px) {
+  .hero3d { min-height: 80vh; padding-top: 100px; }
+  .centerTablet { width: 500px; height: 500px; }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .contactGrid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 1024px) {
+  .mainTitle { font-size: 1.8rem; }
+  .leftElements { left: 5%; }
+  .rightElements { right: 5%; }
+  .whiteSphereLarge { width: 80px; height: 80px; }
+  .whiteDish { width: 100px; height: 100px; }
+  .centerTablet { width: 450px; height: 450px; }
 }
 
 @media (max-width: 768px) {
-  .heading {
-    font-size: 3rem;
-  }
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  .row {
-    grid-template-columns: 1fr;
-  }
-  .contactSection {
-    padding: 40px 20px;
-  }
+  .section { padding: 40px 0; }
+  .hero3d { min-height: 60vh; padding-top: 100px; display: flex; flex-direction: column; align-items: center; }
+  .baseBlob { width: 140%; height: 40%; top: 20%; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+  .leftElements, .rightElements, .bottomSpheres, .linesHorizontal, .linesVertical, .linesCorner { display: none; }
+  .centerTablet { width: 92%; height: auto; min-height: 380px; padding: 15px; border-radius: 30px; margin: 0 auto; box-shadow: 20px 20px 40px rgba(0,0,0,0.1); }
+  .tabletContentCard { width: 95%; height: auto; padding: 35px 20px; text-align: center; }
+  
+  .mainTitle { font-size: 1.6rem; line-height: 1.2; margin-bottom: 15px; }
+  .mainDesc { font-size: 0.85rem; line-height: 1.5; color: #666; margin-bottom: 25px; }
+  .exploreBtn { width: 100%; max-width: 200px; padding: 12px 25px; }
+
+  .grid { grid-template-columns: 1fr; gap: 30px; padding: 15px; }
+  .card { padding: 25px; text-align: center; }
+  .cardHeader { flex-direction: column; gap: 15px; height: auto; padding-top: 20px; }
+  
+  .contactSection { padding: 40px 20px; margin-top: 60px; border-radius: 30px; }
+  .contactGrid { grid-template-columns: 1fr; gap: 40px; }
+  .row { grid-template-columns: 1fr; gap: 20px; }
+  .heading { font-size: 2rem; text-align: center; margin-bottom: 30px; }
+  .submitBtn { width: 100%; padding: 18px; }
+  .sidebar { gap: 20px; }
+  .infoCard { padding: 20px; }
 }
+
+@media (max-width: 480px) {
+  .hero3d { min-height: 55vh; padding-top: 80px; }
+  .centerTablet { min-height: 320px; border-radius: 25px; }
+  .tabletContentCard { padding: 25px 15px; }
+  .mainTitle { font-size: 1.4rem; }
+  .mainDesc { font-size: 0.8rem; -webkit-line-clamp: 3; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+  .exploreBtn { font-size: 0.75rem; padding: 10px 20px; }
+  
+  .cardTitle { font-size: 1.5rem; }
+  .cardDesc { font-size: 0.9rem; }
+  .applyButton { padding: 16px; font-size: 1rem; }
+}
+
+/* ===== 4K / ULTRAWIDE (2560px+) ===== */
+@media (min-width: 2560px) {
+  .hero3d { padding-top: 150px; min-height: 100vh; }
+  .baseBlob { width: 1600px; height: 1000px; }
+  .centerTablet { width: 1000px; height: 1000px; border-radius: 80px; }
+  .tabletContentCard { border-radius: 40px; padding: 60px; }
+  .mainTitle { font-size: 4rem; }
+  .mainDesc { font-size: 1.4rem; }
+  .exploreBtn { font-size: 1.2rem; padding: 20px 45px; }
+  
+  .whiteSphereLarge { width: 220px; height: 220px; }
+  .whiteDish { width: 250px; height: 250px; }
+  .smallCardLeft { width: 300px; padding: 30px; border-radius: 30px; }
+  
+  .rightCardStack { gap: 40px; }
+  .stackedCard { width: 400px; padding: 40px; border-radius: 30px; }
+  .miniHeader { font-size: 1.2rem; }
+  
+  .bottomSpheres { gap: 300px; }
+  .whiteSphereMedium { width: 180px; height: 180px; }
+  .whiteSphereSmall { width: 100px; height: 100px; }
+
+  .grid { grid-template-columns: repeat(3, 1fr); gap: 80px; }
+  .cardTitle { font-size: 3rem; }
+  .cardText { font-size: 1.6rem; }
+  .applyButton { font-size: 1.8rem; padding: 30px; }
+  
+  .contactSection { padding: 100px; }
+  .input, .select, .textarea { font-size: 1.5rem; padding: 30px; }
+  .submitBtn { font-size: 2rem; padding: 30px 80px; }
+  .infoText { font-size: 1.6rem; }
+  .iconCircle { width: 100px; height: 100px; }
+  .socialIcon { width: 100px; height: 100px; border-radius: 30px; }
+}
+

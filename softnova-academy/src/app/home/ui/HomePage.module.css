@@ -332,87 +332,110 @@
   box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
 }
 
+/* =========================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================= */
+
+/* LARGE DESKTOP (1440px) */
+@media (max-width: 1440px) {
+  .glassCard {
+    max-width: 1100px;
+    gap: 30px;
+  }
+  
+  .academyTitle {
+    font-size: 3rem;
+  }
+}
+
+/* TABLET LANDSCAPE (1200px) */
 @media (max-width: 1200px) {
   .glassCard {
     grid-template-columns: 1fr;
+    max-width: 800px;
     padding: 60px 40px;
     margin-top: 40px;
+    gap: 50px;
+    text-align: center;
   }
-  
+
+  .cardLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardCenter {
+    order: -1;
+  }
+
+  .imageCircle {
+    width: 350px;
+    height: 350px;
+  }
+
   .cardsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* TABLET PORTRAIT (1024px) */
 @media (max-width: 1024px) {
-  .mainTitleUpper {
-    font-size: 3.5rem;
+  .productHero {
+    padding-top: 120px;
   }
-  
+
+  .mainTitleUpper {
+    font-size: 3rem;
+    top: 30px;
+  }
+
   .academyTitle {
     font-size: 2.8rem;
   }
-  
-  .imageCircle {
-    width: 320px;
-    height: 320px;
-  }
-  
-  .techStackContainer {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .techOrbit {
-    width: 180px;
-    height: 180px;
-  }
-  
-  .orbitItem {
-    width: 60px;
-    height: 60px;
-    font-size: 1.8rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(90px) rotate(calc(var(--i) * (-360deg / 5)));
+
+  .cardsTitle {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
   }
 }
 
+/* MOBILE LARGE (768px) */
 @media (max-width: 768px) {
   .productHero {
-    padding: 60px 4%;
+    padding: 100px 4% 60px;
+  }
+
+  .topYellowBg {
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    height: 50%;
   }
 
   .mainTitleUpper {
-    font-size: 2.5rem;
-    top: 15px;
+    font-size: 2rem;
+    top: 20px;
   }
 
   .glassCard {
     padding: 40px 20px;
-    gap: 30px;
+    gap: 40px;
+    margin-top: 20px;
   }
 
   .academyTitle {
     font-size: 2.2rem;
-    text-align: center;
   }
 
   .tagline {
     font-size: 1rem;
-    text-align: center;
-  }
-
-  .miniThumbnails {
-    justify-content: center;
-  }
-
-  .cardCenter {
-    order: -1;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
   }
 
   .imageCircle {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
   }
 
   .priceTag {
@@ -420,28 +443,35 @@
     font-size: 1.1rem;
     left: 50%;
     transform: translateX(-50%);
+    bottom: -15px;
   }
 
   .techStackContainer {
-    width: 200px;
-    height: 200px;
+    width: 240px;
+    height: 240px;
   }
 
   .techOrbit {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
 
   .orbitItem {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(70px) rotate(calc(var(--i) * (-360deg / 5)));
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(85px) rotate(calc(var(--i) * (-360deg / 5)));
+  }
+
+  .joinBtn {
+    font-size: 1.1rem;
+    padding: 14px 30px;
+    width: 100%;
+    max-width: 280px;
   }
 
   .cardsTitle {
     font-size: 2rem;
-    margin-bottom: 40px;
   }
 
   .cardsGrid {
@@ -452,83 +482,155 @@
   .featureCard {
     padding: 40px 20px;
   }
-  
+
   .main {
-    padding: 40px 4%;
+    padding: 40px 5%;
     gap: 40px;
   }
 }
 
+/* MOBILE SMALL (480px) */
 @media (max-width: 480px) {
-  .mainTitleUpper {
-    font-size: 1.8rem;
+  .productHero {
+    padding-top: 80px;
   }
-  
+
+  .mainTitleUpper {
+    font-size: 1.6rem;
+  }
+
+  .glassCard {
+    padding: 35px 15px;
+    border-radius: var(--radius-md);
+  }
+
   .academyTitle {
     font-size: 1.8rem;
   }
-  
+
   .imageCircle {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
   }
-  
+
   .techStackContainer {
-    display: none; /* Hide orbit on very small screens to save space */
+    display: none; /* Hide complex orbit on very small screens for cleanliness */
+  }
+
+  .cardRight {
+    gap: 20px;
+  }
+
+  .cardsTitle {
+    font-size: 1.6rem;
   }
 }
+
+/* 4K MONITOR OPTIMIZATION (2560px+) */
 @media (min-width: 2560px) {
+  .productHero {
+    padding: 150px 5% 100px;
+  }
+
+  .mainTitleUpper {
+    font-size: 7rem;
+    top: 50px;
+  }
+
   .glassCard {
     max-width: 2400px;
-    padding: 100px 80px;
-    gap: 120px;
+    padding: 150px 100px;
+    gap: 150px;
+    margin-top: 150px;
+    border-radius: 100px;
   }
-  
+
   .academyTitle {
-    font-size: 6rem;
+    font-size: 8rem;
   }
-  
+
   .tagline {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
   }
-  
+
+  .miniBox {
+    width: 130px;
+    height: 130px;
+    font-size: 4rem;
+  }
+
   .imageCircle {
+    width: 800px;
+    height: 800px;
+  }
+
+  .priceTag {
+    font-size: 3rem;
+    width: 400px;
+    padding: 15px 30px;
+    bottom: -40px;
+  }
+
+  .techStackContainer {
     width: 700px;
     height: 700px;
   }
-  
-  .techStackContainer {
-    width: 600px;
-    height: 600px;
-  }
-  
+
   .techOrbit {
-    width: 500px;
-    height: 500px;
+    width: 550px;
+    height: 550px;
   }
-  
+
   .orbitItem {
-    width: 140px;
-    height: 140px;
-    font-size: 4rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(250px) rotate(calc(var(--i) * (-360deg / 5)));
-  }
-  
-  .cardsSection {
-    max-width: 2600px;
-  }
-  
-  .cardsTitle {
-    font-size: 5rem;
-  }
-  
-  .featureCard {
-    padding: 120px 60px;
-  }
-  
-  .cardIconRow {
     width: 160px;
     height: 160px;
     font-size: 5rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(280px) rotate(calc(var(--i) * (-360deg / 5)));
+  }
+
+  .joinBtn {
+    font-size: 2.5rem;
+    padding: 35px 80px;
+    border-radius: 80px;
+  }
+
+  .cardsSection {
+    max-width: 2800px;
+    margin: 80px auto 120px;
+  }
+
+  .cardsTitle {
+    font-size: 7rem;
+    margin-bottom: 150px;
+  }
+
+  .cardsGrid {
+    gap: 100px;
+  }
+
+  .featureCard {
+    padding: 150px 80px;
+    border-radius: 80px;
+    gap: 40px;
+  }
+
+  .cardIconRow {
+    width: 200px;
+    height: 200px;
+    font-size: 7rem;
+  }
+
+  .featureCard h4 {
+    font-size: 3.5rem;
+  }
+
+  .featureCard p {
+    font-size: 2rem;
+  }
+
+  .main {
+    padding: 120px 5%;
+    gap: 150px;
   }
 }

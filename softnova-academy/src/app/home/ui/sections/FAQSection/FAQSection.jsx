@@ -127,6 +127,8 @@ const FAQS = [
   },
 ];
 
+import FloatingElement from "@/components/FloatingElement";
+
 const FAQSection = () => {
   const [openId, setOpenId] = useState(null);
   const [showAll, setShowAll] = useState(false);
@@ -147,34 +149,36 @@ const FAQSection = () => {
     const numberString = String(originalIndex + 1).padStart(2, '0');
 
     return (
-      <div key={faq.id} className={styles.accordionItemWrapper}>
-        <div className={styles.purpleBlock}>
-          {numberString}
-        </div>
-        <div 
-          className={`${styles.glassCard} ${isOpen ? styles.open : ''}`}
-          onClick={() => toggleOpen(faq.id)}
-        >
-          <div className={styles.accordionHeader}>
-            <h3 className={styles.question}>{faq.question}</h3>
-            <div className={styles.iconWrapper}>
-              {isOpen ? '−' : '+'}
+      <FloatingElement key={faq.id} yRange={[6, -6]} duration={4.5 + (originalIndex % 2)} delay={originalIndex * 0.15}>
+        <div className={styles.accordionItemWrapper}>
+          <div className={styles.purpleBlock}>
+            {numberString}
+          </div>
+          <div 
+            className={`${styles.glassCard} ${isOpen ? styles.open : ''}`}
+            onClick={() => toggleOpen(faq.id)}
+          >
+            <div className={styles.accordionHeader}>
+              <h3 className={styles.question}>{faq.question}</h3>
+              <div className={styles.iconWrapper}>
+                {isOpen ? '−' : '+'}
+              </div>
+            </div>
+            <div className={styles.answerWrapper}>
+              <div className={styles.answerContent}>
+                <p>{faq.answer}</p>
+                {faq.points && faq.points.length > 0 && (
+                  <ul className={styles.pointsList}>
+                    {faq.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             </div>
           </div>
-          <div className={styles.answerWrapper}>
-            <div className={styles.answerContent}>
-              <p>{faq.answer}</p>
-              {faq.points && faq.points.length > 0 && (
-                <ul className={styles.pointsList}>
-                  {faq.points.map((point, i) => (
-                    <li key={i}>{point}</li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </div>
         </div>
-      </div>
+      </FloatingElement>
     );
   };
 

@@ -22,6 +22,8 @@
   position: relative;
   z-index: 1;
   max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
   padding: 80px 60px;
   text-align: center;
   background: var(--background);
@@ -43,7 +45,7 @@
   color: var(--foreground);
   opacity: 0.85;
   margin-bottom: 40px;
-  text-align: justify;
+  text-align: center;
 }
 
 .button {
@@ -73,4 +75,28 @@
   .heading { font-size: 2.2rem; }
   .paragraph { font-size: 1rem; }
   .glassCard { padding: 40px 25px; }
+}
+
+@media (min-width: 2560px) {
+  .glassCard {
+    max-width: 2000px;
+    padding: 150px 100px;
+    border-radius: 60px;
+  }
+
+  .heading {
+    font-size: 8rem;
+    margin-bottom: 50px;
+  }
+
+  .paragraph {
+    font-size: 2.5rem;
+    margin-bottom: 80px;
+  }
+
+  .button {
+    padding: 40px 100px;
+    font-size: 2.5rem;
+    border-radius: 80px;
+  }
 }

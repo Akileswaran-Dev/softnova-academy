@@ -62,6 +62,9 @@ const Navbar = () => {
           </div>
 
           <div className={styles.navActions}>
+            <Link href="/enroll" className={styles.ctaButton}>
+              Join Now
+            </Link>
            
             {/* Mobile Toggle */}
             <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle Menu" suppressHydrationWarning>

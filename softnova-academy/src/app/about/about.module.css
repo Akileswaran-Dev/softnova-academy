@@ -45,11 +45,21 @@
 /* Common Section */
 .section {
   padding: 120px 5%;
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1300px; 
   margin: 0 auto;
   position: relative;
   z-index: 1;
 }
+
+@media (min-width: 1600px) {
+  .section { max-width: 1550px; }
+}
+
+@media (min-width: 1920px) {
+  .section { max-width: 1850px; }
+}
+
 
 .sectionTitle {
   font-size: var(--font-h2);
@@ -347,7 +357,7 @@
 
 .aboutSplit {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1.1fr; /* Increased video space for laptop view */
   gap: 60px;
   align-items: center;
 }
@@ -532,6 +542,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
@@ -677,38 +688,90 @@
 }
 
 @media (max-width: 1024px) {
-  .centralScreenWrapper { width: 95%; height: 450px; }
-  .mainTitle { font-size: 2.5rem; }
+  .hero3d { min-height: 80vh; padding-top: 100px; }
+  .centralScreenWrapper { width: 90%; height: 420px; border-radius: 25px; }
+  .mainTitle { font-size: 2.2rem; }
   .aboutSplit { grid-template-columns: 1fr; gap: 40px; }
-  .aboutContainer { padding: 60px 40px; }
+  .aboutContainer { padding: 50px 30px; }
   .visionGrid { grid-template-columns: 1fr; }
   .founderSection { 
     grid-template-columns: 1fr; 
     gap: 40px; 
-    padding: 40px;
-    margin-bottom: 80px;
+    padding: 30px;
+    margin-bottom: 60px;
   }
-  .founderName { font-size: 2.5rem; text-align: center; }
-  .founderRole { text-align: center; }
-  .founderBio { text-align: center; }
+  .founderName { font-size: 2.2rem; text-align: center; }
+  .founderRole, .founderBio { text-align: center; }
+  .leftSphere { width: 120px; height: 120px; left: 5%; }
+  .rightSphere { width: 100px; height: 100px; right: 5%; bottom: 15%; }
 }
 
 @media (max-width: 768px) {
-  .section { padding: 80px 5%; }
-  .sectionTitle { font-size: 2.5rem; }
-  .hero3d { padding-top: 120px; }
-  .podiumRing, .floatingCards { display: none; }
-  .mainTitle { font-size: 2rem; }
-  .aboutText h2 { font-size: 2.5rem; text-align: center; }
-  .aboutText p { text-align: center; }
-  .statItem h3 { font-size: 2.8rem; }
-  .ctaFooter h2 { font-size: 2.5rem; }
+  .section { padding: 60px 5%; }
+  .sectionTitle { font-size: 2.2rem; margin-bottom: 2.5rem; }
+  .hero3d { min-height: 70vh; padding: 120px 4% 40px; }
+  .podiumRing, .floatingCards, .leftSphere, .rightSphere { display: none; }
+  .bgShape1, .bgShape2 { opacity: 0.5; }
+  .centralScreenWrapper { width: 100%; height: 380px; padding: 10px; }
+  .screenGlass { padding: 10px; }
+  .mainTitle { font-size: 1.8rem; margin-top: -10px; }
+  .bottomIcons { bottom: 40px; gap: 20px; }
+  .tinyText { bottom: 15px; font-size: 0.6rem; text-align: center; width: 90%; }
+  .aboutText h2 { font-size: 2.2rem; text-align: center; }
+  .aboutText p { text-align: center; font-size: 1.1rem; }
+  .statItem h3 { font-size: 2.5rem; }
+  .ctaFooter h2 { font-size: 2.2rem; }
+  .podiumBase { width: 90%; height: 60px; }
 }
 
 @media (max-width: 480px) {
+  .hero3d { min-height: 60vh; padding-top: 100px; }
   .statsGrid { grid-template-columns: 1fr; }
-  .centralScreenWrapper { height: 350px; }
-  .mainTitle { font-size: 1.5rem; }
-  .aboutContainer { padding: 40px 20px; }
-  .featureCard, .glassCard { padding: 2.5rem 1.5rem; }
+  .centralScreenWrapper { height: 320px; border-radius: 20px; }
+  .screenInner { padding: 20px 10px; }
+  .mainTitle { font-size: 1.3rem; }
+  .mainTitle br { display: none; }
+  .screenTopBar { top: 15px; font-size: 0.6rem; }
+  .topRightLine { width: 60px; }
+  .bottomIcons { bottom: 30px; gap: 15px; }
+  .bottomIcons svg { width: 14px; height: 14px; }
+  .tinyText { display: none; }
+  .aboutContainer { padding: 30px 15px; }
+  .featureCard, .glassCard { padding: 2rem 1.2rem; }
+  .aboutText h2 { font-size: 1.8rem; }
+  .podiumBase { height: 40px; }
 }
+
+/* ===== 4K / ULTRAWIDE (2560px+) ===== */
+@media (min-width: 2560px) {
+  .hero3d { padding-top: 150px; }
+  .centralScreenWrapper { width: 1200px; height: 750px; border-radius: 50px; padding: 25px; }
+  .mainTitle { font-size: 5rem; }
+  .screenTopBar { font-size: 1.2rem; top: 50px; }
+  .topRightLine { width: 300px; }
+  .bottomIcons { bottom: 100px; gap: 60px; }
+  .bottomIcons svg { width: 32px; height: 32px; }
+  .tinyText { font-size: 1rem; bottom: 40px; }
+  
+  .leftSphere { width: 300px; height: 300px; left: 10%; }
+  .rightSphere { width: 250px; height: 250px; right: 10%; }
+  
+  .floatingCards { right: 12%; gap: 50px; }
+  .floatCard1, .floatCard2 { width: 220px; height: 260px; padding: 25px; }
+  .cardHeader { font-size: 1.1rem; }
+  
+  .podiumBase { width: 70%; height: 150px; max-width: 1600px; }
+  .podiumRing { width: 500px; height: 120px; border-width: 25px; }
+
+  .sectionTitle { font-size: 4.5rem; margin-bottom: 6rem; }
+  .section { max-width: 2400px; }
+  .aboutText h2 { font-size: 5rem; }
+  .aboutText p { font-size: 1.8rem; }
+  .aboutContainer { padding: 120px 100px; }
+  .aboutSplit { gap: 120px; }
+  .aboutImageWrapper { padding: 30px; }
+  .aboutVideo { border-radius: 60px; }
+  .statItem h3 { font-size: 6rem; }
+  .ctaFooter h2 { font-size: 6rem; }
+}
+

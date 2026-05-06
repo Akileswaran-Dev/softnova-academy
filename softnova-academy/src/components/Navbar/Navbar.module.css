@@ -26,7 +26,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: rgba(227, 212, 204, 0.6);
+  background: var(--background);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -262,14 +262,12 @@
 
 @media (min-width: 2560px) {
   .navContainer {
-    max-width: 1800px;
+    max-width: 2200px;
+    padding: 1.5rem 4rem;
   }
-}
-
-@media (max-width: 1440px) {
-  .navContainer {
-    max-width: 1200px;
-  }
+  .logoText { font-size: 2.2rem; }
+  .logoIcon { width: 60px; height: 60px; }
+  .navLink { font-size: 1.4rem; padding: 1rem 2rem; }
 }
 
 @media (max-width: 1024px) {
@@ -278,35 +276,61 @@
   }
 
   .mobileToggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .scrolled .navContainer {
-    width: 90%;
+  .navContainer {
+    width: 92%;
+    padding: 0.8rem 1.5rem;
   }
 }
 
 @media (max-width: 768px) {
-  .navContainer {
-    width: 95%;
-    padding: 0.8rem 1.5rem;
+  .logoText {
+    font-size: 1.2rem;
+  }
+  
+  .logoIcon {
+    width: 35px;
+    height: 35px;
   }
 
-  .scrolled .navContainer {
-    width: 95%;
+  .navContainer {
+    width: 94%;
+    padding: 0.7rem 1.2rem;
+    box-shadow: 6px 6px 15px var(--shadow-dark), -6px -6px 15px var(--shadow-light);
   }
 }
 
 @media (max-width: 480px) {
-  .ctaButton {
-    display: none;
+  .logoText {
+    font-size: 1.1rem;
   }
 
-  .logoText {
-    font-size: 1.2rem;
+  .logoText span {
+    display: block;
+    font-size: 0.7rem;
+    line-height: 1;
+    margin-top: -2px;
   }
 
   .navContainer {
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 25px;
   }
+
+  .mobileToggle {
+    width: 40px;
+    height: 40px;
+  }
+  .mobileMenu{
+    gap:0;
+  }
+  .scrolled .navContainer {
+
+  padding: 1.1rem;
+ 
+}
 }

@@ -180,9 +180,7 @@ const AboutPage = () => {
       </section>
 
       {/* 7. Life at Softnova */}
-      <div className="gsap-fade-up">
-        <LifeAtSoftnova />
-      </div>
+      <LifeAtSoftnova />
       
       {/* 8. CTA Section */}
       <section className={`${styles.ctaFooter} gsap-fade-up`}>
