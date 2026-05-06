@@ -86,14 +86,9 @@ const TestimonialsSection = () => {
                   ))}
                 </div>
 
-<<<<<<< HEAD
                 <p className={styles.text}>"{t.text}"</p>
               </div>
             </FloatingElement>
-=======
-              <p className={styles.text}>&quot;{t.text}&quot;</p>
-            </div>
->>>>>>> 2da3169d47a93f60b645025a9d570bcd6d508cc4
           ))}
         </div>
       </div>
