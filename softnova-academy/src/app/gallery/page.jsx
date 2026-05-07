@@ -36,25 +36,25 @@ const CATEGORIES = [
 
 const GALLERY_IMAGES = [
   // Celebrations
-  { id: 1, title: "Grand Celebration", category: "celebration", img: "/Images/gallery/cel-1.webp", desc: "A night of excellence and unity at Softnova." },
-  { id: 2, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-2.webp", desc: "Showcasing vibrant student talents." },
-  { id: 3, title: "Academy Gathering", category: "celebration", img: "/Images/gallery/cel-3.webp", desc: "Everyday moments that define our culture." },
-  { id: 4, title: "Team Spirit", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Strengthening roots through collaboration." },
-  { id: 5, title: "Success Gala", category: "celebration", img: "/Images/gallery/cel-5.webp", desc: "Celebrating our milestones together." },
-  { id: 6, title: "Unity Event", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Fostering strong bonds." },
-  { id: 7, title: "Special Moment", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Capturing the joy of achievement." },
-  { id: 8, title: "Academy Fest", category: "celebration", img: "/Images/gallery/cel-8.webp", desc: "Highlights from our annual fest." },
-  { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "The energetic atmosphere of Softnova." },
-  { id: 10, title: "Evening Gala", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "A beautiful evening of celebration." },
-  { id: 11, title: "Festive Highlights", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "Memorable event coverage." },
-  { id: 12, title: "Annual Gathering", category: "celebration", img: "/Images/gallery/cel-13.webp", desc: "Coming together as one family." },
-  { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our collective success." },
-  { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Vibrant performances and unity." },
-  { id: 15, title: "Team Dinner", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Celebrating progress." },
-  { id: 16, title: "Grand Event", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "A snapshot of excellence." },
-  { id: 17, title: "Success Party", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Honoring our high achievers." },
-  { id: 18, title: "Legacy Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Building the future together." },
-  { id: 19, title: "Holiday Fest", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Season of joy at Softnova." },
+  { id: 1, title: "Grand Celebration", category: "celebration", img: "/Images/gallery/cel-3.webp", desc: "A night of excellence and unity at Softnova." },
+  { id: 2, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Showcasing vibrant student talents." },
+  { id: 3, title: "Academy Gathering", category: "celebration", img: "/Images/gallery/cel-5.webp", desc: "Everyday moments that define our culture." },
+  { id: 4, title: "Team Spirit", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Strengthening roots through collaboration." },
+  { id: 5, title: "Success Gala", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our milestones together." },
+  { id: 6, title: "Unity Event", category: "celebration", img: "/Images/gallery/cel-8.webp", desc: "Fostering strong bonds." },
+  { id: 7, title: "Special Moment", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "Capturing the joy of achievement." },
+  { id: 8, title: "Academy Fest", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "Highlights from our annual fest." },
+  { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "The energetic atmosphere of Softnova." },
+  { id: 10, title: "Evening Gala", category: "celebration", img: "/Images/gallery/cel-13.webp", desc: "A beautiful evening of celebration." },
+  { id: 11, title: "Festive Highlights", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Memorable event coverage." },
+  { id: 12, title: "Annual Gathering", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Coming together as one family." },
+  { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Cheers to our collective success." },
+  { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "Vibrant performances and unity." },
+  { id: 15, title: "Team Dinner", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Celebrating progress." },
+  { id: 16, title: "Grand Event", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "A snapshot of excellence." },
+  { id: 17, title: "Success Party", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Honoring our high achievers." },
+  { id: 18, title: "Legacy Meet", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "Building the future together." },
+  { id: 19, title: "Holiday Fest", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "Season of joy at Softnova." },
 
   // Internship & Training
  
@@ -63,20 +63,20 @@ const GALLERY_IMAGES = [
   { id: 28, title: "Tech Hub", category: "internship", img: "/Images/gallery/g6.jpeg", desc: "Where ideas come to life." },
 
   // Requirements & Infrastructure
-  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/rec-1.webp", desc: "State-of-the-art facilities." },
-  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/rec-2.webp", desc: "Industrial standard equipment." },
-  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/rec-3.webp", desc: "Setting benchmarks for success." },
+  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/cel-3.webp", desc: "State-of-the-art facilities." },
+  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/cel-4.webp", desc: "Industrial standard equipment." },
+  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/cel-5.webp", desc: "Setting benchmarks for success." },
 
   // Achievements
   { id: 33, title: "Excellence Award", category: "achievements", img: "/Images/gallery/award.webp", desc: "Recognized for educational leadership." },
   { id: 34, title: "Top Performer", category: "achievements", img: "/Images/gallery/award2.webp", desc: "Celebrating our students' wins." },
 
   // Skill-Up
-  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/skill1.webp", desc: "Intensive training for industry readiness." },
-  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/skill2.webp", desc: "Fast-tracking technical skills." },
-  { id: 37, title: "Expert Training", category: "skill-up", img: "/Images/gallery/skill3.webp", desc: "Learning from the best." },
-  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/skill4.webp", desc: "Deep dive into tech stacks." },
-  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/skill5.webp", desc: "Showcasing mastered skills." }
+  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/cel-6.webp", desc: "Intensive training for industry readiness." },
+  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/cel-7.webp", desc: "Fast-tracking technical skills." },
+  { id: 37, title: "Expert Training", category: "skill-up", img: "/Images/gallery/cel-8.webp", desc: "Learning from the best." },
+  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/cel-9.webp", desc: "Deep dive into tech stacks." },
+  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/cel-11.webp", desc: "Showcasing mastered skills." }
 ];
 
 export default function GalleryPage() {
