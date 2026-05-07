@@ -12,39 +12,39 @@ import FloatingElement from "@/components/FloatingElement";
 const INTERNSHIPS = [
   {
     id: 1, title: 'Web Design', description: 'Web Design – A Creative and Technical Skill Web design involves creating visually appealing, user-friendly websites using layout, colours or theory, typography, and UX principles.It blends aesthetics with functionality, ensuring responsive design, smooth navigation, and fast performance.Using tools like HTML, CSS and Figma web designers build sites that enhance digital presence and drive success.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>)
   },
   {
     id: 2, title: 'UI/UX Designer', description: 'UI/UX Designer – Crafting Seamless Digital Experiences UI/UX Designers create intuitive, visually appealing digital interfaces that enhance user satisfaction and usability.They conduct user research, build wireframes and prototypes, and collaborate with developers to bring designs to life.Using tools like Figma and Sketch, they ensure designs are both functional and aesthetically pleasing.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>)
   },
   {
     id: 3, title: 'Front-End Developer', description: 'Front-End Developer – Building the User Side of the Web Front-end developers create the visual and interactive elements of websites using HTML, CSS, and JavaScript.They work with designers to build responsive, user-friendly interfaces that function smoothly across devices.Using tools like React, Angular, or Vue. Js, they ensure fast, accessible, and high-performing web experiences.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>)
   },
   {
     id: 4, title: 'Java Full Stack Development', description: 'Java Full Stack Development involves building both front-end and back-end of web applications using Java and related technologies. It includes using HTML, CSS, JavaScript (Angular/React) for UI, and Java with Spring Boot for server-side logic. Developers also manage databases (MySQL/MongoDB), APIs, and version control (Git). They handle the full application lifecycle from design to deployment.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"></path><path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h4"></path></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"></path><path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h4"></path></svg>)
   },
   {
     id: 5, title: 'Full Stack Development', description: 'A Full Stack Developer is a software professional skilled in both front-end (client-side) and back-end (server-side) development of web applications.They work on:Front-End: Designing user interfaces using HTML, CSS, JavaScript, and frameworks like React.Back-End: Databases using languages like Java, Python, Node.js, PHP, or Ruby, along with frameworks like Spring Boot or Express.js. Databases: Managing data using MySQL, MongoDB.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 16V4a2 2 0 0 1 2-2h11"></path><path d="M22 18v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2"></path><rect x="8" y="7" width="14" height="11" rx="2"></rect></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 16V4a2 2 0 0 1 2-2h11"></path><path d="M22 18v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2"></path><rect x="8" y="7" width="14" height="11" rx="2"></rect></svg>)
   },
   {
     id: 6, title: 'Desktop Support Engineer', description: 'A Desktop Support Engineer is an IT specialist who handles the installation, configuration, and troubleshooting of operating systems, software, and hardware on desktops and laptops. They assist with network connectivity, peripheral setup, and provide user support through remote or on-site help. Their role includes performing system updates, backups, and ensuring device security. They also maintain documentation of technical issues, solutions, and inventory records. This role is essential for minimizing downtime and ensuring smooth IT operations within an organization.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>)
   },
   {
     id: 7, title: 'CISCO', description: 'A CISCO Certified Network Associate (CCNA) is a globally recognized certification that validates essential networking skills. It covers topics like network fundamentals, IP addressing, routing, switching, and security basics. CCNA holders can install, configure, and troubleshoot networks using Cisco devices. This certification suits entry-level network engineers and IT professionals. It serves as a strong foundation for a career in networking.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>)
   },
   {
     id: 8, title: 'HR Training', description: 'HR Training is a structured program that builds essential skills for effective human resource management. It covers recruitment strategies, onboarding processes, and accurate payroll handling. Participants learn to manage performance through goal setting, feedback, and fair appraisals. The program also emphasizes legal compliance and understanding of labor laws. Overall, it prepares HR professionals to support both employees and organizational goals efficiently.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>)
   },
   {
     id: 9, title: 'Business Development Executive', description: 'A Business Development Executive focuses on growing a company by identifying opportunities and generating leads. They pitch products/services, build client relationships, and close deals. The role includes market research, sales target achievement, and coordination with internal teams. Strong communication and negotiation skills are vital. They play a key role in expanding business reach and revenue.',
-    icon: (<svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>)
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>)
   }
 ];
 
@@ -235,7 +235,12 @@ const InternshipPage = () => {
 
         <div className={`${styles.grid} gsap-stagger-group`}>
           {INTERNSHIPS.map((item, index) => (
-            <FloatingElement key={item.id} delay={index * 0.1}>
+            <FloatingElement 
+              key={item.id} 
+              yRange={[15, -15]} 
+              duration={4 + index % 3} 
+              delay={index * 0.1}
+            >
               <div className={`${styles.card} gsap-card`}>
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
@@ -244,14 +249,13 @@ const InternshipPage = () => {
                 </div>
                 <div className={styles.cardContent}>
                   <h3 className={styles.cardTitle}>{item.title}</h3>
-                  <p className={styles.cardText}>{item.description}</p>
+                  <p className={styles.cardText}>{item.description.substring(0, 150)}...</p>
                 </div>
                 <div className={styles.cardFooter}>
                   <button className={styles.applyButton} onClick={handleApplyClick}>
                     Apply Now
                   </button>
                 </div>
-                <p className={styles.cardDesc}>{item.description}</p>
               </div>
             </FloatingElement>
           ))}

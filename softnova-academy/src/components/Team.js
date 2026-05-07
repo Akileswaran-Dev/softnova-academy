@@ -9,16 +9,19 @@ const teamMembers = [
   {
     name: "Mahetha Selvaraj",
     role: "HR",
+    domain: "HR",
     image: "/Images/gallery/Akka.png",
   },
   {
     name: "Dharshika",
     role: "Team Lead",
+    domain: "TEAM LEAD",
     image: "/Images/about/dharshika_new_v3.jpg",
   },
   {
     name: "Adhithyan",
     role: "Developer",
+    domain: "DEVELOPER",
     image: "/Images/gallery/dev.jpg",
   },
 ];
@@ -31,7 +34,11 @@ export default function Team() {
       </div>
 
       {/* Founder Section */}
-      <div className={`${styles.founderSection} gsap-fade-up`}>
+      <motion.div 
+        className={`${styles.founderSection} gsap-fade-up`}
+        whileHover="hover"
+        initial="initial"
+      >
         <div className={styles.founderImageWrapper}>
           <Image
             src="/gallery/CEO.jpg"
@@ -40,6 +47,25 @@ export default function Team() {
             height={500}
             className={styles.founderImage}
           />
+          {/* Innovative Orange Splash */}
+          <motion.div 
+            className={styles.orangeSplash}
+            variants={{
+              initial: { scale: 0, opacity: 0, rotate: -20 },
+              hover: { scale: 1.8, opacity: 0.5, rotate: 10 }
+            }}
+            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+          />
+          <motion.div 
+            variants={{
+              initial: { opacity: 0, y: 20 },
+              hover: { opacity: 1, y: 0 }
+            }}
+            transition={{ duration: 0.4 }}
+            className={styles.teamOverlay}
+          >
+            <span className={styles.memberRole}>Founder & CEO</span>
+          </motion.div>
         </div>
         <div className={styles.founderContent}>
           <div className={styles.founderHeader}>
@@ -56,7 +82,7 @@ export default function Team() {
             &quot;Our goal is not just to produce developers, but to empower creators who will build the future of technology.&quot;
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className="gsap-fade-up">
         <h2 className={styles.sectionTitle}>Meet Our Team</h2>
@@ -64,58 +90,50 @@ export default function Team() {
 
       <div className={`${styles.teamGrid} gsap-stagger-group`}>
         {teamMembers.map((member, index) => (
-          <div
+          <motion.div
             key={index}
             className={`${styles.teamCard} gsap-card`}
+            whileHover="hover"
+            initial="initial"
           >
-            <div style={{ position: "relative", width: "100%", aspectRatio: "1/1", borderRadius: "var(--radius-sm)", overflow: "hidden", background: "var(--background)", boxShadow: "var(--neumorph-inset-sm)" }}>
+            <div className={styles.teamImageContainer}>
               <Image
                 src={member.image}
                 alt={member.name}
                 fill
-                style={{ objectFit: "cover" }}
                 className={styles.teamImage}
+              />
+              {/* Innovative Orange Splash */}
+              <motion.div 
+                className={styles.orangeSplash}
+                variants={{
+                  initial: { scale: 0, opacity: 0, rotate: -20 },
+                  hover: { scale: 1.5, opacity: 0.6, rotate: 0 }
+                }}
+                transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
               />
               <motion.div 
                 variants={{
+                  initial: { opacity: 0, y: 20 },
                   hover: { opacity: 1, y: 0 }
                 }}
-                initial={{ opacity: 0, y: 10 }}
-                transition={{ duration: 0.4, ease: "easeOut" }}
+                transition={{ duration: 0.4, delay: 0.1 }}
                 className={styles.teamOverlay}
-                style={{
-                  position: "absolute",
-                  inset: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "flex-end",
-                  alignItems: "center",
-                  background: "linear-gradient(to top, rgba(230, 81, 0, 0.7) 0%, rgba(230, 81, 0, 0.1) 60%, transparent 100%)",
-                  backdropFilter: "blur(2px)",
-                  color: "white",
-                  padding: "2rem",
-                  textAlign: "center",
-                  pointerEvents: "none"
-                }}
               >
-                <span style={{ 
-                  fontWeight: "900", 
-                  fontSize: "1.2rem", 
-                  letterSpacing: "2px", 
-                  textTransform: "uppercase",
-                  textShadow: "0 2px 10px rgba(0,0,0,0.3)" 
-                }}>{member.role}</span>
+                <span className={styles.memberRole}>{member.role}</span>
               </motion.div>
             </div>
             <div className={styles.teamInfo}>
-              <h3 style={{ margin: "1rem 0 0.5rem" }}>{member.name}</h3>
-              <div style={{ display: "flex", gap: "1rem", justifyContent: "center", marginTop: "1rem" }}>
-                <motion.a whileHover={{ y: -3, color: "var(--primary)" }} style={{ color: "var(--text-muted)", cursor: "pointer" }}><Linkedin size={18} /></motion.a>
-                <motion.a whileHover={{ y: -3, color: "var(--primary)" }} style={{ color: "var(--text-muted)", cursor: "pointer" }}><Twitter size={18} /></motion.a>
-                <motion.a whileHover={{ y: -3, color: "var(--primary)" }} style={{ color: "var(--text-muted)", cursor: "pointer" }}><Github size={18} /></motion.a>
+              <h3>{member.name}</h3>
+              {/* Domain visible on mobile, icons on desktop */}
+              <div className={styles.memberDomain}>{member.domain}</div>
+              <div className={styles.socialLinks}>
+                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Linkedin size={18} /></motion.a>
+                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Twitter size={18} /></motion.a>
+                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Github size={18} /></motion.a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

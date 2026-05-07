@@ -378,12 +378,12 @@
 }
 
 .cardHeader {
-  height: 150px;
+  height: 120px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
 }
@@ -400,15 +400,15 @@
 }
 
 .iconBox {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   background: var(--white);
-  border-radius: 25px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 15px;
   transition: transform 0.3s ease;
 }
 
@@ -493,13 +493,13 @@
 .formWrapper {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 35px; /* Increased vertical gap */
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 25px;
+  gap: 30px; /* Increased horizontal gap */
 }
 
 .inputGroup {
@@ -517,27 +517,25 @@
   font-size: 1.1rem;
   transition: all 0.3s ease;
   font-family: inherit;
-}
-
-.input:focus, .textarea:focus, .select:focus {
-  outline: none;
-  box-shadow: var(--neumorph-inset-sm), 0 0 0 2px var(--secondary);
+  margin-bottom: 5px; /* Small bottom margin for breathing room */
 }
 
 .textarea {
   min-height: 180px;
   resize: vertical;
+  margin-bottom: 10px;
 }
 
 .select {
   appearance: none;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .submitBtn {
   background: var(--primary);
   color: white;
-  padding: 20px 50px;
+  padding: 20px 60px;
   border: none;
   border-radius: var(--radius-sm);
   font-size: 1.2rem;
@@ -546,6 +544,7 @@
   box-shadow: var(--neumorph-shadow-sm);
   transition: all 0.3s ease;
   width: fit-content;
+  margin-top: 10px;
 }
 
 .submitBtn:hover {
