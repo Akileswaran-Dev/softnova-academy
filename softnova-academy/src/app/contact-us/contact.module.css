@@ -455,11 +455,26 @@
 
   .mapOverlay {
     position: relative;
-    bottom: 0;
-    right: 0;
+    bottom: auto;
+    right: auto;
     max-width: 100%;
-    margin-top: 20px;
-    padding: 20px;
+    margin: 20px auto 0;
+    padding: 25px;
+    text-align: center;
+    border-radius: var(--radius-md);
+    box-shadow: var(--neumorph-shadow-sm);
+  }
+
+  .socialSection {
+  
+    margin-top: 2rem;
+  }
+
+  .footicons {
+    gap: 1.5rem;
+    padding: 1rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .cta h2 {
@@ -477,12 +492,16 @@
     font-size: 1.8rem;
   }
   
+  .footicons {
+    gap: 1rem;
+  }
+
   .footicons a {
-    width: 60px;
-    height: 60px;
+    width: 65px;
+    height: 65px;
   }
   
   .svgsicons {
-    font-size: 1.6rem !important;
+    font-size: 1.8rem !important;
   }
 }

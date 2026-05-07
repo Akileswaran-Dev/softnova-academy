@@ -10,18 +10,21 @@ const teamMembers = [
     name: "Mahetha Selvaraj",
     role: "HR",
     domain: "HR",
+    bio: "She is dedicated to building a positive and professional workplace. She manages recruitment, employee engagement, and team coordination with strong leadership skills. She actively supports student internships and career development initiatives at Softnova. Her people-focused approach helps strengthen the company’s culture and organizational growth.",
     image: "/Images/gallery/Akka.png",
   },
   {
     name: "Dharshika",
     role: "Team Lead",
     domain: "TEAM LEAD",
+    bio: "Guiding the team with dedication and professionalism. She plays an important role in project coordination, team management, and maintaining workflow efficiency. With strong communication and leadership skills, she supports both clients and team members effectively. Her commitment and teamwork contribute to the successful growth of Softnova.",
     image: "/Images/about/dharshika_new_v3.jpg",
   },
   {
     name: "Adhithyan",
     role: "Developer",
     domain: "DEVELOPER",
+    bio: "Specializing in modern and responsive website development. He focuses on creating high-quality, user-friendly, and performance-driven web solutions for clients. With strong technical expertise and creative problem-solving skills, he contributes to successful project delivery. His dedication and innovative approach help strengthen Softnova’s digital development team.",
     image: "/Images/gallery/dev.jpg",
   },
 ];
@@ -73,10 +76,11 @@ export default function Team() {
             <span className={styles.founderRole}>Founder & CEO</span>
           </div>
           <p className={styles.founderBio}>
-            At the heart of Softnova Academy is our founder&apos;s unwavering commitment to transforming how technology is taught. With over a decade of industry experience, he recognized the gap between academic theory and industry reality.
+           Our growth and success are guided by the visionary leadership of our CEO, Founder & Managing Director. With a passion for innovation, technology, and entrepreneurship, he established Softnova with a mission to create impactful digital solutions while empowering young talents and businesses to grow in the modern digital world.
+
           </p>
           <p className={styles.founderBio}>
-            His vision for Softnova is to create a nurturing ecosystem where aspiring developers don&apos;t just learn to code, but learn to build, innovate, and lead in the global tech landscape.
+            Under his leadership, Softnova has expanded into software development, SaaS solutions, digital services, and professional training programs, delivering quality-driven and future-focused solutions to clients across various industries. His commitment to creativity, excellence, and continuous improvement continues to shape the company’s culture, inspire the team, and drive Softnova toward a stronger and more innovative future.
           </p>
           <div className={styles.founderQuote}>
             &quot;Our goal is not just to produce developers, but to empower creators who will build the future of technology.&quot;
@@ -127,11 +131,9 @@ export default function Team() {
               <h3>{member.name}</h3>
               {/* Domain visible on mobile, icons on desktop */}
               <div className={styles.memberDomain}>{member.domain}</div>
-              <div className={styles.socialLinks}>
-                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Linkedin size={18} /></motion.a>
-                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Twitter size={18} /></motion.a>
-                <motion.a whileHover={{ y: -3, scale: 1.2, color: "var(--primary)" }} href="#"><Github size={18} /></motion.a>
-              </div>
+              {member.bio && (
+                <p className={styles.memberBio}>{member.bio}</p>
+              )}
             </div>
           </motion.div>
         ))}
