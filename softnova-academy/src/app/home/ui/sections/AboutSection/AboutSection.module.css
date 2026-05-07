@@ -71,32 +71,25 @@
   transform: translateY(2px);
 }
 
+@media (max-width: 1024px) {
+  .heading { font-size: 3rem; }
+  .paragraph { font-size: 1.1rem; }
+}
+
 @media (max-width: 768px) {
-  .heading { font-size: 2.2rem; }
-  .paragraph { font-size: 1rem; }
-  .glassCard { padding: 40px 25px; }
+  .heading { font-size: 2.2rem; letter-spacing: -1px; }
+  .paragraph { font-size: 1rem; line-height: 1.6; margin-bottom: 30px; }
+  .glassCard { padding: 50px 25px; }
+}
+
+@media (max-width: 480px) {
+  .heading { font-size: 1.8rem; }
+  .button { padding: 15px 40px; font-size: 1rem; }
 }
 
 @media (min-width: 2560px) {
-  .glassCard {
-    max-width: 2000px;
-    padding: 150px 100px;
-    border-radius: 60px;
-  }
-
-  .heading {
-    font-size: 8rem;
-    margin-bottom: 50px;
-  }
-
-  .paragraph {
-    font-size: 2.5rem;
-    margin-bottom: 80px;
-  }
-
-  .button {
-    padding: 40px 100px;
-    font-size: 2.5rem;
-    border-radius: 80px;
-  }
+  .glassCard { max-width: 2000px; padding: 150px 100px; border-radius: 80px; }
+  .heading { font-size: 8rem; }
+  .paragraph { font-size: 2.2rem; }
+  .button { font-size: 2.5rem; padding: 30px 80px; }
 }

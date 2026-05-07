@@ -32,7 +32,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isOpen ? styles.navOpen : ''}`}>
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
             <div className={styles.logoIcon}>
@@ -80,12 +80,6 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay */}
       <div className={`${styles.mobileMenu} ${isOpen ? styles.mobileMenuOpen : ''}`}>
-        <button className={styles.closeButton} onClick={toggleMenu}>
-          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 10L30 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-            <path d="M30 10L10 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-          </svg>
-        </button>
         {navLinks.map((link) => {
           const isActive = pathname === link.path || (link.path !== '/' && pathname.startsWith(link.path));
           return (

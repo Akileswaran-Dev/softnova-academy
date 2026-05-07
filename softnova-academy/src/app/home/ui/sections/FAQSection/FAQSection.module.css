@@ -134,42 +134,37 @@
   justify-content: center;
 }
 
+@media (max-width: 1024px) {
+  .heading { font-size: 3.5rem; }
+  .sectionHeader { margin-bottom: 60px; }
+}
+
 @media (max-width: 768px) {
   .heading { font-size: 2.2rem; }
-  .faqList { gap: 20px; }
-  .faqItem { padding: 25px; }
+  .subtitle { font-size: 1.1rem; }
+  .question { font-size: 1.2rem; }
+  .glassCard { padding: 30px 25px; }
+  .iconWrapper { width: 45px; height: 45px; font-size: 1.5rem; }
+  .grid { flex-direction: column; gap: 20px; }
+  .column { gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .heading { font-size: 1.8rem; }
+  .glassCard { padding: 25px 20px; }
   .question { font-size: 1.1rem; }
+  .moreButton { padding: 18px 40px; font-size: 1.1rem; margin-top: 40px; }
 }
 
 @media (min-width: 2560px) {
-  .section {
-    max-width: 2800px;
-  }
-
-  .heading {
-    font-size: 8rem;
-    margin-bottom: 80px;
-  }
-
-  .faqList {
-    gap: 60px;
-  }
-
-  .faqItem {
-    padding: 60px;
-    border-radius: 40px;
-  }
-
-  .question {
-    font-size: 3rem;
-  }
-
-  .answer {
-    font-size: 2rem;
-    padding-top: 40px;
-  }
-
-  .icon {
-    font-size: 3rem;
-  }
+  .container { max-width: 2400px; }
+  .heading { font-size: 8rem; }
+  .subtitle { font-size: 2.2rem; }
+  .grid { gap: 80px; }
+  .column { gap: 80px; }
+  .glassCard { padding: 80px 100px; border-radius: 60px; }
+  .question { font-size: 3.5rem; }
+  .iconWrapper { width: 120px; height: 120px; font-size: 4rem; }
+  .answerContent { font-size: 2.2rem; }
+  .moreButton { font-size: 2.5rem; padding: 40px 100px; border-radius: 100px; }
 }

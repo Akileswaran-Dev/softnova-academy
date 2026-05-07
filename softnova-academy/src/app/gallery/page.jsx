@@ -1,268 +1,247 @@
 "use client";
 
-import React, { useState, useRef, useMemo } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useMotionValue } from "framer-motion";
+import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
 import {
   X,
-  Camera,
-  Users,
+  Home,
+  Search,
+  Download,
+  User,
+  Settings,
+  Bell,
+  ChevronDown,
+  Play,
+  RotateCcw,
+  Film,
   Zap,
-  Globe,
+  MoreHorizontal,
   Layout,
+  Users,
+  Layers,
   Award
 } from "lucide-react";
+import ScrollToTop from '@/components/ScrollToTop';
 import styles from "./gallery.module.css";
 
 const CATEGORIES = [
-  { id: "all", label: "All", icon: <Layout size={20} /> },
-  { id: "events", label: "Events", icon: <Zap size={20} /> },
-  { id: "interns", label: "Interns", icon: <Award size={20} /> },
-  { id: "students", label: "pupils", icon: <Users size={20} /> },
+  { id: "all", label: "All", icon: <Layout size={22} /> },
+  { id: "internship", label: "Internship", icon: <Users size={22} /> },
+  { id: "celebration", label: "Celebration", icon: <Zap size={22} /> },
+  { id: "requirements", label: "Requirements", icon: <Layers size={22} /> },
+  { id: "achievements", label: "Achievements", icon: <Award size={22} /> },
+  { id: "skill-up", label: "Skill-Up", icon: <Film size={22} /> },
 ];
 
 const GALLERY_IMAGES = [
-  // Events (cel-* and rec-*)
-  { id: 1, title: "Celebration Vibes", category: "events", img: "/gallery/cel-1.webp", size: "short" },
-  { id: 2, title: "Moments of Joy", category: "events", img: "/gallery/cel-2.webp", size: "tall" },
-  { id: 3, title: "Academy Life", category: "events", img: "/gallery/cel-3.webp", size: "short" },
-  { id: 4, title: "Team Bonding", category: "events", img: "/gallery/cel-4.webp", size: "tall" },
-  { id: 5, title: "Festival Spirit", category: "events", img: "/gallery/cel-5.webp", size: "short" },
-  { id: 6, title: "Campus Gathering", category: "events", img: "/gallery/cel-6.webp", size: "tall" },
-  { id: 7, title: "Special Event", category: "events", img: "/gallery/cel-7.webp", size: "short" },
-  { id: 8, title: "Softnova Moments", category: "events", img: "/gallery/cel-8.webp", size: "tall" },
-  { id: 9, title: "Batch Celebration", category: "events", img: "/gallery/cel-9.webp", size: "short" },
-  { id: 10, title: "Cultural Event", category: "events", img: "/gallery/cel-12.webp", size: "tall" },
-  { id: 11, title: "Academy Meetup", category: "events", img: "/gallery/cel-13.webp", size: "short" },
-  { id: 12, title: "Joyful Session", category: "events", img: "/gallery/cel-14.webp", size: "tall" },
-  { id: 13, title: "Student Interaction", category: "events", img: "/gallery/cel-15.webp", size: "short" },
-  { id: 14, title: "Evening Vibe", category: "events", img: "/gallery/cel-16.webp", size: "tall" },
-  { id: 15, title: "Memorable Day", category: "events", img: "/gallery/cel-17.webp", size: "short" },
-  { id: 16, title: "Tech Gathering", category: "events", img: "/gallery/cel-18.webp", size: "tall" },
-  { id: 17, title: "Academy Vibes", category: "events", img: "/gallery/cel-19.webp", size: "short" },
-  { id: 18, title: "Celebration 2024", category: "events", img: "/gallery/cel-20.webp", size: "tall" },
-  { id: 19, title: "Award Ceremony", category: "events", img: "/gallery/rec-1.webp", size: "short" },
-  { id: 20, title: "Achievement Day", category: "events", img: "/gallery/rec-2.webp", size: "tall" },
-  { id: 21, title: "Recognition Gala", category: "events", img: "/gallery/rec-3.webp", size: "short" },
+  // Celebrations
+  { id: 1, title: "Grand Celebration", category: "celebration", img: "/Images/gallery/cel-1.webp", desc: "A night of excellence and unity at Softnova." },
+  { id: 2, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-2.webp", desc: "Showcasing vibrant student talents." },
+  { id: 3, title: "Academy Gathering", category: "celebration", img: "/Images/gallery/cel-3.webp", desc: "Everyday moments that define our culture." },
+  { id: 4, title: "Team Spirit", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Strengthening roots through collaboration." },
+  { id: 5, title: "Success Gala", category: "celebration", img: "/Images/gallery/cel-5.webp", desc: "Celebrating our milestones together." },
+  { id: 6, title: "Unity Event", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Fostering strong bonds." },
+  { id: 7, title: "Special Moment", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Capturing the joy of achievement." },
+  { id: 8, title: "Academy Fest", category: "celebration", img: "/Images/gallery/cel-8.webp", desc: "Highlights from our annual fest." },
+  { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "The energetic atmosphere of Softnova." },
+  { id: 10, title: "Evening Gala", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "A beautiful evening of celebration." },
+  { id: 11, title: "Festive Highlights", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "Memorable event coverage." },
+  { id: 12, title: "Annual Gathering", category: "celebration", img: "/Images/gallery/cel-13.webp", desc: "Coming together as one family." },
+  { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our collective success." },
+  { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Vibrant performances and unity." },
+  { id: 15, title: "Team Dinner", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Celebrating progress." },
+  { id: 16, title: "Grand Event", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "A snapshot of excellence." },
+  { id: 17, title: "Success Party", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Honoring our high achievers." },
+  { id: 18, title: "Legacy Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Building the future together." },
+  { id: 19, title: "Holiday Fest", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Season of joy at Softnova." },
 
-  // Interns (intern-*)
-  { id: 22, title: "Intern Batch 2024", category: "interns", img: "/gallery/intern1.webp", size: "short" },
-  { id: 23, title: "Intern Team Work", category: "interns", img: "/gallery/intern2.webp", size: "tall" },
-  { id: 24, title: "Workspace Vibe", category: "interns", img: "/gallery/intern3.webp", size: "short" },
-  { id: 25, title: "Internship Project", category: "interns", img: "/gallery/intern4.webp", size: "tall" },
-  { id: 26, title: "Intern Showcase", category: "interns", img: "/gallery/intern5.webp", size: "short" },
+  // Internship & Training
+ 
+  { id: 26, title: "Learning Zone", category: "internship", img: "/Images/gallery/g3.jpeg", desc: "Focused study sessions." },
+  { id: 27, title: "Team Collab", category: "internship", img: "/Images/gallery/g4.jpeg", desc: "Collaborative development." },
+  { id: 28, title: "Tech Hub", category: "internship", img: "/Images/gallery/g6.jpeg", desc: "Where ideas come to life." },
 
-  // Students (skill-* and new image)
-  { id: 27, title: "Skill Up Session", category: "students", img: "/gallery/skill1.webp", size: "tall" },
-  { id: 28, title: "Practical Training", category: "students", img: "/gallery/skill2.webp", size: "short" },
-  { id: 29, title: "Tech Workshop", category: "students", img: "/gallery/skill3.webp", size: "tall" },
-  { id: 30, title: "Hands-on Experience", category: "students", img: "/gallery/skill4.webp", size: "short" },
-  { id: 31, title: "Learning Journey", category: "students", img: "/gallery/skill5.webp", size: "tall" },
-  { id: 32, title: "Campus Interaction", category: "students", img: "/gallery/Image20260504101812.jpg", size: "short" },
+  // Requirements & Infrastructure
+  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/rec-1.webp", desc: "State-of-the-art facilities." },
+  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/rec-2.webp", desc: "Industrial standard equipment." },
+  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/rec-3.webp", desc: "Setting benchmarks for success." },
+
+  // Achievements
+  { id: 33, title: "Excellence Award", category: "achievements", img: "/Images/gallery/award.webp", desc: "Recognized for educational leadership." },
+  { id: 34, title: "Top Performer", category: "achievements", img: "/Images/gallery/award2.webp", desc: "Celebrating our students' wins." },
+
+  // Skill-Up
+  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/skill1.webp", desc: "Intensive training for industry readiness." },
+  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/skill2.webp", desc: "Fast-tracking technical skills." },
+  { id: 37, title: "Expert Training", category: "skill-up", img: "/Images/gallery/skill3.webp", desc: "Learning from the best." },
+  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/skill4.webp", desc: "Deep dive into tech stacks." },
+  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/skill5.webp", desc: "Showcasing mastered skills." }
 ];
 
-const TiltCard = ({ img, onImageClick, idx }) => {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const rotateX = useTransform(y, [-150, 150], [15, -15]);
-  const rotateY = useTransform(x, [-150, 150], [-15, 15]);
-
-  const handleMouseMove = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set(e.clientX - centerX);
-    y.set(e.clientY - centerY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  return (
-    <motion.div
-      style={{ perspective: 1200 }}
-      className={`${styles.cardWrapper} ${styles[img.size]}`}
-      initial={{ opacity: 0, y: 80, scale: 0.9 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: (idx % 3) * 0.1 }}
-    >
-      <motion.div
-        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        onClick={() => onImageClick(img)}
-        className={styles.card}
-      >
-        <div className={styles.cardImgWrapper} style={{ transform: "translateZ(20px)" }}>
-          <Image
-            src={img.img}
-            alt={img.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 33vw"
-            className={styles.cardImg}
-          />
-        </div>
-        <div className={styles.cardOverlay} style={{ transform: "translateZ(40px)" }}>
-          <span className={styles.cardTitle}>{img.title}</span>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-};
-
-const Column = ({ images, yOffset, onImageClick }) => {
-  return (
-    <motion.div style={{ y: yOffset }} className={styles.column}>
-      {images.map((img, idx) => (
-        <TiltCard key={idx} img={img} idx={idx} onImageClick={onImageClick} />
-      ))}
-    </motion.div>
-  );
-};
-
 export default function GalleryPage() {
-  const [activeCat, setActiveCat] = useState("all");
-  const [selectedImg, setSelectedImg] = useState(null);
-  const containerRef = useRef(null);
+  const [activeTab, setActiveTab] = useState("all");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [hoveredId, setHoveredId] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [images, setImages] = useState(GALLERY_IMAGES);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  // More dramatic parallax for floating feeling
-  const smY1 = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const smY2 = useTransform(scrollYProgress, [0, 1], [0, -600]);
-  const smY3 = useTransform(scrollYProgress, [0, 1], [0, -350]);
+  const removeImage = (id) => {
+    setImages(prev => prev.filter(img => img.id !== id));
+    setSelectedImage(null);
+  };
 
   const filteredImages = useMemo(() => {
-    return activeCat === "all"
-      ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter(img => img.category === activeCat);
-  }, [activeCat]);
-
-  // Split images into 3 columns
-  const columns = useMemo(() => {
-    const cols = [[], [], []];
-    filteredImages.forEach((img, i) => {
-      cols[i % 3].push(img);
-    });
-    return cols;
-  }, [filteredImages]);
+    let base = activeTab === "all"
+      ? images
+      : images.filter(img => img.category === activeTab);
+    
+    if (searchQuery) {
+      base = base.filter(img => 
+        img.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        img.desc.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    return base;
+  }, [activeTab, searchQuery, images]);
 
   return (
-    <main className={styles.galleryPage} ref={containerRef}>
-      {/* Liquid Premium Blobs */}
+    <main className={styles.galleryPage}>
+      {/* Brand Background Blobs */}
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
       <div className={styles.blob3}></div>
-      <div className={styles.blob4}></div>
 
-      {/* Lightbox Modal */}
-      <AnimatePresence>
-        {selectedImg && (
-          <motion.div
-            className={styles.modalOverlay}
-            initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            animate={{ opacity: 1, backdropFilter: "blur(20px)" }}
-            exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            onClick={() => setSelectedImg(null)}
+      {/* Interactive Vertical Sidebar */}
+      <nav className={styles.sideDock}>
+        <div className={styles.dockInner}>
+          {CATEGORIES.map(cat => (
+            <motion.div 
+              key={cat.id}
+              className={`${styles.dockItem} ${activeTab === cat.id ? styles.dockActive : ''}`}
+              onClick={() => setActiveTab(cat.id)}
+              whileHover="hover"
+            >
+              <div className={styles.iconBox}>{cat.icon}</div>
+              <motion.span 
+                className={styles.dockLabel}
+                variants={{
+                  initial: { opacity: 0, x: -10 },
+                  hover: { opacity: 1, x: 0 }
+                }}
+                initial="initial"
+              >
+                {cat.label}
+              </motion.span>
+              {activeTab === cat.id && (
+                <motion.div layoutId="dockActiveBg" className={styles.activePill} />
+              )}
+            </motion.div>
+          ))}
+        </div>
+      </nav>
+
+      <div className={styles.container}>
+        {/* Modern Brand Header */}
+        <header className={styles.header}>
+          <motion.div 
+            className={styles.brandBadge}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
           >
-            <button className={styles.closeBtn} onClick={() => setSelectedImg(null)}>
-              <X size={32} />
-            </button>
-            <motion.div
-              className={styles.modalContent}
-              initial={{ scale: 0.8, opacity: 0, rotateY: -20 }}
-              animate={{ scale: 1, opacity: 1, rotateY: 0 }}
-              exit={{ scale: 0.8, opacity: 0, rotateY: 20 }}
-              transition={{ type: "spring", stiffness: 150, damping: 25 }}
+            OUR VISUAL JOURNEY
+          </motion.div>
+          <h1 className={styles.title}>Innovative <span>Gallery</span></h1>
+          <p className={styles.subtitle}>Capturing excellence, innovation, and academy life at Softnova.</p>
+        </header>
+
+        {/* 3D Neumorphic Search Bar */}
+        <div className={styles.controlsRow}>
+          <div className={styles.searchWrapper}>
+            <Search size={18} className={styles.searchIcon} />
+            <input 
+              type="text" 
+              placeholder="Search moments..." 
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={styles.neumorphInput}
+            />
+          </div>
+        </div>
+
+        {/* Masonry Grid */}
+        <div className={styles.bentoGrid}>
+          <AnimatePresence mode="popLayout">
+            {filteredImages.map((img, idx) => (
+              <motion.div
+                key={img.id}
+                className={styles.gridItem}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{ duration: 0.4, delay: idx * 0.02 }}
+                onMouseEnter={() => setHoveredId(img.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                onClick={() => setSelectedImage(img)}
+              >
+                <div className={styles.itemInner}>
+                  <Image 
+                    src={img.img} 
+                    alt={img.title} 
+                    fill 
+                    className={styles.gridImg}
+                    priority={idx < 4}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                    style={{ 
+                      transform: hoveredId === img.id ? 'scale(1.05)' : 'scale(1)',
+                      transition: 'transform 0.5s ease-out'
+                    }}
+                  />
+                  <div className={`${styles.itemOverlay} ${hoveredId === img.id ? styles.overlayVisible : ''}`}>
+                    <div className={styles.overlayContent}>
+                      <span className={styles.itemTag}>{img.category}</span>
+                      <h3>{img.title}</h3>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Neumorphic Lightbox Popup */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            className={styles.overlay}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              className={styles.modal}
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={styles.fullImgWrapper}>
-                <Image
-                  src={selectedImg.img}
-                  alt={selectedImg.title}
-                  fill
-                  priority
-                  className={styles.fullImg}
-                />
+              <div className={styles.modalBody}>
+                <div className={styles.modalImgWrapper}>
+                  <Image src={selectedImage.img} alt="full" fill className={styles.modalImg} />
+                </div>
               </div>
-              <div className={styles.modalFooter}>
-                <h3>{selectedImg.title}</h3>
-                <span className={styles.modalCat}>{CATEGORIES.find(c => c.id === selectedImg.category)?.label}</span>
-              </div>
+
+              {/* Top Right Close X */}
+              <button className={styles.exitIcon} onClick={() => setSelectedImage(null)}>
+                <X size={24} />
+              </button>
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <div className={styles.contentWrapper}>
-        {/* Holographic Header */}
-        <motion.header
-          className={styles.header}
-          initial={{ opacity: 0, y: -50, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
-          <div className={styles.headerGlass}>
-            <span className={styles.tagline}>OUR VISUAL JOURNEY</span>
-            <h1>Explore Softnova</h1>
-            <p>A collection of moments that define our innovative spirit and dedication to excellence.</p>
-          </div>
-        </motion.header>
-
-        {/* 3D Parallax Grid */}
-        <div className={styles.stadiumGrid}>
-          <Column images={columns[0]} yOffset={smY1} onImageClick={setSelectedImg} />
-          <Column images={columns[1]} yOffset={smY2} onImageClick={setSelectedImg} />
-          <Column images={columns[2]} yOffset={smY3} onImageClick={setSelectedImg} />
-        </div>
-
-        {/* Huge Bottom Spacer to prevent cutting off the fast parallax column */}
-        <div className={styles.bottomSpacer}></div>
-      </div>
-
-      {/* Floating Dynamic Island Dock for Filters */}
-      <motion.nav
-        className={styles.floatingDock}
-        initial={{ y: 100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 20 }}
-      >
-        <div className={styles.dockInner}>
-          <AnimatePresence>
-            {CATEGORIES.map((cat) => {
-              const isActive = activeCat === cat.id;
-              return (
-                <motion.button
-                  key={cat.id}
-                  className={`${styles.dockItem} ${isActive ? styles.dockItemActive : ""}`}
-                  onClick={() => setActiveCat(cat.id)}
-                  whileHover={{ scale: 1.1, y: -5 }}
-                  whileTap={{ scale: 0.95 }}
-                  suppressHydrationWarning
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="dockIndicator"
-                      className={styles.dockIndicator}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    />
-                  )}
-                  <span className={styles.dockIcon}>{cat.icon}</span>
-                  <span className={styles.dockLabel}>{cat.label}</span>
-                </motion.button>
-              );
-            })}
-          </AnimatePresence>
-        </div>
-      </motion.nav>
-
+      <ScrollToTop />
     </main>
   );
 }
