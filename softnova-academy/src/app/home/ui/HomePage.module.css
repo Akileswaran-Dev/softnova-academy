@@ -527,19 +527,49 @@
   box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
 }
 
+/* =========================================
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   ========================================= */
+
+/* LARGE DESKTOP (1440px) */
+@media (max-width: 1440px) {
+  .glassCard {
+    max-width: 1100px;
+    gap: 30px;
+  }
+  
+  .academyTitle {
+    font-size: 3rem;
+  }
+}
+
+/* TABLET LANDSCAPE (1200px) */
 @media (max-width: 1200px) {
   .productHero {
     padding-top: 100px;
   }
   .glassCard {
     grid-template-columns: 1fr;
+    max-width: 800px;
     padding: 60px 40px;
     margin-top: 40px;
-    gap: 40px;
+    gap: 50px;
+    text-align: center;
   }
 
   .cardLeft {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cardCenter {
+    order: -1;
+  }
+
+  .imageCircle {
+    width: 350px;
+    height: 350px;
   }
 
   .cardsGrid {
@@ -547,14 +577,19 @@
   }
 }
 
+/* TABLET PORTRAIT (1024px) */
 @media (max-width: 1024px) {
+  .productHero {
+    padding-top: 120px;
+  }
+
   .mainTitleUpper {
     font-size: 3rem;
+    top: 30px;
   }
 
   .academyTitle {
     font-size: 2.8rem;
-    text-align: center;
   }
 
   .tagline {
@@ -590,6 +625,7 @@
   }
 }
 
+/* MOBILE LARGE (768px) */
 @media (max-width: 768px) {
   .productHero {
     padding: 60px 4% 80px;
@@ -623,34 +659,17 @@
   }
 
   .academyTitle {
-    font-size: 2rem;
-    text-align: center;
+    font-size: 2.2rem;
   }
 
   .tagline {
     font-size: 1rem;
-    text-align: center;
     margin-bottom: 25px;
   }
 
-  .miniThumbnails {
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .miniBox {
-    width: 50px;
-    height: 50px;
-  }
-
-  .cardCenter {
-    order: -1;
-    margin-bottom: 10px;
-  }
-
   .imageCircle {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
   }
 
   .priceTag {
@@ -662,26 +681,25 @@
   }
 
   .techStackContainer {
-    width: 100%;
-    height: auto;
-    min-height: 180px;
+    width: 240px;
+    height: 240px;
   }
 
   .techOrbit {
-    width: 140px;
-    height: 140px;
+    width: 160px;
+    height: 160px;
   }
 
   .orbitItem {
-    width: 45px;
-    height: 45px;
-    font-size: 1.2rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(70px) rotate(calc(var(--i) * (-360deg / 5)));
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(85px) rotate(calc(var(--i) * (-360deg / 5)));
   }
 
   .joinBtn {
-    font-size: 1rem;
-    padding: 12px 24px;
+    font-size: 1.1rem;
+    padding: 14px 30px;
     width: 100%;
     max-width: 280px;
     letter-spacing: 1px;

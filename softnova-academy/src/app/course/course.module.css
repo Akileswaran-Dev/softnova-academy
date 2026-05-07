@@ -246,109 +246,83 @@
   color: #e65100;
 }
 
-@media (max-width: 992px) {
-  .courseCard {
-    flex-direction: column;
-    padding: 35px;
-    border-radius: 40px;
-    gap: 40px;
-  }
-  
-  .cardLeft {
-    width: 100%;
-    height: 200px;
-    flex: 0 0 200px;
-  }
-  
-  .actionBtn {
-    position: relative;
-    margin-top: 30px;
-    width: 100%;
-    border-radius: 20px;
-  }
-}
-
 @media (max-width: 1024px) {
-  .heroMainCard {
+  .courseCard {
+    flex-direction: column;
+    padding: 40px 30px;
+    gap: 40px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .cardLeft {
+    width: 100%;
+    max-width: 400px;
+    height: 250px;
+    flex: 0 0 250px;
+  }
+
+  .cardRight {
+    width: 100%;
+  }
+
+  .cardMeta {
+    justify-content: center;
+  }
+  
+  .curriculum {
     grid-template-columns: 1fr;
-    padding: 40px;
-    border-radius: 50px;
-  }
-  
-  .heroVisual {
-    margin-top: 40px;
-  }
-  
-  .imageCircle {
-    width: 280px;
-    height: 280px;
-  }
-  
-  .orbitContainer {
-    width: 350px;
-    height: 350px;
-  }
-  
-  .exploreBtnHero {
-    position: relative;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    margin-top: 40px;
+    gap: 15px;
   }
 
-  .courseCard {
-    flex-direction: column;
-    padding: 30px;
-    gap: 30px;
-    border-radius: 40px;
-  }
-  
-  .cardLeft {
-    width: 100%;
-    height: 200px;
-    flex: 0 0 200px;
-  }
-  
   .actionBtn {
     position: relative;
-    margin-top: 20px;
+    margin: 30px auto 0;
     width: 100%;
+    max-width: 250px;
     border-radius: 20px;
-  }
-}
-
-@media (max-width: 992px) {
-  .courseCard {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px;
-    gap: 30px;
-  }
-  
-  .cardLeft {
-    width: 100%;
-    flex: 0 0 200px;
-  }
-  
-  .actionBtn {
-    width: 50px;
-    height: 50px;
-    bottom: 30px;
-    right: 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .header h1 {
-    font-size: 2.5rem;
-  }
-  
-  .courseTitle {
-    font-size: 1.5rem;
-  }
-  
   .coursePage {
     padding-top: 100px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .header p {
+    font-size: 1rem;
+  }
+
+  .courseTitle {
+    font-size: 1.8rem;
+  }
+
+  .courseCard {
+    padding: 30px 20px;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.7rem;
+  }
+
+  .tagline {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+  }
+
+  .courseCard {
+    padding: 25px 15px;
+  }
+
+  .cardLeft {
+    height: 200px;
+    flex: 0 0 200px;
   }
 }
