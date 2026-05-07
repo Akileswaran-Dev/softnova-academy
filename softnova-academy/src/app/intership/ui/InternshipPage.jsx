@@ -226,10 +226,21 @@ const InternshipPage = () => {
 
         <div className={`${styles.grid} gsap-stagger-group`}>
           {INTERNSHIPS.map((item, index) => (
-            <div key={item.id} className={`${styles.card} gsap-card`}>
-              <div className={styles.cardHeader}>
-                <div className={styles.iconBox}>
-                  <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
+            <FloatingElement key={item.id} delay={index * 0.1}>
+              <div className={`${styles.card} gsap-card`}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.iconBox}>
+                    <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
+                  </div>
+                </div>
+                <div className={styles.cardContent}>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardText}>{item.description}</p>
+                </div>
+                <div className={styles.cardFooter}>
+                  <button className={styles.applyButton} onClick={handleApplyClick}>
+                    Apply Now
+                  </button>
                 </div>
               </div>
             </FloatingElement>

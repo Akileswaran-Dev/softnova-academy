@@ -95,10 +95,33 @@
 }
 
 @media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .heading { font-size: 3rem; }
+  .header { margin-bottom: 60px; }
 }
 
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
+  .grid { grid-template-columns: 1fr; gap: 40px; }
+  .heading { font-size: 2.2rem; }
+  .card { padding: 60px 25px; }
+  .avatarCrater { width: 160px; height: 160px; margin-bottom: 30px; }
+  .avatarRaised { width: 110px; height: 110px; font-size: 2.5rem; }
+  .name { font-size: 1.5rem; }
+  .text { font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+  .heading { font-size: 1.8rem; }
+}
+
+@media (min-width: 2560px) {
+  .container { max-width: 2800px; }
+  .heading { font-size: 8rem; }
+  .grid { gap: 100px; }
+  .card { padding: 150px 80px; border-radius: 80px; }
+  .avatarCrater { width: 350px; height: 350px; }
+  .avatarRaised { width: 250px; height: 250px; font-size: 6rem; }
+  .name { font-size: 3.5rem; }
+  .role { font-size: 1.8rem; }
+  .text { font-size: 2.2rem; }
 }
