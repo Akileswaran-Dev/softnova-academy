@@ -4,6 +4,7 @@
   padding: 60px 20px;
   font-family: 'Outfit', sans-serif;
   color: #2d3436;
+  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Background Blobs */
@@ -379,40 +380,64 @@
 }
 
 @media (max-width: 768px) {
-  .sideDock { display: none; }
+  .sideDock {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    top: auto;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%);
+    padding: 10px;
+    background: rgba(250, 245, 242, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    display: flex;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border: 1px solid rgba(255, 107, 0, 0.2);
+  }
+
+  .dockInner {
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+  }
+
+  .dockItem {
+    width: 45px;
+    height: 45px;
+    border-radius: 15px;
+  }
+
+  .dockLabel { display: none; } /* Labels would crowd the mobile dock */
+
   .container { 
     padding: 20px !important; 
-    padding-left: 20px !important; /* Ensure sidebar offset is removed */
+    padding-bottom: 100px !important; /* Space for the bottom dock */
     max-width: 100%;
   }
   
-  .header { margin-bottom: 30px; }
-  .title { font-size: 2rem; }
-  .subtitle { font-size: 0.9rem; padding: 0 10px; }
-  
-  .controlsRow { 
-    flex-direction: column; 
-    align-items: stretch; 
-    margin-bottom: 30px;
-    gap: 15px;
-  }
-  .searchWrapper { max-width: none; }
-  .neumorphInput { padding: 15px 15px 15px 50px; font-size: 0.9rem; }
+  .header { margin-bottom: 20px; }
+  .title { font-size: 1.8rem; }
+  .subtitle { font-size: 0.85rem; }
 
   .bentoGrid { 
     column-count: 1; 
-    column-gap: 0; /* Single column doesn't need gap */
+    column-gap: 0;
   }
-  .gridItem { margin-bottom: 20px; border-radius: 25px; }
-  .itemInner { padding: 8px; }
-  .gridImg { border-radius: 20px; }
 
   /* Lightbox Mobile Adjustments */
-  .overlay { padding: 10px; }
-  .modal { border-radius: 25px; border-width: 2px; }
+  .overlay { 
+    padding: 10px; 
+    z-index: 2500; /* Above the dock */
+  }
+  .modal { 
+    max-width: 95%;
+    border-radius: 20px; 
+  }
   .modalImgWrapper { aspect-ratio: 4/5; min-height: 250px; }
-  .modalImg { padding: 10px; }
-  .exitIcon { top: 10px; right: 10px; width: 40px; height: 40px; }
+  .exitIcon { top: 10px; right: 10px; width: 35px; height: 35px; }
 }
 
 /* 4K / Ultrawide Optimization */
