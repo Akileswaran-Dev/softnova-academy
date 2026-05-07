@@ -1,6 +1,6 @@
 .enrollPage {
   min-height: 100vh;
-  background-color: #f0f2f5;
+ 
   padding: 4rem 1rem;
   position: relative;
   overflow: hidden;
@@ -34,7 +34,7 @@
 
 /* Neumorphic Form Card */
 .formCard {
-  background: #f0f2f5;
+ 
   border-radius: 40px;
   padding: 3.5rem;
   box-shadow: 20px 20px 60px #d1d9e6, -20px -20px 60px #ffffff;
