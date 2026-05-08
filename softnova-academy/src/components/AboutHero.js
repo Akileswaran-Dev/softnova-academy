@@ -3,18 +3,8 @@
 import { motion } from "framer-motion";
 import { Laptop, Monitor, Smartphone, Globe, Cpu, Layout } from "lucide-react";
 import styles from "../app/about/about.module.css";
-import { useEffect, useState } from "react";
 
 export default function AboutHero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <section className={styles.hero3d}>
       {/* Background Shapes */}

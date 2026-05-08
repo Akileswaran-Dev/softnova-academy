@@ -1,10 +1,11 @@
 .galleryPage {
   width: 100%;
   position: relative;
-  padding: 60px 20px;
+  padding: 100px 20px 60px;
   font-family: 'Outfit', sans-serif;
   color: #2d3436;
 }
+
 
 /* Background Blobs */
 .blob1, .blob2, .blob3 {
@@ -31,13 +32,14 @@
 /* Interactive Vertical Sidebar */
 .sideDock {
   position: fixed;
-  left: 30px;
+  left: 40px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
   display: flex;
   flex-direction: column;
 }
+
 
 .dockInner {
   background: #faf5f2;
@@ -128,7 +130,8 @@
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  padding-left: 80px; /* Slight offset for sidebar breathing room */
+  padding-left: 140px; /* Increased offset for sidebar breathing room */
+  padding-right: 20px;
 }
 
 /* Header Section */
@@ -205,16 +208,16 @@
   transition: all 0.3s ease;
 }
 
-/* Masonry Layout */
+/* Grid Layout */
 .bentoGrid {
-  column-count: 4;
-  column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
   width: 100%;
+  align-items: start;
 }
 
 .gridItem {
-  break-inside: avoid;
-  margin-bottom: 30px;
   position: relative;
   border-radius: 35px;
   overflow: hidden;
@@ -226,10 +229,6 @@
   will-change: transform, box-shadow; /* GPU Acceleration */
 }
 
-.itemWide, .itemTall {
-  grid-column: auto;
-  grid-row: auto;
-}
 
 .itemInner {
   position: relative;
@@ -350,6 +349,57 @@
   padding: 20px;
 }
 
+.playOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 107, 0, 0.6);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  backdrop-filter: blur(4px);
+  border: 2px solid white;
+  transition: all 0.3s ease;
+}
+
+.gridItem:hover .playOverlay {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 107, 0, 0.8);
+}
+
+.videoTag {
+  background: white;
+  color: #ff6b00;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.modalVideoWrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalVideo {
+  width: 100%;
+  height: 100%;
+  max-height: 80vh;
+}
+
+
 .exitIcon {
   position: absolute;
   top: 20px;
@@ -443,6 +493,13 @@
   .modalImgWrapper { aspect-ratio: 4/5; min-height: 250px; }
   .exitIcon { top: 10px; right: 10px; width: 35px; height: 35px; }
 }
+
+@media (max-width: 320px) {
+  .title { font-size: 1.5rem !important; }
+  .subtitle { font-size: 0.75rem !important; }
+  .brandBadge { font-size: 0.65rem !important; }
+}
+
 
 /* 4K / Ultrawide Optimization */
 @media (min-width: 2560px) {

@@ -19,12 +19,13 @@ import emailjs from "@emailjs/browser";
 const ContactUsPage = () => {
   const formRef = useRef();
   const [formData, setFormData] = useState({
-  name: "",
-  email: "",
-  number: "", // 👈 change here
-  course: "",
-  message: "",
-});
+    name: "",
+    email: "",
+    phone: "",
+    course: "",
+    message: "",
+  });
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
@@ -62,7 +63,7 @@ const ContactUsPage = () => {
     Promise.all([sendAdminEmail, sendUserEmail])
       .then(() => {
         setIsSubmitted(true);
-        setFormData({ name: "", email: "", number: "", course: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", course: "", message: "" });
         setTimeout(() => setIsSubmitted(false), 5000);
       })
       .catch((error) => {
@@ -158,7 +159,9 @@ const ContactUsPage = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
+                  suppressHydrationWarning
                 />
+
               </div>
 
               <div className={styles.formGroup}>
@@ -170,18 +173,22 @@ const ContactUsPage = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
+                  suppressHydrationWarning
                 />
+
               </div>
 
               <div className={styles.formGroup}>
                 <input 
                   type="tel" 
-                  name="number"
+                  name="phone"
                   className={styles.input} 
                   placeholder="Phone Number" 
-                  value={formData.number}
+                  value={formData.phone}
                   onChange={handleInputChange}
+                  suppressHydrationWarning
                 />
+
               </div>
 
               <div className={styles.formGroup}>
@@ -191,6 +198,7 @@ const ContactUsPage = () => {
                   value={formData.course}
                   onChange={handleInputChange}
                   style={{ color: formData.course ? "var(--text-main)" : "var(--text-muted)" }}
+                  suppressHydrationWarning
                 >
                   <option value="" disabled>Course Interested In</option>
                   <option value="Full Stack Development">Full Stack Development</option>
@@ -198,6 +206,7 @@ const ContactUsPage = () => {
                   <option value="Backend Engineering">Backend Engineering</option>
                   <option value="Data Science">Data Science</option>
                 </select>
+
               </div>
 
               <div className={styles.formGroup}>
@@ -209,7 +218,9 @@ const ContactUsPage = () => {
                   value={formData.message}
                   onChange={handleInputChange}
                   required
+                  suppressHydrationWarning
                 ></textarea>
+
               </div>
 
               <motion.button 
@@ -217,10 +228,12 @@ const ContactUsPage = () => {
                 whileTap={{ scale: 0.98 }}
                 className={styles.submitBtn}
                 type="submit"
+                suppressHydrationWarning
               >
                 {isSubmitted ? "Message Sent!" : "Send Message"}
                 <Send size={18} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
               </motion.button>
+
             </form>
           </motion.div>
 

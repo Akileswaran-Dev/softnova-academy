@@ -192,7 +192,9 @@ const AboutPage = () => {
         <button
           onClick={() => setIsModalOpen(true)}
           className={styles.ctaButton}
+          suppressHydrationWarning
         >
+
           Enroll Now
         </button>
       </section>

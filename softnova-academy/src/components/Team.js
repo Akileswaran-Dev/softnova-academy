@@ -45,11 +45,14 @@ export default function Team() {
         <div className={styles.founderImageWrapper}>
           <Image
             src="/Images/about/founder.png"
-            alt="Founder & CEO"
+            alt="Our Founder"
             width={500}
             height={500}
             className={styles.founderImage}
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
           />
+
           {/* Innovative Orange Splash */}
           <motion.div 
             className={styles.orangeSplash}
@@ -106,7 +109,9 @@ export default function Team() {
                 alt={member.name}
                 fill
                 className={styles.teamImage}
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />
+
               {/* Innovative Orange Splash */}
               <motion.div 
                 className={styles.orangeSplash}

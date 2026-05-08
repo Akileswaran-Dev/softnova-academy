@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { 
   User, 
   Phone, 
@@ -16,6 +17,7 @@ import {
 import styles from "./EnrollModal.module.css";
 
 const EnrollModal = ({ isOpen, onClose }) => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -26,6 +28,7 @@ const EnrollModal = ({ isOpen, onClose }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -34,12 +37,48 @@ const EnrollModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      onClose();
-    }, 3000);
+    setIsSending(true);
+
+    // EmailJS Configuration (Using credentials from Contact page)
+    const serviceID_Admin = "service_mhfzkpa";
+    const templateID_Admin = "template_b8dvx8f";
+    const publicKey_Admin = "vpbzv8oBccUdyeqJJ";
+
+    const serviceID_User = "service_u6nzzm4";
+    const templateID_User = "template_hygmmag";
+    const publicKey_User = "QUgXsda6133_fLb1P";
+
+    // Send Admin Email
+    const sendAdminEmail = emailjs.sendForm(serviceID_Admin, templateID_Admin, formRef.current, publicKey_Admin);
+    
+    // Send User Confirmation Email
+    const sendUserEmail = emailjs.sendForm(serviceID_User, templateID_User, formRef.current, publicKey_User);
+
+    Promise.all([sendAdminEmail, sendUserEmail])
+      .then(() => {
+        setIsSubmitted(true);
+        setIsSending(false);
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          education: "",
+          course: "",
+          address: "",
+        });
+        setTimeout(() => {
+          setIsSubmitted(false);
+          onClose();
+        }, 3000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send application. Please try again.");
+        setIsSending(false);
+      });
   };
+
+
 
   return (
     <AnimatePresence>
@@ -73,7 +112,7 @@ const EnrollModal = ({ isOpen, onClose }) => {
                   <p>Fill in the details to start your journey.</p>
                 </div>
 
-                <form onSubmit={handleSubmit} className={styles.form}>
+                <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
                   <div className={styles.inputGrid}>
                     <div className={styles.inputGroup}>
                       <label><User size={16} /> Full Name</label>
@@ -158,7 +197,7 @@ const EnrollModal = ({ isOpen, onClose }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
-                    <span>Send Application</span>
+                    <span>{isSending ? "Sending..." : "Send Application"}</span>
                     <Send size={18} />
                   </motion.button>
                 </form>

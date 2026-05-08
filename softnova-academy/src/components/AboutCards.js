@@ -38,14 +38,15 @@ const features = [
 
 export default function AboutCards() {
   return (
-    <section className={styles.section} style={{ padding: "6rem 2rem", position: "relative" }}>
+    <section className={styles.section} style={{ position: "relative" }}>
       <div className="gsap-fade-up">
-        <h2 className={styles.sectionTitle} style={{ marginBottom: "1rem", fontSize: "3rem", fontWeight: "900", textAlign: "center" }}>
+        <h2 className={styles.sectionTitle}>
           Why Choose Us
         </h2>
-        <p style={{ textAlign: "center", color: "var(--text-muted)", maxWidth: "600px", margin: "0 auto 4rem", fontSize: "1.1rem" }}>
+        <p className={styles.sectionDesc}>
           We provide an immersive ecosystem designed to accelerate your growth and bridge the gap between learning and industry demands.
         </p>
+
       </div>
 
       <div className={`${styles.featureGrid} gsap-stagger-group`}>
@@ -59,63 +60,23 @@ export default function AboutCards() {
             <FloatingElement key={index} yRange={yRange} duration={duration} delay={delay}>
               <div 
                 className={`${styles.featureCard} gsap-card`}
-                style={{
-                  gridColumn: feature.colSpan,
-                  // Keep these dynamic styles inline as they differ per card
-                  background: "var(--background)",
-                  textAlign: "left",
-                  minHeight: "280px",
-                  minWidth: "280px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "flex-start",
-                  borderRadius: "40px",
-                  padding: "3rem",
-                  boxShadow: "20px 20px 40px rgba(210, 190, 170, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.9)",
-                  border: "2px solid rgba(255, 255, 255, 0.6)",
-                  position: "relative",
-                  overflow: "hidden"
-                }}
+                style={{ gridColumn: feature.colSpan }}
               >
                 {/* Decorative background circle */}
-                <div style={{
-                  position: "absolute",
-                  top: "-50px",
-                  right: "-50px",
-                  width: "200px",
-                  height: "200px",
-                  background: feature.color,
-                  opacity: 0.05,
-                  borderRadius: "50%",
-                  filter: "blur(20px)"
-                }}></div>
+                <div 
+                  className={styles.cardDecoration} 
+                  style={{ background: feature.color }} 
+                />
 
-                <div className={styles.iconWrapper} style={{
-                  background: "var(--background)",
-                  boxShadow: "inset 8px 8px 16px rgba(210, 190, 170, 0.6), inset -8px -8px 16px rgba(255, 255, 255, 1)",
-                  borderRadius: "24px",
-                  width: "80px",
-                  height: "80px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "var(--primary)",
-                  marginBottom: "1.5rem",
-                  margin: "0", 
-                  flexShrink: 0
-                }}>
+                <div className={styles.iconWrapper}>
                   {feature.icon}
                 </div>
                 
-                <h3 style={{ fontSize: "1.8rem", fontWeight: "800", color: "var(--text-main)", marginTop: "1.5rem", marginBottom: "1rem" }}>
-                  {feature.title}
-                </h3>
-                <p style={{ color: "var(--text-muted)", fontSize: "1.1rem", lineHeight: "1.6", opacity: 0.8 }}>
-                  {feature.desc}
-                </p>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
               </div>
             </FloatingElement>
+
           );
         })}
       </div>

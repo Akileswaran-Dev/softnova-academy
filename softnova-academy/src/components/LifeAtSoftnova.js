@@ -1,5 +1,7 @@
+"use client";
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+
 import Image from 'next/image';
 import { Play, X } from 'lucide-react';
 import styles from './LifeAtSoftnova.module.css';

@@ -41,7 +41,19 @@
   --font-body: clamp(0.95rem, 2vw, 1.1rem);
   
   --section-padding: clamp(3rem, 10vw, 100px);
+
+  @media (max-width: 320px) {
+    --font-h1: 1.8rem;
+    --font-h2: 1.5rem;
+    --font-h3: 1.2rem;
+    --font-body: 0.85rem;
+    --section-padding: 2.5rem;
+    --radius-lg: 30px;
+    --radius-md: 20px;
+    --radius-sm: 15px;
+  }
 }
+
 
 * {
   box-sizing: border-box;

@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import { 
   User, 
   Phone, 
@@ -15,6 +16,7 @@ import {
 import styles from "./enroll.module.css";
 
 const EnrollPage = () => {
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,6 +27,7 @@ const EnrollPage = () => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,10 +36,38 @@ const EnrollPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate submission
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsSending(true);
+
+    // EmailJS Configuration
+    const serviceID_Admin = "service_mhfzkpa";
+    const templateID_Admin = "template_b8dvx8f";
+    const publicKey_Admin = "vpbzv8oBccUdyeqJJ";
+
+    const serviceID_User = "service_u6nzzm4";
+    const templateID_User = "template_hygmmag";
+    const publicKey_User = "QUgXsda6133_fLb1P";
+
+    // Send Admin Email
+    const sendAdminEmail = emailjs.sendForm(serviceID_Admin, templateID_Admin, formRef.current, publicKey_Admin);
+    
+    // Send User Confirmation Email
+    const sendUserEmail = emailjs.sendForm(serviceID_User, templateID_User, formRef.current, publicKey_User);
+
+    Promise.all([sendAdminEmail, sendUserEmail])
+      .then(() => {
+        setIsSubmitted(true);
+        setIsSending(false);
+        setFormData({ name: "", phone: "", email: "", education: "", course: "", address: "" });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Submission failed. Please try again later.");
+        setIsSending(false);
+      });
   };
+
+
 
   return (
     <main className={styles.enrollPage}>
@@ -73,7 +104,7 @@ const EnrollPage = () => {
               </button>
             </motion.div>
           ) : (
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.inputGrid}>
                 {/* Name */}
                 <div className={styles.inputGroup}>
@@ -165,7 +196,7 @@ const EnrollPage = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>Submit Application</span>
+                <span>{isSending ? "Sending..." : "Submit Application"}</span>
                 <Send size={18} />
               </motion.button>
             </form>

@@ -36,47 +36,47 @@ const CATEGORIES = [
 
 const GALLERY_IMAGES = [
   // Celebrations
-  { id: 1, title: "Grand Celebration", category: "celebration", img: "/Images/gallery/cel-1.webp", desc: "A night of excellence and unity at Softnova." },
-  { id: 2, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-2.webp", desc: "Showcasing vibrant student talents." },
-  { id: 3, title: "Academy Gathering", category: "celebration", img: "/Images/gallery/cel-3.webp", desc: "Everyday moments that define our culture." },
-  { id: 4, title: "Team Spirit", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Strengthening roots through collaboration." },
 
-  { id: 6, title: "Unity Event", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Fostering strong bonds." },
-  { id: 7, title: "Special Moment", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Capturing the joy of achievement." },
+  { id: 2, title: "Event Gathering", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Bringing everyone together for a special occasion." },
+  { id: 3, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Showcasing talents and cultural diversity." },
+  { id: 4, title: "Unity Festival", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our collective achievements." },
+  { id: 5, title: "Office Fun", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "Spreading smiles and positivity in the workspace." },
+  { id: 6, title: "Grand Gala", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "A night to remember with the Softnova family." },
+  { id: 7, title: "Achievement Party", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our recent milestones." },
+  { id: 8, title: "Holiday Cheer", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Festive vibes and seasonal celebrations." },
+  { id: 9, title: "Team Lunch", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Good food and great conversations." },
+  { id: 10, title: "Special Recognition", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "Honoring our dedicated team members." },
+  { id: 11, title: "Legacy Event", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Building memories that last a lifetime." },
+  { id: 12, title: "Success Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Reflecting on our journey and future goals." },
+  { id: 13, title: "Annual Day", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Celebrating another year of innovation." },
+  { id: 14, title: "Gallery Highlight", category: "celebration", img: "/Images/gallery/g1.webp", desc: "Capturing the essence of Softnova." },
+  { id: 15, title: "Tech Session", category: "celebration", img: "/Images/gallery/g3.jpeg", desc: "Informal learning and tech talks." },
+  { id: 16, title: "Workshop Fun", category: "celebration", img: "/Images/gallery/g4.jpeg", desc: "Hands-on experience with a smile." },
+  { id: 17, title: "Collaboration", category: "celebration", img: "/Images/gallery/g6.jpeg", desc: "Working together towards excellence." },
 
-  { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "The energetic atmosphere of Softnova." },
+  // Internship
+  { id: 18, title: "Internship Program", category: "internship", img: "/Images/gallery/intern1.webp", desc: "Nurturing the next generation of tech leaders." },
+  { id: 19, title: "Training Session", category: "internship", img: "/Images/gallery/intern2.webp", desc: "Hands-on guidance from industry experts." },
+  { id: 20, title: "Intern Project", category: "internship", img: "/Images/gallery/intern3.webp", desc: "Building real-world applications." },
+  { id: 21, title: "Mentorship", category: "internship", img: "/Images/gallery/intern4.webp", desc: "One-on-one guidance for career growth." },
+  { id: 22, title: "Intern Graduation", category: "internship", img: "/Images/gallery/intern5.webp", desc: "Celebrating the successful completion of internship." },
 
- 
-
-  { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our collective success." },
-  { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Vibrant performances and unity." },
-  { id: 15, title: "Team Dinner", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Celebrating progress." },
-  { id: 16, title: "Grand Event", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "A snapshot of excellence." },
-  { id: 17, title: "Success Party", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Honoring our high achievers." },
-  { id: 18, title: "Legacy Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Building the future together." },
-  { id: 19, title: "Holiday Fest", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Season of joy at Softnova." },
-
-  // Internship & Training
- 
-  { id: 26, title: "Learning Zone", category: "celebration", img: "/Images/gallery/g3.jpeg", desc: "Focused study sessions." },
-  { id: 27, title: "Team Collab", category: "celebration", img: "/Images/gallery/g4.jpeg", desc: "Collaborative development." },
-  { id: 28, title: "Tech Hub", category: "celebration", img: "/Images/gallery/g6.jpeg", desc: "Where ideas come to life." },
-
-  // Requirements & Infrastructure
-  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/cel-3.webp", desc: "State-of-the-art facilities." },
-  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/cel-4.webp", desc: "Industrial standard equipment." },
-  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/cel-5.webp", desc: "Setting benchmarks for success." },
+  // Requirements
+  { id: 23, title: "Client Meeting", category: "requirements", img: "/Images/gallery/rec-1.webp", desc: "Understanding needs to deliver the best solutions." },
+  { id: 24, title: "Requirement Analysis", category: "requirements", img: "/Images/gallery/rec-2.webp", desc: "Deep dive into project specifications." },
+  { id: 25, title: "Documentation", category: "requirements", img: "/Images/gallery/rec-3.webp", desc: "Ensuring clarity and precision in every project." },
 
   // Achievements
-  { id: 33, title: "Excellence Award", category: "achievements", img: "/Images/gallery/award.webp", desc: "Recognized for educational leadership." },
-  { id: 34, title: "Top Performer", category: "achievements", img: "/Images/gallery/award2.webp", desc: "Celebrating our students' wins." },
+  { id: 26, title: "Excellence Award", category: "achievements", img: "/Images/gallery/award.webp", desc: "Recognized for our contribution to tech education." },
+  { id: 27, title: "Leadership Honor", category: "achievements", img: "/Images/gallery/award2.webp", desc: "Proudly achieving industry benchmarks." },
 
   // Skill-Up
-  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/cel-6.webp", desc: "Intensive training for industry readiness." },
-  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/cel-7.webp", desc: "Fast-tracking technical skills." },
- 
-  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/cel-9.webp", desc: "Deep dive into tech stacks." },
-  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/cel-11.webp", desc: "Showcasing mastered skills." }
+  { id: 28, title: "Skill Development", category: "skill-up", img: "/Images/gallery/skill1.webp", desc: "Expanding horizons through continuous learning." },
+  { id: 29, title: "Advanced Workshop", category: "skill-up", img: "/Images/gallery/skill2.webp", desc: "Mastering modern tech stacks." },
+  { id: 30, title: "Coding Bootcamp", category: "skill-up", img: "/Images/gallery/skill3.webp", desc: "Intensive training for industry readiness." },
+  { id: 31, title: "Design Masterclass", category: "skill-up", img: "/Images/gallery/skill4.webp", desc: "Crafting beautiful and functional interfaces." },
+  { id: 32, title: "Soft Skills Training", category: "skill-up", img: "/Images/gallery/skill5.webp", desc: "Preparing for the professional world." },
+  
 ];
 
 export default function GalleryPage() {
@@ -85,6 +85,9 @@ export default function GalleryPage() {
   const [hoveredId, setHoveredId] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState(GALLERY_IMAGES);
+
+  const [isSidebarHovered, setIsSidebarHovered] = useState(false);
+  const [hoveredTab, setHoveredTab] = useState(null);
 
   const removeImage = (id) => {
     setImages(prev => prev.filter(img => img.id !== id));
@@ -120,16 +123,15 @@ export default function GalleryPage() {
               key={cat.id}
               className={`${styles.dockItem} ${activeTab === cat.id ? styles.dockActive : ''}`}
               onClick={() => setActiveTab(cat.id)}
-              whileHover="hover"
+              onMouseEnter={() => setHoveredTab(cat.id)}
+              onMouseLeave={() => setHoveredTab(null)}
+              whileHover={{ scale: 1.05 }}
             >
               <div className={styles.iconBox}>{cat.icon}</div>
               <motion.span 
                 className={styles.dockLabel}
-                variants={{
-                  initial: { opacity: 0, x: -10 },
-                  hover: { opacity: 1, x: 0 }
-                }}
-                initial="initial"
+                animate={hoveredTab === cat.id ? { opacity: 1, x: 0, display: 'block' } : { opacity: 0, x: -10, transitionEnd: { display: 'none' } }}
+                transition={{ duration: 0.2 }}
               >
                 {cat.label}
               </motion.span>
@@ -140,6 +142,8 @@ export default function GalleryPage() {
           ))}
         </div>
       </nav>
+
+
 
       <div className={styles.container}>
         {/* Modern Brand Header */}
@@ -197,9 +201,15 @@ export default function GalleryPage() {
                       transition: 'transform 0.5s ease-out'
                     }}
                   />
+                  {img.type === 'video' && (
+                    <div className={styles.playOverlay}>
+                      <Play fill="white" size={40} />
+                    </div>
+                  )}
                   <div className={`${styles.itemOverlay} ${hoveredId === img.id ? styles.overlayVisible : ''}`}>
                     <div className={styles.overlayContent}>
                       <span className={styles.itemTag}>{img.category}</span>
+                      {img.type === 'video' && <span className={styles.videoTag}>Video</span>}
                     </div>
                   </div>
                 </div>
@@ -227,9 +237,20 @@ export default function GalleryPage() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className={styles.modalBody}>
-                <div className={styles.modalImgWrapper}>
-                  <Image src={selectedImage.img} alt="full" fill className={styles.modalImg} />
-                </div>
+                {selectedImage.type === 'video' ? (
+                  <div className={styles.modalVideoWrapper}>
+                    <video 
+                      src={selectedImage.video} 
+                      controls 
+                      autoPlay 
+                      className={styles.modalVideo}
+                    />
+                  </div>
+                ) : (
+                  <div className={styles.modalImgWrapper}>
+                    <Image src={selectedImage.img} alt="full" fill className={styles.modalImg} />
+                  </div>
+                )}
               </div>
 
               {/* Top Right Close X */}
@@ -244,3 +265,4 @@ export default function GalleryPage() {
     </div>
   );
 }
+

@@ -506,4 +506,12 @@
   .svgsicons {
     font-size: 1.8rem !important;
   }
+@media (max-width: 320px) {
+  .hero h1 { font-size: 1.4rem !important; }
+  .hero p { font-size: 0.85rem !important; }
+  .formWrapper h2 { font-size: 1.4rem !important; }
+  .cta h2 { font-size: 1.6rem !important; }
+  .ctaBtn { font-size: 0.9rem !important; padding: 1rem 2rem !important; margin-left: 0 !important; }
+  .footicons a { width: 55px !important; height: 55px !important; }
+  .svgsicons { font-size: 1.4rem !important; }
 }
