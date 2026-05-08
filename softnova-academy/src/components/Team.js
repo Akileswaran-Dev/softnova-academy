@@ -44,7 +44,7 @@ export default function Team() {
       >
         <div className={styles.founderImageWrapper}>
           <Image
-            src="/gallery/CEO.jpg"
+            src="/Images/about/founder.png"
             alt="Founder & CEO"
             width={500}
             height={500}

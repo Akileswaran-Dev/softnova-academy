@@ -4,7 +4,6 @@
   padding: 60px 20px;
   font-family: 'Outfit', sans-serif;
   color: #2d3436;
-  overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* Background Blobs */

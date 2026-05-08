@@ -396,8 +396,19 @@
 /* Features Section */
 .featureGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .featureGrid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
 }
 
 .featureCard {
@@ -408,6 +419,13 @@
   transition: all 0.3s ease;
   border: 1px solid rgba(255,255,255,0.3);
   text-align: center;
+}
+
+@media (max-width: 900px) {
+  .featureCard {
+    min-height: auto !important;
+    padding: 2rem !important;
+  }
 }
 
 .featureCard:hover {

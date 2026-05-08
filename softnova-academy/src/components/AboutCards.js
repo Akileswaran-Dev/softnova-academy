@@ -48,15 +48,7 @@ export default function AboutCards() {
         </p>
       </div>
 
-      <div style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(12, 1fr)",
-        gap: "2rem",
-        position: "relative",
-        zIndex: 2,
-        maxWidth: "1200px",
-        margin: "0 auto"
-      }} className="gsap-stagger-group">
+      <div className={`${styles.featureGrid} gsap-stagger-group`}>
         {features.map((feature, index) => {
           // Subtle floating animations
           const yRange = index % 2 === 0 ? [8, -8] : [12, -12];
@@ -69,24 +61,21 @@ export default function AboutCards() {
                 className={`${styles.featureCard} gsap-card`}
                 style={{
                   gridColumn: feature.colSpan,
-                  height: "100%",
+                  // Keep these dynamic styles inline as they differ per card
+                  background: "var(--background)",
+                  textAlign: "left",
+                  minHeight: "280px",
+                  minWidth: "280px",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "center",
                   alignItems: "flex-start",
-                  background: "var(--background)",
                   borderRadius: "40px",
                   padding: "3rem",
                   boxShadow: "20px 20px 40px rgba(210, 190, 170, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.9)",
                   border: "2px solid rgba(255, 255, 255, 0.6)",
                   position: "relative",
-                  overflow: "hidden",
-                  textAlign: "left",
-                  minHeight: "280px",
-                  // Responsive handling (override for mobile via standard flex behavior in a container)
-                  // For simplicity in inline styles, we assume desktop first. CSS grid usually collapses nicely if parent uses minmax, but since we use repeat(12), we rely on media queries normally.
-                  // We'll enforce a min-width to ensure it doesn't squish too much on tablet before breaking.
-                  minWidth: "280px"
+                  overflow: "hidden"
                 }}
               >
                 {/* Decorative background circle */}
@@ -113,7 +102,7 @@ export default function AboutCards() {
                   justifyContent: "center",
                   color: "var(--primary)",
                   marginBottom: "1.5rem",
-                  margin: "0", // Override margin auto
+                  margin: "0", 
                   flexShrink: 0
                 }}>
                   {feature.icon}
@@ -130,20 +119,6 @@ export default function AboutCards() {
           );
         })}
       </div>
-      
-      {/* Responsive fix for grid: Force block on small screens */}
-      <style jsx>{`
-        @media (max-width: 900px) {
-          .gsap-stagger-group {
-            display: flex !important;
-            flex-direction: column !important;
-          }
-          .gsap-card {
-            min-height: auto !important;
-            padding: 2rem !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

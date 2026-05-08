@@ -34,25 +34,41 @@ const ContactUsPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    if (formData.name && formData.email) {
-      emailjs.sendForm(
-        "service_7pm66nn",
-        "template_e4yvn0c",
-        formRef.current,
-        "TFYCoxnoh3Oi4SMYl"
-      ).then(
-        () => {
-          setIsSubmitted(true);
-          setFormData({ name: "", email: "", number: "", course: "", message: "" });
-          setTimeout(() => setIsSubmitted(false), 5000);
-        },
-        (error) => {
-          console.error("Failed to send email:", error);
-          alert("EmailJS Error: " + (error.text || error.message || "Unknown error"));
-        }
-      );
-    }
+
+    if (!formData.name || !formData.email) return;
+
+    // Correct Credentials from your Dashboard
+    const serviceID = "service_mhfzkpa";
+    const templateID_Admin = "template_e4yvn0c";
+    const templateID_User = "template_hygmmag"; // Ensure this exists in your EmailJS
+    const publicKey = "TFYCoxnoh3Oi4SMYl";
+
+    // 1st email (Admin)
+    const sendAdminEmail = emailjs.sendForm(
+      "service_mhfzkpa",
+      "template_b8dvx8f",
+      formRef.current,
+      "vpbzv8oBccUdyeqJJ"
+    );
+
+    // 2nd email (User confirmation)
+    const sendUserEmail = emailjs.sendForm(
+      "service_u6nzzm4",
+      "template_hygmmag",
+      formRef.current,
+      "QUgXsda6133_fLb1P"
+    );
+
+    Promise.all([sendAdminEmail, sendUserEmail])
+      .then(() => {
+        setIsSubmitted(true);
+        setFormData({ name: "", email: "", number: "", course: "", message: "" });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to send email: " + (error.text || error.message));
+      });
   };
 
   return (

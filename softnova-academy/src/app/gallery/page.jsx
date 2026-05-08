@@ -40,14 +40,14 @@ const GALLERY_IMAGES = [
   { id: 2, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-2.webp", desc: "Showcasing vibrant student talents." },
   { id: 3, title: "Academy Gathering", category: "celebration", img: "/Images/gallery/cel-3.webp", desc: "Everyday moments that define our culture." },
   { id: 4, title: "Team Spirit", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Strengthening roots through collaboration." },
-  { id: 5, title: "Success Gala", category: "celebration", img: "/Images/gallery/cel-5.webp", desc: "Celebrating our milestones together." },
+
   { id: 6, title: "Unity Event", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Fostering strong bonds." },
   { id: 7, title: "Special Moment", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Capturing the joy of achievement." },
-  { id: 8, title: "Academy Fest", category: "celebration", img: "/Images/gallery/cel-8.webp", desc: "Highlights from our annual fest." },
+
   { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "The energetic atmosphere of Softnova." },
-  { id: 10, title: "Evening Gala", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "A beautiful evening of celebration." },
+
   { id: 11, title: "Festive Highlights", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "Memorable event coverage." },
-  { id: 12, title: "Annual Gathering", category: "celebration", img: "/Images/gallery/cel-13.webp", desc: "Coming together as one family." },
+
   { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our collective success." },
   { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Vibrant performances and unity." },
   { id: 15, title: "Team Dinner", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Celebrating progress." },
@@ -106,7 +106,7 @@ export default function GalleryPage() {
   }, [activeTab, searchQuery, images]);
 
   return (
-    <main className={styles.galleryPage}>
+    <div className={styles.galleryPage}>
       {/* Brand Background Blobs */}
       <div className={styles.blob1}></div>
       <div className={styles.blob2}></div>
@@ -200,7 +200,6 @@ export default function GalleryPage() {
                   <div className={`${styles.itemOverlay} ${hoveredId === img.id ? styles.overlayVisible : ''}`}>
                     <div className={styles.overlayContent}>
                       <span className={styles.itemTag}>{img.category}</span>
-                      <h3>{img.title}</h3>
                     </div>
                   </div>
                 </div>
@@ -242,6 +241,6 @@ export default function GalleryPage() {
         )}
       </AnimatePresence>
       <ScrollToTop />
-    </main>
+    </div>
   );
 }
