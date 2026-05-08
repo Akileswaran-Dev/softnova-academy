@@ -140,10 +140,6 @@ const FAQSection = () => {
 
   const visibleFaqs = showAll ? FAQS : FAQS.slice(0, 6);
 
-  // Split into left and right columns to fix the grid row stretching issue
-  const leftColumnFaqs = visibleFaqs.map((faq, index) => ({ faq, originalIndex: index })).filter((_, index) => index % 2 === 0);
-  const rightColumnFaqs = visibleFaqs.map((faq, index) => ({ faq, originalIndex: index })).filter((_, index) => index % 2 !== 0);
-
   const renderFaq = ({ faq, originalIndex }) => {
     const isOpen = openId === faq.id;
     const numberString = String(originalIndex + 1).padStart(2, '0');
@@ -199,14 +195,9 @@ const FAQSection = () => {
           </p>
         </div>
 
-        {/* Flex Columns - Accordion */}
+        {/* Grid Accordion */}
         <div className={styles.grid}>
-          <div className={styles.column}>
-            {leftColumnFaqs.map(renderFaq)}
-          </div>
-          <div className={styles.column}>
-            {rightColumnFaqs.map(renderFaq)}
-          </div>
+          {visibleFaqs.map((faq, index) => renderFaq({ faq, originalIndex: index }))}
         </div>
 
         {/* Action Button */}

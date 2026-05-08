@@ -101,7 +101,7 @@ const CoursesSection = () => {
                     <h3 className={styles.courseTitle}>{course.title}</h3>
                     <p className={styles.courseDesc}>{course.description}</p>
                     <Link href={`/course/${course.slug}`}>
-                      <button className={styles.viewBtn}>Learn More</button>
+                      <span className={styles.viewBtn}>Learn More</span>
                     </Link>
                   </div>
                 </div>

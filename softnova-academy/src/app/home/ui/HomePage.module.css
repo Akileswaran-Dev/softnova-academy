@@ -787,6 +787,43 @@
   }
 }
 
+@media (max-width: 320px) {
+  .productHero {
+    padding: 30px 2% 40px;
+  }
+  .main {
+    padding: 10px 3%;
+    gap: 15px;
+  }
+  .cardsSection {
+    margin: 10px auto 30px;
+    padding: 0 3%;
+  }
+  .cardsTitle {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+  }
+  .featureCard {
+    padding: 25px 15px;
+    gap: 10px;
+  }
+  .cardIconRow {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
+  .featureCard h4 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .featureCard p {
+    font-size: 0.75rem;
+    margin: 0;
+  }
+}
+
+
 /* ===== 4K / ULTRAWIDE (2560px+) ===== */
 @media (min-width: 2560px) {
   .productHero {

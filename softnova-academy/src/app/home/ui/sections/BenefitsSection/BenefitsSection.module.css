@@ -109,6 +109,46 @@
   .section { padding: 40px 4%; }
 }
 
+@media (max-width: 320px) {
+  .section {
+    padding: 10px 4%;
+  }
+  .header {
+    margin-bottom: 20px;
+  }
+  .heading {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  .lead {
+    font-size: 0.9rem;
+  }
+  .grid {
+    gap: 40px; /* Reduced gap between stacked cards */
+  }
+  .card {
+    padding: 60px 20px 30px;
+  }
+  .iconCircle {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+    left: 20px;
+  }
+  .iconInner {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+  .cardDesc {
+    font-size: 0.85rem;
+  }
+}
+
+
 @media (min-width: 2560px) {
   .section { max-width: 2800px; padding: 100px 5%; }
   .heading { font-size: 8rem; }

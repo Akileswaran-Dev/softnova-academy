@@ -114,6 +114,39 @@
   .heading { font-size: 1.8rem; }
 }
 
+@media (max-width: 320px) {
+  .section {
+    padding: 10px 0;
+  }
+  .heading {
+    font-size: 1.4rem;
+  }
+  .card {
+    padding: 30px 15px;
+  }
+  .avatarCrater {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+  }
+  .avatarRaised {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+  }
+  .name {
+    font-size: 1.1rem;
+  }
+  .role {
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+  .text {
+    font-size: 0.9rem;
+  }
+}
+
+
 @media (min-width: 2560px) {
   .container { max-width: 2800px; }
   .heading { font-size: 8rem; }
