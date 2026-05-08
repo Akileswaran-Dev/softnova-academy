@@ -357,6 +357,8 @@
   box-shadow: var(--neumorph-shadow-sm);
   transition: all 0.3s;
   text-transform: uppercase;
+  max-width: 500px;
+  margin-left: 25%;
 }
 
 .ctaBtn:hover {

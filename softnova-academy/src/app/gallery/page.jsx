@@ -46,7 +46,7 @@ const GALLERY_IMAGES = [
 
   { id: 9, title: "Group Joy", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "The energetic atmosphere of Softnova." },
 
-  { id: 11, title: "Festive Highlights", category: "celebration", img: "/Images/gallery/cel-12.webp", desc: "Memorable event coverage." },
+ 
 
   { id: 13, title: "Celebration Night", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our collective success." },
   { id: 14, title: "Cultural Day", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Vibrant performances and unity." },
@@ -58,25 +58,25 @@ const GALLERY_IMAGES = [
 
   // Internship & Training
  
-  { id: 26, title: "Learning Zone", category: "internship", img: "/Images/gallery/g3.jpeg", desc: "Focused study sessions." },
-  { id: 27, title: "Team Collab", category: "internship", img: "/Images/gallery/g4.jpeg", desc: "Collaborative development." },
-  { id: 28, title: "Tech Hub", category: "internship", img: "/Images/gallery/g6.jpeg", desc: "Where ideas come to life." },
+  { id: 26, title: "Learning Zone", category: "celebration", img: "/Images/gallery/g3.jpeg", desc: "Focused study sessions." },
+  { id: 27, title: "Team Collab", category: "celebration", img: "/Images/gallery/g4.jpeg", desc: "Collaborative development." },
+  { id: 28, title: "Tech Hub", category: "celebration", img: "/Images/gallery/g6.jpeg", desc: "Where ideas come to life." },
 
   // Requirements & Infrastructure
-  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/rec-1.webp", desc: "State-of-the-art facilities." },
-  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/rec-2.webp", desc: "Industrial standard equipment." },
-  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/rec-3.webp", desc: "Setting benchmarks for success." },
+  { id: 30, title: "Campus Infrastructure", category: "requirements", img: "/Images/gallery/cel-3.webp", desc: "State-of-the-art facilities." },
+  { id: 31, title: "Lab Setup", category: "requirements", img: "/Images/gallery/cel-4.webp", desc: "Industrial standard equipment." },
+  { id: 32, title: "Requirements Meet", category: "requirements", img: "/Images/gallery/cel-5.webp", desc: "Setting benchmarks for success." },
 
   // Achievements
   { id: 33, title: "Excellence Award", category: "achievements", img: "/Images/gallery/award.webp", desc: "Recognized for educational leadership." },
   { id: 34, title: "Top Performer", category: "achievements", img: "/Images/gallery/award2.webp", desc: "Celebrating our students' wins." },
 
   // Skill-Up
-  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/skill1.webp", desc: "Intensive training for industry readiness." },
-  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/skill2.webp", desc: "Fast-tracking technical skills." },
-  { id: 37, title: "Expert Training", category: "skill-up", img: "/Images/gallery/skill3.webp", desc: "Learning from the best." },
-  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/skill4.webp", desc: "Deep dive into tech stacks." },
-  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/skill5.webp", desc: "Showcasing mastered skills." }
+  { id: 35, title: "Skill Enhancement", category: "skill-up", img: "/Images/gallery/cel-6.webp", desc: "Intensive training for industry readiness." },
+  { id: 36, title: "Bootcamp Session", category: "skill-up", img: "/Images/gallery/cel-7.webp", desc: "Fast-tracking technical skills." },
+ 
+  { id: 38, title: "Masterclass", category: "skill-up", img: "/Images/gallery/cel-9.webp", desc: "Deep dive into tech stacks." },
+  { id: 39, title: "Final Project", category: "skill-up", img: "/Images/gallery/cel-11.webp", desc: "Showcasing mastered skills." }
 ];
 
 export default function GalleryPage() {

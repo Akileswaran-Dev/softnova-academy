@@ -94,6 +94,11 @@
   box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
 }
 
+.labelVisible {
+  opacity: 1 !important;
+  transform: translateX(0) scale(1) !important;
+}
+
 .dockLabel::before {
   content: '';
   position: absolute;
