@@ -1,15 +1,62 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import Link from 'next/link';
+import emailjs from "@emailjs/browser";
+import { CheckCircle2, Send } from "lucide-react";
 import styles from './Footer.module.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const formRef = useRef();
+  const [email, setEmail] = useState("");
+  const [isSending, setIsSending] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubscribe = (e) => {
+  const handleJoin = (e) => {
     e.preventDefault();
-    alert("Thank you for subscribing!");
+    if (!email) return;
+    
+    setIsSending(true);
+
+    // EmailJS Configuration (Consistent with Enroll/Contact pages)
+    const serviceID_Admin = "service_mhfzkpa";
+    const templateID_Admin = "template_b8dvx8f";
+    const publicKey_Admin = "vpbzv8oBccUdyeqJJ";
+
+    const serviceID_User = "service_u6nzzm4";
+    const templateID_User = "template_hygmmag";
+    const publicKey_User = "QUgXsda6133_fLb1P";
+
+    // Prepare template parameters for a "Quick Join" from Footer
+    const templateParams = {
+      name: "Footer Subscriber",
+      email: email,
+      phone: "Not provided (Footer Join)",
+      education: "N/A",
+      course: "Quick Interest from Footer",
+      address: "N/A",
+      message: `Someone clicked 'Join' from the website footer with email: ${email}`
+    };
+
+    // Send Admin Email
+    const sendAdminEmail = emailjs.send(serviceID_Admin, templateID_Admin, templateParams, publicKey_Admin);
+    
+    // Send User Welcome Email
+    const sendUserEmail = emailjs.send(serviceID_User, templateID_User, templateParams, publicKey_User);
+
+    Promise.all([sendAdminEmail, sendUserEmail])
+      .then(() => {
+        setIsSubmitted(true);
+        setIsSending(false);
+        setEmail("");
+        setTimeout(() => setIsSubmitted(false), 5000);
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        alert("Failed to join. Please try again.");
+        setIsSending(false);
+      });
   };
 
   return (
@@ -49,7 +96,6 @@ const Footer = () => {
               <li><Link href="/course">Our Courses</Link></li>
               <li><Link href="/#faq">Our FAQ</Link></li>
               <li><Link href="/gallery">Gallery</Link></li>
-              <li><Link href="/course">Courses</Link></li>
             </ul>
           </div>
 
@@ -60,18 +106,38 @@ const Footer = () => {
               <li><Link href="/#achievements">Achievement</Link></li>
               <li><Link href="/#about">Our Goals</Link></li>
               <li><Link href="/intership">Internship</Link></li>
-              <li><Link href="/contact us">Contact Us</Link></li>
+              <li><Link href="/contact-us">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Newsletter Column - The "More" part */}
+          {/* Newsletter Column */}
           <div className={styles.newsletterCol}>
             <h4 className={styles.heading}>Stay Updated</h4>
-            <p className={styles.newsletterText}>Subscribe to get the latest updates on courses and workshops.</p>
-            <form className={styles.newsletterForm} onSubmit={handleSubscribe}>
-              <input type="email" placeholder="Your email address" className={styles.input} suppressHydrationWarning required />
-              <button type="submit" className={styles.subscribeBtn} suppressHydrationWarning>Join</button>
-            </form>
+            <p className={styles.newsletterText}>Enter your email to receive our welcome package and latest updates.</p>
+            
+            <div className={styles.newsletterContainer}>
+              {isSubmitted ? (
+                <div className={styles.successMessage}>
+                  <CheckCircle2 size={24} color="#ff7c30" />
+                  <span>Welcome to Softnova!</span>
+                </div>
+              ) : (
+                <form className={styles.newsletterForm} onSubmit={handleJoin}>
+                  <input 
+                    type="email" 
+                    placeholder="Your email address" 
+                    className={styles.input} 
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required 
+                  />
+                  <button type="submit" className={styles.subscribeBtn} disabled={isSending}>
+                    {isSending ? "..." : "Join"}
+                  </button>
+                </form>
+              )}
+            </div>
+
             <div className={styles.socials}>
               <h4 className={styles.socialHeading}>Social Profiles</h4>
               <div className={styles.socialIcons}>
@@ -85,7 +151,7 @@ const Footer = () => {
                   <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.025-3.041-1.852-3.041-1.854 0-2.138 1.448-2.138 2.944v5.701h-3v-11h2.882v1.503h.041c.4-.759 1.381-1.558 2.836-1.558 3.033 0 3.593 1.996 3.593 4.591v6.464z"></path></svg>
                 </a>
                 <a href="#" aria-label="Instagram" className={styles.socialIcon}>
-                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                  <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                     <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>

@@ -171,6 +171,37 @@
   box-shadow: var(--neumorph-inset-sm);
 }
 
+.subscribeBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.newsletterContainer {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.successMessage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  background: var(--background);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--neumorph-inset-sm);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.95rem;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .socialHeading {
   font-size: 0.95rem;
   font-weight: 700;
