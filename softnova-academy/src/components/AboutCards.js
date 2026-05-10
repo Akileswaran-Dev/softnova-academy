@@ -58,10 +58,7 @@ export default function AboutCards() {
 
           return (
             <FloatingElement key={index} yRange={yRange} duration={duration} delay={delay}>
-              <div 
-                className={`${styles.featureCard} gsap-card`}
-                style={{ gridColumn: feature.colSpan }}
-              >
+              <div className={`${styles.featureCard} gsap-card`}>
                 {/* Decorative background circle */}
                 <div 
                   className={styles.cardDecoration} 

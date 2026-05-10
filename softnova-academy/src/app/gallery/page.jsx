@@ -49,7 +49,7 @@ const GALLERY_IMAGES = [
   { id: 11, title: "Legacy Event", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Building memories that last a lifetime." },
   { id: 12, title: "Success Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Reflecting on our journey and future goals." },
   { id: 13, title: "Annual Day", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Celebrating another year of innovation." },
-  { id: 14, title: "Gallery Highlight", category: "celebration", img: "/Images/gallery/g1.webp", desc: "Capturing the essence of Softnova." },
+  { id: 14, title: "Gallery Highlight", category: "celebration", img: "/Images/gallery/g1.jpeg   ", desc: "Capturing the essence of Softnova." },
   { id: 15, title: "Tech Session", category: "celebration", img: "/Images/gallery/g3.jpeg", desc: "Informal learning and tech talks." },
   { id: 16, title: "Workshop Fun", category: "celebration", img: "/Images/gallery/g4.jpeg", desc: "Hands-on experience with a smile." },
   { id: 17, title: "Collaboration", category: "celebration", img: "/Images/gallery/g6.jpeg", desc: "Working together towards excellence." },

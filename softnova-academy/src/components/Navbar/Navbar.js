@@ -28,6 +28,19 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      // Stop Lenis smooth scroll when mobile menu is open
+      if (window.__lenis) window.__lenis.stop();
+    } else {
+      // Resume Lenis smooth scroll when mobile menu is closed
+      if (window.__lenis) window.__lenis.start();
+    }
+    return () => {
+      if (window.__lenis) window.__lenis.start();
+    };
+  }, [isOpen]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
