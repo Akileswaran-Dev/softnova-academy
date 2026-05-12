@@ -438,6 +438,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 @media (max-width: 900px) {
@@ -551,7 +552,6 @@
 }
 
 .statItem p {
-  font-size: 1.1rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -761,6 +761,35 @@
   text-align: center;
 }
 
+.readMoreBtn {
+  background: none;
+  border: none;
+  color: var(--primary, #ff6b00);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 4px;
+  text-decoration: underline;
+  display: inline;
+  transition: opacity 0.2s;
+}
+
+.readMoreBtn:hover {
+  opacity: 0.75;
+}
+
+.bioWrapper, .founderBioWrapper {
+  width: 100%;
+  display: block;
+}
+
+/* Ensure cards handle layout changes smoothly */
+.teamCard, .founderSection {
+  overflow: hidden;
+  will-change: transform, height;
+}
+
 
 .teamInfo h3 {
   font-size: 1.6rem;
@@ -914,7 +943,7 @@
   .section { padding: 40px 5% !important; }
   .statsSection { padding: 30px 4% !important; }
   .statItem { padding: 1rem !important; border-radius: 20px; }
-  .statItem h3 { font-size: 2rem !important; }
+  .statItem h3 { font-size: 1.5rem !important; }
   .featureCard { 
     grid-column: span 1 !important; 
     padding: 1.5rem !important; 
@@ -923,7 +952,8 @@
   }
   .featureCard h3 { font-size: 1.4rem !important; }
   .featureCard p { font-size: 0.9rem !important; }
-  .iconWrapper { width: 55px !important; height: 55px !important; margin-bottom: 1rem !important; }
+  .iconWrapper { width: 45px !important; height: 45px !important; margin-bottom: 1rem !important; }
+  .iconWrapper svg { width: 22px !important; height: 22px !important; }
   .centralScreenWrapper { height: 320px; border-radius: 20px; }
   .screenInner { padding: 20px 10px; }
   .mainTitle { font-size: 1.3rem; }
@@ -946,7 +976,7 @@
   .statsSection { padding: 20px 4% !important; }
   .statItem { padding: 0.8rem !important; }
   .statItem h3 { font-size: 1.6rem !important; }
-  .statItem p { font-size: 0.7rem !important; }
+  .statItem p { font-size: 5px !important; }
   .sectionTitle { font-size: 1.5rem; margin-bottom: 1rem !important; }
   .sectionDesc { margin-bottom: 2rem !important; font-size: 0.9rem !important; }
   .featureCard { padding: 1.2rem !important; }

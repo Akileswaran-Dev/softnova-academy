@@ -102,44 +102,7 @@ const ContactUsPage = () => {
           </div>
         </section>
 
-        {/* 2. CONTACT CARDS */}
-        <section className={styles.cardsSection}>
-          {[
-            {
-              icon: <MapPin />,
-              title: "Our Location",
-              desc: "Softnova Apartment, Peravurani, TN",
-              delay: 0.1
-            },
-            {
-              icon: <Mail />,
-              title: "Email Us",
-              desc: "info@softnovatechnology.com",
-              delay: 0.2
-            },
-            {
-              icon: <Phone />,
-              title: "Call Us",
-              desc: "+91 6385118083",
-              delay: 0.3
-            }
-          ].map((card, i) => (
-            <motion.div
-              key={i}
-              className={styles.card}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: card.delay }}
-            >
-              <div className={styles.cardIcon}>{card.icon}</div>
-              <h3>{card.title}</h3>
-              <p>{card.desc}</p>
-            </motion.div>
-          ))}
-        </section>
-
-        {/* 3. SPLIT SECTION (Form + Preview) */}
+        {/* 2. SPLIT SECTION (Form + Contact Info) */}
         <section className={styles.splitSection}>
           {/* Left: Form */}
           <motion.div
@@ -150,45 +113,55 @@ const ContactUsPage = () => {
           >
             <h2>Send us a Message</h2>
             <form ref={formRef} onSubmit={handleSubmit}>
-              <div className={styles.formGroup}>
-                <input
-                  type="text"
-                  name="name"
-                  className={styles.input}
-                  placeholder="Full Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  suppressHydrationWarning
-                />
-
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <input
+                    type="text"
+                    name="name"
+                    className={styles.input}
+                    placeholder="Enter First Name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    suppressHydrationWarning
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <input
+                    type="text"
+                    name="lastName"
+                    className={styles.input}
+                    placeholder="Enter Last Name"
+                    onChange={handleInputChange}
+                    suppressHydrationWarning
+                  />
+                </div>
               </div>
 
-              <div className={styles.formGroup}>
-                <input
-                  type="email"
-                  name="email"
-                  className={styles.input}
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  suppressHydrationWarning
-                />
-
-              </div>
-
-              <div className={styles.formGroup}>
-                <input
-                  type="tel"
-                  name="phone"
-                  className={styles.input}
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  suppressHydrationWarning
-                />
-
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <input
+                    type="email"
+                    name="email"
+                    className={styles.input}
+                    placeholder="Enter your Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    suppressHydrationWarning
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <input
+                    type="tel"
+                    name="phone"
+                    className={styles.input}
+                    placeholder="Enter Phone Number"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    suppressHydrationWarning
+                  />
+                </div>
               </div>
 
               <div className={styles.formGroup}>
@@ -200,84 +173,91 @@ const ContactUsPage = () => {
                   style={{ color: formData.course ? "var(--text-main)" : "var(--text-muted)" }}
                   suppressHydrationWarning
                 >
-                  <option value="" disabled>Course Interested In</option>
+                  <option value="" disabled>Please Select Your Course</option>
                   <option value="Full Stack Development">Full Stack Development</option>
                   <option value="UI/UX Design">UI/UX Design</option>
                   <option value="Backend Engineering">Backend Engineering</option>
                   <option value="Data Science">Data Science</option>
                 </select>
-
               </div>
 
               <div className={styles.formGroup}>
                 <textarea
                   name="message"
                   className={styles.textarea}
-                  rows="4"
-                  placeholder="Your Message"
+                  rows="6"
+                  placeholder="Enter your Message here..."
                   value={formData.message}
                   onChange={handleInputChange}
                   required
                   suppressHydrationWarning
                 ></textarea>
-
               </div>
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={styles.submitBtn}
+                className={styles.submitBtnOrange}
                 type="submit"
                 suppressHydrationWarning
               >
-                {isSubmitted ? "Message Sent!" : "Send Message"}
-                <Send size={18} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
+                {isSubmitted ? "Message Sent!" : "Send Your Message"}
               </motion.button>
-
             </form>
           </motion.div>
 
-          {/* Right: Live Preview */}
-          <motion.div
-            className={styles.previewCard}
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className={styles.previewHeader}>
-              <div className={styles.previewDot} />
-              <h3 style={{ margin: 0 }}>Live Preview</h3>
-            </div>
+          {/* Right: Info Cards Stack */}
+          <div className={styles.infoStack}>
+            {[
+              {
+                icon: <Mail />,
+                title: "Email Us",
+                desc: "info@softnovatechnology.com",
+                delay: 0.1
+              },
+              {
+                icon: <Phone />,
+                title: "Call Us",
+                desc: "+91 6385118083",
+                delay: 0.2
+              },
+              {
+                icon: <MapPin />,
+                title: "Our Location",
+                desc: "1st Floor, Softnova Apartment, Peravurani, TN",
+                delay: 0.3
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                className={styles.infoCard}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: card.delay }}
+              >
+                <div className={styles.cardIcon}>{card.icon}</div>
+                <p className={styles.infoDesc}>{card.desc}</p>
+              </motion.div>
+            ))}
 
-            <div className={styles.previewItem}>
-              <div className={styles.previewLabel}>Name</div>
-              <div className={styles.previewValue}>{formData.name || "Your Name..."}</div>
-            </div>
-
-            <div className={styles.previewItem}>
-              <div className={styles.previewLabel}>Email</div>
-              <div className={styles.previewValue}>{formData.email || "hello@example.com"}</div>
-            </div>
-
-            <div className={styles.previewItem}>
-              <div className={styles.previewLabel}>Course</div>
-              <div className={styles.previewValue}>{formData.course || "Selecting a path..."}</div>
-            </div>
-
-            <div className={styles.previewItem}>
-              <div className={styles.previewLabel}>Message</div>
-              <div className={styles.previewValue} style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
-                {formData.message || "Start typing your thoughts..."}
+            {/* Social Profiles Card */}
+            <motion.div
+              className={styles.infoCard}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <h4 className={styles.socialHeading}>Social Profiles</h4>
+              <div className={styles.socialGridSmall}>
+                <a href="https://facebook.com/..." target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
+                <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer"><MessageSquare size={20} /></a>
+                <a href="https://linkedin.com/..." target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+                <a href="https://instagram.com/..." target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
               </div>
-            </div>
-
-            <div style={{ marginTop: "3rem", padding: "1.5rem", borderRadius: "16px", boxShadow: "inset 4px 4px 8px var(--dark-shadow), inset -4px -4px 8px var(--light-shadow)" }}>
-              <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
-                <CheckCircle2 size={24} color="var(--primary)" />
-                <p style={{ margin: 0, fontSize: "0.9rem" }}>We usually respond within 24 hours.</p>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </section>
 
         {/* 4. GOOGLE MAP */}
@@ -305,44 +285,6 @@ const ContactUsPage = () => {
           </motion.div>
         </section>
 
-        {/* 5. SOCIAL CONNECT */}
-        <section className={styles.socialSection}>
-          <h2>Connect With Us</h2>
-          <div className={styles.footicons}>
-            <a
-              href="https://www.facebook.com/people/Softnovatech/61561099109544/?mibextid=qi2Omg&rdid=6hL55dQqxi67yKIS&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2Ft1ufRjHfuJA6jfxE%2F%3Fmibextid%3Dqi2Omg"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Facebook page"
-            >
-              <Facebook className={styles.svgsicons} />
-            </a>
-            <a
-              href="https://api.whatsapp.com/send/?phone=6385118083&text&type=phone_number&app_absent=0"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Whatsapp page"
-            >
-              <MessageSquare className={styles.svgsicons} />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/softnovatechnology/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our LinkedIn page"
-            >
-              <Linkedin className={styles.svgsicons} />
-            </a>
-            <a
-              href="https://www.instagram.com/softnovatech/?igsh=bjZhdzduOWVqMDlz"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit our Instagram page"
-            >
-              <Instagram className={styles.svgsicons} />
-            </a>
-          </div>
-        </section>
 
         {/* 6. CTA SECTION */}
         <section className={styles.cta}>

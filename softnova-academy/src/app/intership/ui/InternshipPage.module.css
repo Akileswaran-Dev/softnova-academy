@@ -486,8 +486,9 @@
 
 .contactGrid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
+  align-items: stretch;
 }
 
 .formWrapper {
@@ -499,7 +500,8 @@
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 30px; /* Increased horizontal gap */
+  gap: 30px;
+  margin-bottom: 25px; /* Increased spacing between rows */
 }
 
 .inputGroup {
@@ -508,7 +510,7 @@
 
 .input, .textarea, .select {
   width: 100%;
-  padding: 20px 25px;
+  padding: 22px 25px;
   border: none;
   border-radius: var(--radius-sm);
   background: var(--background);
@@ -517,13 +519,12 @@
   font-size: 1.1rem;
   transition: all 0.3s ease;
   font-family: inherit;
-  margin-bottom: 5px; /* Small bottom margin for breathing room */
+  margin-bottom: 25px; /* Increased spacing */
 }
 
 .textarea {
-  min-height: 180px;
-  resize: vertical;
-  margin-bottom: 10px;
+  min-height: 220px;
+  resize: none;
 }
 
 .select {
@@ -557,19 +558,22 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
+  height: 100%;
 }
 
 .infoCard {
   background: var(--background);
-  padding: 30px;
+  padding: 25px;
   border-radius: var(--radius-sm);
   box-shadow: var(--neumorph-shadow-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 15px;
+  gap: 12px;
+  flex: 1; /* Stretch to fill space equally */
   transition: transform 0.3s ease;
 }
 
@@ -597,13 +601,15 @@
 
 .socialProfiles {
   background: var(--background);
-  padding: 40px 30px;
+  padding: 30px;
   border-radius: var(--radius-sm);
   box-shadow: var(--neumorph-shadow-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
+  justify-content: center;
+  gap: 15px;
+  flex: 1; /* Stretch to fill space equally */
 }
 
 .socialTitle {

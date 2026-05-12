@@ -37,11 +37,10 @@ const CATEGORIES = [
 const GALLERY_IMAGES = [
   // Celebrations
 
-  { id: 2, title: "Event Gathering", category: "celebration", img: "/Images/gallery/cel-4.webp", desc: "Bringing everyone together for a special occasion." },
   { id: 3, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Showcasing talents and cultural diversity." },
   { id: 4, title: "Unity Festival", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our collective achievements." },
   { id: 5, title: "Office Fun", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "Spreading smiles and positivity in the workspace." },
-  { id: 6, title: "Grand Gala", category: "celebration", img: "/Images/gallery/cel-11.webp", desc: "A night to remember with the Softnova family." },
+  { id: 6, title: "Grand Gala", category: "outing", img: "/Images/gallery/cel-11.webp", desc: "A night to remember with the Softnova family." },
   { id: 7, title: "Achievement Party", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our recent milestones." },
   { id: 8, title: "Holiday Cheer", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Festive vibes and seasonal celebrations." },
   { id: 9, title: "Team Lunch", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Good food and great conversations." },
@@ -169,6 +168,7 @@ export default function GalleryPage() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.neumorphInput}
+              suppressHydrationWarning
             />
           </div>
         </div>

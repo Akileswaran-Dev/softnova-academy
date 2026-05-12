@@ -100,8 +100,9 @@
   .heading { font-size: 2.2rem; }
   .lead { font-size: 1rem; }
   .card { padding: 80px 30px 40px; }
-  .iconCircle { width: 90px; height: 90px; top: -45px; left: 30px; }
-  .iconInner { width: 65px; height: 65px; font-size: 2rem; }
+  .iconCircle { width: 65px; height: 65px; top: -30px; left: 20px; }
+  .iconInner { width: 45px; height: 45px; font-size: 1.5rem; }
+  .iconInner svg { width: 24px; height: 24px; }
   .cardTitle { font-size: 1.5rem; }
 }
 
@@ -131,15 +132,19 @@
     padding: 60px 20px 30px;
   }
   .iconCircle {
-    width: 70px;
-    height: 70px;
-    top: -35px;
-    left: 20px;
+    width: 55px;
+    height: 55px;
+    top: -25px;
+    left: 15px;
   }
   .iconInner {
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  .iconInner svg {
+    width: 18px;
+    height: 18px;
   }
   .cardTitle {
     font-size: 1.2rem;

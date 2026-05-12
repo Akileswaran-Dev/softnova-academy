@@ -424,16 +424,37 @@
   transform: rotate(90deg);
 }
 
+/* ========================================
+   RESPONSIVE MEDIA QUERIES
+   ======================================== */
+
+/* Large Tablet (1200px) */
 @media (max-width: 1200px) {
-  .bentoGrid { column-count: 3; }
+  .bentoGrid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .title { font-size: 3rem; }
+  .container { padding-left: 120px; }
 }
 
+/* Tablet (1024px) */
 @media (max-width: 1024px) {
+  .bentoGrid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .title { font-size: 2.5rem; }
+  .container { padding-left: 100px; padding-right: 15px; }
   .modal { max-width: 90%; }
+  .controlsRow { gap: 15px; }
+  .dockLabel { 
+    display: none !important; 
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 }
 
+/* Mobile (768px) — Sidebar moves to bottom dock */
 @media (max-width: 768px) {
+  .galleryPage { padding: 80px 0px 60px; }
+
+  /* Sidebar → Bottom Dock */
   .sideDock {
     position: fixed;
     bottom: 20px;
@@ -443,72 +464,93 @@
     height: auto;
     transform: translateX(-50%);
     padding: 10px;
-    background: rgba(250, 245, 242, 0.8);
+    background: rgba(250, 245, 242, 0.9);
     backdrop-filter: blur(10px);
     border-radius: 30px;
-    display: flex;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
     z-index: 1000;
     border: 1px solid rgba(255, 107, 0, 0.2);
   }
 
   .dockInner {
     flex-direction: row;
-    gap: 10px;
+    gap: 8px;
     padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
   }
 
   .dockItem {
-    width: 45px;
-    height: 45px;
-    border-radius: 15px;
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
   }
 
-  .dockLabel { display: none; } /* Labels would crowd the mobile dock */
+  .dockLabel { 
+    display: none !important; 
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
 
-  .container { 
-    padding: 20px !important; 
-    padding-bottom: 100px !important; /* Space for the bottom dock */
+  /* Container */
+  .container {
+    padding: 15px !important;
+    padding-bottom: 100px !important;
     max-width: 100%;
   }
-  
-  .header { margin-bottom: 20px; }
-  .title { font-size: 1.8rem; }
-  .subtitle { font-size: 0.85rem; }
 
-  .bentoGrid { 
-    column-count: 1; 
-    column-gap: 0;
-  }
+  /* Header */
+  .header { margin-bottom: 25px; }
+  .brandBadge { font-size: 0.7rem; padding: 6px 14px; }
+  .title { font-size: 2rem; }
+  .subtitle { font-size: 0.9rem; }
 
-  /* Lightbox Mobile Adjustments */
-  .overlay { 
-    padding: 10px; 
-    z-index: 2500; /* Above the dock */
-  }
-  .modal { 
-    max-width: 95%;
-    border-radius: 20px; 
-  }
-  .modalImgWrapper { aspect-ratio: 4/5; min-height: 250px; }
+  /* Search */
+  .controlsRow { flex-direction: column; gap: 12px; margin-bottom: 25px; }
+  .searchWrapper { max-width: 100%; width: 100%; }
+  .neumorphInput { padding: 14px 16px 14px 45px; font-size: 0.9rem; }
+
+  /* Grid → 2 columns on mobile */
+  .bentoGrid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  /* Lightbox */
+  .overlay { padding: 10px; z-index: 2500; }
+  .modal { max-width: 95%; border-radius: 20px; }
+  .modalImgWrapper { aspect-ratio: 4/3; min-height: 200px; }
   .exitIcon { top: 10px; right: 10px; width: 35px; height: 35px; }
+  .exitIcon svg { width: 16px; height: 16px; }
 }
 
+/* Small Mobile (480px) */
+@media (max-width: 480px) {
+  .title { font-size: 1.6rem; }
+  .subtitle { font-size: 0.82rem; }
+  .bentoGrid { grid-template-columns: 1fr; gap: 14px; }
+  .gridItem { border-radius: 20px; }
+  .itemInner { padding: 6px; }
+  .dockItem { width: 38px; height: 38px; border-radius: 12px; }
+  .dockInner { gap: 6px; }
+}
+
+/* Extra Small (320px) */
 @media (max-width: 320px) {
-  .title { font-size: 1.5rem !important; }
+  .title { font-size: 1.4rem !important; }
   .subtitle { font-size: 0.75rem !important; }
-  .brandBadge { font-size: 0.65rem !important; }
+  .brandBadge { font-size: 0.6rem !important; letter-spacing: 2px; }
+  .bentoGrid { gap: 10px; }
+  .dockItem { width: 34px; height: 34px; }
+  .dockInner { gap: 5px; }
 }
 
-
-/* 4K / Ultrawide Optimization */
+/* 4K / Ultrawide */
 @media (min-width: 2560px) {
-  .modal {
-    max-width: 1800px;
-    border-radius: 80px;
-    border-width: 8px;
-    box-shadow: 0 0 100px rgba(255, 107, 0, 0.2), 60px 60px 120px #d1d1d1, -60px -60px 120px #ffffff;
-  }
+  .container { max-width: 2600px; padding-left: 200px; }
+  .bentoGrid { grid-template-columns: repeat(6, 1fr); gap: 50px; }
+  .title { font-size: 7rem; }
+  .subtitle { font-size: 1.8rem; }
+  .modal { max-width: 1800px; border-radius: 80px; border-width: 8px; }
   .modalImgWrapper { min-height: 1000px; }
   .modalImg { padding: 60px; }
   .exitIcon { top: 40px; right: 40px; width: 80px; height: 80px; }

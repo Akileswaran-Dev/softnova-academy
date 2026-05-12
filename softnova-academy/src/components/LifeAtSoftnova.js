@@ -1,9 +1,9 @@
 "use client";
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 
 import Image from 'next/image';
-import { Play, X } from 'lucide-react';
+import { Compass } from 'lucide-react';
 import styles from './LifeAtSoftnova.module.css';
 
 const galleryItems = [
@@ -34,7 +34,6 @@ const galleryItems = [
 ];
 
 const LifeAtSoftnova = () => {
-  const [selectedVideo, setSelectedVideo] = useState(null);
 
   return (
     <section className={styles.lifeSection}>
@@ -53,9 +52,8 @@ const LifeAtSoftnova = () => {
                 className={styles.playIconCircle}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => setSelectedVideo(galleryItems[0].videoUrl)}
               >
-                <Play fill="white" size={20} />
+                <Compass fill="white" color="white" size={20} />
               </motion.div>
               <span className={styles.subTitle}>choose your growth journey</span>
             </div>
@@ -79,14 +77,7 @@ const LifeAtSoftnova = () => {
                 className={styles.featuredVideo}
               />
               <div className={styles.videoOverlay}>
-                <motion.div 
-                  className={styles.mainPlayBtn}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={() => setSelectedVideo('/Images/about/softnova.mp4')}
-                >
-                  <Play fill="white" size={30} />
-                </motion.div>
+                {/* Removed mainPlayBtn as per request */}
               </div>
             </div>
           </div>
@@ -100,41 +91,7 @@ const LifeAtSoftnova = () => {
         </svg>
       </div>
 
-      {/* Video Modal */}
-      <AnimatePresence>
-        {selectedVideo && (
-          <motion.div 
-            className={styles.modalOverlay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelectedVideo(null)}
-          >
-            <motion.div 
-              className={styles.modalContent}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                className={styles.closeBtn}
-                onClick={() => setSelectedVideo(null)}
-              >
-                <X size={30} />
-              </button>
-              <div className={styles.videoWrapper}>
-                <video 
-                  src={selectedVideo} 
-                  controls 
-                  autoPlay 
-                  className={styles.videoPlayer}
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Video Modal Removed */}
     </section>
   );
 };
