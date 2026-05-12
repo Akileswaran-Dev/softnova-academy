@@ -66,30 +66,34 @@ const TestimonialsSection = () => {
           </div>
         </div>
 
-        <div className={styles.grid}>
-          {TESTIMONIALS.map((t, index) => (
-            <FloatingElement key={t.id} yRange={[8, -8]} duration={5 + (index % 2)} delay={index * 0.2}>
-              <div className={styles.card}>
-                <div className={styles.avatarCrater}>
-                  <div className={styles.avatarRaised}>
-                    <span className={styles.avatarText}>{t.initial}</span>
-                  </div>
-                </div>
-                <h4 className={styles.name}>{t.name}</h4>
-                <span className={styles.role}>{t.role}</span>
-                
-                <div className={styles.stars}>
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} className={styles.star} viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
-                    </svg>
-                  ))}
-                </div>
+        <div className={styles.marqueeContainer}>
+          <div className={styles.marqueeContent}>
+            {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+              <div key={`${t.id}-${index}`} className={styles.cardWrapper}>
+                <FloatingElement yRange={[8, -8]} duration={5 + (index % 2)} delay={index * 0.2}>
+                  <div className={styles.card}>
+                    <div className={styles.avatarCrater}>
+                      <div className={styles.avatarRaised}>
+                        <span className={styles.avatarText}>{t.initial}</span>
+                      </div>
+                    </div>
+                    <h4 className={styles.name}>{t.name}</h4>
+                    <span className={styles.role}>{t.role}</span>
+                    
+                    <div className={styles.stars}>
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className={styles.star} viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                        </svg>
+                      ))}
+                    </div>
 
-                <p className={styles.text}>"{t.text}"</p>
+                    <p className={styles.text}>"{t.text}"</p>
+                  </div>
+                </FloatingElement>
               </div>
-            </FloatingElement>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -176,7 +176,7 @@ const InternshipPage = () => {
                       {activeItem.description.substring(0, 160)}...
                     </p>
                   </div>
-                  <button className={styles.exploreBtn} onClick={handleApplyClick}>
+                  <button className={styles.exploreBtn} onClick={handleApplyClick} suppressHydrationWarning>
                     APPLY NOW
                   </button>
                 </motion.div>
@@ -252,7 +252,7 @@ const InternshipPage = () => {
                   <p className={styles.cardText}>{item.description.substring(0, 150)}...</p>
                 </div>
                 <div className={styles.cardFooter}>
-                  <button className={styles.applyButton} onClick={handleApplyClick}>
+                  <button className={styles.applyButton} onClick={handleApplyClick} suppressHydrationWarning>
                     Apply Now
                   </button>
                 </div>

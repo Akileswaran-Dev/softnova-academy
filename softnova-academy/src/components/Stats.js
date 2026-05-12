@@ -5,10 +5,10 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../app/about/about.module.css";
 
 const stats = [
-  { label: "Students Trained", value: 5000, suffix: "+" },
-  { label: "Courses Offered", value: 25, suffix: "+" },
+  { label: "Students Trained", value: 120, suffix: "+" },
+  { label: "Courses Offered", value: 20, suffix: "+" },
   { label: "Placement Rate", value: 98, suffix: "%" },
-  { label: "Years of Experience", value: 10, suffix: "+" },
+  { label: "Years of Experience", value: 2, suffix: "+" },
 ];
 
 

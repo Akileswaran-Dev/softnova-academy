@@ -83,31 +83,33 @@ const CoursesSection = () => {
 
         <div className={`${styles.coursesGrid} gsap-stagger-group`}>
           {COURSES.map((course, index) => (
-            <FloatingElement 
-              key={course.id} 
-              yRange={[15, -15]} 
-              duration={4 + index} 
-              delay={index * 0.2}
-            >
-              <div className={`${styles.courseBlobCard} gsap-card`}>
-                <div className={`${styles.blob} ${course.blobClass}`}></div>
-                <div className={styles.contentWrapper}>
-                  <div className={styles.circleIcon}>
-                    {course.icon}
-                    <span>{course.title.split(' ')[0]}</span>
-                  </div>
-                  <div className={styles.textSide}>
-                    <span className={styles.courseTag}>{course.tag}</span>
-                    <h3 className={styles.courseTitle}>{course.title}</h3>
-                    <p className={styles.courseDesc}>{course.description}</p>
-                    <Link href={`/course/${course.slug}`}>
-                      <span className={styles.viewBtn}>Learn More</span>
-                    </Link>
-                  </div>
+            <div className={`${styles.courseBlobCard} gsap-card`} key={course.id}>
+              <div className={`${styles.blob} ${course.blobClass}`}></div>
+              <div className={styles.contentWrapper}>
+                <div className={styles.circleIcon}>
+                  {course.icon}
+                  <span>{course.title.split(' ')[0]}</span>
+                </div>
+                <div className={styles.textSide}>
+                  <span className={styles.courseTag}>{course.tag}</span>
+                  <h3 className={styles.courseTitle}>{course.title}</h3>
+                  <p className={styles.courseDesc}>{course.description}</p>
+                  <Link href={`/course/${course.slug}`}>
+                    <span className={styles.viewBtn}>Learn More</span>
+                  </Link>
                 </div>
               </div>
-            </FloatingElement>
+            </div>
           ))}
+        </div>
+
+        {/* Explore More Button */}
+        <div className={styles.buttonContainer}>
+          <Link href="/course">
+            <button className={styles.exploreMoreBtn} suppressHydrationWarning>
+              Explore More Courses
+            </button>
+          </Link>
         </div>
       </div>
     </section>

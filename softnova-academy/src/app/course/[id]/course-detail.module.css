@@ -145,39 +145,80 @@
 }
 
 /* Neumorphic Tabs (Image 2 style) */
+.tabsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  position: relative;
+  background: var(--background);
+  padding: 10px;
+  border-radius: 25px;
+  box-shadow: var(--neumorph-shadow-sm);
+}
+
 .tabsContainer {
   display: flex;
   align-items: center;
-  gap: 25px;
-  margin-bottom: 50px;
+  gap: 20px;
   overflow-x: auto;
-  padding: 15px;
+  scroll-behavior: smooth;
+  padding: 15px 5px;
+  flex: 1;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.navBtn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--background);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff7c30;
+  cursor: pointer;
+  box-shadow: var(--neumorph-shadow-sm);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.navBtn:hover {
+  box-shadow: var(--neumorph-inset-sm);
+  transform: scale(0.95);
 }
 
 .tab {
   background: var(--background);
   border: none;
-  padding: 14px 30px;
-  border-radius: 18px;
+  padding: 12px 25px;
+  border-radius: 15px;
   font-weight: 800;
   color: #666;
   cursor: pointer;
-  box-shadow: var(--neumorph-shadow);
+  box-shadow: var(--neumorph-shadow-sm);
   transition: all 0.3s ease;
   white-space: nowrap;
-  font-size: 1rem;
+  font-size: 0.95rem;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .tabNum {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   background: #ff7c30;
   color: white;
-  padding: 4px 8px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 5px rgba(255, 124, 48, 0.3);
+  padding: 3px 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 5px rgba(255, 124, 48, 0.2);
 }
 
 .activeTab {

@@ -11,21 +11,21 @@ const teamMembers = [
     role: "HR",
     domain: "HR",
     bio: "She is dedicated to building a positive and professional workplace. She manages recruitment, employee engagement, and team coordination with strong leadership skills. She actively supports student internships and career development initiatives at Softnova. Her people-focused approach helps strengthen the company’s culture and organizational growth.",
-    image: "/Images/gallery/Akka.png",
+    image: "/Images/about/Akka.webp",
   },
   {
     name: "Dharshika",
     role: "Team Lead",
     domain: "TEAM LEAD",
     bio: "Guiding the team with dedication and professionalism. She plays an important role in project coordination, team management, and maintaining workflow efficiency. With strong communication and leadership skills, she supports both clients and team members effectively. Her commitment and teamwork contribute to the successful growth of Softnova.",
-    image: "/Images/about/dharshika_new_v3.jpg",
+    image: "/Images/about/dharshika_new_v3.webp",
   },
   {
     name: "Adhithyan",
     role: "Developer",
     domain: "DEVELOPER",
     bio: "Specializing in modern and responsive website development. He focuses on creating high-quality, user-friendly, and performance-driven web solutions for clients. With strong technical expertise and creative problem-solving skills, he contributes to successful project delivery. His dedication and innovative approach help strengthen Softnova’s digital development team.",
-    image: "/Images/gallery/dev.jpg",
+    image: "/Images/about/dev.webp",
   },
 ];
 
@@ -44,7 +44,7 @@ export default function Team() {
       >
         <div className={styles.founderImageWrapper}>
           <Image
-            src="/Images/about/founder.png"
+            src="/Images/about/founder.webp"
             alt="Our Founder"
             width={500}
             height={500}

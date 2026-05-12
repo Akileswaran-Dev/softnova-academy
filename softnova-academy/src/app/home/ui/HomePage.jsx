@@ -146,22 +146,14 @@ export default function HomePage() {
         <ParticlesBackground />
         {/* Dynamic Liquid Blobs - absolute so they don't push flex children */}
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none', overflow: 'hidden' }}>
-          <FloatingElement yRange={[15, -15]} duration={6}>
-            <div className={styles.blob1}></div>
-          </FloatingElement>
-          <FloatingElement yRange={[-20, 20]} duration={7} delay={1}>
-            <div className={styles.blob2}></div>
-          </FloatingElement>
-          <FloatingElement yRange={[10, -10]} duration={5} delay={2}>
-            <div className={styles.blob3}></div>
-          </FloatingElement>
+          <div className={styles.blob1}></div>
+          <div className={styles.blob2}></div>
+          <div className={styles.blob3}></div>
         </div>
 
         {/* Top Header/Background */}
         <div className={styles.topYellowBg}>
-          <FloatingElement yRange={[5, -5]} duration={4}>
-            <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
-          </FloatingElement>
+          <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
         </div>
 
         {/* Main Central Glass Card */}
@@ -189,25 +181,21 @@ export default function HomePage() {
 
           {/* Center: Hero Image (Humans Learning) */}
           <div className={styles.cardCenter}>
-            <FloatingElement yRange={[8, -8]} duration={5}>
-              <div className={styles.imageCircle}>
-                <Image
-                  src="/Images/premium-learning.png"
-                  alt="Students learning"
-                  width={600}
-                  height={600}
-                  priority
-                  className={styles.learningImg}
-                />
-                {/* Spinning Rings around image */}
-                <div className={styles.ring1}></div>
-              </div>
-            </FloatingElement>
-            <FloatingElement yRange={[-5, 5]} duration={4} delay={0.5}>
-              <Link href="/intership">
-                <div className={styles.priceTag} style={{ cursor: "pointer" }}>JOIN SOFTNOVA</div>
-              </Link>
-            </FloatingElement>
+            <div className={styles.imageCircle}>
+              <Image
+                src="/Images/premium-learning.png"
+                alt="Students learning"
+                width={600}
+                height={600}
+                priority
+                className={styles.learningImg}
+              />
+              {/* Spinning Rings around image */}
+              <div className={styles.ring1}></div>
+            </div>
+            <Link href="/intership">
+              <div className={styles.priceTag} style={{ cursor: "pointer" }}>JOIN SOFTNOVA</div>
+            </Link>
           </div>
 
           {/* Right: Tech Icons & Action */}
@@ -246,42 +234,34 @@ export default function HomePage() {
       <section className={styles.cardsSection} id="achievements">
         <h2 className={`${styles.cardsTitle} gsap-fade-up`}>What You Will Get from Softnova Academy?</h2>
         <div className={`${styles.cardsGrid} gsap-stagger-group`}>
-          <FloatingElement yRange={[10, -10]} duration={4.5} delay={0}>
-            <div className={`${styles.featureCard} gsap-card`}>
-              <div className={styles.cardIconRow}>
-                <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" /></svg>
-              </div>
-              <h4>Challenging Projects</h4>
-              <p>Work on real-world projects that elevate your design and dev portfolio to the next level.</p>
+          <div className={`${styles.featureCard} gsap-card`}>
+            <div className={styles.cardIconRow}>
+              <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" /></svg>
             </div>
-          </FloatingElement>
-          <FloatingElement yRange={[12, -12]} duration={5.2} delay={0.3}>
-            <div className={`${styles.featureCard} gsap-card`}>
-              <div className={styles.cardIconRow}>
-                <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
-              </div>
-              <h4>Placement Support</h4>
-              <p>Guaranteed guidance for securing high-paying roles in the IT and software testing fields.</p>
+            <h4>Challenging Projects</h4>
+            <p>Work on real-world projects that elevate your design and dev portfolio to the next level.</p>
+          </div>
+          <div className={`${styles.featureCard} gsap-card`}>
+            <div className={styles.cardIconRow}>
+              <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
             </div>
-          </FloatingElement>
-          <FloatingElement yRange={[8, -8]} duration={4.8} delay={0.6}>
-            <div className={`${styles.featureCard} gsap-card`}>
-              <div className={styles.cardIconRow}>
-                <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7M4 21v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7" /></svg>
-              </div>
-              <h4>Modern Workspace</h4>
-              <p>Access our premium digital laboratories and design tools to sharpen your technical skills.</p>
+            <h4>Placement Support</h4>
+            <p>Guaranteed guidance for securing high-paying roles in the IT and software testing fields.</p>
+          </div>
+          <div className={`${styles.featureCard} gsap-card`}>
+            <div className={styles.cardIconRow}>
+              <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7M4 21v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7" /></svg>
             </div>
-          </FloatingElement>
-          <FloatingElement yRange={[15, -15]} duration={5.5} delay={0.9}>
-            <div className={`${styles.featureCard} gsap-card`}>
-              <div className={styles.cardIconRow}>
-                <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M18 8a3 3 0 0 1-3 3H5a3 3 0 0 1 0-6h10a3 3 0 0 1 3 3z" /><path d="M10 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M14 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M18 11v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V11" /></svg>
-              </div>
-              <h4>Interactive Sessions</h4>
-              <p>Live doubt solving, peer reviews, and interactive Q&A sessions ensuring maximum retention.</p>
+            <h4>Modern Workspace</h4>
+            <p>Access our premium digital laboratories and design tools to sharpen your technical skills.</p>
+          </div>
+          <div className={`${styles.featureCard} gsap-card`}>
+            <div className={styles.cardIconRow}>
+              <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M18 8a3 3 0 0 1-3 3H5a3 3 0 0 1 0-6h10a3 3 0 0 1 3 3z" /><path d="M10 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M14 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M18 11v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V11" /></svg>
             </div>
-          </FloatingElement>
+            <h4>Interactive Sessions</h4>
+            <p>Live doubt solving, peer reviews, and interactive Q&A sessions ensuring maximum retention.</p>
+          </div>
         </div>
       </section>
 

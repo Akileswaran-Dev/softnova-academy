@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   ChevronLeft, 
+  ChevronRight,
   BookOpen, 
   Clock, 
   Target, 
@@ -326,6 +327,7 @@ export default function CourseDetailPage({ params }) {
   
   const [activeTab, setActiveTab] = useState(course.modules[0].title);
   const containerRef = useRef(null);
+  const tabsRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -382,17 +384,39 @@ export default function CourseDetailPage({ params }) {
         </header>
 
         {/* Neumorphic Tabs (Module Titles) */}
-        <div className={`${styles.tabsContainer} gsap-animate`}>
-          {course.modules.map((mod, index) => (
-            <div 
-              key={mod.title} 
-              className={`${styles.tab} ${activeTab === mod.title ? styles.activeTab : ""}`}
-              onClick={() => setActiveTab(mod.title)}
-            >
-              <span className={styles.tabNum}>{String(index + 1).padStart(2, '0')}</span>
-              {mod.title}
-            </div>
-          ))}
+        <div className={`${styles.tabsWrapper} gsap-animate`}>
+          <button 
+            className={styles.navBtn} 
+            onClick={() => {
+              if (tabsRef.current) tabsRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+            }}
+            aria-label="Previous Module"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <div className={styles.tabsContainer} ref={tabsRef}>
+            {course.modules.map((mod, index) => (
+              <div 
+                key={mod.title} 
+                className={`${styles.tab} ${activeTab === mod.title ? styles.activeTab : ""}`}
+                onClick={() => setActiveTab(mod.title)}
+              >
+                <span className={styles.tabNum}>{String(index + 1).padStart(2, '0')}</span>
+                {mod.title}
+              </div>
+            ))}
+          </div>
+
+          <button 
+            className={styles.navBtn} 
+            onClick={() => {
+              if (tabsRef.current) tabsRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+            }}
+            aria-label="Next Module"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         <div className={`${styles.contentArea} gsap-animate`}>

@@ -5,6 +5,8 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
 
+import * as THREE from "three";
+
 function ParticleField({ count = 2000 }) {
   const ref = useRef();
   // Ensure we generate the sphere completely
@@ -36,9 +38,14 @@ function ParticleField({ count = 2000 }) {
 }
 
 export default function ParticlesBackground() {
+  const timer = useMemo(() => (THREE.Timer ? new THREE.Timer() : new THREE.Clock()), []);
+
   return (
     <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0, pointerEvents: "none" }}>
-      <Canvas camera={{ position: [0, 0, 5] }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5] }}
+        clock={timer}
+      >
         <ParticleField />
       </Canvas>
     </div>

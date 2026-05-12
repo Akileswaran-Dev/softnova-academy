@@ -3,11 +3,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
-import { 
-  MapPin, 
-  Mail, 
-  Phone, 
-  Send, 
+import {
+  MapPin,
+  Mail,
+  Phone,
+  Send,
   MessageSquare,
   CheckCircle2,
   ArrowRight
@@ -96,7 +96,7 @@ const ContactUsPage = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              Have a question or ready to start your tech journey? 
+              Have a question or ready to start your tech journey?
               Our team is here to help you navigate your way to success.
             </motion.p>
           </div>
@@ -105,23 +105,23 @@ const ContactUsPage = () => {
         {/* 2. CONTACT CARDS */}
         <section className={styles.cardsSection}>
           {[
-            { 
-              icon: <MapPin />, 
-              title: "Our Location", 
+            {
+              icon: <MapPin />,
+              title: "Our Location",
               desc: "Softnova Apartment, Peravurani, TN",
-              delay: 0.1 
+              delay: 0.1
             },
-            { 
-              icon: <Mail />, 
-              title: "Email Us", 
-              desc: "info@softnovatech.com",
-              delay: 0.2 
+            {
+              icon: <Mail />,
+              title: "Email Us",
+              desc: "info@softnovatechnology.com",
+              delay: 0.2
             },
-            { 
-              icon: <Phone />, 
-              title: "Call Us", 
+            {
+              icon: <Phone />,
+              title: "Call Us",
               desc: "+91 6385118083",
-              delay: 0.3 
+              delay: 0.3
             }
           ].map((card, i) => (
             <motion.div
@@ -142,7 +142,7 @@ const ContactUsPage = () => {
         {/* 3. SPLIT SECTION (Form + Preview) */}
         <section className={styles.splitSection}>
           {/* Left: Form */}
-          <motion.div 
+          <motion.div
             className={styles.formWrapper}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -151,11 +151,11 @@ const ContactUsPage = () => {
             <h2>Send us a Message</h2>
             <form ref={formRef} onSubmit={handleSubmit}>
               <div className={styles.formGroup}>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   name="name"
-                  className={styles.input} 
-                  placeholder="Full Name" 
+                  className={styles.input}
+                  placeholder="Full Name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
@@ -165,11 +165,11 @@ const ContactUsPage = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   name="email"
-                  className={styles.input} 
-                  placeholder="Email Address" 
+                  className={styles.input}
+                  placeholder="Email Address"
                   value={formData.email}
                   onChange={handleInputChange}
                   required
@@ -179,11 +179,11 @@ const ContactUsPage = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <input 
-                  type="tel" 
+                <input
+                  type="tel"
                   name="phone"
-                  className={styles.input} 
-                  placeholder="Phone Number" 
+                  className={styles.input}
+                  placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleInputChange}
                   suppressHydrationWarning
@@ -192,9 +192,9 @@ const ContactUsPage = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <select 
+                <select
                   name="course"
-                  className={styles.input} 
+                  className={styles.input}
                   value={formData.course}
                   onChange={handleInputChange}
                   style={{ color: formData.course ? "var(--text-main)" : "var(--text-muted)" }}
@@ -210,11 +210,11 @@ const ContactUsPage = () => {
               </div>
 
               <div className={styles.formGroup}>
-                <textarea 
+                <textarea
                   name="message"
-                  className={styles.textarea} 
-                  rows="4" 
-                  placeholder="Your Message" 
+                  className={styles.textarea}
+                  rows="4"
+                  placeholder="Your Message"
                   value={formData.message}
                   onChange={handleInputChange}
                   required
@@ -223,7 +223,7 @@ const ContactUsPage = () => {
 
               </div>
 
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className={styles.submitBtn}
@@ -238,7 +238,7 @@ const ContactUsPage = () => {
           </motion.div>
 
           {/* Right: Live Preview */}
-          <motion.div 
+          <motion.div
             className={styles.previewCard}
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -282,18 +282,18 @@ const ContactUsPage = () => {
 
         {/* 4. GOOGLE MAP */}
         <section className={styles.mapSection}>
-          <motion.div 
+          <motion.div
             className={styles.mapContainer}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
           >
-            <iframe 
-                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7851.263486223861!2d79.20632872303162!3d10.291226416297494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a16e9c50ca4939d%3A0x646da28beabf28ab!2sSoftnova%20Technology!5e0!3m2!1sen!2sin!4v1776753992378!5m2!1sen!2sin" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen="" 
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7851.263486223861!2d79.20632872303162!3d10.291226416297494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a16e9c50ca4939d%3A0x646da28beabf28ab!2sSoftnova%20Technology!5e0!3m2!1sen!2sin!4v1776753992378!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
               loading="lazy"
             ></iframe>
             <div className={styles.mapOverlay}>
@@ -346,7 +346,7 @@ const ContactUsPage = () => {
 
         {/* 6. CTA SECTION */}
         <section className={styles.cta}>
-          <motion.div 
+          <motion.div
             className={styles.ctaBox}
             whileHover={{ scale: 1.01 }}
           >
@@ -355,7 +355,7 @@ const ContactUsPage = () => {
               Book a free demo class and experience our teaching style firsthand.
             </p>
             <Link href="/book">
-              <motion.div 
+              <motion.div
                 className={styles.ctaBtn}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}

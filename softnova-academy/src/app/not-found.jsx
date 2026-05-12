@@ -4,11 +4,11 @@ import React from "react";
 import Link from "next/link";
 import { Home, ArrowRight, Ghost } from "lucide-react";
 import { motion } from "framer-motion";
-import styles from "./not-found.module.css";
+import styles from "./NotFound.module.css";
 
 export default function NotFound() {
   return (
-    <main className={styles.notFound}>
+    <main className={styles.notFound} suppressHydrationWarning>
       <motion.div 
         className={styles.videoWrapper}
         initial={{ opacity: 0, y: 20 }}

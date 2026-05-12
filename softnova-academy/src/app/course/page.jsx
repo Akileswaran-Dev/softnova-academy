@@ -231,7 +231,7 @@ export default function CoursePage() {
         </header>
 
         <div className={`${styles.courseGrid} gsap-course-grid`}>
-          {COURSES.map((course) => (
+          {COURSES.map((course, index) => (
             <div key={course.id} className={`${styles.courseCard} gsap-course-card`}>
               {/* Left Image Section */}
               <div className={styles.cardLeft}>
@@ -241,6 +241,8 @@ export default function CoursePage() {
                     alt={course.title} 
                     fill 
                     className={styles.courseImg}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === 0}
                   />
                   <div className={styles.iconOverlay}>
                     {course.icon}
