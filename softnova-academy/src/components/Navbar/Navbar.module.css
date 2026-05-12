@@ -76,6 +76,25 @@
   transform: scale(1.02);
 }
 
+.logoImage {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .logoImage {
+    height: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logoImage {
+    height: 32px;
+  }
+}
+
 .logoIcon {
   width: 40px;
   height: 40px;

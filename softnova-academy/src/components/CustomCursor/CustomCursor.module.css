@@ -1,0 +1,59 @@
+.cursorContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.innerCursor {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  z-index: 100001;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.trailCircle {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  border: 2px solid #FF7C30;
+  background: rgba(255, 124, 48, 0.1);
+  border-radius: 50%;
+  z-index: 100000;
+}
+
+/* Hide native cursor on desktop */
+@media (hover: hover) and (pointer: fine) {
+  :global(body) {
+    cursor: none !important;
+  }
+  
+  :global(a), 
+  :global(button),
+  :global([role="button"]),
+  :global(input[type="submit"]),
+  :global(input[type="button"]) {
+    cursor: none !important;
+  }
+}
+
+/* Mobile fallback */
+@media (max-width: 1024px) {
+  .cursorContainer {
+    display: none;
+  }
+  
+  :global(body) {
+    cursor: auto !important;
+  }
+}

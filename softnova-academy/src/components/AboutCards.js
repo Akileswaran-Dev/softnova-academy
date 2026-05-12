@@ -9,28 +9,28 @@ const features = [
   {
     icon: <Users size={36} />,
     title: "Industry Experts",
-    desc: "Learn directly from professionals who have built products for top-tier tech companies. Get mentored by the best in the business.",
+    desc: "Learn from experienced industry professionals who provide real-world knowledge, practical insights, and hands-on training.Our expert mentors help students build confidence, improve technical skills, and prepare for successful careers.",
     colSpan: "span 7",
     color: "#FF7C30",
   },
   {
     icon: <BookOpen size={36} />,
     title: "Real-Time Projects",
-    desc: "Gain hands-on experience by building production-ready applications that you can showcase.",
+    desc: "Students gain practical experience by working on real-time projects that reflect current industry standards and challenges.This hands-on approach improves technical skills, problem-solving abilities, and confidence for real-world careers.",
     colSpan: "span 5",
     color: "#ff9c60",
   },
   {
     icon: <Briefcase size={36} />,
     title: "Placement Support",
-    desc: "Dedicated placement cell to help you secure your dream job in tech with mock interviews and resume building.",
+    desc: "Our placement support program helps students prepare for successful careers through interview training, resume building, and career guidance. We provide professional support and industry-focused preparation to improve confidence and job opportunities.",
     colSpan: "span 5",
     color: "#ff9c60",
   },
   {
     icon: <GraduationCap size={36} />,
     title: "Internship Opportunity",
-    desc: "Guaranteed internship opportunities for top-performing students to kickstart their career with real company experience.",
+    desc: "We provide internship opportunities that help students gain real-world industry experience and practical exposure. Through hands-on training and live projects, learners can improve their skills, confidence, and career readiness.",
     colSpan: "span 7",
     color: "#FF7C30",
   },
@@ -44,7 +44,7 @@ export default function AboutCards() {
           Why Choose Us
         </h2>
         <p className={styles.sectionDesc}>
-          We provide an immersive ecosystem designed to accelerate your growth and bridge the gap between learning and industry demands.
+         Empowering students with practical learning, expert guidance, and industry-ready skills for a successful future.
         </p>
 
       </div>

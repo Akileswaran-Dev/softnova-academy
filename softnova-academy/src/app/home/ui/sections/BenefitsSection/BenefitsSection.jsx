@@ -45,37 +45,37 @@ const BENEFITS = [
   {
     number: "01",
     title: "Flexible Learning Schedule",
-    description: "Learn at your own pace, without the pressure of fixed class timings. Access course materials anytime—at home, at work, or on the go.",
+    description: "1 Our flexible learning schedule allows students to learn at their own pace with convenient class timings.It helps learners balance education, work, and personal commitments without affecting their training progress.",
     icon: ICONS.clock
   },
   {
     number: "02",
     title: "Expert Instructors",
-    description: "Get insights from instructors who are seasoned industry professionals. Benefit from real-world skills, practical examples, and project-based guidance.",
+    description: "Learn from experienced industry professionals who provide practical knowledge and real-world guidance.Our expert instructors help students improve skills, gain confidence, and stay updated with current technologies.",
     icon: ICONS.user
   },
   {
     number: "03",
     title: "Diverse Course Offerings",
-    description: "Choose from a broad range of courses—from design to development to business and networking—and stay ahead with the latest tools and trends.",
+    description: "We offer a wide range of courses covering design, development, programming, and emerging technologies.Students can choose the right program based on their interests, career goals, and skill levels.",
     icon: ICONS.layers
   },
   {
     number: "04",
     title: "Updated Curriculum",
-    description: "Stay ahead with a syllabus that evolves with industry practices. Build in-demand skills with hands-on training aligned with global standards.",
+    description: "Our curriculum is regularly updated to match the latest industry trends, tools, and technologies.It helps students gain relevant skills and stay prepared for current job market requirements.",
     icon: ICONS.refresh
   },
   {
     number: "05",
     title: "Practical Projects and Assignments",
-    description: "Put theory into action with real-world projects that build your portfolio and confidence by solving realistic challenges.",
+    description: "Students work on real-time projects and assignments to gain hands-on experience and practical knowledge.This approach improves problem-solving skills and prepares learners for real-world industry challenges.",
     icon: ICONS.briefcase
   },
   {
     number: "06",
     title: "Interactive Learning Environment",
-    description: "Engage in discussions, group activities, and live support. Receive continuous feedback to track your progress and improve effectively.",
+    description: "Our interactive learning environment helps students learn in a smooth, engaging, and practical way through live sessions and real-time activities.It improves creativity, communication, confidence, and problem-solving skills for better career growth.",
     icon: ICONS.chat
   },
 ];

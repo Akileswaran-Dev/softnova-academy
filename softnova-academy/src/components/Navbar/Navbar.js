@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 const navLinks = [
@@ -48,12 +49,14 @@ const Navbar = () => {
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isOpen ? styles.navOpen : ''}`}>
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
-            <div className={styles.logoIcon}>
-              <div className={styles.logoDot}></div>
-            </div>
-            <div className={styles.logoText}>
-              SOFTNOVA<span>ACADEMY</span>
-            </div>
+            <Image 
+              src="/Images/logo.png" 
+              alt="Softnova Academy Logo" 
+              width={160} 
+              height={50} 
+              className={styles.logoImage}
+              priority
+            />
           </Link>
 
           {/* Desktop Links */}

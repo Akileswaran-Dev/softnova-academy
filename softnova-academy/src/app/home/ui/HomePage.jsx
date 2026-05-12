@@ -169,10 +169,10 @@ export default function HomePage() {
           {/* Left: Content/Theory */}
           <div className={styles.cardLeft}>
             <h2 className={styles.academyTitle}>
-              Digital Design & <br /> Developments
+              Transform our Future with Creative  Learning
             </h2>
             <p className={styles.tagline}>
-              Unlock Your Potential Through Engaging and Learning with Softnova.
+              Master modern design and development skills through practical training, real-time projects, and expert mentorship at Softnova Academy.
             </p>
             <div className={styles.miniThumbnails}>
               <div className={styles.miniBox}>
@@ -244,15 +244,15 @@ export default function HomePage() {
 
       {/* Rest of the page */}
       <section className={styles.cardsSection} id="achievements">
-        <h2 className={`${styles.cardsTitle} gsap-fade-up`}>What You Will Get from Softnova Academy?</h2>
+        <h2 className={`${styles.cardsTitle} gsap-fade-up`}>Build Skills for Real Careers</h2>
         <div className={`${styles.cardsGrid} gsap-stagger-group`}>
           <FloatingElement yRange={[10, -10]} duration={4.5} delay={0}>
             <div className={`${styles.featureCard} gsap-card`}>
               <div className={styles.cardIconRow}>
                 <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z" /></svg>
               </div>
-              <h4>Challenging Projects</h4>
-              <p>Work on real-world projects that elevate your design and dev portfolio to the next level.</p>
+              <h4>Industry-Level Projects</h4>
+              <p>Work on practical projects designed to improve your technical and problem-solving abilities.</p>
             </div>
           </FloatingElement>
           <FloatingElement yRange={[12, -12]} duration={5.2} delay={0.3}>
@@ -260,8 +260,8 @@ export default function HomePage() {
               <div className={styles.cardIconRow}>
                 <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
               </div>
-              <h4>Placement Support</h4>
-              <p>Guaranteed guidance for securing high-paying roles in the IT and software testing fields.</p>
+              <h4>Career Guidance</h4>
+              <p>Get expert mentorship, resume support, and interview training for better career opportunities.</p>
             </div>
           </FloatingElement>
           <FloatingElement yRange={[8, -8]} duration={4.8} delay={0.6}>
@@ -269,8 +269,8 @@ export default function HomePage() {
               <div className={styles.cardIconRow}>
                 <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M3 21h18M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7M4 21v-7a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v7" /></svg>
               </div>
-              <h4>Modern Workspace</h4>
-              <p>Access our premium digital laboratories and design tools to sharpen your technical skills.</p>
+              <h4>Smart Learning Environment</h4>
+              <p>Access modern learning tools and resources that make training more effective and engaging.</p>
             </div>
           </FloatingElement>
           <FloatingElement yRange={[15, -15]} duration={5.5} delay={0.9}>
@@ -278,8 +278,8 @@ export default function HomePage() {
               <div className={styles.cardIconRow}>
                 <svg viewBox="0 0 24 24" width="40" height="40" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M18 8a3 3 0 0 1-3 3H5a3 3 0 0 1 0-6h10a3 3 0 0 1 3 3z" /><path d="M10 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M14 2c0 2 2 2 2 4s-2 2-2 4" /><path d="M18 11v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V11" /></svg>
               </div>
-              <h4>Interactive Sessions</h4>
-              <p>Live doubt solving, peer reviews, and interactive Q&A sessions ensuring maximum retention.</p>
+              <h4>Live Interactive Classes</h4>
+              <p>Attend interactive sessions with real-time discussions, doubt clarification, and peer collaboration.</p>
             </div>
           </FloatingElement>
         </div>

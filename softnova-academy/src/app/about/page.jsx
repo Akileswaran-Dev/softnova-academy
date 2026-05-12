@@ -121,7 +121,9 @@ const AboutPage = () => {
             <div className={`${styles.aboutText} gsap-fade-left`}>
               <h2>Transforming Tech Education</h2>
               <p>
-                At Softnova Academy, we believe that traditional education often falls short in preparing students for the fast-paced tech industry. That&apos;s why we&apos;ve built a curriculum that focuses on practical, real-world skills.
+               At Softnova Academy, we are redefining tech education through innovative teaching methods and practical learning experiences.
+Our industry-focused training programs help students develop real-world technical skills, creativity, and professional confidence.
+We aim to prepare future-ready professionals who can succeed and grow in today’s fast-changing digital world.
               </p>
               <p>
                 Our mission is to empower the next generation of software engineers with the tools, knowledge, and mentorship they need to build innovative products and shape the future of technology.
@@ -129,7 +131,7 @@ const AboutPage = () => {
             </div>
             <div className={`${styles.aboutImageWrapper} gsap-fade-right`}>
               <video
-                src="/Images/gallery/video.mp4"
+                src="/Images/gallery/about.mp4"
                 autoPlay
                 loop
                 muted

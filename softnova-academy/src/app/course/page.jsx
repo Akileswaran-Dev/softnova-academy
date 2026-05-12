@@ -223,10 +223,10 @@ export default function CoursePage() {
       <div className={styles.container}>
         <header className={`${styles.header} gsap-header-animate`}>
           <span className={styles.tagline}>PREMIUM OFFLINE COURSES</span>
-          <h1>Offline Courses on <br/>Design and Development</h1>
+          <h1>Upgrade Your Skills for a Successful Digital Career</h1>
           <p>
-            Our courses offer a hands-on, immersive learning experience in a collaborative classroom setting. 
-            Whether you&apos;re a beginner or a professional, we cater to all skill levels.
+            Discover professional courses designed to help you gain practical experience and industry-ready technical skills.
+Learn through real-time projects, expert mentorship, and an interactive learning environment.
           </p>
         </header>
 
