@@ -194,15 +194,22 @@ export default function HomePage() {
           {/* Right: Tech Icons & Action */}
           <div className={styles.cardRight}>
             <div className={styles.techStackContainer}>
-              <div className={styles.staticTechGrid}>
-                <div className={styles.staticItem}>
+              <div className={styles.techOrbit}>
+                <div className={styles.orbitItem} style={{ "--i": 0 }}>
                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><circle cx="12" cy="12" r="9" /><path d="M12 8v8M8 12h8" /></svg>
                 </div>
-                <div className={styles.staticItem}>
+                <div className={styles.orbitItem} style={{ "--i": 1 }}>
                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" /></svg>
                 </div>
-                <div className={styles.staticItem}>
+                <div className={styles.orbitItem} style={{ "--i": 2 }}>
                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                </div>
+                {/* Adding 2 more for a full circle feel */}
+                <div className={styles.orbitItem} style={{ "--i": 3 }}>
+                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                </div>
+                <div className={styles.orbitItem} style={{ "--i": 4 }}>
+                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>
                 </div>
               </div>
             </div>
