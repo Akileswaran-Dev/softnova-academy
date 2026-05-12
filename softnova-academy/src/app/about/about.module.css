@@ -410,8 +410,14 @@
   gap: 2rem;
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+  .featureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
@@ -490,6 +496,7 @@
   font-size: 1.1rem;
   line-height: 1.6;
   opacity: 0.8;
+  text-align: left;
 }
 
 @media (max-width: 768px) {
@@ -658,7 +665,7 @@
   color: var(--foreground);
   opacity: 0.85;
   margin-bottom: 2rem;
-  text-align: center;
+ 
 }
 
 
@@ -752,7 +759,7 @@
   color: var(--text-muted);
   opacity: 0.8;
   margin-top: 1rem;
-  text-align: center;
+  text-align: left;
 }
 
 .readMoreBtn {

@@ -4,18 +4,17 @@ import React from "react";
 import Link from "next/link";
 import { Home, ArrowRight, Ghost } from "lucide-react";
 import { motion } from "framer-motion";
-import styles from "./not-found.module.css";
 
 export default function NotFound() {
   return (
-    <main className={styles.notFound}>
+    <main className="notFoundPage" suppressHydrationWarning>
       <motion.div 
-        className={styles.videoWrapper}
+        className="notFoundVideoWrapper"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className={styles.visualFallback}>
+        <div className="notFoundVisualFallback">
           <motion.div
             animate={{ 
               y: [0, -20, 0],
@@ -27,15 +26,15 @@ export default function NotFound() {
               ease: "easeInOut" 
             }}
           >
-            <Ghost size={120} className={styles.ghostIcon} />
+            <Ghost size={120} className="notFoundGhostIcon" />
           </motion.div>
-          <div className={styles.errorCode}>404</div>
+          <div className="notFoundErrorCode">404</div>
         </div>
       </motion.div>
 
-      <div className={styles.content}>
+      <div className="notFoundContent">
         <motion.h1 
-          className={styles.title}
+          className="notFoundTitle"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -43,7 +42,7 @@ export default function NotFound() {
           Lost in Orbit?
         </motion.h1>
         <motion.p 
-          className={styles.subtitle}
+          className="notFoundSubtitle"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -57,7 +56,7 @@ export default function NotFound() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <Link href="/" className={styles.homeBtn}>
+          <Link href="/" className="notFoundHomeBtn">
             <Home size={22} />
             Back to Campus
             <ArrowRight size={18} />

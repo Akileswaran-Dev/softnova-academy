@@ -1,5 +1,5 @@
 .section {
-  padding: 100px 5%;
+  padding: 20px 5%;
   background: transparent;
   position: relative;
   overflow: hidden;
@@ -12,7 +12,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .header h2 {
@@ -33,7 +33,7 @@
 .coursesGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 60px;
+  gap: 30px;
   padding: 20px;
 }
 
@@ -259,8 +259,48 @@
 }
 
 
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.exploreMoreBtn {
+  background: var(--background);
+  color: #ff7c30;
+  border: none;
+  padding: 18px 45px;
+  border-radius: var(--radius-pill);
+  font-size: 1.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: var(--neumorph-shadow);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.exploreMoreBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--neumorph-shadow-lg);
+  color: #e65100;
+  background: #fff;
+  border-color: #ff7c30;
+}
+
+@media (max-width: 768px) {
+  .buttonContainer { margin-top: 50px; }
+  .exploreMoreBtn { padding: 15px 35px; font-size: 1.1rem; }
+}
+
 /* 4K MONITOR OPTIMIZATION */
 @media (min-width: 2560px) {
+  .buttonContainer { margin-top: 150px; }
+  .exploreMoreBtn { 
+    font-size: 2.5rem; 
+    padding: 40px 100px; 
+    border-radius: 100px; 
+  }
+
   .container {
     max-width: 2400px;
   }

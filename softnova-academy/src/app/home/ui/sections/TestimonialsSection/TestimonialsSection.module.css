@@ -21,22 +21,53 @@
   
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 60px;
+.marqueeContainer {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+  padding: 40px 0;
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 40px;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.marqueeContent:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 3));
+  }
+}
+
+.cardWrapper {
+  width: 400px;
+  flex-shrink: 0;
 }
 
 .card {
   background: var(--background);
   border-radius: var(--radius-lg);
-  padding: 80px 40px;
+  padding: 50px 35px;
   box-shadow: var(--neumorph-shadow);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.8s ease;
+  transition: all 0.5s ease;
+  height: 100%;
 }
 
 .card:hover {
@@ -45,76 +76,88 @@
 }
 
 .avatarCrater {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background: var(--background);
-  box-shadow: inset 12px 12px 25px var(--shadow-dark), inset -12px -12px 25px var(--shadow-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-.avatarRaised {
   width: 140px;
   height: 140px;
   border-radius: 50%;
   background: var(--background);
-  box-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light);
+  box-shadow: inset 8px 8px 16px var(--shadow-dark), inset -8px -8px 16px var(--shadow-light);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3.5rem;
+  margin-bottom: 30px;
+}
+
+.avatarRaised {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--background);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
   font-weight: 900;
   color: var(--primary);
 }
 
 .name {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 900;
   color: var(--foreground);
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
 
 .role {
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 800;
   color: var(--primary);
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 25px;
+  letter-spacing: 1.2px;
+  margin-bottom: 20px;
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.star {
+  width: 18px;
+  height: 18px;
+  color: #ffb800;
 }
 
 .text {
-  font-size: 1.2rem;
+  font-size: 1.05rem;
   color: var(--foreground);
   opacity: 0.8;
-  line-height: 1.7;
+  line-height: 1.6;
   font-style: italic;
 }
 
-@media (max-width: 1024px) {
-  .grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
-  .heading { font-size: 3rem; }
-  .header { margin-bottom: 60px; }
-}
-
 @media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; gap: 40px; }
+  .cardWrapper { width: 280px; }
+  .card { padding: 30px 20px; }
+  .avatarCrater { width: 100px; height: 100px; margin-bottom: 20px; }
+  .avatarRaised { width: 75px; height: 75px; font-size: 1.8rem; }
   .heading { font-size: 2.2rem; }
-  .card { padding: 60px 25px; }
-  .avatarCrater { width: 160px; height: 160px; margin-bottom: 30px; }
-  .avatarRaised { width: 110px; height: 110px; font-size: 2.5rem; }
-  .name { font-size: 1.5rem; }
-  .text { font-size: 1.1rem; }
+  .name { font-size: 1.2rem; }
+  .text { font-size: 0.95rem; }
 }
 
 @media (max-width: 480px) {
+  .cardWrapper { width: 240px; }
+  .marqueeContent { gap: 15px; }
   .heading { font-size: 1.8rem; }
+  .card { padding: 25px 15px; }
+  .avatarCrater { width: 90px; height: 90px; }
+  .avatarRaised { width: 65px; height: 65px; font-size: 1.5rem; }
 }
 
 @media (max-width: 320px) {
+  .cardWrapper { width: 220px; }
   .section {
     padding: 10px 0;
   }
@@ -122,27 +165,27 @@
     font-size: 1.4rem;
   }
   .card {
-    padding: 30px 15px;
+    padding: 20px 10px;
   }
   .avatarCrater {
-    width: 120px;
-    height: 120px;
-    margin-bottom: 20px;
-  }
-  .avatarRaised {
     width: 80px;
     height: 80px;
-    font-size: 1.8rem;
-  }
-  .name {
-    font-size: 1.1rem;
-  }
-  .role {
-    font-size: 0.75rem;
     margin-bottom: 15px;
   }
+  .avatarRaised {
+    width: 60px;
+    height: 60px;
+    font-size: 1.4rem;
+  }
+  .name {
+    font-size: 1rem;
+  }
+  .role {
+    font-size: 0.7rem;
+    margin-bottom: 10px;
+  }
   .text {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
 

@@ -123,9 +123,10 @@
 /* 3. Form Section - Neumorphic */
 .splitSection {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
   margin-top: 6rem;
+  align-items: stretch; /* This ensures both columns take equal height */
 }
 
 .formWrapper {
@@ -142,22 +143,33 @@
   color: var(--foreground);
 }
 
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
 .formGroup {
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 .input, .textarea {
   width: 100%;
   background: var(--background);
   border: none;
-  padding: 1.2rem 1.5rem;
+  padding: 1.4rem 1.8rem;
   border-radius: var(--radius-sm);
   color: var(--foreground);
-  font-size: 1rem;
+  font-size: 1.05rem;
   outline: none;
   box-shadow: var(--neumorph-inset-sm);
   transition: all 0.3s;
   appearance: none;
+}
+
+.textarea {
+  min-height: 240px;
+  resize: none;
 }
 
 .input:focus, .textarea:focus {
@@ -165,24 +177,29 @@
 }
 
 /* Submit Button - Neumorphic Push */
-.submitBtn {
-  width: 100%;
-  padding: 1.2rem;
-  background: var(--background);
-  color: var(--primary);
+.submitBtnOrange {
+  background: linear-gradient(135deg, #ff7c30, #ff5722);
+  color: white;
   border: none;
-  border-radius: var(--radius-pill);
+  padding: 1.2rem 2.5rem;
+  border-radius: 15px;
   font-size: 1.1rem;
-  font-weight: 900;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: var(--neumorph-shadow-sm);
-  transition: all 0.2s ease;
-  display: flex;
+  box-shadow: 0 10px 20px rgba(255, 87, 34, 0.2);
+  transition: all 0.3s;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+}
+
+.submitBtnOrange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 25px rgba(255, 87, 34, 0.3);
+}
+
+.submitBtnOrange:active {
+  transform: translateY(0);
 }
 
 .submitBtn:hover {
@@ -190,50 +207,73 @@
   transform: scale(0.98);
 }
 
-/* 4. Preview Card - Neumorphic */
-.previewCard {
-  background: var(--background);
-  padding: 40px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--neumorph-shadow);
+/* Info Cards Stack */
+.infoStack {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
+  height: 100%;
 }
 
-.previewHeader {
+.infoCard {
+  background: var(--background);
+  padding: 30px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--neumorph-shadow);
+  text-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+  justify-content: center;
+  flex: 1; /* This makes each card grow to fill available space equally */
+  transition: all 0.3s ease;
 }
 
-.previewDot {
-  width: 12px;
-  height: 12px;
-  background: #4ade80;
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+.infoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--neumorph-shadow-lg);
 }
 
-.previewItem {
-  margin-bottom: 1.5rem;
-}
-
-.previewLabel {
-  font-size: 0.8rem;
+.infoDesc {
+  font-size: 1.1rem;
+  font-weight: 600;
   color: var(--foreground);
-  opacity: 0.6;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+.socialHeading {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  color: var(--foreground);
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
   letter-spacing: 1px;
 }
 
-.previewValue {
-  font-weight: 800;
-  font-size: 1.2rem;
+.socialGridSmall {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.socialGridSmall a {
+  width: 45px;
+  height: 45px;
+  background: var(--background);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--foreground);
-  min-height: 1.5rem;
+  box-shadow: var(--neumorph-shadow-sm);
+  transition: all 0.3s;
+}
+
+.socialGridSmall a:hover {
+  box-shadow: var(--neumorph-inset-sm);
+  color: var(--primary);
+  transform: scale(0.95);
 }
 
 /* 5. Map Section - Neumorphic Frame */

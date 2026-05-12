@@ -19,7 +19,7 @@ const teamMembers = [
     role: "Team Lead",
     domain: "TEAM LEAD",
     bio: "Guiding the team with dedication and professionalism. She plays an important role in project coordination, team management, and maintaining workflow efficiency. With strong communication and leadership skills, she supports both clients and team members effectively. Her commitment and teamwork contribute to the successful growth of Softnova.",
-    image: "/Images/about/dharshika_new_v3.jpg",
+    image: "/Images/about/dharshika_new_v3.webp",
   },
   {
     name: "Adhithyan",
@@ -168,7 +168,7 @@ export default function Team() {
       >
         <div className={styles.founderImageWrapper}>
           <Image
-            src="/Images/about/founder.png"
+            src="/Images/about/founder.webp"
             alt="Our Founder"
             width={500}
             height={500}

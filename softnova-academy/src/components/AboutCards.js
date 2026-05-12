@@ -51,29 +51,21 @@ export default function AboutCards() {
 
       <div className={`${styles.featureGrid} gsap-stagger-group`}>
         {features.map((feature, index) => {
-          // Subtle floating animations
-          const yRange = index % 2 === 0 ? [8, -8] : [12, -12];
-          const delay = index * 0.2;
-          const duration = 4.5 + (index % 2);
-
           return (
-            <FloatingElement key={index} yRange={yRange} duration={duration} delay={delay}>
-              <div className={`${styles.featureCard} gsap-card`}>
-                {/* Decorative background circle */}
-                <div 
-                  className={styles.cardDecoration} 
-                  style={{ background: feature.color }} 
-                />
+            <div className={`${styles.featureCard} gsap-card`} key={index}>
+              {/* Decorative background circle */}
+              <div 
+                className={styles.cardDecoration} 
+                style={{ background: feature.color }} 
+              />
 
-                <div className={styles.iconWrapper}>
-                  {feature.icon}
-                </div>
-                
-                <h3>{feature.title}</h3>
-                <p>{feature.desc}</p>
+              <div className={styles.iconWrapper}>
+                {feature.icon}
               </div>
-            </FloatingElement>
-
+              
+              <h3>{feature.title}</h3>
+              <p>{feature.desc}</p>
+            </div>
           );
         })}
       </div>

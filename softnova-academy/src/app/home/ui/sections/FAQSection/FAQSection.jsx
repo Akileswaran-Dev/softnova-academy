@@ -87,7 +87,7 @@ const FAQS = [
   {
     id: 16,
     question: 'How can I contact the institute directly?',
-    answer: 'You can call us at (91-638-5118-083) or email us at (hr@softnovatech.com)our office is open for direct visits as well.',
+    answer: 'You can call us at (91-638-5118-083) or email us at (hr@softnovatechnology.com)our office is open for direct visits as well.',
   },
   {
     id: 17,
@@ -150,7 +150,7 @@ const FAQSection = () => {
           <div className={styles.purpleBlock}>
             {numberString}
           </div>
-          <div 
+          <div
             className={`${styles.glassCard} ${isOpen ? styles.open : ''}`}
             onClick={() => toggleOpen(faq.id)}
           >
@@ -191,7 +191,7 @@ const FAQSection = () => {
             <span className={styles.highlight}></span>
           </h2>
           <p className={styles.subtitle}>
-            Here are some common questions about our<br/>services to help you understand better.
+            Here are some common questions about our<br />services to help you understand better.
           </p>
         </div>
 

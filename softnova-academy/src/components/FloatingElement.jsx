@@ -14,7 +14,7 @@ export default function FloatingElement({ children, yRange = [10, -10], duration
         delay: delay,
         ease: "easeInOut",
       }}
-      style={{ width: "100%", height: "100%", willChange: "transform" }}
+      style={{ width: "100%", height: "100%", willChange: "transform", display: "flex" }}
     >
       {children}
     </motion.div>

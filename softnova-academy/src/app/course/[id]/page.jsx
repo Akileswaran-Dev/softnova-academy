@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { 
   ChevronLeft, 
+  ChevronRight,
   BookOpen, 
   Clock, 
   Target, 
@@ -24,7 +25,7 @@ const COURSE_DATA = {
     title: "Web Design",
     category: "Design & UX",
     duration: "2 MONTHS",
-    image: "/Images/Course/web design.jpg",
+    image: "/Images/Course/web design.webp",
     overview: "Web Design – A Creative and Technical Skill Web design involves creating visually appealing, user-friendly websites using layout, colours or theory, typography, and UX principles.",
     modules: [
       {
@@ -58,7 +59,7 @@ const COURSE_DATA = {
     title: "HR Training",
     category: "Management",
     duration: "3 MONTHS",
-    image: "/Images/Course/HR.jpg",
+    image: "/Images/Course/HR.webp",
     overview: "HR Training is a structured program that builds essential skills for effective human resource management. It covers recruitment strategies, onboarding processes, and accurate payroll handling.",
     modules: [
       {
@@ -92,7 +93,7 @@ const COURSE_DATA = {
     title: "UI/UX Design",
     category: "Design & UX",
     duration: "2 MONTHS",
-    image: "/Images/Course/UI and UX.jpg",
+    image: "/Images/Course/UI and UX.webp",
     overview: "UI/UX Designer – Crafting Seamless Digital Experiences. UI/UX Designers create intuitive, visually appealing digital interfaces that enhance user satisfaction and usability.",
     modules: [
       {
@@ -126,7 +127,7 @@ const COURSE_DATA = {
     title: "Full-Stack Development",
     category: "Development",
     duration: "4 MONTHS",
-    image: "/Images/Course/Full Stack.jpg",
+    image: "/Images/Course/Full Stack.webp",
     overview: "Full Stack Development covers everything from the front-end user interface to the back-end server logic and database management. You'll learn to build complete, dynamic web applications from scratch using modern technologies like React, Node.js, and MongoDB.",
     modules: [
       {
@@ -160,7 +161,7 @@ const COURSE_DATA = {
     title: "Front-End Development",
     category: "Development",
     duration: "3 - 3.5 MONTHS",
-    image: "/Images/Course/Fronend developer.jpg",
+    image: "/Images/Course/Fronend developer.webp",
     overview: "Front-End Developer – Building the user side of the Web. Front-end developers create the visual and interactive elements of websites using HTML, CSS, and Java-script.",
     modules: [
       {
@@ -194,7 +195,7 @@ const COURSE_DATA = {
     title: "Java Full Stack Development",
     category: "Development",
     duration: "4 MONTHS",
-    image: "/Images/Course/Java Full stack.jpg",
+    image: "/Images/Course/Java Full stack.webp",
     overview: "Java Full Stack Development involves building both front-end and back-end of web applications using Java and related technologies. It includes using HTML, CSS, JavaScript (Angular/React) for UI, and Java with Spring Boot for server-side logic. Developers also manage databases (MySQL/MongoDB), APIs, and version control (Git). They handle the full application lifecycle from design to deployment.",
     modules: [
       {
@@ -228,7 +229,7 @@ const COURSE_DATA = {
     title: "Desktop Support Engineer",
     category: "Engineering",
     duration: "1 - 1.5 MONTHS",
-    image: "/Images/Course/Desktop engineer.jpg",
+    image: "/Images/Course/Desktop engineer.webp",
     overview: "A Desktop Support Engineer is an IT specialist who handles the installation, configuration, and troubleshooting of operating systems, software, and hardware on desktops and laptops. They assist with network connectivity, peripheral setup, and provide user support through remote or on-site help. Their role includes performing system updates, backups, and ensuring device security. They also maintain documentation of technical issues, solutions, and inventory records. This role is essential for minimizing downtime and ensuring smooth IT operations within an organization.",
     modules: [
       {
@@ -257,7 +258,7 @@ const COURSE_DATA = {
     title: "Networking & CCNA",
     category: "Networking",
     duration: "3 MONTHS",
-    image: "/Images/Course/Networking.jpg",
+    image: "/Images/Course/Networking.webp",
     overview: "A CISCO Certified Network Associate (CCNA) is a globally recognized certification that validates essential networking skills. It covers topics like network fundamentals, IP addressing, routing, switching, and security basics. CCNA holders can install, configure, and troubleshoot networks using Cisco devices. This certification suits entry-level network engineers and IT professionals. It serves as a strong foundation for a career in networking.",
     modules: [
       {
@@ -286,7 +287,7 @@ const COURSE_DATA = {
     title: "Business Development Executive",
     category: "Business",
     duration: "2 MONTHS",
-    image: "/Images/Course/Business.jpg",
+    image: "/Images/Course/Business.webp",
     overview: "Business Development Executive focuses on growing a company by identifying opportunities and generating leads. They pitch products/services, build client relationships, and close deals. The role includes market research, sales target achievement, and coordination with internal teams. Strong communication and negotiation skills are vital. They play a key role in expanding business reach and revenue.",
     modules: [
       {
@@ -326,6 +327,7 @@ export default function CourseDetailPage({ params }) {
   
   const [activeTab, setActiveTab] = useState(course.modules[0].title);
   const containerRef = useRef(null);
+  const tabsRef = useRef(null);
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -382,17 +384,39 @@ export default function CourseDetailPage({ params }) {
         </header>
 
         {/* Neumorphic Tabs (Module Titles) */}
-        <div className={`${styles.tabsContainer} gsap-animate`}>
-          {course.modules.map((mod, index) => (
-            <div 
-              key={mod.title} 
-              className={`${styles.tab} ${activeTab === mod.title ? styles.activeTab : ""}`}
-              onClick={() => setActiveTab(mod.title)}
-            >
-              <span className={styles.tabNum}>{String(index + 1).padStart(2, '0')}</span>
-              {mod.title}
-            </div>
-          ))}
+        <div className={`${styles.tabsWrapper} gsap-animate`}>
+          <button 
+            className={styles.navBtn} 
+            onClick={() => {
+              if (tabsRef.current) tabsRef.current.scrollBy({ left: -200, behavior: 'smooth' });
+            }}
+            aria-label="Previous Module"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          <div className={styles.tabsContainer} ref={tabsRef}>
+            {course.modules.map((mod, index) => (
+              <div 
+                key={mod.title} 
+                className={`${styles.tab} ${activeTab === mod.title ? styles.activeTab : ""}`}
+                onClick={() => setActiveTab(mod.title)}
+              >
+                <span className={styles.tabNum}>{String(index + 1).padStart(2, '0')}</span>
+                {mod.title}
+              </div>
+            ))}
+          </div>
+
+          <button 
+            className={styles.navBtn} 
+            onClick={() => {
+              if (tabsRef.current) tabsRef.current.scrollBy({ left: 200, behavior: 'smooth' });
+            }}
+            aria-label="Next Module"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         <div className={`${styles.contentArea} gsap-animate`}>

@@ -29,7 +29,7 @@ const COURSES = [
     category: "Design & UX",
     title: "Web Design",
     slug: "web-design",
-    image: "/Images/Course/web design.jpg",
+    image: "/Images/Course/web design.webp",
     description: "Web design blends creativity, technical expertise, responsive layouts, and smooth navigation into a seamless digital experience.",
     author: "Softnova Academy",
     duration: "2 MONTHS",
@@ -47,7 +47,7 @@ const COURSES = [
     category: "Design & UX",
     title: "UI/UX Design",
     slug: "ui-ux-design",
-    image: "/Images/Course/UI and UX.jpg",
+    image: "/Images/Course/UI and UX.webp",
     description: "UI/UX Designers craft intuitive, visually engaging digital experiences through research, prototyping, and design tools.",
     author: "Softnova Academy",
     duration: "2 MONTHS",
@@ -65,7 +65,7 @@ const COURSES = [
     category: "Development",
     title: "Front-End Development",
     slug: "front-end-development",
-    image: "/Images/Course/Fronend developer.jpg",
+    image: "/Images/Course/Fronend developer.webp",
     description: "Front-end developers build responsive, interactive user interfaces with HTML, CSS, JavaScript, and frameworks like React.",
     author: "Softnova Academy",
     duration: "3 - 3.5 MONTHS",
@@ -83,7 +83,7 @@ const COURSES = [
     category: "Development",
     title: "Full-Stack Development",
     slug: "full-stack-development",
-    image: "/Images/Course/Full Stack.jpg",
+    image: "/Images/Course/Full Stack.webp",
     description: "Full Stack Developers build web apps, handling front-end, back-end, and databases using various technologies.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
@@ -101,7 +101,7 @@ const COURSES = [
     category: "Development",
     title: "Java Full Stack Development",
     slug: "java-full-stack-development",
-    image: "/Images/Course/Java Full stack.jpg",
+    image: "/Images/Course/Java Full stack.webp",
     description: "Covers building and managing both front-end and back-end using Java, Spring Boot, and modern web technologies.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
@@ -119,7 +119,7 @@ const COURSES = [
     category: "Engineering",
     title: "Desktop Support Engineer",
     slug: "desktop-support-engineer",
-    image: "/Images/Course/Desktop engineer.jpg",
+    image: "/Images/Course/Desktop engineer.webp",
     description: "Engineers manage setup, troubleshooting, updates, security, and user support to ensure smooth organizational IT operations.",
     author: "Softnova Academy",
     duration: "1 - 1.5 MONTHS",
@@ -136,7 +136,7 @@ const COURSES = [
     category: "Networking",
     title: "Networking & CCNA",
     slug: "networking-ccna",
-    image: "/Images/Course/Networking.jpg",
+    image: "/Images/Course/Networking.webp",
     description: "A CCNA is a globally recognized certification that validates core networking skills for a strong foundation in a networking career.",
     author: "Softnova Academy",
     duration: "3 MONTHS",
@@ -153,7 +153,7 @@ const COURSES = [
     category: "Business",
     title: "Business Development Executive",
     slug: "business-development-executive",
-    image: "/Images/Course/Business.jpg",
+    image: "/Images/Course/Business.webp",
     description: "BDEs grow companies by generating leads, pitching, closing deals, and expanding revenue through strategic planning.",
     author: "Softnova Academy",
     duration: "2 MONTHS",
@@ -171,7 +171,7 @@ const COURSES = [
     category: "Management",
     title: "HR Training",
     slug: "hr-training",
-    image: "/Images/Course/HR.jpg",
+    image: "/Images/Course/HR.webp",
     description: "HR training builds expertise in hiring, onboarding, payroll, and performance management and labor laws.",
     author: "Softnova Academy",
     duration: "3 MONTHS",
@@ -231,7 +231,7 @@ Learn through real-time projects, expert mentorship, and an interactive learning
         </header>
 
         <div className={`${styles.courseGrid} gsap-course-grid`}>
-          {COURSES.map((course) => (
+          {COURSES.map((course, index) => (
             <div key={course.id} className={`${styles.courseCard} gsap-course-card`}>
               {/* Left Image Section */}
               <div className={styles.cardLeft}>
@@ -241,6 +241,8 @@ Learn through real-time projects, expert mentorship, and an interactive learning
                     alt={course.title} 
                     fill 
                     className={styles.courseImg}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index === 0}
                   />
                   <div className={styles.iconOverlay}>
                     {course.icon}
