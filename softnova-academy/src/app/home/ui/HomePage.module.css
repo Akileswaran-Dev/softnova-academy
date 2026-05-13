@@ -231,6 +231,11 @@
   align-items: center;
 }
 
+.techStackContainer:hover .techOrbit,
+.techStackContainer:hover .orbitItem svg {
+  animation-play-state: paused;
+}
+
 @keyframes rotateOrbit {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

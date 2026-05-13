@@ -290,7 +290,7 @@ const ContactUsPage = () => {
         <section className={styles.cta}>
           <motion.div
             className={styles.ctaBox}
-            whileHover={{ scale: 1.01 }}
+            whileHover={{ scale: 0.99 }}
           >
             <h2>Ready to Take the Leap?</h2>
             <p style={{ marginBottom: "3rem", fontSize: "1.2rem", opacity: 0.9 }}>

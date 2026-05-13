@@ -218,4 +218,15 @@ a {
 }
 
 
-
+@media (max-width: 768px) {
+  body,
+  p,
+  span,
+  a,
+  li,
+  input,
+  textarea,
+  button {
+    font-size: 15px;
+  }
+}

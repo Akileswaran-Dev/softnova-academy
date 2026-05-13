@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Laptop, Monitor, Smartphone, Globe, Cpu, Layout } from "lucide-react";
+import Link from "next/link";
 import styles from "../app/about/about.module.css";
 
 export default function AboutHero() {
@@ -48,23 +49,32 @@ export default function AboutHero() {
         <div className={styles.screenGlass}>
            <div className={styles.screenInner}>
               <div className={styles.screenTopBar}>
-                 <span>VISION 2027</span>
+                 <span>VISION 2026</span>
                  <div className={styles.topRightLine}></div>
               </div>
               
               <h1 className={styles.mainTitle}>
-                EMPOWERING THE<br/>NEXT GENERATION<br/>OF TECH LEADERS
+                “Empowering students with knowledge and real-world skills.
+Learn today, lead tomorrow.”
               </h1>
 
-              <div className={styles.bottomIcons}>
-                 <Laptop size={18} />
-                 <Monitor size={18} />
-                 <Smartphone size={18} />
-                 <Globe size={18} />
-                 <Cpu size={18} />
-                 <Layout size={18} />
+              <div className={styles.highlightsGrid}>
+                 <div className={styles.highlightCard}>
+                    <Laptop size={24} className={styles.highlightIcon} />
+                    <span>Practical Learning</span>
+                 </div>
+                 <div className={styles.highlightCard}>
+                    <Cpu size={24} className={styles.highlightIcon} />
+                    <span>Expert Mentorship</span>
+                 </div>
+                 <div className={styles.highlightCard}>
+                    <Globe size={24} className={styles.highlightIcon} />
+                    <span>Industry Projects</span>
+                 </div>
               </div>
-              <p className={styles.tinyText}>Softnova Academy - Bridging the gap between learning and industry</p>
+              <Link href="/course" className={styles.learnMoreHint}>
+                 Discover the Softnova way of learning <span className={styles.arrow}>→</span>
+              </Link>
            </div>
         </div>
       </motion.div>

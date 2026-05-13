@@ -5,22 +5,14 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-mo
 import Image from "next/image";
 import {
   X,
-  Home,
   Search,
-  Download,
-  User,
-  Settings,
-  Bell,
-  ChevronDown,
-  Play,
-  RotateCcw,
   Film,
   Zap,
-  MoreHorizontal,
   Layout,
   Users,
   Layers,
-  Award
+  Award,
+  Camera
 } from "lucide-react";
 import ScrollToTop from '@/components/ScrollToTop';
 import styles from "./gallery.module.css";
@@ -29,6 +21,7 @@ const CATEGORIES = [
   { id: "all", label: "All", icon: <Layout size={22} /> },
   { id: "internship", label: "Internship", icon: <Users size={22} /> },
   { id: "celebration", label: "Celebration", icon: <Zap size={22} /> },
+  { id: "outing", label: "outing", icon: <Camera size={22} /> },
   { id: "requirements", label: "Requirements", icon: <Layers size={22} /> },
   { id: "achievements", label: "Achievements", icon: <Award size={22} /> },
   { id: "skill-up", label: "Skill-Up", icon: <Film size={22} /> },
@@ -36,21 +29,22 @@ const CATEGORIES = [
 
 const GALLERY_IMAGES = [
   // Celebrations
-
+  { id: 1, title: "Unity Festival", category: "outing", img: "/Images/gallery/cel-3.webp", desc: "Celebrating our collective achievements." },
   { id: 3, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Showcasing talents and cultural diversity." },
-  { id: 4, title: "Unity Festival", category: "celebration", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our collective achievements." },
-  { id: 5, title: "Office Fun", category: "celebration", img: "/Images/gallery/cel-9.webp", desc: "Spreading smiles and positivity in the workspace." },
+  { id: 4, title: "Unity Festival", category: "outing", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our collective achievements." },
+  { id: 5, title: "Unity Festival", category: "outing", img: "/Images/gallery/cel-4.webp", desc: "Celebrating our collective achievements." },
+
   { id: 6, title: "Grand Gala", category: "outing", img: "/Images/gallery/cel-11.webp", desc: "A night to remember with the Softnova family." },
-  { id: 7, title: "Achievement Party", category: "celebration", img: "/Images/gallery/cel-14.webp", desc: "Cheers to our recent milestones." },
-  { id: 8, title: "Holiday Cheer", category: "celebration", img: "/Images/gallery/cel-15.webp", desc: "Festive vibes and seasonal celebrations." },
-  { id: 9, title: "Team Lunch", category: "celebration", img: "/Images/gallery/cel-16.webp", desc: "Good food and great conversations." },
-  { id: 10, title: "Special Recognition", category: "celebration", img: "/Images/gallery/cel-17.webp", desc: "Honoring our dedicated team members." },
-  { id: 11, title: "Legacy Event", category: "celebration", img: "/Images/gallery/cel-18.webp", desc: "Building memories that last a lifetime." },
+
+
+
+  ,
+
   { id: 12, title: "Success Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Reflecting on our journey and future goals." },
   { id: 13, title: "Annual Day", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Celebrating another year of innovation." },
-  { id: 14, title: "Gallery Highlight", category: "celebration", img: "/Images/gallery/g1.webp", desc: "Capturing the essence of Softnova." },
+
   { id: 15, title: "Tech Session", category: "celebration", img: "/Images/gallery/g3.webp", desc: "Informal learning and tech talks." },
-  { id: 16, title: "Workshop Fun", category: "celebration", img: "/Images/gallery/g4.webp", desc: "Hands-on experience with a smile." },
+
   { id: 17, title: "Collaboration", category: "celebration", img: "/Images/gallery/g6.webp", desc: "Working together towards excellence." },
 
   // Internship
@@ -75,7 +69,7 @@ const GALLERY_IMAGES = [
   { id: 30, title: "Coding Bootcamp", category: "skill-up", img: "/Images/gallery/skill3.webp", desc: "Intensive training for industry readiness." },
   { id: 31, title: "Design Masterclass", category: "skill-up", img: "/Images/gallery/skill4.webp", desc: "Crafting beautiful and functional interfaces." },
   { id: 32, title: "Soft Skills Training", category: "skill-up", img: "/Images/gallery/skill5.webp", desc: "Preparing for the professional world." },
-  
+
 ];
 
 export default function GalleryPage() {
@@ -97,9 +91,9 @@ export default function GalleryPage() {
     let base = activeTab === "all"
       ? images
       : images.filter(img => img.category === activeTab);
-    
+
     if (searchQuery) {
-      base = base.filter(img => 
+      base = base.filter(img =>
         img.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         img.desc.toLowerCase().includes(searchQuery.toLowerCase())
       );
@@ -118,7 +112,7 @@ export default function GalleryPage() {
       <nav className={styles.sideDock}>
         <div className={styles.dockInner}>
           {CATEGORIES.map(cat => (
-            <motion.div 
+            <motion.div
               key={cat.id}
               className={`${styles.dockItem} ${activeTab === cat.id ? styles.dockActive : ''}`}
               onClick={() => setActiveTab(cat.id)}
@@ -127,7 +121,7 @@ export default function GalleryPage() {
               whileHover={{ scale: 1.05 }}
             >
               <div className={styles.iconBox}>{cat.icon}</div>
-              <motion.span 
+              <motion.span
                 className={styles.dockLabel}
                 animate={hoveredTab === cat.id ? { opacity: 1, x: 0, display: 'block' } : { opacity: 0, x: -10, transitionEnd: { display: 'none' } }}
                 transition={{ duration: 0.2 }}
@@ -147,7 +141,7 @@ export default function GalleryPage() {
       <div className={styles.container}>
         {/* Modern Brand Header */}
         <header className={styles.header}>
-          <motion.div 
+          <motion.div
             className={styles.brandBadge}
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -162,9 +156,9 @@ export default function GalleryPage() {
         <div className={styles.controlsRow}>
           <div className={styles.searchWrapper}>
             <Search size={18} className={styles.searchIcon} />
-            <input 
-              type="text" 
-              placeholder="Search moments..." 
+            <input
+              type="text"
+              placeholder="Search moments..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className={styles.neumorphInput}
@@ -189,14 +183,14 @@ export default function GalleryPage() {
                 onClick={() => setSelectedImage(img)}
               >
                 <div className={styles.itemInner}>
-                  <Image 
-                    src={img.img} 
-                    alt={img.title} 
-                    fill 
+                  <Image
+                    src={img.img}
+                    alt={img.title}
+                    fill
                     className={styles.gridImg}
                     priority={idx < 4}
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                    style={{ 
+                    style={{
                       transform: hoveredId === img.id ? 'scale(1.05)' : 'scale(1)',
                       transition: 'transform 0.5s ease-out'
                     }}
@@ -222,14 +216,14 @@ export default function GalleryPage() {
       {/* Neumorphic Lightbox Popup */}
       <AnimatePresence>
         {selectedImage && (
-          <motion.div 
+          <motion.div
             className={styles.overlay}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelectedImage(null)}
           >
-            <motion.div 
+            <motion.div
               className={styles.modal}
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
@@ -239,16 +233,16 @@ export default function GalleryPage() {
               <div className={styles.modalBody}>
                 {selectedImage.type === 'video' ? (
                   <div className={styles.modalVideoWrapper}>
-                    <video 
-                      src={selectedImage.video} 
-                      controls 
-                      autoPlay 
+                    <video
+                      src={selectedImage.video}
+                      controls
+                      autoPlay
                       className={styles.modalVideo}
                     />
                   </div>
                 ) : (
                   <div className={styles.modalImgWrapper}>
-                    <Image src={selectedImage.img} alt="full" fill className={styles.modalImg} />
+                    <img src={selectedImage.img} alt={selectedImage.title || "Gallery image"} className={styles.modalImg} />
                   </div>
                 )}
               </div>

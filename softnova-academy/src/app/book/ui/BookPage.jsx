@@ -5,11 +5,11 @@ import { ArrowRight, BookOpen, Star, Heart, Bookmark, Share2, Download, Search, 
 import styles from './BookPage.module.css';
 
 const BOOKS = [
-   { id: 1, title: 'Web Design', subtitle: 'Fundamentals', author: 'James Carter', rating: 5, voters: '1,987,765', desc: 'Master the art of creating visually stunning and user-friendly websites.', imgColor: '#00cec9', hue: 150, color: '#00cec9' },
-   { id: 2, title: 'UI/UX', subtitle: 'Masterclass', author: 'Emily Watson', rating: 4, voters: '856,120', desc: 'Deep dive into user research, wireframing, and interactive prototyping.', imgColor: '#ff7c30', hue: 0, color: '#ff9f43' },
-   { id: 3, title: 'Advanced React', subtitle: 'Patterns', author: 'Sarah Jenkins', rating: 5, voters: '2,110,400', desc: 'Take your React skills to the professional level.', imgColor: '#6c5ce7', hue: 200, color: '#0984e3' },
-   { id: 4, title: 'Full Stack', subtitle: 'Roadmap', author: 'David Miller', rating: 5, voters: '1,200,890', desc: 'The ultimate guide to becoming a full stack developer.', imgColor: '#e84393', hue: 300, color: '#e84393' },
-   { id: 5, title: 'Machine', subtitle: 'Learning', author: 'Alan Turing', rating: 5, voters: '3,450,100', desc: 'Introduction to neural networks and modern AI.', imgColor: '#10ac84', hue: 80, color: '#10ac84' },
+   { id: 1, title: 'Web Design', subtitle: 'Fundamentals', author: 'James Carter', rating: 5, voters: '1.9M', desc: 'Master the art of creating visually stunning and user-friendly websites.', imgColor: '#00cec9', hue: 150, color: '#00cec9', pages: 420, time: '6.5h', progress: 65, category: 'Design', chapters: ['1. Layout Basics', '2. Typography', '3. Color Theory', '4. UX Research'] },
+   { id: 2, title: 'UI/UX', subtitle: 'Masterclass', author: 'Emily Watson', rating: 4, voters: '856K', desc: 'Deep dive into user research, wireframing, and interactive prototyping.', imgColor: '#ff7c30', hue: 0, color: '#ff9f43', pages: 350, time: '5.2h', progress: 20, category: 'Interface', chapters: ['1. Discovery', '2. Wireframing', '3. Visual Design', '4. Handoff'] },
+   { id: 3, title: 'Advanced React', subtitle: 'Patterns', author: 'Sarah Jenkins', rating: 5, voters: '2.1M', desc: 'Take your React skills to the professional level.', imgColor: '#6c5ce7', hue: 200, color: '#0984e3', pages: 580, time: '9.7h', progress: 45, category: 'Development', chapters: ['1. Hooks Deep Dive', '2. Context API', '3. Performance', '4. Testing'] },
+   { id: 4, title: 'Full Stack', subtitle: 'Roadmap', author: 'David Miller', rating: 5, voters: '1.2M', desc: 'The ultimate guide to becoming a full stack developer.', imgColor: '#e84393', hue: 300, color: '#e84393', pages: 290, time: '4.1h', progress: 85, category: 'Career', chapters: ['1. Node.js', '2. Express', '3. Databases', '4. Deployment'] },
+   { id: 5, title: 'Digital Marketing', subtitle: 'Learning', author: 'Alan Turing', rating: 5, voters: '3.4M', desc: 'Introduction to neural networks and modern AI.', imgColor: '#10ac84', hue: 80, color: '#10ac84', pages: 620, time: '12h', progress: 12, category: 'AI/ML', chapters: ['1. Regression', '2. Classification', '3. Neural Nets', '4. NLP'] },
 ];
 
 const BookCard = ({ book }) => (
@@ -22,6 +22,7 @@ const BookCard = ({ book }) => (
          </div>
       </div>
       <div className={styles.infoSide}>
+         <div className={styles.categoryBadge} style={{ background: `${book.color}22`, color: book.color }}>{book.category}</div>
          <div className={styles.author} suppressHydrationWarning>by {book.author}</div>
          <h2 className={styles.title} suppressHydrationWarning>{book.title}</h2>
          <div className={styles.rating}>
@@ -41,8 +42,8 @@ const BookPage = () => {
 
    useEffect(() => {
       const interval = setInterval(() => {
-         setActiveIndex((current) => (current + 1) % BOOKS.length);
-      }, 4500); // 4.5 seconds auto-cycle
+         // setActiveIndex((current) => (current + 1) % BOOKS.length);
+      }, 8000); // Slower cycle for reading content
       return () => clearInterval(interval);
    }, []);
 
@@ -57,31 +58,23 @@ const BookPage = () => {
 
             <div className={styles.glassCard}>
 
-               {/* Top Left Icons */}
-               <div className={styles.topLeftIcons}>
-                  <div className={styles.iconCircle}><BookOpen size={16} /></div>
-                  <div className={styles.iconCircleSmall}><Search size={14} /></div>
-               </div>
-
                {/* Left Content */}
                <div className={styles.leftContent}>
                   <AnimatePresence mode="wait">
                      <motion.div
                         key={activeIndex}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 0.4 }}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 30 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
                      >
                         <h1 className={styles.mainTitle}>
                            {activeItem.title} <br />
                            <span className={styles.subtitle}>{activeItem.subtitle}</span>
                         </h1>
+                        <p className={styles.heroDesc}>{activeItem.desc}</p>
                      </motion.div>
                   </AnimatePresence>
-                  <button className={styles.actionBtn} style={{ backgroundColor: activeItem.color }}>
-                     Read Book <ArrowRight size={18} style={{ marginLeft: '5px' }} />
-                  </button>
                </div>
 
                {/* Center 3D Showcase (Orbital Carousel) */}
@@ -93,17 +86,16 @@ const BookPage = () => {
                      <motion.div
                         className={styles.orbitContainer}
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                      >
                         {BOOKS.map((book, idx) => {
                            if (idx === activeIndex) return null;
 
-                           // Calculate orbit index (0 to 3)
                            let orbitIdx = idx;
                            if (idx > activeIndex) orbitIdx = idx - 1;
 
-                           const angle = (orbitIdx * 90); // 360 / 4 = 90 degrees
-                           const radius = 170; // Distance from center
+                           const angle = (orbitIdx * 90); 
+                           const radius = 180; 
 
                            return (
                               <div
@@ -111,10 +103,9 @@ const BookPage = () => {
                                  className={styles.orbitItemWrapper}
                                  style={{ transform: `rotate(${angle}deg) translateX(${radius}px)` }}
                               >
-                                 {/* Counter-rotate to stay upright */}
                                  <motion.div
                                     animate={{ rotate: -360 }}
-                                    transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                                    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
                                     className={styles.counterRotate}
                                  >
                                     <motion.img
@@ -122,7 +113,7 @@ const BookPage = () => {
                                        src="/3d_book_icon_transparent.webp"
                                        className={styles.orbitBookImage}
                                        onClick={() => setActiveIndex(idx)}
-                                       whileHover={{ scale: 1.15 }}
+                                       whileHover={{ scale: 1.2 }}
                                        style={{
                                           filter: `hue-rotate(${book.hue}deg) contrast(1.1) drop-shadow(0 10px 15px rgba(0,0,0,0.2))`,
                                           cursor: 'pointer'
@@ -146,22 +137,63 @@ const BookPage = () => {
                      </div>
                   </LayoutGroup>
 
-                  {/* Floating Orbs (mimicking fruits) */}
-                  <motion.div className={styles.floatingOrb1} animate={{ y: [0, -15, 0] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
-                  <motion.div className={styles.floatingOrb2} animate={{ y: [0, 20, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
-                  <motion.div className={styles.floatingOrb3} animate={{ y: [0, -10, 0], x: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+                  {/* Floating Orbs */}
+                  <motion.div className={styles.floatingOrb1} animate={{ y: [0, -25, 0], rotate: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+                  <motion.div className={styles.floatingOrb2} animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
                </div>
 
-               {/* Right Icon Grid */}
-               <div className={styles.rightIconGrid}>
-                  <div className={styles.iconBtn}><Heart size={20} /></div>
-                  <div className={styles.iconBtn}><Star size={20} /></div>
-                  <div className={styles.iconBtnActive} style={{ color: activeItem.color }}><Bookmark size={20} /></div>
-                  <div className={styles.iconBtn}><Share2 size={20} /></div>
-                  <div className={styles.iconBtn}><Download size={20} /></div>
-                  <div className={styles.iconBtn}><Settings size={20} /></div>
-                  <div className={styles.iconBtn}><BookOpen size={20} /></div>
-                  <div className={styles.iconBtn}><Search size={20} /></div>
+               {/* RIGHT PANEL: BOOK CONTENTS (NEW FUNCTIONAL AREA) */}
+               <div className={styles.rightInsightsPanel}>
+                  <div className={styles.panelHeader}>
+                     <h3>Book Index</h3>
+                     <div className={styles.liveBadge}>CHAPTERS</div>
+                  </div>
+
+                  <div className={styles.insightSection}>
+                     <div className={styles.progressCircleContainer}>
+                        <svg className={styles.progressSvg} viewBox="0 0 100 100">
+                           <circle className={styles.progressBg} cx="50" cy="50" r="45" />
+                           <motion.circle 
+                              className={styles.progressFill} 
+                              cx="50" cy="50" r="45" 
+                              initial={{ strokeDashoffset: 283 }}
+                              animate={{ strokeDashoffset: 283 - (283 * activeItem.progress) / 100 }}
+                              style={{ stroke: activeItem.color }}
+                           />
+                        </svg>
+                        <div className={styles.progressText}>
+                           <span className={styles.progressPercent}>{activeItem.progress}%</span>
+                           <span className={styles.progressLabel}>Read</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div className={styles.statsGrid}>
+                     <div className={styles.statBox}>
+                        <span className={styles.statVal}>{activeItem.pages}</span>
+                        <span className={styles.statLab}>Pages</span>
+                     </div>
+                     <div className={styles.statBox}>
+                        <span className={styles.statVal}>{activeItem.time}</span>
+                        <span className={styles.statLab}>Time</span>
+                     </div>
+                  </div>
+
+                  <div className={styles.chaptersSection}>
+                     <h4 className={styles.chaptersTitle}>Contents Index</h4>
+                     <div className={styles.chaptersList}>
+                        {activeItem.chapters.map((chapter, i) => (
+                           <div key={i} className={styles.chapterItem}>
+                              <div className={styles.chapterDot} style={{ background: i === 0 ? activeItem.color : 'rgba(255,255,255,0.2)' }}></div>
+                              <span>{chapter}</span>
+                           </div>
+                        ))}
+                     </div>
+                  </div>
+
+                  <button className={styles.readMoreBtn} style={{ color: activeItem.color, border: `1px solid ${activeItem.color}44` }}>
+                     View Full Outline
+                  </button>
                </div>
 
                {/* Bottom List */}
