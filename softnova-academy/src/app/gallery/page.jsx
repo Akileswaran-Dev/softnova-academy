@@ -12,7 +12,8 @@ import {
   Users,
   Layers,
   Award,
-  Camera
+  Camera,
+  Play
 } from "lucide-react";
 import ScrollToTop from '@/components/ScrollToTop';
 import styles from "./gallery.module.css";
@@ -49,7 +50,7 @@ const GALLERY_IMAGES = [
 
   // Internship
   { id: 18, title: "Internship Program", category: "internship", img: "/Images/gallery/intern1.webp", desc: "Nurturing the next generation of tech leaders." },
-  { id: 19, title: "Training Session", category: "internship", img: "/Images/gallery/intern2.webp", desc: "Hands-on guidance from industry experts." },
+  { id: 19, title: "Training Session", category: "internship", img: "/Images/about/Akka.webp", desc: "Hands-on guidance from industry experts." },
   { id: 20, title: "Intern Project", category: "internship", img: "/Images/gallery/intern3.webp", desc: "Building real-world applications." },
   { id: 21, title: "Mentorship", category: "internship", img: "/Images/gallery/intern4.webp", desc: "One-on-one guidance for career growth." },
   { id: 22, title: "Intern Graduation", category: "internship", img: "/Images/gallery/intern5.webp", desc: "Celebrating the successful completion of internship." },
@@ -259,4 +260,3 @@ export default function GalleryPage() {
     </div>
   );
 }
-

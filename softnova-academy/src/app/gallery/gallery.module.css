@@ -210,14 +210,17 @@
 
 /* Grid Layout - Masonry Style */
 .bentoGrid {
-  column-count: 4;
-  column-gap: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
   width: 100%;
 }
 
 .gridItem {
-  break-inside: avoid;
-  margin-bottom: 30px;
+  flex: 0 1 320px;
+  margin-bottom: 0;
   position: relative;
   border-radius: 35px;
   overflow: hidden;
@@ -225,8 +228,6 @@
   box-shadow: 10px 10px 20px #e0e0e0, -5px -5px 15px #ffffff;
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.3s ease;
   border: 2px solid #ff6b00;
-  display: inline-block; /* Essential for masonry columns */
-  width: 100%; /* Ensure it fills the column width */
   will-change: transform, box-shadow; /* GPU Acceleration */
 }
 
@@ -441,14 +442,14 @@
 
 /* Large Tablet (1200px) */
 @media (max-width: 1200px) {
-  .bentoGrid { column-count: 3; column-gap: 20px; }
+  .bentoGrid { gap: 20px; }
   .title { font-size: 3rem; }
   .container { padding-left: 120px; }
 }
 
 /* Tablet (1024px) */
 @media (max-width: 1024px) {
-  .bentoGrid { column-count: 2; column-gap: 18px; }
+  .bentoGrid { gap: 18px; }
   .title { font-size: 2.5rem; }
   .container { padding-left: 100px; padding-right: 15px; }
   .modal { max-width: 90%; }
@@ -524,7 +525,7 @@
   .neumorphInput { padding: 14px 16px 14px 45px; font-size: 0.9rem; }
 
   /* Grid → 2 columns on mobile */
-  .bentoGrid { column-count: 2; column-gap: 12px; }
+  .bentoGrid { gap: 12px; }
 
   /* Lightbox */
   .overlay { padding: 10px; z-index: 2500; }
@@ -539,7 +540,7 @@
 @media (max-width: 480px) {
   .title { font-size: 1.6rem; }
   .subtitle { font-size: 0.82rem; }
-  .bentoGrid { column-count: 1; column-gap: 14px; }
+  .bentoGrid { gap: 14px; }
   .gridItem { border-radius: 20px; }
   .itemInner { padding: 6px; }
   .dockItem { width: 38px; height: 38px; border-radius: 12px; }
@@ -559,7 +560,7 @@
 /* 4K / Ultrawide */
 @media (min-width: 2560px) {
   .container { max-width: 2600px; padding-left: 200px; }
-  .bentoGrid { column-count: 6; column-gap: 50px; }
+  .bentoGrid { gap: 50px; }
   .title { font-size: 7rem; }
   .subtitle { font-size: 1.8rem; }
   .modal { max-width: 80vw; max-height: 85vh; border-radius: 60px; border-width: 6px; }
