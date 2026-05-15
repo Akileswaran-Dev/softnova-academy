@@ -5,9 +5,9 @@ import { useEffect, useRef, useState } from "react";
 import styles from "../app/about/about.module.css";
 
 const stats = [
-  { label: "Students Trained", value: 120, suffix: "+" },
+  { label: "Students Trained", value: 60, suffix: "+" },
   { label: "Courses Offered", value: 20, suffix: "+" },
-  { label: "Placement Rate", value: 98, suffix: "%" },
+  { label: "Placement Rate", value: 93, suffix: "%" },
   { label: "Years of Experience", value: 2, suffix: "+" },
 ];
 

@@ -251,10 +251,10 @@ const ContactUsPage = () => {
             >
               <h4 className={styles.socialHeading}>Social Profiles</h4>
               <div className={styles.socialGridSmall}>
-                <a href="https://facebook.com/..." target="_blank" rel="noopener noreferrer"><Facebook size={20} /></a>
-                <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer"><MessageSquare size={20} /></a>
-                <a href="https://linkedin.com/..." target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
-                <a href="https://instagram.com/..." target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
+                <a  href="https://www.facebook.com/people/Softnovatech/61561099109544/?mibexti…3A%2F%2Fwww.facebook.com%2Fshare%2Ft1ufRjHfuJA6jfxE%2F%3Fmibextid%3Dqi2Omg" target="_blank"  rel="noopener noreferrer"><Facebook size={20} /></a>
+                <a  href="https://api.whatsapp.com/send/?phone=6385118083&text&type=phone_number&app_absent=0" target="_blank"rel="noopener noreferrer"><MessageSquare size={20} /></a>
+                <a  href="https://in.linkedin.com/company/softnovatech" target="_blank" rel="noopener noreferrer"><Linkedin size={20} /></a>
+                <a href="https://www.instagram.com/softnova_academy?igsh=MW9nNDhieXE1ZndpNA==" target="_blank" rel="noopener noreferrer"><Instagram size={20} /></a>
               </div>
             </motion.div>
           </div>

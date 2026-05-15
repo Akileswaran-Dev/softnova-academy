@@ -4,45 +4,59 @@ import styles from './TestimonialsSection.module.css';
 const TESTIMONIALS = [
   {
     id: 1,
-    name: 'Sarah Johnson',
-    role: 'UI/UX Design Student',
-    text: 'The UI/UX course was transformative. The hands-on projects helped me build a portfolio that landed me my dream internship!',
-    initial: 'S',
+    name: 'Shanmathi',
+    role: 'Front-End Developer',
+    text: 'I had a great learning experience at Softnova Academy. The trainers were supportive, and the practical sessions helped me improve my skills and confidence in real-time projects.',
+    
   },
   {
     id: 2,
-    name: 'Rahul Sharma',
+    name: 'Ega Ajith',
     role: 'Full Stack Developer',
     text: 'Softnova Academy provided the perfect environment to learn React and Node.js. The mentors are truly industry experts.',
-    initial: 'R',
+  
   },
   {
     id: 3,
-    name: 'Emily Chen',
-    role: 'Graphic Design',
-    text: 'I loved the interactive learning style. Combining theory with practical assignments made complex concepts easy to grasp.',
-    initial: 'E',
+    name: 'Akileswaran',
+    role: 'Full Stack Developer',
+    text: 'I completed Full Stack Development training at Softnova Academy, where I gained hands-on experience in both front-end and back-end development. The real-time projects and practical learning approach helped me build confidence in developing complete web applications.',
+    
   },
   {
     id: 4,
-    name: 'Michael Brown',
-    role: 'Mobile App Developer',
-    text: 'The placement support is exceptional. I felt prepared for every interview thanks to the mock sessions and guidance.',
-    initial: 'M',
+    name: 'Thangadeepak',
+    role: 'Front-End Developer',
+    text: "I recently completed the Frontend Development course here. The curriculum was very practical, especially the focus on modern frameworks and responsive design. It really helped me build a strong foundation for my role as a developer. Thanks to the mentors for the great support!",
+   
   },
   {
     id: 5,
-    name: 'Aisha Khan',
-    role: 'Data Science Student',
-    text: 'Comprehensive curriculum and great community. I particularly enjoyed the peer-to-peer learning sessions.',
-    initial: 'A',
+    name: 'Archana',
+    role: 'Web Designing',
+    text: 'I completed web designing training at Softnova Academy, where I learned to create modern and responsive website designs. The practical sessions and trainer support helped me improve my creativity and design skills effectively.',
+    
   },
   {
     id: 6,
-    name: 'David Wilson',
+    name: 'Shamina Jasmine',
     role: 'Web Development',
-    text: 'Softnova is more than just an academy; it is a platform for growth. Highly recommended for anyone starting their tech journey.',
-    initial: 'D',
+    text: 'I completed web development training at Softnova Academy, and the course gave me a strong foundation in both design and development concepts. The practical approach and real-time projects made learning more effective and improved my confidence in building websites.',
+    
+  },
+  {
+    id: 7,
+    name: 'Jenith',
+    role: 'Front-End Developer',
+    text: 'I completed front-end development training at Softnova Academy, where I gained strong knowledge in building responsive and interactive websites. The real-time practice sessions and guidance from trainers helped me improve both my coding skills and creativity.',
+    
+  },
+  {
+    id: 8,
+    name: 'Ashif',
+    role: 'Web Development',
+    text: 'I learned web development at Softnova Academy, and the training was very practical and easy to understand. The hands-on projects and supportive teaching helped me improve my front-end development skills confidently.',
+    
   },
 ];
 
