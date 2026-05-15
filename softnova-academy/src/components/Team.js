@@ -12,7 +12,7 @@ const teamMembers = [
     role: "HR",
     domain: "HR",
     bio: "She is dedicated to building a positive and professional workplace. She manages recruitment, employee engagement, and team coordination with strong leadership skills. She actively supports student internships and career development initiatives at Softnova. Her people-focused approach helps strengthen the company's culture and organizational growth.",
-    image: "/Images/gallery/Akka.png",
+    image: "/Images/about/Akka.webp",
   },
   {
     name: "Dharshika",
@@ -26,13 +26,13 @@ const teamMembers = [
     role: "Developer",
     domain: "DEVELOPER",
     bio: "Specializing in modern and responsive website development. He focuses on creating high-quality, user-friendly, and performance-driven web solutions for clients. With strong technical expertise and creative problem-solving skills, he contributes to successful project delivery. His dedication and innovative approach help strengthen Softnova's digital development team.",
-    image: "/Images/gallery/dev.jpg",
+    image: "/Images/about/dev.webp",
   },
 ];
 
 const CHAR_LIMIT = 120;
 
-function ReadMoreBio({ bio, bioClass }) {
+function ReadMoreBio({ bio, bioClass, style }) {
   const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -44,12 +44,12 @@ function ReadMoreBio({ bio, bioClass }) {
   }, []);
 
   if (!isMobile || bio.length <= CHAR_LIMIT) {
-    return <p className={bioClass}>{bio}</p>;
+    return <p className={bioClass} style={style}>{bio}</p>;
   }
 
   return (
     <motion.div layout className={styles.bioWrapper}>
-      <p className={bioClass}>
+      <p className={bioClass} style={style}>
         {bio.slice(0, CHAR_LIMIT)}
         <AnimatePresence mode="wait">
           {expanded && (
@@ -261,7 +261,7 @@ export default function Team() {
               <h3>{member.name}</h3>
               <div className={styles.memberDomain}>{member.domain}</div>
               {member.bio && (
-                <ReadMoreBio bio={member.bio} bioClass={styles.memberBio} />
+                <ReadMoreBio bio={member.bio} style={{ textAlign: "center" }} bioClass={styles.memberBio} />
               )}
             </div>
           </motion.div>
