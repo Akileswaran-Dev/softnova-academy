@@ -295,7 +295,7 @@ const InternshipPage = () => {
               <div className={styles.socialProfiles}>
                 <h4 className={styles.socialTitle}>Social Profiles</h4>
                 <div className={styles.socialIcons}>
-                  <a href="https://facebook.com/..." target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+                  <a href="https://www.facebook.com/people/Softnovatech/61561099109544/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
                     <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                   </a>
                   <a href="https://wa.me/..." target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>

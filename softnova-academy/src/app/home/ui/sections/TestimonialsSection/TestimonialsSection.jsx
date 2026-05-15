@@ -7,56 +7,56 @@ const TESTIMONIALS = [
     name: 'Shanmathi',
     role: 'Front-End Developer',
     text: 'I had a great learning experience at Softnova Academy. The trainers were supportive, and the practical sessions helped me improve my skills and confidence in real-time projects.',
-    
+    initial:"S",
   },
   {
     id: 2,
     name: 'Ega Ajith',
     role: 'Full Stack Developer',
     text: 'Softnova Academy provided the perfect environment to learn React and Node.js. The mentors are truly industry experts.',
-  
+  initial:"E",
   },
   {
     id: 3,
     name: 'Akileswaran',
     role: 'Full Stack Developer',
     text: 'I completed Full Stack Development training at Softnova Academy, where I gained hands-on experience in both front-end and back-end development. The real-time projects and practical learning approach helped me build confidence in developing complete web applications.',
-    
+    initial:"A",
   },
   {
     id: 4,
     name: 'Thangadeepak',
     role: 'Front-End Developer',
     text: "I recently completed the Frontend Development course here. The curriculum was very practical, especially the focus on modern frameworks and responsive design. It really helped me build a strong foundation for my role as a developer. Thanks to the mentors for the great support!",
-   
+     initial:"T",
   },
   {
     id: 5,
     name: 'Archana',
     role: 'Web Designing',
     text: 'I completed web designing training at Softnova Academy, where I learned to create modern and responsive website designs. The practical sessions and trainer support helped me improve my creativity and design skills effectively.',
-    
+    initial:"A",
   },
   {
     id: 6,
     name: 'Shamina Jasmine',
     role: 'Web Development',
     text: 'I completed web development training at Softnova Academy, and the course gave me a strong foundation in both design and development concepts. The practical approach and real-time projects made learning more effective and improved my confidence in building websites.',
-    
+    initial:"S",
   },
   {
     id: 7,
     name: 'Jenith',
     role: 'Front-End Developer',
     text: 'I completed front-end development training at Softnova Academy, where I gained strong knowledge in building responsive and interactive websites. The real-time practice sessions and guidance from trainers helped me improve both my coding skills and creativity.',
-    
+    initial:"S",
   },
   {
     id: 8,
     name: 'Ashif',
     role: 'Web Development',
     text: 'I learned web development at Softnova Academy, and the training was very practical and easy to understand. The hands-on projects and supportive teaching helped me improve my front-end development skills confidently.',
-    
+    initial:"A",
   },
 ];
 
