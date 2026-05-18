@@ -8,13 +8,19 @@ import { BOOKS } from '../data/books';
 
 const BookCard = ({ book }) => (
    <div className={styles.card} suppressHydrationWarning>
-      <div className={styles.coverWrapper}>
-         <div className={styles.coverInner} style={{ borderTop: `10px solid ${book.imgColor}` }}>
-            <div className={styles.coverTitle}>{book.title}</div>
-            <div style={{ fontSize: '0.7rem', color: '#b2bec3' }}>SOFTNOVA ACADEMY</div>
-            <div style={{ width: '100%', height: '100px', background: `${book.imgColor}22`, borderRadius: '5px', marginTop: '10px' }}></div>
+      <Link href={`/book/${book.id}`} className={styles.coverLink}>
+         <div className={styles.coverWrapper}>
+            <div className={styles.coverInner} style={{ 
+               borderTop: `10px solid ${book.imgColor}`,
+               backgroundImage: `url(${book.coverImage})`,
+               backgroundSize: 'cover',
+               backgroundPosition: 'center'
+            }}>
+               {!book.coverImage && <div className={styles.coverTitle}>{book.title}</div>}
+               <div className={styles.coverBrandOverlay}>SOFTNOVA ACADEMY</div>
+            </div>
          </div>
-      </div>
+      </Link>
       <div className={styles.infoSide}>
          <div className={styles.categoryBadge} style={{ background: `${book.color}22`, color: book.color }}>{book.category}</div>
          <div className={styles.author} suppressHydrationWarning>by {book.author}</div>
@@ -106,7 +112,7 @@ const BookPage = () => {
                                  >
                                     <motion.img
                                        layoutId={`book-img-${book.id}`}
-                                       src="/3d_book_icon_transparent.webp"
+                                       src={book.coverImage || "/3d_book_icon_transparent.webp"}
                                        className={styles.orbitBookImage}
                                        onClick={() => setActiveIndex(idx)}
                                        whileHover={{ scale: 1.2 }}
@@ -126,7 +132,7 @@ const BookPage = () => {
                         <motion.img
                            key={`center-book-${activeItem.id}`}
                            layoutId={`book-img-${activeItem.id}`}
-                           src="/3d_book_icon_transparent.webp"
+                           src={activeItem.coverImage || "/3d_book_icon_transparent.webp"}
                            className={styles.centerBookImage}
                            style={{ filter: `hue-rotate(${activeItem.hue}deg) contrast(1.1) drop-shadow(0 20px 40px rgba(0,0,0,0.4))` }}
                         />

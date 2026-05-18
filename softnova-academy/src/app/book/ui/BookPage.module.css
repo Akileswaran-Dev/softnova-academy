@@ -102,6 +102,10 @@
 }
 
 /* GLASSMORPHISM HERO */
+.coverLink { display: block; width: fit-content; margin: 0 auto; text-decoration: none; cursor: pointer; transition: transform 0.3s ease; }
+.coverLink:hover { transform: translateY(-5px); }
+.coverLink:active { transform: translateY(0) scale(0.98); }
+
 .heroGlassContainer {
   position: relative;
   width: 100%;
@@ -576,8 +580,8 @@
 /* Book Cover Area */
 .coverWrapper {
   flex-shrink: 0;
-  width: 200px;
-  height: 300px;
+  width: 220px;
+  height: 320px;
   background: var(--background);
   border-radius: 20px;
   box-shadow: inset 10px 10px 20px var(--shadow-dark), inset -10px -10px 20px var(--shadow-light);
@@ -586,32 +590,32 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  perspective: 1000px;
 }
 
 .coverInner {
-  width: 80%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 25px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
-  padding: 15px;
-  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
 }
 
-.coverTitle {
-  font-size: 1rem;
-  font-weight: 800;
-  color: #2d3436;
+.coverTitle { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: #2d3436; margin-bottom: 5px; }
+
+.coverBrandOverlay {
+   position: absolute; bottom: 0; left: 0; right: 0;
+   font-size: 0.65rem; font-weight: 800; color: #fff;
+   letter-spacing: 2px; text-align: center;
+   background: rgba(0,0,0,0.45); backdrop-filter: blur(8px);
+   padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Info Side */
-.infoSide {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
+.infoSide { flex: 1; padding: 25px; display: flex; flex-direction: column; gap: 8px; }
 
 .title {
   font-size: 1.8rem;

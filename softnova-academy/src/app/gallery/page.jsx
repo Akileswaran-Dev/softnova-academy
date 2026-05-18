@@ -34,18 +34,10 @@ const GALLERY_IMAGES = [
   { id: 3, title: "Cultural Meet", category: "celebration", img: "/Images/gallery/cel-6.webp", desc: "Showcasing talents and cultural diversity." },
   { id: 4, title: "Unity Festival", category: "outing", img: "/Images/gallery/cel-7.webp", desc: "Celebrating our collective achievements." },
   { id: 5, title: "Unity Festival", category: "outing", img: "/Images/gallery/cel-4.webp", desc: "Celebrating our collective achievements." },
-
   { id: 6, title: "Grand Gala", category: "outing", img: "/Images/gallery/cel-11.webp", desc: "A night to remember with the Softnova family." },
-
-
-
-  ,
-
   { id: 12, title: "Success Meet", category: "celebration", img: "/Images/gallery/cel-19.webp", desc: "Reflecting on our journey and future goals." },
   { id: 13, title: "Annual Day", category: "celebration", img: "/Images/gallery/cel-20.webp", desc: "Celebrating another year of innovation." },
-
   { id: 15, title: "Tech Session", category: "celebration", img: "/Images/gallery/g3.webp", desc: "Informal learning and tech talks." },
-
   { id: 17, title: "Collaboration", category: "celebration", img: "/Images/gallery/g6.webp", desc: "Working together towards excellence." },
 
   // Internship
