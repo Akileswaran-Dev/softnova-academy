@@ -78,9 +78,9 @@ const EnrollPage = () => {
       <div className={styles.container}>
         <motion.div 
           className={styles.header}
-          initial={{ opacity: 0, y: -20 }}
+          initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           <h1>Application Form</h1>
           <p>Join Softnova Academy and kickstart your professional tech journey.</p>

@@ -149,19 +149,11 @@ const InternshipPage = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{
-                    opacity: 0,
-                    x: 350,
-                    y: (activeIndex - 1) * 120, // Calculates dynamic Y based on stack position (-120, 0, 120)
-                    scale: 0.35, // Starts at the size of the mini card
-                    rotateZ: -5,
-                    rotateY: -20
-                  }}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotateZ: 0, rotateY: 0 }}
-                  exit={{ opacity: 0, x: -300, y: 50, scale: 0.7, rotateZ: -10, rotateY: -30 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className={styles.tabletContentCard}
-                  style={{ transformOrigin: "center center", transformPerspective: 1200 }}
                 >
                   <div className={styles.carouselContent}>
                     <h1 className={styles.mainTitle}>

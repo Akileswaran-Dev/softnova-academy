@@ -84,17 +84,17 @@ const ContactUsPage = () => {
         <section className={styles.hero}>
           <div className={styles.heroCard}>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               Let’s Build Your <br />
               <span style={{ color: "var(--primary)" }}>Future Together</span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.4, ease: "easeOut" }}
             >
               Have a question or ready to start your tech journey?
               Our team is here to help you navigate your way to success.
@@ -107,9 +107,10 @@ const ContactUsPage = () => {
           {/* Left: Form */}
           <motion.div
             className={styles.formWrapper}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
           >
             <h2>Send us a Message</h2>
             <form ref={formRef} onSubmit={handleSubmit}>
@@ -231,10 +232,10 @@ const ContactUsPage = () => {
               <motion.div
                 key={i}
                 className={styles.infoCard}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: card.delay }}
+                transition={{ delay: card.delay, duration: 0.4, ease: "easeOut" }}
               >
                 <div className={styles.cardIcon}>{card.icon}</div>
                 <p className={styles.infoDesc}>{card.desc}</p>
@@ -244,10 +245,10 @@ const ContactUsPage = () => {
             {/* Social Profiles Card */}
             <motion.div
               className={styles.infoCard}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.4, duration: 0.4, ease: "easeOut" }}
             >
               <h4 className={styles.socialHeading}>Social Profiles</h4>
               <div className={styles.socialGridSmall}>
@@ -288,9 +289,8 @@ const ContactUsPage = () => {
 
         {/* 6. CTA SECTION */}
         <section className={styles.cta}>
-          <motion.div
+          <div
             className={styles.ctaBox}
-            whileHover={{ scale: 0.99 }}
           >
             <h2>Ready to Take the Leap?</h2>
             <p style={{ marginBottom: "3rem", fontSize: "1.2rem", opacity: 0.9 }}>
@@ -299,8 +299,8 @@ const ContactUsPage = () => {
             <Link href="/book">
               <motion.div
                 className={styles.ctaBtn}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
                 Book Free Demo <ArrowRight size={20} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
               </motion.div>

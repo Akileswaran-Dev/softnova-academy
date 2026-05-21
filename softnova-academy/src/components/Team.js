@@ -48,7 +48,7 @@ function ReadMoreBio({ bio, bioClass, style }) {
   }
 
   return (
-    <motion.div layout className={styles.bioWrapper}>
+    <div className={styles.bioWrapper}>
       <p className={bioClass} style={style}>
         {bio.slice(0, CHAR_LIMIT)}
         <AnimatePresence mode="wait">
@@ -84,7 +84,7 @@ function ReadMoreBio({ bio, bioClass, style }) {
           {expanded ? " Show Less" : " Read More"}
         </button>
       </p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -111,7 +111,7 @@ function ReadMoreFounderBio({ paras }) {
 
   const combined = paras.join(" ");
   return (
-    <motion.div layout className={styles.founderBioWrapper}>
+    <div className={styles.founderBioWrapper}>
       <p className={styles.founderBio}>
         {combined.slice(0, CHAR_LIMIT)}
         <AnimatePresence mode="wait">
@@ -147,7 +147,7 @@ function ReadMoreFounderBio({ paras }) {
           {expanded ? " Show Less" : " Read More"}
         </button>
       </p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -160,11 +160,9 @@ export default function Team() {
 
       {/* Founder Section */}
       <motion.div
-        layout
         className={`${styles.founderSection} gsap-fade-up`}
         whileHover="hover"
         initial="initial"
-        transition={{ layout: { duration: 0.4, type: "spring", stiffness: 200, damping: 25 } }}
       >
         <div className={styles.founderImageWrapper}>
           <Image
@@ -222,12 +220,10 @@ export default function Team() {
       <div className={`${styles.teamGrid} gsap-stagger-group`}>
         {teamMembers.map((member, index) => (
           <motion.div
-            layout
             key={index}
             className={`${styles.teamCard} gsap-card`}
             whileHover="hover"
             initial="initial"
-            transition={{ layout: { duration: 0.4, type: "spring", stiffness: 200, damping: 25 } }}
           >
             <div className={styles.teamImageContainer}>
               <Image

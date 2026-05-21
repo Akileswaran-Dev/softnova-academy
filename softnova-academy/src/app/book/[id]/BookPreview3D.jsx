@@ -5,6 +5,12 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./BookPreview3D.module.css";
 
 function Dust({ color }) {
+  const [isMobileTouch, setIsMobileTouch] = useState(false);
+  useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    setIsMobileTouch(isTouch);
+  }, []);
+
   const dots = useMemo(() =>
     Array.from({ length: 15 }, (_, i) => ({
       id: i,
@@ -15,6 +21,9 @@ function Dust({ color }) {
       dur: 6 + Math.random() * 6,
     })),
     []);
+
+  if (isMobileTouch) return null;
+
   return (
     <div className={styles.dust}>
       {dots.map(d => (
@@ -105,15 +114,17 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
           <motion.button
             className={styles.closeBtn}
             onClick={onClose}
-            whileHover={{ rotate: 90, scale: 1.1 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
           >
             <X size={20} />
           </motion.button>
 
           <div className={styles.stage}>
             <motion.div className={styles.readerPhase}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}>
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}>
               {/* Loading Text */}
               {(!isOpenState || isOpening) && (
                 <motion.div

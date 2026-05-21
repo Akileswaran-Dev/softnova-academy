@@ -26,9 +26,10 @@ const WelcomeModal = ({ isOpen, onClose, onExplore }) => (
       <div className={styles.modalOverlay} onClick={onClose}>
         <motion.div
           className={styles.welcomeModal}
-          initial={{ opacity: 0, scale: 0.8, y: 40 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.8, y: 40 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
         >
           <button className={styles.modalClose} onClick={onClose} aria-label="Close">

@@ -85,11 +85,7 @@ const BookPage = () => {
 
                   <LayoutGroup>
                      {/* The Orbiting Ring */}
-                     <motion.div
-                        className={styles.orbitContainer}
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                     >
+                     <div className={styles.orbitContainer}>
                         {BOOKS.map((book, idx) => {
                            if (idx === activeIndex) return null;
 
@@ -105,11 +101,7 @@ const BookPage = () => {
                                  className={styles.orbitItemWrapper}
                                  style={{ transform: `rotate(${angle}deg) translateX(${radius}px)` }}
                               >
-                                 <motion.div
-                                    animate={{ rotate: -360 }}
-                                    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                                    className={styles.counterRotate}
-                                 >
+                                 <div className={styles.counterRotate}>
                                     <motion.img
                                        layoutId={`book-img-${book.id}`}
                                        src={book.coverImage || "/3d_book_icon_transparent.webp"}
@@ -121,11 +113,11 @@ const BookPage = () => {
                                           cursor: 'pointer'
                                        }}
                                     />
-                                 </motion.div>
+                                 </div>
                               </div>
                            );
                         })}
-                     </motion.div>
+                     </div>
 
                      {/* Center Book Slot */}
                      <div className={styles.centerSlot}>
@@ -140,8 +132,8 @@ const BookPage = () => {
                   </LayoutGroup>
 
                   {/* Floating Orbs */}
-                  <motion.div className={styles.floatingOrb1} animate={{ y: [0, -25, 0], rotate: [0, 10, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
-                  <motion.div className={styles.floatingOrb2} animate={{ y: [0, 30, 0], rotate: [0, -10, 0] }} transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }} style={{ background: activeItem.color }}></motion.div>
+                  <div className={styles.floatingOrb1} style={{ background: activeItem.color }}></div>
+                  <div className={styles.floatingOrb2} style={{ background: activeItem.color }}></div>
                </div>
 
                {/* RIGHT PANEL: BOOK CONTENTS (NEW FUNCTIONAL AREA) */}

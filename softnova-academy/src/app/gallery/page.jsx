@@ -72,9 +72,6 @@ export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState(GALLERY_IMAGES);
 
-  const [isSidebarHovered, setIsSidebarHovered] = useState(false);
-  const [hoveredTab, setHoveredTab] = useState(null);
-
   const removeImage = (id) => {
     setImages(prev => prev.filter(img => img.id !== id));
     setSelectedImage(null);
@@ -109,18 +106,12 @@ export default function GalleryPage() {
               key={cat.id}
               className={`${styles.dockItem} ${activeTab === cat.id ? styles.dockActive : ''}`}
               onClick={() => setActiveTab(cat.id)}
-              onMouseEnter={() => setHoveredTab(cat.id)}
-              onMouseLeave={() => setHoveredTab(null)}
               whileHover={{ scale: 1.05 }}
             >
               <div className={styles.iconBox}>{cat.icon}</div>
-              <motion.span
-                className={styles.dockLabel}
-                animate={hoveredTab === cat.id ? { opacity: 1, x: 0, display: 'block' } : { opacity: 0, x: -10, transitionEnd: { display: 'none' } }}
-                transition={{ duration: 0.2 }}
-              >
+              <span className={styles.dockLabel}>
                 {cat.label}
-              </motion.span>
+              </span>
               {activeTab === cat.id && (
                 <motion.div layoutId="dockActiveBg" className={styles.activePill} />
               )}
