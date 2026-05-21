@@ -1100,9 +1100,21 @@ export default function BookDetailsPage() {
                 transition={{ delay: i * 0.1 }} whileHover={{ y: -8, scale: 1.02 }}
                 onClick={() => router.push(`/book/${rb.id}`)}>
                 <div className={styles.recoBookWrap}>
-                  <div className={styles.recoBook} style={{ borderLeft: `10px solid ${rb.imgColor}` }}>
-                    <div className={styles.recoTitle}>{rb.title}</div>
-                    <div className={styles.recoSub}>{rb.subtitle}</div>
+                  <div 
+                    className={styles.recoBook} 
+                    style={{ 
+                      borderLeft: `8px solid ${rb.imgColor}`,
+                      backgroundImage: `url(${rb.coverImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    {!rb.coverImage && (
+                      <>
+                        <div className={styles.recoTitle}>{rb.title}</div>
+                        <div className={styles.recoSub}>{rb.subtitle}</div>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className={styles.recoInfo}>

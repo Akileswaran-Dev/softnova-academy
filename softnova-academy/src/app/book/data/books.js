@@ -9,7 +9,7 @@ export const BOOKS = [
       imgColor: '#00cec9', 
       hue: 150, 
       color: '#00cec9', 
-      coverImage: '/Images/Book/.jpg',
+      coverImage: '/Images/Book/Web-design.png',
       pages: 168, 
       Chapter: '5', 
       progress: 65, 
