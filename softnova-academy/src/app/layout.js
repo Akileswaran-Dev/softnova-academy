@@ -1,12 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import SmoothScroll from "@/components/SmoothScroll";
-
-import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = {
   title: "Softnova Academy",
@@ -26,14 +22,6 @@ export default function RootLayout({ children }) {
 
           <Footer />
         </SmoothScroll>
-
-        {/* Production la mattum load aagum */}
-        {process.env.NODE_ENV === "production" && (
-          <>
-            <Analytics />
-            <SpeedInsights />
-          </>
-        )}
       </body>
     </html>
   );
