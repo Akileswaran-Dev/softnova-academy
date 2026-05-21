@@ -1021,106 +1021,11 @@ export default function BookDetailsPage() {
         </div>
       );
 
-      // Page 6: Summary / End
-      pages.push(
-        <div className={styles.pageInner} key="end_hr">
-          <div className={styles.endSection}>
-            <div className={styles.endLogo}>SN</div>
-            <h2 className={styles.endTitle}>Next Steps</h2>
-            <p className={styles.endText}>Ready to start your journey? Join Softnova Academy and unlock the full potential of this course.</p>
-            <div className={styles.endDivider} style={{ background: book.color }} />
-            <div className={styles.endPage}>~ END OF PREVIEW ~</div>
-          </div>
-        </div>
-      );
+
 
       return pages;
     }
-    //   <div className={styles.pageInner}>
-    //     <div className={styles.pageImgWrap}>
-    //       <img src={book.coverImage} alt={book.title} className={styles.pageImg} />
-    //     </div>
-    //     <h2 className={styles.bookMainTitle}>{book.title}</h2>
-    //     <p className={styles.bookMainSub}>{book.subtitle}</p>
-    //     <div className={styles.brandTag}>SOFTNOVA ACADEMY EDITION</div>
-    //   </div>
-    // );
-
-    // DEFAULT FALLBACK CONTENT
-    const pages = [];
-
-    // Page 1: Cover Page
-
-
-    // Page 2: Table of Contents
-    pages.push(
-      <div className={styles.pageInner}>
-        <h3 className={styles.tocTitle}>Table of Contents</h3>
-        <div className={styles.tocDivider} style={{ background: book.color }} />
-        <ul className={styles.tocList}>
-          <li><span>01. Introduction</span> <small>pg 03</small></li>
-          {book.chapters?.slice(0, 5).map((ch, i) => (
-            <li key={i}><span>{i + 2 < 10 ? `0${i + 2}` : i + 2}. {ch}</span> <small>pg {i * 10 + 15}</small></li>
-          ))}
-        </ul>
-      </div>
-    );
-
-    // Page 3: Introduction
-    // pages.push(
-    //   <div className={styles.pageInner}>
-    //     <h3 className={styles.contentHeading}>Introduction</h3>
-    //     <p className={styles.contentText}>{book.desc}</p>
-    //     <div className={styles.quoteBlock}>
-    //       <Quote size={16} />
-    //       <p>"The best way to predict the future is to create it."</p>
-    //     </div>
-    //     <p className={styles.contentText}>This masterclass is designed to take you from foundational concepts to professional mastery in <em>{book.category}</em>.</p>
-    //   </div>
-    // );
-
-    // Page 4: Visual Concept
-    pages.push(
-      <div className={styles.pageInner}>
-        <div className={styles.pageImgWrapSmall}>
-          <img src={book.coverImage} alt="Illustration" className={styles.pageImg} />
-        </div>
-        <h4 className={styles.contentSubheading}>Visual Mastery</h4>
-        <p className={styles.contentText}>Modern design is not just about how it looks, but how it works. In this chapter, we explore the intersection of aesthetics and functionality.</p>
-        <ul className={styles.topicList}>
-          <li>Grid Systems & Proportions</li>
-          <li>Color Psychology in {book.category}</li>
-          <li>Typography Hierarchies</li>
-        </ul>
-      </div>
-    );
-
-    // Page 5: Deep Dive
-    // pages.push(
-    //   <div className={styles.pageInner}>
-    //     <h3 className={styles.contentHeading}>Core Principles</h3>
-    //     <p className={styles.contentText}>Success in <strong>{book.title}</strong> requires a deep understanding of core mechanics. We break down complex systems into digestible modules.</p>
-    //     <h4 className={styles.contentSubheading}>Technical Standards</h4>
-    //     <p className={styles.contentText}>We follow industry-standard best practices used by top companies worldwide, ensuring your skills are immediately applicable.</p>
-    //   </div>
-    // );
-
-    // Page 6: Summary / End
-    pages.push(
-      <div className={styles.pageInner}>
-        <div className={styles.endSection}>
-          <div className={styles.endLogo}>SN</div>
-          <h2 className={styles.endTitle}>Next Steps</h2>
-          <p className={styles.endText}>Ready to start your journey? Join Softnova Academy and unlock the full potential of this course.</p>
-          <div className={styles.endDivider} style={{ background: book.color }} />
-          <div className={styles.endPage}>~ END OF PREVIEW ~</div>
-        </div>
-      </div>
-    );
-
-    return pages;
-  }, [book]);
-
+  });
   const handleNext = () => { if (currentPage < bookPages.length - 2) { setDirection(1); setCurrentPage(p => p + 2); } };
   const handlePrev = () => { if (currentPage > 0) { setDirection(-1); setCurrentPage(p => p - 2); } };
 

@@ -140,7 +140,7 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
                         <div className={styles.pageInnerContent}>
                           {bookPages[rightIdx] || (
                             <div className={styles.emptyPage}>
-                              <p>End of preview.</p>
+                              {/* <p>End of preview.</p> */}
                             </div>
                           )}
                         </div>
@@ -149,9 +149,8 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
                       {/* Flipping animation sheet */}
                       {flipping && (
                         <div
-                          className={`${styles.flipSheet} ${
-                            flipDir === 1 ? styles.flipNext : styles.flipPrev
-                          }`}
+                          className={`${styles.flipSheet} ${flipDir === 1 ? styles.flipNext : styles.flipPrev
+                            }`}
                         >
                           <div className={styles.flipFront}>
                             <div className={styles.pageInnerContent}>
