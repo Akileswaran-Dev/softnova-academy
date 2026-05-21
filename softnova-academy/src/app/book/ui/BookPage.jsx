@@ -96,7 +96,8 @@ const BookPage = () => {
                            let orbitIdx = idx;
                            if (idx > activeIndex) orbitIdx = idx - 1;
 
-                           const angle = (orbitIdx * 90); 
+                           const totalOrbiting = BOOKS.length - 1;
+                           const angle = totalOrbiting > 0 ? (orbitIdx * (360 / totalOrbiting)) : 0;
                            const radius = 180; 
 
                            return (
@@ -117,7 +118,7 @@ const BookPage = () => {
                                        onClick={() => setActiveIndex(idx)}
                                        whileHover={{ scale: 1.2 }}
                                        style={{
-                                          filter: `hue-rotate(${book.hue}deg) contrast(1.1) drop-shadow(0 10px 15px rgba(0,0,0,0.2))`,
+                                          filter: `drop-shadow(0 10px 15px rgba(0,0,0,0.2))`,
                                           cursor: 'pointer'
                                        }}
                                     />
@@ -134,7 +135,7 @@ const BookPage = () => {
                            layoutId={`book-img-${activeItem.id}`}
                            src={activeItem.coverImage || "/3d_book_icon_transparent.webp"}
                            className={styles.centerBookImage}
-                           style={{ filter: `hue-rotate(${activeItem.hue}deg) contrast(1.1) drop-shadow(0 20px 40px rgba(0,0,0,0.4))` }}
+                           style={{ filter: `drop-shadow(0 20px 40px rgba(0,0,0,0.4))` }}
                         />
                      </div>
                   </LayoutGroup>

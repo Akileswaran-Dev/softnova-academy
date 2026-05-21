@@ -75,7 +75,7 @@ function Book3D({ book, width = 300, height = 420, className, animate3D = true, 
           ? { opacity: { duration: 0.7 }, rotateY: { duration: 0.8 }, y: { duration: 3.5, repeat: Infinity, ease: 'easeInOut' } }
           : { duration: 0.9, ease: 'easeOut' }}
       >
-        <div className={styles.bookCover} style={{ 
+        <div className={styles.bookCover} style={{
           borderLeft: `14px solid ${book.imgColor}`,
           backgroundImage: `url(${book.coverImage})`,
           backgroundSize: 'cover',
@@ -155,7 +155,7 @@ export default function BookDetailsPage() {
 
   const bookPages = useMemo(() => {
     if (!book) return [];
-    
+
     // CUSTOM CONTENT FOR WEB DESIGN BOOK (ID: 1)
     if (book.id === 1) {
       const pages = [];
@@ -167,7 +167,7 @@ export default function BookDetailsPage() {
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
             <li className={styles.tocSub}><span>Introduction To Web Design</span> <small>pg 5</small></li>
-            
+
             <li className={styles.tocChapter}><strong>Chapter 1 (HTML)</strong></li>
             <li className={styles.tocSub}><span>1.1 Introduction</span> <small>pg 9</small></li>
             <li className={styles.tocSub}><span>1.2 Structure of HTML</span> <small>pg 10</small></li>
@@ -328,7 +328,7 @@ export default function BookDetailsPage() {
             <li className={styles.tocSub}><span>1.1 Defining UI (User Interface)</span> <small>pg 4</small></li>
             <li className={styles.tocSub}><span>1.2 Defining UX (User Experience)</span> <small>pg 4</small></li>
             <li className={styles.tocSub}><span>1.3 Collaboration Features</span> <small>pg 4</small></li>
-            
+
             <li className={styles.tocChapter}><strong>2. HTML in UI Design</strong></li>
             <li className={styles.tocSub}><span>2.1 HTML Basic Structure</span> <small>pg 6</small></li>
             <li className={styles.tocSub}><span>2.2 Headings</span> <small>pg 6</small></li>
@@ -887,6 +887,155 @@ export default function BookDetailsPage() {
 
       return pages;
     }
+
+    // CUSTOM CONTENT FOR HR TRAINING BOOK (ID: 6)
+    if (book.id === 6) {
+      const pages = [];
+
+      // Page 1: Table of Contents - Part 1
+      pages.push(
+        <div className={styles.pageInner} key="toc1_hr">
+          <h3 className={styles.tocTitle}>Table of Contents</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>1. Introduction to Human Resources</strong></li>
+            <li className={styles.tocSub}><span>Evolution of Human Resources</span> <small>pg 3</small></li>
+            <li className={styles.tocSub}><span>Why HR?</span> <small>pg 4</small></li>
+            <li className={styles.tocSub}><span>Importance of HRM</span> <small>pg 5</small></li>
+
+            <li className={styles.tocChapter}><strong>2. Organization Structure & Behavior</strong></li>
+            <li className={styles.tocSub}><span>Definitions of Org structure</span> <small>pg 7</small></li>
+            <li className={styles.tocSub}><span>Types of Org Structure</span> <small>pg 8</small></li>
+            <li className={styles.tocSub}><span>Definition of Org Behaviors</span> <small>pg 10</small></li>
+
+            <li className={styles.tocChapter}><strong>3. Definition of Employee Life cycle (ELC)</strong></li>
+            <li className={styles.tocSub}><span>Stages of ELC</span> <small>pg 12</small></li>
+            <li className={styles.tocSub}><span>Trends in employee life cycle tools</span> <small>pg 14</small></li>
+
+            <li className={styles.tocChapter}><strong>4. Recruitment management</strong></li>
+            <li className={styles.tocSub}><span>Screening & Sourcing</span> <small>pg 16</small></li>
+            <li className={styles.tocSub}><span>How to perform resume & phone Screens</span> <small>pg 18</small></li>
+            <li className={styles.tocSub}><span>How to build job description</span> <small>pg 20</small></li>
+            <li className={styles.tocSub}><span>Schedule interview</span> <small>pg 22</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 2: Table of Contents - Part 2
+      pages.push(
+        <div className={styles.pageInner} key="toc2_hr">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>5. Talent Acquisition</strong></li>
+            <li className={styles.tocSub}><span>Talent Acquisition</span> <small>pg 24</small></li>
+            <li className={styles.tocSub}><span>Value proposition</span> <small>pg 26</small></li>
+            <li className={styles.tocSub}><span>Employer Branding</span> <small>pg 28</small></li>
+            <li className={styles.tocSub}><span>Structure of an effective recruitment process</span> <small>pg 30</small></li>
+            <li className={styles.tocSub}><span>Alignment recruitment with Organization success</span> <small>pg 32</small></li>
+            <li className={styles.tocSub}><span>Job posting & analysis</span> <small>pg 34</small></li>
+            <li className={styles.tocSub}><span>Applicant tracking system</span> <small>pg 36</small></li>
+            <li className={styles.tocSub}><span>Into-Job portals (Naukri, LinkedIn)</span> <small>pg 38</small></li>
+            <li className={styles.tocSub}><span>Recruitment Tracker</span> <small>pg 40</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 3: Table of Contents - Part 3
+      pages.push(
+        <div className={styles.pageInner} key="toc3_hr">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>6. Training & development</strong></li>
+            <li className={styles.tocSub}><span>Introduction, Orientation & on boarding</span> <small>pg 42</small></li>
+            <li className={styles.tocSub}><span>HR Manual</span> <small>pg 44</small></li>
+            <li className={styles.tocSub}><span>Training need analysis</span> <small>pg 46</small></li>
+            <li className={styles.tocSub}><span>Training calendar preparation</span> <small>pg 48</small></li>
+
+            <li className={styles.tocChapter}><strong>7. Employee Engagement</strong></li>
+            <li className={styles.tocSub}><span>Why is employee engagement important</span> <small>pg 50</small></li>
+            <li className={styles.tocSub}><span>Motivation theories</span> <small>pg 52</small></li>
+
+            <li className={styles.tocChapter}><strong>8. Reward management</strong></li>
+            <li className={styles.tocSub}><span>Reward management</span> <small>pg 54</small></li>
+            <li className={styles.tocSub}><span>Compensation & benefits</span> <small>pg 56</small></li>
+            <li className={styles.tocSub}><span>Employee wellbeing</span> <small>pg 58</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 4: Table of Contents - Part 4
+      pages.push(
+        <div className={styles.pageInner} key="toc4_hr">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>9. Performance management System</strong></li>
+            <li className={styles.tocSub}><span>Performance management System</span> <small>pg 60</small></li>
+            <li className={styles.tocSub}><span>Performance management policy</span> <small>pg 62</small></li>
+            <li className={styles.tocSub}><span>How to set goals for Employee: Annual Goal Setting procedure</span> <small>pg 64</small></li>
+            <li className={styles.tocSub}><span>Performance Appraisal System</span> <small>pg 66</small></li>
+            <li className={styles.tocSub}><span>Performance review & Appraisal forms (Manager & Employee)</span> <small>pg 68</small></li>
+            <li className={styles.tocSub}><span>Competency Mapping</span> <small>pg 70</small></li>
+
+            <li className={styles.tocChapter}><strong>10. Employment Law compliance & Payroll accounting</strong></li>
+            <li className={styles.tocSub}><span>Employment Law compliance & Payroll accounting</span> <small>pg 72</small></li>
+            <li className={styles.tocSub}><span>Employment contracts & termination</span> <small>pg 74</small></li>
+            <li className={styles.tocSub}><span>Discrimination of equal employment opportunity</span> <small>pg 76</small></li>
+            <li className={styles.tocSub}><span>Prevention of Sexual harassment (POSH Policy)</span> <small>pg 78</small></li>
+            <li className={styles.tocSub}><span>How to calculate Salary using excel</span> <small>pg 80</small></li>
+            <li className={styles.tocSub}><span>Payroll Software</span> <small>pg 82</small></li>
+            <li className={styles.tocSub}><span>Income tax calculation (Form16)</span> <small>pg 84</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 5: Table of Contents - Part 5
+      pages.push(
+        <div className={styles.pageInner} key="toc5_hr">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>11. Staff Management</strong></li>
+            <li className={styles.tocSub}><span>Staff Management</span> <small>pg 86</small></li>
+            <li className={styles.tocSub}><span>On boarding & induction</span> <small>pg 88</small></li>
+            <li className={styles.tocSub}><span>Joining formalities</span> <small>pg 90</small></li>
+            <li className={styles.tocSub}><span>Drafting provisional Offer Letter</span> <small>pg 92</small></li>
+            <li className={styles.tocSub}><span>Exit formalities & survey</span> <small>pg 94</small></li>
+
+            <li className={styles.tocChapter}><strong>12. Research methods & Analysis</strong></li>
+            <li className={styles.tocSub}><span>Data collection & Analysis methods</span> <small>pg 96</small></li>
+            <li className={styles.tocSub}><span>HR metrics: Data Driven Decision making</span> <small>pg 98</small></li>
+
+            <li className={styles.tocChapter}><strong>13. Case Study</strong></li>
+            <li className={styles.tocSub}><span>Applying HR concept to real time world scenarios</span> <small>pg 100</small></li>
+            <li className={styles.tocSub}><span>Developing practical solutions & recommendations</span> <small>pg 102</small></li>
+
+            <li className={styles.tocChapter}><strong>14. Highlights of the Advanced</strong></li>
+            <li className={styles.tocSub}><span>Certified Human Resource Generalist (CHRG)</span> <small>pg 104</small></li>
+            <li className={styles.tocSub}><span>Payroll Software</span> <small>pg 106</small></li>
+            <li className={styles.tocSub}><span>Professional Resume building</span> <small>pg 108</small></li>
+            <li className={styles.tocSub}><span>Professional LinkedIn profile writing</span> <small>pg 110</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 6: Summary / End
+      pages.push(
+        <div className={styles.pageInner} key="end_hr">
+          <div className={styles.endSection}>
+            <div className={styles.endLogo}>SN</div>
+            <h2 className={styles.endTitle}>Next Steps</h2>
+            <p className={styles.endText}>Ready to start your journey? Join Softnova Academy and unlock the full potential of this course.</p>
+            <div className={styles.endDivider} style={{ background: book.color }} />
+            <div className={styles.endPage}>~ END OF PREVIEW ~</div>
+          </div>
+        </div>
+      );
+
+      return pages;
+    }
     //   <div className={styles.pageInner}>
     //     <div className={styles.pageImgWrap}>
     //       <img src={book.coverImage} alt={book.title} className={styles.pageImg} />
@@ -901,7 +1050,7 @@ export default function BookDetailsPage() {
     const pages = [];
 
     // Page 1: Cover Page
-   
+
 
     // Page 2: Table of Contents
     pages.push(
@@ -911,7 +1060,7 @@ export default function BookDetailsPage() {
         <ul className={styles.tocList}>
           <li><span>01. Introduction</span> <small>pg 03</small></li>
           {book.chapters?.slice(0, 5).map((ch, i) => (
-            <li key={i}><span>{i + 2 < 10 ? `0${i+2}` : i+2}. {ch}</span> <small>pg {i*10 + 15}</small></li>
+            <li key={i}><span>{i + 2 < 10 ? `0${i + 2}` : i + 2}. {ch}</span> <small>pg {i * 10 + 15}</small></li>
           ))}
         </ul>
       </div>
@@ -1042,7 +1191,7 @@ export default function BookDetailsPage() {
             { icon: <BookOpen size={22} />, val: book.pages, lab: 'Pages' },
             { icon: <Layers size={22} />, val: book.Chapter, lab: 'Chapters' },
             { icon: <Globe size={22} />, val: 'English', lab: 'Language' },
-            { icon: <Calendar size={22} />, val: '2024', lab: 'Published' },
+            { icon: <Calendar size={22} />, val: '2026', lab: 'Published' },
           ].map((s, i) => (
             <motion.div key={i} className={styles.statCard}
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -1080,7 +1229,7 @@ export default function BookDetailsPage() {
                 transition={{ delay: i * 0.04 + 0.6 }} whileHover={{ x: 8 }}>
                 <div className={styles.chapterNum} style={{ background: `${book.color}18`, color: book.color }}>{i + 1}</div>
                 <div className={styles.chapterTitle}>{ch}</div>
-                <ChevronRight size={16} className={styles.chapterArrow} />
+
               </motion.div>
             ))}
           </div>
@@ -1100,9 +1249,21 @@ export default function BookDetailsPage() {
                 transition={{ delay: i * 0.1 }} whileHover={{ y: -8, scale: 1.02 }}
                 onClick={() => router.push(`/book/${rb.id}`)}>
                 <div className={styles.recoBookWrap}>
-                  <div className={styles.recoBook} style={{ borderLeft: `10px solid ${rb.imgColor}` }}>
-                    <div className={styles.recoTitle}>{rb.title}</div>
-                    <div className={styles.recoSub}>{rb.subtitle}</div>
+                  <div
+                    className={styles.recoBook}
+                    style={{
+                      borderLeft: `8px solid ${rb.imgColor}`,
+                      backgroundImage: `url(${rb.coverImage})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    {!rb.coverImage && (
+                      <>
+                        <div className={styles.recoTitle}>{rb.title}</div>
+                        <div className={styles.recoSub}>{rb.subtitle}</div>
+                      </>
+                    )}
                   </div>
                 </div>
                 <div className={styles.recoInfo}>
