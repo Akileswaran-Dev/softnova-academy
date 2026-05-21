@@ -1,34 +1,35 @@
 :root {
-  --background: #e3d4cc; /* Soft off-white with orange hint */
+  --background: #e3d4cc;
+  /* Soft off-white with orange hint */
   --foreground: #4A3E36;
   --primary: #FF7C30;
   --secondary: #FFA375;
   --white: #FFFFFF;
-  
+
   /* Neumorphic shadows for LIGHT background - Softened to prevent blur leaks */
   --shadow-light: rgba(255, 255, 255, 0.5);
   --shadow-dark: rgba(210, 185, 165, 0.4);
 
-  --neumorph-shadow: 
-    8px 8px 16px var(--shadow-dark), 
+  --neumorph-shadow:
+    8px 8px 16px var(--shadow-dark),
     -8px -8px 16px var(--shadow-light);
-    
-  --neumorph-shadow-sm: 
-    4px 4px 8px var(--shadow-dark), 
+
+  --neumorph-shadow-sm:
+    4px 4px 8px var(--shadow-dark),
     -4px -4px 8px var(--shadow-light);
-    
-  --neumorph-shadow-lg: 
-    15px 15px 30px var(--shadow-dark), 
+
+  --neumorph-shadow-lg:
+    15px 15px 30px var(--shadow-dark),
     -15px -15px 30px var(--shadow-light);
-  
-  --neumorph-inset: 
-    inset 6px 6px 12px var(--shadow-dark), 
+
+  --neumorph-inset:
+    inset 6px 6px 12px var(--shadow-dark),
     inset -6px -6px 12px var(--shadow-light);
 
-  --neumorph-inset-sm: 
-    inset 4px 4px 8px var(--shadow-dark), 
+  --neumorph-inset-sm:
+    inset 4px 4px 8px var(--shadow-dark),
     inset -4px -4px 8px var(--shadow-light);
-    
+
   --radius-lg: 60px;
   --radius-md: 40px;
   --radius-sm: 25px;
@@ -39,7 +40,7 @@
   --font-h2: clamp(2rem, 6vw, 3.5rem);
   --font-h3: clamp(1.5rem, 4vw, 2.2rem);
   --font-body: clamp(0.95rem, 2vw, 1.1rem);
-  
+
   --section-padding: clamp(3rem, 10vw, 100px);
 
   @media (max-width: 320px) {
@@ -65,6 +66,7 @@ html {
   height: auto;
   overflow-x: hidden;
   scroll-behavior: auto !important;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -211,7 +213,7 @@ a {
   .notFoundVideoWrapper {
     max-width: 90%;
   }
-  
+
   .notFoundTitle {
     font-size: var(--font-h2);
   }
@@ -219,6 +221,7 @@ a {
 
 
 @media (max-width: 768px) {
+
   body,
   p,
   span,
