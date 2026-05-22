@@ -122,32 +122,113 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
 
           <div className={styles.stage}>
             <motion.div className={styles.readerPhase}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35, ease: "easeOut" }}>
-              {/* Loading Text */}
-              {(!isOpenState || isOpening) && (
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+            >
+              {isOpenState && !isOpening ? (
+                <>
+                  {/* Book Open Base */}
+                  <div className={styles.bookOpenContainer}>
+                    <div className={styles.bookOpenBase}>
+                      {/* Left Page */}
+                      <div className={styles.openPageLeft}>
+                        <div className={styles.pageInnerContent}>
+                          {bookPages[leftIdx] || (
+                            <div className={styles.emptyPage}>
+                              <p>No content on this page.</p>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Open Spine */}
+                      <div className={styles.openSpine} />
+
+                      {/* Right Page */}
+                      <div className={styles.openPageRight}>
+                        <div className={styles.pageInnerContent}>
+                          {bookPages[rightIdx] || (
+                            <div className={styles.emptyPage}>
+                              {/* <p>End of preview.</p> */}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Flipping animation sheet */}
+                      {flipping && (
+                        <div
+                          className={`${styles.flipSheet} ${flipDir === 1 ? styles.flipNext : styles.flipPrev
+                            }`}
+                        >
+                          <div className={styles.flipFront}>
+                            <div className={styles.pageInnerContent}>
+                              {flipDir === 1
+                                ? (bookPages[leftIdx - 2] || null)
+                                : (bookPages[leftIdx] || null)}
+                            </div>
+                          </div>
+                          <div className={styles.flipBack}>
+                            <div className={styles.pageInnerContent}>
+                              {flipDir === 1
+                                ? (bookPages[rightIdx] || null)
+                                : (bookPages[rightIdx + 2] || null)}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Navigation */}
+                  <div className={styles.readerNav}>
+                    <button
+                      className={styles.navBtn}
+                      onClick={() => flip(-1)}
+                      disabled={spread === 0 || flipping}
+                    >
+                      <ChevronLeft size={18} />
+                      <span>Prev</span>
+                    </button>
+                    <span className={styles.pageIndicator}>
+                      {spread + 1} / {totalSpreads}
+                    </span>
+                    <button
+                      className={styles.navBtn}
+                      onClick={() => flip(1)}
+                      disabled={spread >= totalSpreads - 1 || flipping}
+                    >
+                      <span>Next</span>
+                      <ChevronRight size={18} />
+                    </button>
+                  </div>
+                </>
+              ) : (
+                /* Loading State */
                 <motion.div
                   className={styles.openBtnText}
-                  animate={{ opacity: isOpening ? 0 : 1, y: isOpening ? 10 : 0 }}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    color: "rgba(255,255,255,0.7)",
+                    color: "#4a5568",
                     fontSize: "0.9rem",
                     fontWeight: 600,
                     letterSpacing: "1px",
-                    background: "rgba(255,255,255,0.08)",
-                    padding: "10px 24px",
+                    background: "#eef2f7",
+                    boxShadow: "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff",
+                    border: "1px solid rgba(255, 255, 255, 0.6)",
+                    padding: "12px 28px",
                     borderRadius: "30px",
                   }}
                 >
-                  {isOpening ? "Opening..." : "Click to Open"}
+                  {isOpening ? "Opening Preview..." : "Loading..."}
                 </motion.div>
               )}
             </motion.div>
           </div>
         </motion.div>
       )}
-        </AnimatePresence>
+    </AnimatePresence>
   );
 }

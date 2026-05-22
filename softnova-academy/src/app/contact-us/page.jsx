@@ -305,7 +305,7 @@ const ContactUsPage = () => {
                 Book Free Demo <ArrowRight size={20} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
               </motion.div>
             </Link>
-          </motion.div>
+          </div>
         </section>
 
       </div>

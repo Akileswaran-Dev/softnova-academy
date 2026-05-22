@@ -6,10 +6,12 @@
   font-family: 'Outfit', sans-serif;
 }
 
-.bg { position: absolute; inset: 0; background: #0a0604; }
+.bg { position: absolute; inset: 0; background: #eef2f7; }
 .rays {
   position: absolute; inset: 0; pointer-events: none;
-  background: conic-gradient(from 270deg at 50% 0%, transparent 80%, rgba(255,140,50,0.05) 90%, transparent 100%);
+  background: conic-gradient(from 270deg at 50% 0%, transparent 80%, rgba(255,255,255,0.4) 90%, transparent 100%);
+  mix-blend-mode: overlay;
+  opacity: 0.3;
   animation: spin 30s linear infinite;
 }
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -18,17 +20,25 @@
 .dustDot { position: absolute; border-radius: 50%; opacity: 0; animation: dustMove linear infinite; }
 @keyframes dustMove {
   0% { transform: translateY(20px) scale(0.5); opacity: 0; }
-  20% { opacity: 0.2; }
+  20% { opacity: 0.15; }
   100% { transform: translateY(-100px) scale(1.2); opacity: 0; }
 }
 
 .spotlight { position: absolute; inset: 0; pointer-events: none; }
 
 .closeBtn {
-  position: absolute; top: 25px; right: 25px; z-index: 100;
-  width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(255,255,255,0.05); color: white; cursor: pointer;
-  display: flex; align-items: center; justify-content: center; backdrop-filter: blur(10px);
+  position: absolute; top: 35px; right: 35px; z-index: 100;
+  width: 48px; height: 48px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #eef2f7; color: #4a5568; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+  transition: all 0.3s ease;
+}
+.closeBtn:hover {
+  box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+  color: #e74c3c;
+  transform: rotate(90deg) scale(1.05);
 }
 
 .stage { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; }
@@ -40,7 +50,7 @@
 }
 .bookFront {
   position: absolute; border-radius: 2px 12px 12px 2px; transform: translateZ(15px);
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.4);
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.15);
 }
 .bookGlow { position: absolute; inset: 0; opacity: 0.15; }
 .bookCoverBrand { position: absolute; bottom: 20px; left: 20px; font-size: 0.6rem; font-weight: 800; color: white; letter-spacing: 2px; }
@@ -50,18 +60,36 @@
 }
 .bookBack { position: absolute; inset: 0; transform: translateZ(-15px); border-radius: 2px 12px 12px 2px; }
 
-.openBtn { padding: 15px 40px; border-radius: 50px; border: none; color: white; font-weight: 700; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+.openBtn {
+  padding: 15px 40px; border-radius: 50px; border: none; color: #4a5568; font-weight: 700; cursor: pointer;
+  background: #eef2f7;
+  box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+}
 
 /* READER PHASE */
-.readerPhase { display: flex; flex-direction: column; align-items: center; gap: 30px; width: 100%; max-width: 1000px; }
+.readerPhase { display: flex; flex-direction: column; align-items: center; gap: 40px; width: 100%; max-width: 1060px; }
+
 .bookOpenContainer {
-  position: relative; width: min(900px, 95vw); height: min(580px, 75vh);
+  position: relative;
+  width: min(980px, 95vw);
+  height: min(720px, 85vh);
   perspective: 2000px;
+  padding: 24px;
+  background: #eef2f7;
+  border-radius: 32px;
+  box-shadow: 15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .bookOpenBase {
   display: flex; width: 100%; height: 100%;
-  border-radius: 8px; overflow: hidden; position: relative;
+  border-radius: 16px; overflow: hidden; position: relative;
   transform-style: preserve-3d;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.06);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .openPageLeft, .openPageRight {
@@ -71,18 +99,18 @@
 .openPageRight { background: linear-gradient(to left, #fdf8f2, #f9f2e8); }
 
 .pageInnerContent {
-  width: 100%; height: 100%; padding: 40px; overflow-y: auto;
-  scrollbar-width: none; /* Hide scrollbar in Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+  width: 100%; height: 100%; padding: 24px 35px; overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 .pageInnerContent::-webkit-scrollbar {
-  display: none; /* Hide scrollbar in Chrome/Safari/Webkit */
+  display: none;
 }
-.pageNum { position: absolute; bottom: 15px; font-size: 0.75rem; color: #a68b72; font-weight: 600; }
-.openPageLeft .pageNum { left: 20px; }
-.openPageRight .pageNum { right: 20px; }
+.pageNum { position: absolute; bottom: 18px; font-size: 0.75rem; color: #a68b72; font-weight: 600; }
+.openPageLeft .pageNum { left: 24px; }
+.openPageRight .pageNum { right: 24px; }
 
-.openSpine { width: 2px; background: rgba(0,0,0,0.05); box-shadow: 0 0 15px rgba(0,0,0,0.1); z-index: 10; }
+.openSpine { width: 4px; background: rgba(0,0,0,0.08); box-shadow: 0 0 15px rgba(0,0,0,0.15); z-index: 10; }
 
 /* SMOOTH FLIP OVERLAY */
 .flipSheet {
@@ -103,20 +131,58 @@
 .flipBack { transform: rotateY(180deg); background: linear-gradient(to left, #f9f2e8, #fdf8f2); }
 
 /* NAVIGATION */
-.readerNav { display: flex; align-items: center; gap: 30px; }
+.readerNav { display: flex; align-items: center; gap: 35px; }
+
 .navBtn {
-  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
-  color: white; padding: 12px 25px; border-radius: 50px; cursor: pointer;
-  display: flex; align-items: center; gap: 10px; font-weight: 600;
+  background: #eef2f7;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  color: #4a5568;
+  padding: 12px 28px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.navBtn:disabled { opacity: 0.2; cursor: not-allowed; }
-.pageIndicator { color: rgba(255,255,255,0.5); font-weight: 700; letter-spacing: 1px; }
+.navBtn:hover:not(:disabled) {
+  box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #ffffff;
+  transform: translateY(-1px);
+  color: var(--primary);
+}
+.navBtn:active:not(:disabled) {
+  box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+  transform: translateY(1px);
+}
+.navBtn:disabled {
+  opacity: 0.35;
+  box-shadow: none;
+  background: rgba(0,0,0,0.02);
+  cursor: not-allowed;
+  border-color: rgba(0,0,0,0.05);
+}
+
+.pageIndicator {
+  color: #4a5568;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: #eef2f7;
+  padding: 8px 20px;
+  border-radius: 16px;
+  box-shadow: inset 3px 3px 6px #d1d9e6, inset -3px -3px 6px #ffffff;
+  font-size: 0.9rem;
+}
 
 @media (max-width: 768px) {
-  .bookOpenContainer { height: 620px; }
-  .bookOpenBase { flex-direction: column; height: 100%; }
-  .openPageLeft, .openPageRight { height: 310px; flex: none; }
+  .bookOpenContainer { height: auto; padding: 12px; border-radius: 20px; box-shadow: 10px 10px 25px #d1d9e6, -10px -10px 25px #ffffff; }
+  .bookOpenBase { flex-direction: column; height: 500px; border-radius: 12px; }
+  .openPageLeft, .openPageRight { height: 250px; flex: none; }
+  .pageInnerContent { padding: 25px; }
   .flipSheet { display: none; }
+  .closeBtn { top: 20px; right: 20px; width: 40px; height: 40px; }
+  .readerNav { gap: 20px; }
 }
 
 .bookPagesStack {
