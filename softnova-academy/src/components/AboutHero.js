@@ -1,11 +1,17 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Laptop, Monitor, Smartphone, Globe, Cpu, Layout } from "lucide-react";
 import Link from "next/link";
 import styles from "../app/about/about.module.css";
 
 export default function AboutHero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   return (
     <section className={styles.hero3d}>
       {/* Background Shapes */}
@@ -42,9 +48,9 @@ export default function AboutHero() {
       {/* Central Screen */}
       <motion.div 
         className={styles.centralScreenWrapper}
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8 }}
+        initial={isMobile ? false : { opacity: 0, scale: 0.9 }}
+        animate={isMobile ? { opacity: 1 } : { opacity: 1, scale: 1 }}
+        transition={{ duration: isMobile ? 0.35 : 0.8 }}
       >
         <div className={styles.screenGlass}>
            <div className={styles.screenInner}>

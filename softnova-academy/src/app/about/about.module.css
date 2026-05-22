@@ -438,6 +438,43 @@
   box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
 }
 
+.playOverlay {
+  position: absolute;
+  inset: 15px;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(5px);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.playOverlay:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.playButton {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--primary);
+}
+
+.playOverlay:hover .playButton {
+  transform: scale(1.12);
+  background: var(--white);
+  box-shadow: 0 15px 30px rgba(255, 124, 48, 0.4);
+}
+
 /* Features Section */
 .featureGrid {
   display: grid;
@@ -1027,6 +1064,55 @@
   .memberBio { font-size: 0.8rem; }
   .ctaFooter h2 { font-size: 1.4rem; }
   .ctaFooter p { font-size: 0.9rem !important; }
+}
+
+
+
+/* Founder Splash and Overlay CSS transitions */
+.founderImageWrapper .orangeSplash {
+  transform: scale(0) rotate(-20deg);
+  opacity: 0;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.8s ease;
+}
+
+.founderSection:hover .founderImageWrapper .orangeSplash {
+  transform: scale(1.8) rotate(10deg);
+  opacity: 0.5;
+}
+
+.founderImageWrapper .teamOverlay {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.founderSection:hover .founderImageWrapper .teamOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Team Card Splash and Overlay CSS transitions */
+.teamImageContainer .orangeSplash {
+  transform: scale(0) rotate(-20deg);
+  opacity: 0;
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.7s ease;
+}
+
+.teamCard:hover .teamImageContainer .orangeSplash {
+  transform: scale(1.5) rotate(0deg);
+  opacity: 0.6;
+}
+
+.teamImageContainer .teamOverlay {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.4s ease;
+  transition-delay: 0.1s;
+}
+
+.teamCard:hover .teamImageContainer .teamOverlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 

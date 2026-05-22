@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion";
+import React, { useState, useMemo, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import {
   X,
@@ -68,6 +68,12 @@ const GALLERY_IMAGES = [
 export default function GalleryPage() {
   const [activeTab, setActiveTab] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const [hoveredId, setHoveredId] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState(GALLERY_IMAGES);
@@ -106,14 +112,14 @@ export default function GalleryPage() {
               key={cat.id}
               className={`${styles.dockItem} ${activeTab === cat.id ? styles.dockActive : ''}`}
               onClick={() => setActiveTab(cat.id)}
-              whileHover={{ scale: 1.05 }}
+              whileHover={isMobile ? {} : { scale: 1.05 }}
             >
               <div className={styles.iconBox}>{cat.icon}</div>
               <span className={styles.dockLabel}>
                 {cat.label}
               </span>
               {activeTab === cat.id && (
-                <motion.div layoutId="dockActiveBg" className={styles.activePill} />
+                isMobile ? <div className={styles.activePill} /> : <motion.div layoutId="dockActiveBg" className={styles.activePill} />
               )}
             </motion.div>
           ))}
@@ -127,8 +133,9 @@ export default function GalleryPage() {
         <header className={styles.header}>
           <motion.div
             className={styles.brandBadge}
-            initial={{ opacity: 0, x: -20 }}
+            initial={isMobile ? false : { opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: isMobile ? 0.2 : 0.4 }}
           >
             OUR VISUAL JOURNEY
           </motion.div>
@@ -158,10 +165,10 @@ export default function GalleryPage() {
               <motion.div
                 key={img.id}
                 className={styles.gridItem}
-                initial={{ opacity: 0, y: 20 }}
+                initial={isMobile ? false : { opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: idx * 0.02 }}
+                transition={{ duration: isMobile ? 0.2 : 0.4, delay: isMobile ? 0 : idx * 0.02 }}
                 onMouseEnter={() => setHoveredId(img.id)}
                 onMouseLeave={() => setHoveredId(null)}
                 onClick={() => setSelectedImage(img)}

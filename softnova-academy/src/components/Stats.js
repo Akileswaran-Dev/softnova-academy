@@ -1,6 +1,5 @@
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate, useMotionValueEvent } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import styles from "../app/about/about.module.css";
 
@@ -11,25 +10,48 @@ const stats = [
   { label: "Years of Experience", value: 2, suffix: "+" },
 ];
 
-
 function Counter({ from, to, suffix }) {
   const [displayValue, setDisplayValue] = useState(from);
   const nodeRef = useRef();
-  const isInView = useInView(nodeRef, { once: true, margin: "-50px" });
-  
-  const count = useMotionValue(from);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-
-  useMotionValueEvent(rounded, "change", (latest) => {
-    setDisplayValue(latest);
-  });
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, to, { duration: 2, ease: "easeOut" });
-      return controls.stop;
+    if (typeof window === "undefined") return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1, rootMargin: "-50px" }
+    );
+
+    if (nodeRef.current) {
+      observer.observe(nodeRef.current);
     }
-  }, [isInView, to, count]);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+    let startTime = null;
+    const duration = 2000; // 2 seconds
+
+    const animateCount = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      // Ease out cubic formula
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setDisplayValue(Math.round(from + easeProgress * (to - from)));
+
+      if (progress < 1) {
+        requestAnimationFrame(animateCount);
+      }
+    };
+
+    requestAnimationFrame(animateCount);
+  }, [isInView, from, to]);
 
   return (
     <span ref={nodeRef}>
@@ -58,3 +80,4 @@ export default function Stats() {
     </section>
   );
 }
+

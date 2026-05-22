@@ -48,6 +48,16 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 0 20px rgba(255, 87, 34, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.playIconCircle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(255, 87, 34, 0.6);
+}
+
+.playIconCircle:active {
+  transform: scale(0.9);
 }
 
 .subTitle {

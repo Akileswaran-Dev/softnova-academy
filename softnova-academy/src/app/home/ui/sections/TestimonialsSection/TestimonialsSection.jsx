@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './TestimonialsSection.module.css';
 
 const TESTIMONIALS = [
@@ -63,13 +63,19 @@ const TESTIMONIALS = [
 import FloatingElement from "@/components/FloatingElement";
 
 const TestimonialsSection = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <section className={styles.section} aria-labelledby="testimonials-title">
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <span className={styles.topTitle}>Our Testimonials</span>
-            <h2 className={styles.heading} id="testimonials-title">What Our<br/>Students Say</h2>
+            <h2 className={styles.heading} id="testimonials-title">What Our Students Say</h2>
           </div>
           <div className={styles.headerRight}>
             <h3 className={styles.subHeading}>Student Stories</h3>
@@ -82,7 +88,7 @@ const TestimonialsSection = () => {
 
         <div className={styles.marqueeContainer}>
           <div className={styles.marqueeContent}>
-            {[...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS].map((t, index) => (
+            {(isMobile ? TESTIMONIALS : [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS]).map((t, index) => (
               <div key={`${t.id}-${index}`} className={styles.cardWrapper}>
                 <FloatingElement yRange={[8, -8]} duration={5 + (index % 2)} delay={index * 0.2}>
                   <div className={styles.card}>

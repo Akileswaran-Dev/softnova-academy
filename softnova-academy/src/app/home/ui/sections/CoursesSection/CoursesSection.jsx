@@ -11,7 +11,6 @@ import {
   Users 
 } from "lucide-react";
 import styles from "./CoursesSection.module.css";
-import FloatingElement from "@/components/FloatingElement";
 
 const COURSES = [
   {

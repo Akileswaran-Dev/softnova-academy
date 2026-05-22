@@ -1,39 +1,23 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
-
-import Image from 'next/image';
+import React, { useState, useRef } from 'react';
 import { Compass } from 'lucide-react';
 import styles from './LifeAtSoftnova.module.css';
 
-const galleryItems = [
-  { 
-    id: 1, 
-    src: '/Images/about/gallery_life_1.png', 
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-software-developer-working-on-his-laptop-34448-large.mp4',
-    delay: 0.1 
-  },
-  { 
-    id: 2, 
-    src: '/Images/about/gallery_life_2.png', 
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-young-woman-working-on-a-laptop-in-a-library-41009-large.mp4',
-    delay: 0.2 
-  },
-  { 
-    id: 3, 
-    src: '/Images/about/gallery_life_3.png', 
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-teamwork-in-a-modern-office-42502-large.mp4',
-    delay: 0.3 
-  },
-  { 
-    id: 4, 
-    src: '/Images/about/gallery_life_4.png', 
-    videoUrl: 'https://assets.mixkit.co/videos/preview/mixkit-man-working-on-a-laptop-in-a-coffee-shop-42284-large.mp4',
-    delay: 0.4 
-  },
-];
-
 const LifeAtSoftnova = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
+
+  const handlePlayToggle = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
 
   return (
     <section className={styles.lifeSection}>
@@ -48,13 +32,9 @@ const LifeAtSoftnova = () => {
             </h1>
             
             <div className={styles.subTextWrapper}>
-              <motion.div 
-                className={styles.playIconCircle}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
+              <div className={styles.playIconCircle}>
                 <Compass fill="white" color="white" size={20} />
-              </motion.div>
+              </div>
               <span className={styles.subTitle}>choose your growth journey</span>
             </div>
 
@@ -67,18 +47,22 @@ const LifeAtSoftnova = () => {
 
           {/* Right Side Video Showcase */}
           <div className={`${styles.videoShowcase} gsap-fade-right`}>
-            <div className={styles.videoCard}>
+            <div className={styles.videoCard} onClick={handlePlayToggle} style={{ cursor: 'pointer' }}>
               <video 
+                ref={videoRef}
                 src="/Images/about/softnova.mp4" 
-                autoPlay 
                 loop 
-                muted 
                 playsInline
+                controls={isPlaying}
                 className={styles.featuredVideo}
               />
-              <div className={styles.videoOverlay}>
-                {/* Removed mainPlayBtn as per request */}
-              </div>
+              {!isPlaying && (
+                <div className={styles.videoOverlay} style={{ opacity: 1, pointerEvents: 'none' }}>
+                  <div className={styles.mainPlayBtn}>
+                    <svg viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
