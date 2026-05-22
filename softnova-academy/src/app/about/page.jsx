@@ -17,7 +17,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const AboutPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const containerRef = useRef(null);
+  const videoRef = useRef(null);
+
+  const handlePlay = () => {
+    videoRef.current.play();
+  };
 
   useEffect(() => {
     let ctx = gsap.context(() => {
@@ -27,7 +33,8 @@ const AboutPage = () => {
           elem,
           { opacity: 0, x: -80 },
           {
-            opacity: 1, x: 0,
+            opacity: 1,
+            x: 0,
             duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {
@@ -45,7 +52,8 @@ const AboutPage = () => {
           elem,
           { opacity: 0, x: 80 },
           {
-            opacity: 1, x: 0,
+            opacity: 1,
+            x: 0,
             duration: 0.8,
             ease: "power2.out",
             scrollTrigger: {
@@ -63,7 +71,8 @@ const AboutPage = () => {
           elem,
           { opacity: 0, y: 50 },
           {
-            opacity: 1, y: 0,
+            opacity: 1,
+            y: 0,
             duration: 0.7,
             ease: "power2.out",
             scrollTrigger: {
@@ -82,7 +91,9 @@ const AboutPage = () => {
           cards,
           { opacity: 0, y: 60, scale: 0.93 },
           {
-            opacity: 1, y: 0, scale: 1,
+            opacity: 1,
+            y: 0,
+            scale: 1,
             duration: 0.6,
             ease: "power2.out",
             stagger: 0.12,
@@ -121,23 +132,36 @@ const AboutPage = () => {
             <div className={`${styles.aboutText} gsap-fade-left`}>
               <h2>Transforming Tech Education</h2>
               <p>
-               At Softnova Academy, we are redefining tech education through innovative teaching methods and practical learning experiences.
-Our industry-focused training programs help students develop real-world technical skills, creativity, and professional confidence.
-We aim to prepare future-ready professionals who can succeed and grow in todayâ€™s fast-changing digital world.
+                At Softnova Academy, we are redefining tech education through
+                innovative teaching methods and practical learning experiences.
+                Our industry-focused training programs help students develop
+                real-world technical skills, creativity, and professional
+                confidence. We aim to prepare future-ready professionals who
+                can succeed and grow in todayâ€™s fast-changing digital world.
               </p>
               <p>
-                Our mission is to empower the next generation of software engineers with the tools, knowledge, and mentorship they need to build innovative products and shape the future of technology.
+                Our mission is to empower the next generation of software
+                engineers with the tools, knowledge, and mentorship they need
+                to build innovative products and shape the future of technology.
               </p>
             </div>
+
             <div className={`${styles.aboutImageWrapper} gsap-fade-right`}>
               <video
-                src="/Images/gallery/about.mp4"
-                autoPlay
+                ref={videoRef}
+                src="/Images/about/about.mp4"
                 loop
                 muted
                 playsInline
                 className={styles.aboutVideo}
               />
+
+              <button
+                onClick={handlePlay}
+                className={styles.playBtn}
+              >
+                Play Video
+              </button>
             </div>
           </div>
         </div>
@@ -160,22 +184,32 @@ We aim to prepare future-ready professionals who can succeed and grow in todayâ€
       <section className={styles.section}>
         <div className={`${styles.visionGrid} gsap-stagger-group`}>
           <div className={`${styles.glassCard} gsap-card`}>
-            <div className={styles.iconWrapper} style={{ marginBottom: "1.5rem" }}>
+            <div
+              className={styles.iconWrapper}
+              style={{ marginBottom: "1.5rem" }}
+            >
               <Lightbulb size={32} />
             </div>
             <h2>Our Vision</h2>
             <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>
-              To be the globally recognized hub for tech talent, fostering a community where innovation meets execution, and every learner transforms into a creator.
+              To be the globally recognized hub for tech talent, fostering a
+              community where innovation meets execution, and every learner
+              transforms into a creator.
             </p>
           </div>
 
           <div className={`${styles.glassCard} gsap-card`}>
-            <div className={styles.iconWrapper} style={{ marginBottom: "1.5rem" }}>
+            <div
+              className={styles.iconWrapper}
+              style={{ marginBottom: "1.5rem" }}
+            >
               <Target size={32} />
             </div>
             <h2>Our Mission</h2>
             <p style={{ color: "var(--text-muted)", lineHeight: "1.6" }}>
-              To provide industry-aligned, hands-on training that equips students with the exact skills companies are looking for, bridging the talent gap in the tech ecosystem.
+              To provide industry-aligned, hands-on training that equips
+              students with the exact skills companies are looking for,
+              bridging the talent gap in the tech ecosystem.
             </p>
           </div>
         </div>
@@ -183,28 +217,40 @@ We aim to prepare future-ready professionals who can succeed and grow in todayâ€
 
       {/* 7. Life at Softnova */}
       <LifeAtSoftnova />
-      
+
       {/* 8. CTA Section */}
       <section className={`${styles.ctaFooter} gsap-fade-up`}>
         <div className={styles.glow} />
-        <h2 style={{ position: "relative", zIndex: 1 }}>Start Your Career Today</h2>
-        <p style={{ fontSize: "1.2rem", marginBottom: "2.5rem", position: "relative", zIndex: 1 }}>
+        <h2 style={{ position: "relative", zIndex: 1 }}>
+          Start Your Career Today
+        </h2>
+
+        <p
+          style={{
+            fontSize: "1.2rem",
+            marginBottom: "2.5rem",
+            position: "relative",
+            zIndex: 1,
+          }}
+        >
           Join the ranks of top-tier developers. The future is waiting for you.
         </p>
+
         <button
           onClick={() => setIsModalOpen(true)}
           className={styles.ctaButton}
           suppressHydrationWarning
         >
-
           Enroll Now
         </button>
       </section>
 
-      <EnrollModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <EnrollModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </main>
   );
 };
 
 export default AboutPage;
-
