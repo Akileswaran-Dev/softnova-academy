@@ -33,11 +33,10 @@ const ScrollToTop = () => {
         <motion.button
           className={styles.scrollButton}
           onClick={scrollToTop}
-          initial={{ opacity: 0, scale: 0.5, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.5, y: 20 }}
-          whileHover={{ scale: 1.1, backgroundColor: "#ff6b00", color: "#fff" }}
-          whileTap={{ scale: 0.9 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
         >
           <ChevronUp size={24} />
         </motion.button>

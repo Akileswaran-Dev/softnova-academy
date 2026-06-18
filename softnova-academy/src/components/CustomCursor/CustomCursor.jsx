@@ -9,17 +9,25 @@ const CustomCursor = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   // Mouse position (immediate)
   const mouseX = useMotionValue(-100);
   const mouseY = useMotionValue(-100);
 
   // Trailing effect (spring with delay/lag)
-  const springConfig = { damping: 20, stiffness: 120 }; // Slower spring for visible lag
+  const springConfig = { damping: 22, stiffness: 140 };
   const trailX = useSpring(mouseX, springConfig);
   const trailY = useSpring(mouseY, springConfig);
 
   useEffect(() => {
+    // Detect mobile touch devices early to prevent high-frequency listeners and DOM repaints
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    if (isTouch) {
+      setIsTouchDevice(true);
+      return;
+    }
+
     setMounted(true);
     const handleMouseMove = (e) => {
       if (!isVisible) setIsVisible(true);
@@ -58,7 +66,7 @@ const CustomCursor = () => {
     };
   }, [mouseX, mouseY, isVisible]);
 
-  if (!mounted) return null;
+  if (isTouchDevice || !mounted) return null;
 
   return (
     <div className={`${styles.cursorContainer} ${!isVisible ? styles.hidden : ""}`}>

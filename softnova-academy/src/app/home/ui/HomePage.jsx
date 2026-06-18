@@ -1,24 +1,32 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import Link from "next/link";
 import Image from "next/image";
-import AboutSection from "./sections/AboutSection/AboutSection";
-import BenefitsSection from "./sections/BenefitsSection/BenefitsSection";
-import TestimonialsSection from "./sections/TestimonialsSection/TestimonialsSection";
-import FAQSection from "./sections/FAQSection/FAQSection";
-import CoursesSection from "./sections/CoursesSection/CoursesSection";
+import dynamic from "next/dynamic";
 import styles from "./HomePage.module.css";
 import FloatingElement from "@/components/FloatingElement";
-import Magnetic from "@/components/Magnetic";
-import ParticlesBackground from "@/components/ParticlesBackground";
+
+const AboutSection = dynamic(() => import("./sections/AboutSection/AboutSection"));
+const BenefitsSection = dynamic(() => import("./sections/BenefitsSection/BenefitsSection"));
+const TestimonialsSection = dynamic(() => import("./sections/TestimonialsSection/TestimonialsSection"));
+const FAQSection = dynamic(() => import("./sections/FAQSection/FAQSection"));
+const CoursesSection = dynamic(() => import("./sections/CoursesSection/CoursesSection"));
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
   const containerRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     // Normalize scroll for mobile touch events
@@ -147,9 +155,11 @@ export default function HomePage() {
         <div className={styles.heroBackground}></div>
 
         {/* Top Header/Background */}
-        <div className={styles.topYellowBg}>
-          <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
-        </div>
+        {!isMobile && (
+          <div className={styles.topYellowBg}>
+            <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
+          </div>
+        )}
 
         {/* Main Central Glass Card */}
         <div className={styles.glassCard}>
@@ -161,17 +171,19 @@ export default function HomePage() {
             <p className={styles.tagline}>
               Master modern design and development skills through practical training, real-time projects, and expert mentorship at Softnova Academy.
             </p>
-            <div className={styles.miniThumbnails}>
-              <div className={styles.miniBox}>
-                <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>
+            {!isMobile && (
+              <div className={styles.miniThumbnails}>
+                <div className={styles.miniBox}>
+                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 19l7-7 3 3-7 7-3-3z" /><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" /><path d="M2 2l7.586 7.586" /><circle cx="11" cy="11" r="2" /></svg>
+                </div>
+                <div className={styles.miniBox}>
+                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" /></svg>
+                </div>
+                <div className={styles.miniBox}>
+                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
+                </div>
               </div>
-              <div className={styles.miniBox}>
-                <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6" /></svg>
-              </div>
-              <div className={styles.miniBox}>
-                <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>
-              </div>
-            </div>
+            )}
           </div>
 
           {/* Center: Hero Image (Humans Learning) */}
@@ -193,26 +205,28 @@ export default function HomePage() {
 
           {/* Right: Tech Icons & Action */}
           <div className={styles.cardRight}>
-            <div className={styles.techStackContainer}>
-              <div className={styles.techOrbit}>
-                <div className={styles.orbitItem} style={{ "--i": 0 }}>
-                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><circle cx="12" cy="12" r="9" /><path d="M12 8v8M8 12h8" /></svg>
-                </div>
-                <div className={styles.orbitItem} style={{ "--i": 1 }}>
-                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" /></svg>
-                </div>
-                <div className={styles.orbitItem} style={{ "--i": 2 }}>
-                  <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
-                </div>
-                {/* Adding 2 more for a full circle feel */}
-                <div className={styles.orbitItem} style={{ "--i": 3 }}>
-                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
-                </div>
-                <div className={styles.orbitItem} style={{ "--i": 4 }}>
-                   <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>
+            {!isMobile && (
+              <div className={styles.techStackContainer}>
+                <div className={styles.techOrbit}>
+                  <div className={styles.orbitItem} style={{ "--i": 0 }}>
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><circle cx="12" cy="12" r="9" /><path d="M12 8v8M8 12h8" /></svg>
+                  </div>
+                  <div className={styles.orbitItem} style={{ "--i": 1 }}>
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(0 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" /><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" /></svg>
+                  </div>
+                  <div className={styles.orbitItem} style={{ "--i": 2 }}>
+                    <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" /></svg>
+                  </div>
+                  {/* Adding 2 more for a full circle feel */}
+                  <div className={styles.orbitItem} style={{ "--i": 3 }}>
+                     <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                  </div>
+                  <div className={styles.orbitItem} style={{ "--i": 4 }}>
+                     <svg viewBox="0 0 24 24" width="32" height="32" stroke="#ff7c30" strokeWidth="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /><polyline points="3.27 6.96 12 12.01 20.73 6.96" /><line x1="12" y1="22.08" x2="12" y2="12" /></svg>
+                  </div>
                 </div>
               </div>
-            </div>
+            )}
 
             <Link href="/course">
               <button className={styles.joinBtn} suppressHydrationWarning>Explore Courses</button>

@@ -3,15 +3,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { Target, Lightbulb } from "lucide-react";
+import { Target, Lightbulb, Play } from "lucide-react";
 import styles from "./about.module.css";
 
-import AboutHero from "../../components/AboutHero";
-import AboutCards from "../../components/AboutCards";
-import Stats from "../../components/Stats";
-import Team from "../../components/Team";
-import LifeAtSoftnova from "../../components/LifeAtSoftnova";
-import EnrollModal from "../../components/EnrollModal/EnrollModal";
+import dynamic from "next/dynamic";
+
+const AboutHero = dynamic(() => import("../../components/AboutHero"));
+const AboutCards = dynamic(() => import("../../components/AboutCards"));
+const Stats = dynamic(() => import("../../components/Stats"));
+const Team = dynamic(() => import("../../components/Team"));
+const LifeAtSoftnova = dynamic(() => import("../../components/LifeAtSoftnova"));
+const EnrollModal = dynamic(() => import("../../components/EnrollModal/EnrollModal"));
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,9 +22,18 @@ const AboutPage = () => {
 
   const containerRef = useRef(null);
   const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const handlePlay = () => {
-    videoRef.current.play();
+  const handlePlayToggle = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
   };
 
   useEffect(() => {
@@ -145,23 +156,22 @@ const AboutPage = () => {
                 to build innovative products and shape the future of technology.
               </p>
             </div>
-
-            <div className={`${styles.aboutImageWrapper} gsap-fade-right`}>
+            <div className={`${styles.aboutImageWrapper} gsap-fade-right`} onClick={handlePlayToggle} style={{ cursor: "pointer" }}>
               <video
                 ref={videoRef}
-                src="/Images/about/about.mp4"
+                src="/Images/gallery/about.mp4"
                 loop
-                muted
                 playsInline
+                controls={isPlaying}
                 className={styles.aboutVideo}
               />
-
-              <button
-                onClick={handlePlay}
-                className={styles.playBtn}
-              >
-                Play Video
-              </button>
+              {!isPlaying && (
+                <div className={styles.playOverlay}>
+                  <div className={styles.playButton}>
+                    <Play fill="currentColor" size={32} />
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

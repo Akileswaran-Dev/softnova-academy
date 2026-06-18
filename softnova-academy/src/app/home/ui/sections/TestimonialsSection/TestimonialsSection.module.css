@@ -18,7 +18,8 @@
   font-size: 3.8rem;
   font-weight: 900;
   color: var(--foreground);
-  
+  white-space: nowrap;
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 
 .marqueeContainer {

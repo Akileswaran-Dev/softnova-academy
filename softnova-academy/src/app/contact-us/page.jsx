@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import {
   MapPin,
@@ -18,6 +18,12 @@ import { Github, Twitter, Linkedin, Instagram, Facebook } from "../../components
 import emailjs from "@emailjs/browser";
 const ContactUsPage = () => {
   const formRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -84,17 +90,17 @@ const ContactUsPage = () => {
         <section className={styles.hero}>
           <div className={styles.heroCard}>
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+              initial={isMobile ? false : { opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
             >
               Let’s Build Your <br />
               <span style={{ color: "var(--primary)" }}>Future Together</span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1 }}
+              initial={isMobile ? false : { opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: isMobile ? 0 : 0.25, duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
             >
               Have a question or ready to start your tech journey?
               Our team is here to help you navigate your way to success.
@@ -107,9 +113,10 @@ const ContactUsPage = () => {
           {/* Left: Form */}
           <motion.div
             className={styles.formWrapper}
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={isMobile ? false : { opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
           >
             <h2>Send us a Message</h2>
             <form ref={formRef} onSubmit={handleSubmit}>
@@ -195,8 +202,8 @@ const ContactUsPage = () => {
               </div>
 
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
                 className={styles.submitBtnOrange}
                 type="submit"
                 suppressHydrationWarning
@@ -231,10 +238,10 @@ const ContactUsPage = () => {
               <motion.div
                 key={i}
                 className={styles.infoCard}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={isMobile ? false : { opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: card.delay }}
+                transition={{ delay: isMobile ? 0 : card.delay, duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
               >
                 <div className={styles.cardIcon}>{card.icon}</div>
                 <p className={styles.infoDesc}>{card.desc}</p>
@@ -244,10 +251,10 @@ const ContactUsPage = () => {
             {/* Social Profiles Card */}
             <motion.div
               className={styles.infoCard}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={isMobile ? false : { opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: isMobile ? 0 : 0.4, duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
             >
               <h4 className={styles.socialHeading}>Social Profiles</h4>
               <div className={styles.socialGridSmall}>
@@ -264,9 +271,10 @@ const ContactUsPage = () => {
         <section className={styles.mapSection}>
           <motion.div
             className={styles.mapContainer}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={isMobile ? false : { opacity: 0, scale: 0.95 }}
+            whileInView={isMobile ? { opacity: 1 } : { opacity: 1, scale: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: isMobile ? 0.2 : 0.4 }}
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7851.263486223861!2d79.20632872303162!3d10.291226416297494!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a16e9c50ca4939d%3A0x646da28beabf28ab!2sSoftnova%20Technology!5e0!3m2!1sen!2sin!4v1776753992378!5m2!1sen!2sin"
@@ -288,9 +296,8 @@ const ContactUsPage = () => {
 
         {/* 6. CTA SECTION */}
         <section className={styles.cta}>
-          <motion.div
+          <div
             className={styles.ctaBox}
-            whileHover={{ scale: 0.99 }}
           >
             <h2>Ready to Take the Leap?</h2>
             <p style={{ marginBottom: "3rem", fontSize: "1.2rem", opacity: 0.9 }}>
@@ -299,13 +306,13 @@ const ContactUsPage = () => {
             <Link href="/book">
               <motion.div
                 className={styles.ctaBtn}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
               >
                 Book Free Demo <ArrowRight size={20} style={{ marginLeft: "10px", verticalAlign: "middle" }} />
               </motion.div>
             </Link>
-          </motion.div>
+          </div>
         </section>
 
       </div>

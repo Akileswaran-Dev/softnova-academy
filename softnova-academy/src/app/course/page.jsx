@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { 
@@ -81,7 +80,7 @@ const COURSES = [
   {
     id: 4,
     category: "Development",
-    title: "Full-Stack Development",
+    title: "MERN-Stack Development",
     slug: "full-stack-development",
     image: "/Images/Course/Full Stack.webp",
     description: "Full Stack Developers build web apps, handling front-end, back-end, and databases using various technologies.",
@@ -99,23 +98,41 @@ const COURSES = [
   {
     id: 5,
     category: "Development",
-    title: "Java Full Stack Development",
-    slug: "java-full-stack-development",
+    title: "Python Full Stack Development",
+    slug: "Python-full-stack-development",
     image: "/Images/Course/Java Full stack.webp",
-    description: "Covers building and managing both front-end and back-end using Java, Spring Boot, and modern web technologies.",
+    description: "Covers building and managing both front-end and back-end using Python, Django, and modern web technologies.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
     icon: <Terminal size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to Front-end (HTML, CSS)" },
       { id: "02", text: "Design of BS5 & Basic of JS" },
-      { id: "03", text: "Introduction of JAVA" },
-      { id: "04", text: "Spring Boot Framework & Libraries" },
-      { id: "05", text: "MySQL for Database" }
+      { id: "03", text: "Introduction of Python" },
+      { id: "04", text: "Django Framework & Libraries" },
+      { id: "05", text: "MySQL/PostgreSQL for Database" }
     ]
   },
   {
     id: 6,
+    category: "Development",
+    title: "Data Analytics",
+    slug: "Data Analytics",
+    image: "/Images/Course/Java Full stack.webp",
+    description: "Covers gathering, cleaning, analyzing, and visualizing data to extract valuable insights using Python, SQL, and Power BI.",
+    author: "Softnova Academy",
+    duration: "4 MONTHS",
+    icon: <Terminal size={60} />,
+    curriculum: [
+      { id: "01", text: "Introduction to Excel & Statistics" },
+      { id: "02", text: "SQL Database & Querying" },
+      { id: "03", text: "Python for Data Analysis" },
+      { id: "04", text: "Data Analytics Libraries (Pandas, NumPy)" },
+      { id: "05", text: "Data Visualization (Power BI/Tableau)" }
+    ]
+  },
+  {
+    id: 7,
     category: "Engineering",
     title: "Desktop Support Engineer",
     slug: "desktop-support-engineer",
@@ -132,7 +149,7 @@ const COURSES = [
     ]
   },
   {
-    id: 7,
+    id: 8,
     category: "Networking",
     title: "Networking & CCNA",
     slug: "networking-ccna",
@@ -149,7 +166,7 @@ const COURSES = [
     ]
   },
   {
-    id: 8,
+    id: 9,
     category: "Business",
     title: "Business Development Executive",
     slug: "business-development-executive",
@@ -167,7 +184,7 @@ const COURSES = [
     ]
   },
   {
-    id: 9,
+    id: 10,
     category: "Management",
     title: "HR Training",
     slug: "hr-training",

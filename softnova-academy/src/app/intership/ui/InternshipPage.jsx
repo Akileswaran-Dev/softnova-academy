@@ -33,7 +33,7 @@ const INTERNSHIPS = [
   },
   {
     id: 4, 
-    title: 'Java Full Stack Development', 
+    title: 'Python    Full Stack Development', 
     description: 'Develop end-to-end web applications by working on both front-end interfaces and robust back-end systems using Java technologies. Gain hands-on experience in building, integrating, and deploying scalable applications with databases, APIs, and modern development frameworks.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"></path><path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h4"></path></svg>)
   },
@@ -149,19 +149,11 @@ const InternshipPage = () => {
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeIndex}
-                  initial={{
-                    opacity: 0,
-                    x: 350,
-                    y: (activeIndex - 1) * 120, // Calculates dynamic Y based on stack position (-120, 0, 120)
-                    scale: 0.35, // Starts at the size of the mini card
-                    rotateZ: -5,
-                    rotateY: -20
-                  }}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1, rotateZ: 0, rotateY: 0 }}
-                  exit={{ opacity: 0, x: -300, y: 50, scale: 0.7, rotateZ: -10, rotateY: -30 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                   className={styles.tabletContentCard}
-                  style={{ transformOrigin: "center center", transformPerspective: 1200 }}
                 >
                   <div className={styles.carouselContent}>
                     <h1 className={styles.mainTitle}>
@@ -231,9 +223,9 @@ const InternshipPage = () => {
         <div className={`${styles.grid} gsap-stagger-group`}>
           {INTERNSHIPS.map((item) => (
             <div key={item.id} className={`${styles.card} gsap-card`}>
-              <div className={styles.cardHeader}>
+              <div className={styles.iconWrapper}>
                 <div className={styles.iconBox}>
-                  <div style={{ color: 'var(--primary)' }}>{item.icon}</div>
+                  {item.icon}
                 </div>
               </div>
               <div className={styles.cardContent}>

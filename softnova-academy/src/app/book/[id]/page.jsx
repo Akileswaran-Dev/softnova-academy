@@ -47,31 +47,56 @@ function Particles({ color, count = 14 }) {
 /* ── 3D BOOK (reusable) ── */
 function Book3D({ book, width = 300, height = 420, className, animate3D = true, floating = false }) {
   const ref = useRef(null);
+  const rectRef = useRef(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const rX = useSpring(useTransform(my, [-150, 150], [14, -14]), { stiffness: 200, damping: 30 });
   const rY = useSpring(useTransform(mx, [-150, 150], [-14, 14]), { stiffness: 200, damping: 30 });
 
+  const [isMobileTouch, setIsMobileTouch] = useState(false);
+
+  useEffect(() => {
+    const isTouch = window.matchMedia("(pointer: coarse)").matches;
+    setIsMobileTouch(isTouch);
+  }, []);
+
+  const handleMouseEnter = () => {
+    if (isMobileTouch || !animate3D) return;
+    if (ref.current) {
+      rectRef.current = ref.current.getBoundingClientRect();
+    }
+  };
+
   const onMove = useCallback((e) => {
-    if (!animate3D) return;
-    const r = ref.current?.getBoundingClientRect();
+    if (isMobileTouch || !animate3D) return;
+    if (!rectRef.current && ref.current) {
+      rectRef.current = ref.current.getBoundingClientRect();
+    }
+    const r = rectRef.current;
     if (!r) return;
     mx.set(e.clientX - r.left - r.width / 2);
     my.set(e.clientY - r.top - r.height / 2);
-  }, [animate3D, mx, my]);
-  const onLeave = () => { mx.set(0); my.set(0); };
+  }, [animate3D, mx, my, isMobileTouch]);
+
+  const onLeave = () => {
+    rectRef.current = null;
+    mx.set(0);
+    my.set(0);
+  };
+
+  const shouldFloat = floating && !isMobileTouch;
 
   return (
     <div ref={ref} className={`${styles.bookWrap} ${className || ''}`}
-      onMouseMove={onMove} onMouseLeave={onLeave} style={{ height: height + 60 }}>
+      onMouseEnter={handleMouseEnter} onMouseMove={onMove} onMouseLeave={onLeave} style={{ height: height + 60 }}>
       <motion.div
         className={styles.book3D}
         style={{ width, height, rotateX: rX, rotateY: rY, transformStyle: 'preserve-3d' }}
         initial={{ opacity: 0, rotateY: -35, y: 30 }}
-        animate={floating
+        animate={shouldFloat
           ? { opacity: 1, rotateY: 0, y: [0, -16, 0] }
           : { opacity: 1, rotateY: 0, y: 0 }}
-        transition={floating
+        transition={shouldFloat
           ? { opacity: { duration: 0.7 }, rotateY: { duration: 0.8 }, y: { duration: 3.5, repeat: Infinity, ease: 'easeInOut' } }
           : { duration: 0.9, ease: 'easeOut' }}
       >
@@ -94,10 +119,10 @@ function Book3D({ book, width = 300, height = 420, className, animate3D = true, 
         <div className={styles.bookPages} />
       </motion.div>
       <motion.div className={styles.bookShadow}
-        animate={floating ? { opacity: [0.25, 0.45, 0.25], scaleX: [1, 1.08, 1] } : {}}
+        animate={shouldFloat ? { opacity: [0.25, 0.45, 0.25], scaleX: [1, 1.08, 1] } : {}}
         transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
       />
-      {floating && (
+      {shouldFloat && (
         <motion.div className={styles.glowRing} style={{ borderColor: book.imgColor }}
           animate={{ opacity: [0.15, 0.4, 0.15], scale: [1, 1.05, 1] }}
           transition={{ duration: 2.8, repeat: Infinity }}
@@ -1069,7 +1094,7 @@ export default function BookDetailsPage() {
         {/* HERO */}
         <section className={styles.hero}>
           <Book3D book={book} />
-          <motion.div className={styles.heroInfo} initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.7 }}>
+          <motion.div className={styles.heroInfo} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.45, ease: "easeOut" }}>
             <span className={styles.categoryBadge} style={{ background: `${book.color}20`, color: book.color }}>{book.category}</span>
             <h1 className={styles.mainTitle}>{book.title}</h1>
             <h2 className={styles.mainSubtitle}>{book.subtitle}</h2>
@@ -1099,8 +1124,8 @@ export default function BookDetailsPage() {
             { icon: <Calendar size={22} />, val: '2026', lab: 'Published' },
           ].map((s, i) => (
             <motion.div key={i} className={styles.statCard}
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 * i + 0.5 }} whileHover={{ y: -5 }}>
+              initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.05 * i + 0.25, duration: 0.4, ease: "easeOut" }} whileHover={{ y: -5 }}>
               <div className={styles.statIcon} style={{ color: book.color }}>{s.icon}</div>
               <div className={styles.statVal}>{s.val}</div>
               <div className={styles.statLab}>{s.lab}</div>
@@ -1111,7 +1136,7 @@ export default function BookDetailsPage() {
         {/* QUOTE */}
         <section className={styles.quoteSection}>
           <motion.div className={styles.bigQuote}
-            initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8 }}>
+            initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15, duration: 0.4, ease: "easeOut" }}>
             <Quote size={40} className={styles.quoteIconLarge} style={{ color: book.color }} />
             <p className={styles.quoteText}>
               <Typewriter text={`"Every page turned is a step closer to mastery. ${book.title} is your companion in the journey of lifelong learning."`} />
@@ -1130,8 +1155,8 @@ export default function BookDetailsPage() {
           <div className={styles.chaptersGrid}>
             {book.chapters.map((ch, i) => (
               <motion.div key={i} className={styles.chapterCard}
-                initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.04 + 0.6 }} whileHover={{ x: 8 }}>
+                initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: Math.min(i * 0.02 + 0.05, 0.3), duration: 0.35, ease: "easeOut" }} whileHover={{ x: 8 }}>
                 <div className={styles.chapterNum} style={{ background: `${book.color}18`, color: book.color }}>{i + 1}</div>
                 <div className={styles.chapterTitle}>{ch}</div>
 
@@ -1150,8 +1175,8 @@ export default function BookDetailsPage() {
           <div className={styles.recoGrid}>
             {recommendations.map((rb, i) => (
               <motion.div key={rb.id} className={styles.recoCard}
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }} whileHover={{ y: -8, scale: 1.02 }}
+                initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: i * 0.05 + 0.05, duration: 0.4, ease: "easeOut" }} whileHover={{ y: -5 }}
                 onClick={() => router.push(`/book/${rb.id}`)}>
                 <div className={styles.recoBookWrap}>
                   <div

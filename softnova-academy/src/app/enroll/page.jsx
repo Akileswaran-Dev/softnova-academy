@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { 
@@ -17,6 +17,12 @@ import styles from "./enroll.module.css";
 
 const EnrollPage = () => {
   const formRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -78,9 +84,9 @@ const EnrollPage = () => {
       <div className={styles.container}>
         <motion.div 
           className={styles.header}
-          initial={{ opacity: 0, y: -20 }}
+          initial={isMobile ? false : { opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: isMobile ? 0.2 : 0.4, ease: "easeOut" }}
         >
           <h1>Application Form</h1>
           <p>Join Softnova Academy and kickstart your professional tech journey.</p>
@@ -90,8 +96,8 @@ const EnrollPage = () => {
           {isSubmitted ? (
             <motion.div 
               className={styles.successMessage}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={isMobile ? false : { opacity: 0, scale: 0.9 }}
+              animate={isMobile ? { opacity: 1 } : { opacity: 1, scale: 1 }}
             >
               <CheckCircle2 size={80} color="var(--primary)" />
               <h2>Application Submitted!</h2>
@@ -193,8 +199,8 @@ const EnrollPage = () => {
               <motion.button 
                 type="submit"
                 className={styles.submitBtn}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={isMobile ? {} : { scale: 1.02 }}
+                whileTap={isMobile ? {} : { scale: 0.98 }}
               >
                 <span>{isSending ? "Sending..." : "Submit Application"}</span>
                 <Send size={18} />

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Linkedin, Twitter, Github } from "./Icons";
 import Image from "next/image";
 import styles from "../app/about/about.module.css";
@@ -19,7 +18,7 @@ const teamMembers = [
     role: "Team Lead",
     domain: "TEAM LEAD",
     bio: "Guiding the team with dedication and professionalism. She plays an important role in project coordination, team management, and maintaining workflow efficiency. With strong communication and leadership skills, she supports both clients and team members effectively. Her commitment and teamwork contribute to the successful growth of Softnova.",
-    image: "/Images/about/12626.heic",
+    image: "/Images/about/TL.webp",
   },
   {
     name: "Adhithyan",
@@ -48,32 +47,10 @@ function ReadMoreBio({ bio, bioClass, style }) {
   }
 
   return (
-    <motion.div layout className={styles.bioWrapper}>
+    <div className={styles.bioWrapper}>
       <p className={bioClass} style={style}>
         {bio.slice(0, CHAR_LIMIT)}
-        <AnimatePresence mode="wait">
-          {expanded && (
-            <motion.span
-              key="expanded"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {bio.slice(CHAR_LIMIT)}
-            </motion.span>
-          )}
-          {!expanded && (
-            <motion.span
-              key="collapsed"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              ...
-            </motion.span>
-          )}
-        </AnimatePresence>
+        {expanded ? bio.slice(CHAR_LIMIT) : "..."}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -84,7 +61,7 @@ function ReadMoreBio({ bio, bioClass, style }) {
           {expanded ? " Show Less" : " Read More"}
         </button>
       </p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -111,32 +88,10 @@ function ReadMoreFounderBio({ paras }) {
 
   const combined = paras.join(" ");
   return (
-    <motion.div layout className={styles.founderBioWrapper}>
+    <div className={styles.founderBioWrapper}>
       <p className={styles.founderBio}>
         {combined.slice(0, CHAR_LIMIT)}
-        <AnimatePresence mode="wait">
-          {expanded && (
-            <motion.span
-              key="expanded-founder"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              {combined.slice(CHAR_LIMIT)}
-            </motion.span>
-          )}
-          {!expanded && (
-            <motion.span
-              key="collapsed-founder"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              ...
-            </motion.span>
-          )}
-        </AnimatePresence>
+        {expanded ? combined.slice(CHAR_LIMIT) : "..."}
         <button
           onClick={(e) => {
             e.stopPropagation();
@@ -147,7 +102,7 @@ function ReadMoreFounderBio({ paras }) {
           {expanded ? " Show Less" : " Read More"}
         </button>
       </p>
-    </motion.div>
+    </div>
   );
 }
 
@@ -159,13 +114,7 @@ export default function Team() {
       </div>
 
       {/* Founder Section */}
-      <motion.div
-        layout
-        className={`${styles.founderSection} gsap-fade-up`}
-        whileHover="hover"
-        initial="initial"
-        transition={{ layout: { duration: 0.4, type: "spring", stiffness: 200, damping: 25 } }}
-      >
+      <div className={`${styles.founderSection} gsap-fade-up`}>
         <div className={styles.founderImageWrapper}>
           <Image
             src="/Images/about/founder.webp"
@@ -176,24 +125,10 @@ export default function Team() {
             priority
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 500px"
           />
-          <motion.div
-            className={styles.orangeSplash}
-            variants={{
-              initial: { scale: 0, opacity: 0, rotate: -20 },
-              hover: { scale: 1.8, opacity: 0.5, rotate: 10 },
-            }}
-            transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-          />
-          <motion.div
-            variants={{
-              initial: { opacity: 0, y: 20 },
-              hover: { opacity: 1, y: 0 },
-            }}
-            transition={{ duration: 0.4 }}
-            className={styles.teamOverlay}
-          >
+          <div className={styles.orangeSplash} />
+          <div className={styles.teamOverlay}>
             <span className={styles.memberRole}>Founder &amp; CEO</span>
-          </motion.div>
+          </div>
         </div>
 
         <div className={styles.founderContent}>
@@ -213,7 +148,7 @@ export default function Team() {
             &quot;Our goal is not just to produce developers, but to empower creators who will build the future of technology.&quot;
           </div>
         </div>
-      </motion.div>
+      </div>
 
       <div className="gsap-fade-up">
         <h2 className={styles.sectionTitle}>Meet Our Team</h2>
@@ -221,14 +156,7 @@ export default function Team() {
 
       <div className={`${styles.teamGrid} gsap-stagger-group`}>
         {teamMembers.map((member, index) => (
-          <motion.div
-            layout
-            key={index}
-            className={`${styles.teamCard} gsap-card`}
-            whileHover="hover"
-            initial="initial"
-            transition={{ layout: { duration: 0.4, type: "spring", stiffness: 200, damping: 25 } }}
-          >
+          <div key={index} className={`${styles.teamCard} gsap-card`}>
             <div className={styles.teamImageContainer}>
               <Image
                 src={member.image}
@@ -236,25 +164,15 @@ export default function Team() {
                 fill
                 className={styles.teamImage}
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                priority={
+                  member.image === "/Images/about/Akka.webp" ||
+                  member.image === "/Images/about/dharshika_new_v4.webp"
+                }
               />
-              <motion.div
-                className={styles.orangeSplash}
-                variants={{
-                  initial: { scale: 0, opacity: 0, rotate: -20 },
-                  hover: { scale: 1.5, opacity: 0.6, rotate: 0 },
-                }}
-                transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
-              />
-              <motion.div
-                variants={{
-                  initial: { opacity: 0, y: 20 },
-                  hover: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className={styles.teamOverlay}
-              >
+              <div className={styles.orangeSplash} />
+              <div className={styles.teamOverlay}>
                 <span className={styles.memberRole}>{member.role}</span>
-              </motion.div>
+              </div>
             </div>
 
             <div className={styles.teamInfo}>
@@ -264,7 +182,7 @@ export default function Team() {
                 <ReadMoreBio bio={member.bio} style={{ textAlign: "center" }} bioClass={styles.memberBio} />
               )}
             </div>
-          </motion.div>
+          </div>
         ))}
       </div>
     </section>

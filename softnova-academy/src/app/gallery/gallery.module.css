@@ -94,6 +94,16 @@
   white-space: nowrap;
   pointer-events: none;
   box-shadow: 0 10px 20px rgba(255, 107, 0, 0.2);
+  opacity: 0;
+  transform: translateX(-10px);
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.dockItem:hover .dockLabel {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
 }
 
 .labelVisible {

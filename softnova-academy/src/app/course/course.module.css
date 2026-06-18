@@ -154,6 +154,7 @@
   font-weight: 800;
   color: #1a1a1a;
   margin-bottom: 15px;
+  padding-right: 80px;
 }
 
 .courseDesc {
@@ -264,6 +265,10 @@
 
   .cardRight {
     width: 100%;
+  }
+
+  .courseTitle {
+    padding-right: 0;
   }
 
   .cardMeta {

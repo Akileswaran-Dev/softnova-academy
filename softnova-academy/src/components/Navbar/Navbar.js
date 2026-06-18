@@ -22,10 +22,23 @@ const Navbar = () => {
   const pathname = usePathname();
 
   useEffect(() => {
+    let active = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!active) {
+        active = true;
+        requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 50;
+          setScrolled((prev) => {
+            if (prev !== isScrolled) {
+              return isScrolled;
+            }
+            return prev;
+          });
+          active = false;
+        });
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

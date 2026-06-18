@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { BookOpen, Briefcase, GraduationCap, Users } from "lucide-react";
 import styles from "../app/about/about.module.css";
-import FloatingElement from "@/components/FloatingElement";
 
 const features = [
   {
