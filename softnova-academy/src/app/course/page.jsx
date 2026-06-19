@@ -81,8 +81,8 @@ const COURSES = [
     id: 4,
     category: "Development",
     title: "MERN-Stack Development",
-    slug: "full-stack-development",
-    image: "/Images/Course/Full Stack.webp",
+    slug: "mern-stack-development",
+    image: "/Images/Course/mern-stack.png",
     description: "Full Stack Developers build web apps, handling front-end, back-end, and databases using various technologies.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
@@ -98,9 +98,27 @@ const COURSES = [
   {
     id: 5,
     category: "Development",
+    title: "MEAN-Stack Development",
+    slug: "mean-stack-development",
+    image: "/Images/Course/mean-stack.png",
+    description: "Learn to build robust full-stack web applications from scratch using MongoDB, Express.js, Angular, and Node.js. Gain hands-on project experience.",
+    author: "Softnova Academy",
+    duration: "4 MONTHS",
+    icon: <Layers size={60} />,
+    curriculum: [
+      { id: "01", text: "Introduction to Front-end (HTML, CSS)" },
+      { id: "02", text: "Design of BS5 & Basic of JS" },
+      { id: "03", text: "Domain as ANGULAR" },
+      { id: "04", text: "BACK-End: Node JS & Express JS" },
+      { id: "05", text: "MongoDB (Database)" }
+    ]
+  },
+  {
+    id: 6,
+    category: "Development",
     title: "Python Full Stack Development",
-    slug: "Python-full-stack-development",
-    image: "/Images/Course/Java Full stack.webp",
+    slug: "python-full-stack-development",
+    image: "/Images/Course/python-full-stack.png",
     description: "Covers building and managing both front-end and back-end using Python, Django, and modern web technologies.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
@@ -114,12 +132,12 @@ const COURSES = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     category: "Development",
     title: "Data Analytics",
-    slug: "Data Analytics",
-    image: "/Images/Course/Java Full stack.webp",
-    description: "Covers gathering, cleaning, analyzing, and visualizing data to extract valuable insights using Python, SQL, and Power BI.",
+    slug: "data-analytics",
+    image: "/Images/Course/data-analytics.png",
+    description: "Learn Python, SQL, and Power BI data collection, cleansing, analysis, and visualization. Practice with real datasets and interactive dashboards.",
     author: "Softnova Academy",
     duration: "4 MONTHS",
     icon: <Terminal size={60} />,
@@ -132,7 +150,7 @@ const COURSES = [
     ]
   },
   {
-    id: 7,
+    id: 8,
     category: "Engineering",
     title: "Desktop Support Engineer",
     slug: "desktop-support-engineer",
@@ -149,7 +167,7 @@ const COURSES = [
     ]
   },
   {
-    id: 8,
+    id: 9,
     category: "Networking",
     title: "Networking & CCNA",
     slug: "networking-ccna",
@@ -166,7 +184,7 @@ const COURSES = [
     ]
   },
   {
-    id: 9,
+    id: 10,
     category: "Business",
     title: "Business Development Executive",
     slug: "business-development-executive",
@@ -184,7 +202,7 @@ const COURSES = [
     ]
   },
   {
-    id: 10,
+    id: 11,
     category: "Management",
     title: "HR Training",
     slug: "hr-training",

@@ -10,8 +10,8 @@ const FAQS = [
   },
   {
     id: 2,
-    question: 'If this institute run offline or online?',
-    answer: 'Currently we provide offline training session only with direct interaction and hands on practice',
+    question: 'Is the training program online or offline?',
+    answer: 'Currently we provide offline training session only with direct interaction and hands on practice.',
   },
   {
     id: 3,
@@ -26,12 +26,12 @@ const FAQS = [
   {
     id: 5,
     question: 'Who are the trainers?',
-    answer: 'Our trainers are experienced professional from IT industry, offering both theoritical and practical training with Real-time projects.',
+    answer: 'Our trainers are experienced professionals from the IT industry, offering both theoretical and practical training with Real-time projects.',
   },
   {
     id: 6,
     question: 'Will I get project experience during the course?',
-    answer: 'Absolutely we focus on real-time, live projects training for every courses.',
+    answer: 'Absolutely, we focus on real-time, live projects training for every course.',
   },
   {
     id: 7,
@@ -51,56 +51,11 @@ const FAQS = [
   },
   {
     id: 8,
-    question: 'How can I enroll for different courses?',
-    answer: 'Enrollment is simple-choose your course , complete the registration form, and make the payment once enrolled.You will receive instant access to course material and your student dashboard',
+    question: 'Do you offer internships?',
+    answer: 'Yes, we offer internships for selected courses. Students receive a certificate after completing the internship period.',
   },
   {
     id: 9,
-    question: 'What kind of support can I expect from instructors?',
-    answer: 'Our instructors are committed to your Q&A forms,email support and personalized feedback on your assignments and projects.',
-  },
-  {
-    id: 10,
-    question: 'Are there any prequisites for the courses?',
-    answer: 'No prior experience is required for beginner courses. However intermediate or advanced courses may require basic knowledge of relevent tools or language',
-  },
-  {
-    id: 11,
-    question: 'Is placement assistance provided?',
-    answer: 'Yes, we assist with job refferals and interview guidance after successful completion of course.',
-  },
-  {
-    id: 12,
-    question: 'Do you offer internships?',
-    answer: 'Yes, we offer internship for selected course. Students receives certificate after completing the internship period.',
-  },
-  {
-    id: 14,
-    question: 'Do you provide study materials?',
-    answer: 'Yes, all required study materials will be provided during the course.',
-  },
-  {
-    id: 15,
-    question: 'Can I switch batches after enrollment?',
-    answer: 'Yes, batch switching is allowed on valid reasons and availability.',
-  },
-  {
-    id: 16,
-    question: 'How can I contact the institute directly?',
-    answer: 'You can call us at (91-638-5118-083) or email us at (hr@softnovatechnology.com)our office is open for direct visits as well.',
-  },
-  {
-    id: 17,
-    question: 'What is the class schedule?',
-    answer: 'We offer week days batches (monday-friday) morning/afternoon session.',
-  },
-  {
-    id: 18,
-    question: 'Can I add the internship to my resume?',
-    answer: 'Yes, and we guide you on how to present in effectively in interviews.',
-  },
-  {
-    id: 19,
     question: 'Do you offer placement support?',
     answer: 'Yes, we offer:',
     points: [
@@ -111,19 +66,9 @@ const FAQS = [
     ],
   },
   {
-    id: 20,
-    question: 'How do I escalate, if I have any issues?',
-    answer: 'You can speak to our student counsellor or the training co-ordinator directly.Feedback forms are also available in this website.',
-  },
-  {
-    id: 21,
-    question: 'Can I shift to another course after joining one?',
-    answer: 'Yes, but only within the first and with management approvals.',
-  },
-  {
-    id: 22,
-    question: 'Can I pause my training and rejoin later?',
-    answer: 'Yes, in genuine cases (health,Relocation,etc,...) we allow you to hold and rejoin.',
+    id: 10,
+    question: 'How can I contact the institute directly?',
+    answer: 'You can call us at +91-638-5118-083 or email us at hr@softnovatechnology.com. Our office is open for direct visits as well.',
   },
 ];
 

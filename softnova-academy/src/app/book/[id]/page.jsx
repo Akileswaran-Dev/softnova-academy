@@ -708,6 +708,204 @@ export default function BookDetailsPage() {
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
             <li className={styles.tocChapter}><strong>Chapter 1 (HTML)</strong></li>
+            <li className={styles.tocSub}><span>1.1 Introduction to HTML</span> <small>pg 5</small></li>
+            <li className={styles.tocSub}><span>1.2 Structure of HTML</span> <small>pg 8</small></li>
+            <li className={styles.tocSub}><span>1.3 Semantic Tags</span> <small>pg 12</small></li>
+            <li className={styles.tocSub}><span>1.4 Text Formatting Tags</span> <small>pg 15</small></li>
+            <li className={styles.tocSub}><span>1.5 Working with Hyperlinks</span> <small>pg 18</small></li>
+            <li className={styles.tocSub}><span>1.6 HTML Lists</span> <small>pg 22</small></li>
+            <li className={styles.tocSub}><span>1.7 HTML Form Elements</span> <small>pg 25</small></li>
+            <li className={styles.tocSub}><span>1.8 HTML Tables</span> <small>pg 30</small></li>
+            <li className={styles.tocSub}><span>1.9 Images and Multimedia</span> <small>pg 34</small></li>
+            <li className={styles.tocSub}><span>1.10 HTML Attributes</span> <small>pg 38</small></li>
+            <li className={styles.tocSub}><span>1.11 Block vs Inline Elements</span> <small>pg 42</small></li>
+            <li className={styles.tocSub}><span>1.12 HTML Entities & Special Characters</span> <small>pg 45</small></li>
+            <li className={styles.tocSub}><span>1.13 Meta Tags</span> <small>pg 48</small></li>
+            <li className={styles.tocSub}><span>1.14 Web Accessibility</span> <small>pg 52</small></li>
+            <li className={styles.tocSub}><span>1.15 iFrames and Embedding External Content</span> <small>pg 55</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 2 (CSS)</strong></li>
+            <li className={styles.tocSub}><span>2.1 CSS Introduction</span> <small>pg 60</small></li>
+            <li className={styles.tocSub}><span>2.2 CSS Selectors</span> <small>pg 64</small></li>
+            <li className={styles.tocSub}><span>2.3 Colors & Backgrounds</span> <small>pg 68</small></li>
+            <li className={styles.tocSub}><span>2.4 Typography (Fonts, Line Height, Font Styles)</span> <small>pg 72</small></li>
+            <li className={styles.tocSub}><span>2.5 CSS Units (px, rem, em, vh, vw)</span> <small>pg 78</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 2: Table of Contents - Part 2
+      pages.push(
+        <div className={styles.pageInner} key="toc2_fs">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 2 (CSS Cont.)</strong></li>
+            <li className={styles.tocSub}><span>2.6 Box Model</span> <small>pg 82</small></li>
+            <li className={styles.tocSub}><span>2.7 Display & Visibility</span> <small>pg 88</small></li>
+            <li className={styles.tocSub}><span>2.8 Flexbox</span> <small>pg 94</small></li>
+            <li className={styles.tocSub}><span>2.9 CSS Grid</span> <small>pg 102</small></li>
+            <li className={styles.tocSub}><span>2.10 Positioning & Z-index</span> <small>pg 110</small></li>
+            <li className={styles.tocSub}><span>2.11 Transitions & Animations</span> <small>pg 118</small></li>
+            <li className={styles.tocSub}><span>2.12 Responsive Design & Media Queries</span> <small>pg 126</small></li>
+            <li className={styles.tocSub}><span>2.13 CSS Variables (Custom Properties)</span> <small>pg 134</small></li>
+            <li className={styles.tocSub}><span>2.14 Pseudo-classes & Pseudo-elements</span> <small>pg 140</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 3 (JavaScript)</strong></li>
+            <li className={styles.tocSub}><span>3.1 Introduction to JavaScript</span> <small>pg 148</small></li>
+            <li className={styles.tocSub}><span>3.2 Variables (var, let, const)</span> <small>pg 152</small></li>
+            <li className={styles.tocSub}><span>3.3 Data Types & Type Coercion</span> <small>pg 156</small></li>
+            <li className={styles.tocSub}><span>3.4 Operators & Expressions</span> <small>pg 162</small></li>
+            <li className={styles.tocSub}><span>3.5 Control Flow (if, else, switch)</span> <small>pg 168</small></li>
+            <li className={styles.tocSub}><span>3.6 Loops (for, while, forEach)</span> <small>pg 174</small></li>
+            <li className={styles.tocSub}><span>3.7 Functions & Arrow Functions</span> <small>pg 180</small></li>
+            <li className={styles.tocSub}><span>3.8 Arrays & Array Methods (map, filter, reduce)</span> <small>pg 188</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 3: Table of Contents - Part 3
+      pages.push(
+        <div className={styles.pageInner} key="toc3_fs">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 3 (JavaScript Cont.)</strong></li>
+            <li className={styles.tocSub}><span>3.9 Objects & Object Methods</span> <small>pg 196</small></li>
+            <li className={styles.tocSub}><span>3.10 DOM Manipulation</span> <small>pg 204</small></li>
+            <li className={styles.tocSub}><span>3.11 Events & Event Listeners</span> <small>pg 212</small></li>
+            <li className={styles.tocSub}><span>3.12 ES6+ Features (Spread, Destructuring, Template Literals)</span> <small>pg 220</small></li>
+            <li className={styles.tocSub}><span>3.13 Promises & Async/Await</span> <small>pg 228</small></li>
+            <li className={styles.tocSub}><span>3.14 Fetch API & AJAX</span> <small>pg 236</small></li>
+            <li className={styles.tocSub}><span>3.15 Error Handling (try/catch/finally)</span> <small>pg 242</small></li>
+            <li className={styles.tocSub}><span>3.16 Modules (import/export)</span> <small>pg 248</small></li>
+            <li className={styles.tocSub}><span>3.17 Closures & Scope</span> <small>pg 254</small></li>
+            <li className={styles.tocSub}><span>3.18 Higher Order Functions</span> <small>pg 260</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 4: Table of Contents - Part 4
+      pages.push(
+        <div className={styles.pageInner} key="toc4_fs">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 4 (React.js)</strong></li>
+            <li className={styles.tocSub}><span>4.1 Introduction to React</span> <small>pg 268</small></li>
+            <li className={styles.tocSub}><span>4.2 JSX Syntax</span> <small>pg 272</small></li>
+            <li className={styles.tocSub}><span>4.3 Functional Components</span> <small>pg 276</small></li>
+            <li className={styles.tocSub}><span>4.4 Props & PropTypes</span> <small>pg 280</small></li>
+            <li className={styles.tocSub}><span>4.5 State & useState Hook</span> <small>pg 286</small></li>
+            <li className={styles.tocSub}><span>4.6 useEffect Hook</span> <small>pg 292</small></li>
+            <li className={styles.tocSub}><span>4.7 Event Handling in React</span> <small>pg 298</small></li>
+            <li className={styles.tocSub}><span>4.8 Conditional Rendering</span> <small>pg 304</small></li>
+            <li className={styles.tocSub}><span>4.9 Lists & Keys</span> <small>pg 308</small></li>
+            <li className={styles.tocSub}><span>4.10 Forms in React</span> <small>pg 314</small></li>
+            <li className={styles.tocSub}><span>4.11 React Router v6</span> <small>pg 320</small></li>
+            <li className={styles.tocSub}><span>4.12 useContext & Context API</span> <small>pg 328</small></li>
+            <li className={styles.tocSub}><span>4.13 useRef Hook</span> <small>pg 334</small></li>
+            <li className={styles.tocSub}><span>4.14 Custom Hooks</span> <small>pg 340</small></li>
+            <li className={styles.tocSub}><span>4.15 React Query / Data Fetching</span> <small>pg 346</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 5 (Node.js & Express)</strong></li>
+            <li className={styles.tocSub}><span>5.1 Introduction to Node.js</span> <small>pg 354</small></li>
+            <li className={styles.tocSub}><span>5.2 Node.js Modules (require / import)</span> <small>pg 358</small></li>
+            <li className={styles.tocSub}><span>5.3 npm & package.json</span> <small>pg 362</small></li>
+            <li className={styles.tocSub}><span>5.4 File System (fs module)</span> <small>pg 366</small></li>
+            <li className={styles.tocSub}><span>5.5 Event Loop & Asynchronous Node.js</span> <small>pg 372</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 5: Table of Contents - Part 5
+      pages.push(
+        <div className={styles.pageInner} key="toc5_fs">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 5 (Node.js & Express Cont.)</strong></li>
+            <li className={styles.tocSub}><span>5.6 Express.js Setup</span> <small>pg 378</small></li>
+            <li className={styles.tocSub}><span>5.7 Routing in Express</span> <small>pg 384</small></li>
+            <li className={styles.tocSub}><span>5.8 Middleware</span> <small>pg 390</small></li>
+            <li className={styles.tocSub}><span>5.9 MVC Architecture</span> <small>pg 396</small></li>
+            <li className={styles.tocSub}><span>5.10 Error Handling in Express</span> <small>pg 402</small></li>
+            <li className={styles.tocSub}><span>5.11 Environment Variables (.env / dotenv)</span> <small>pg 408</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 6 (MongoDB & Mongoose)</strong></li>
+            <li className={styles.tocSub}><span>6.1 Introduction to MongoDB</span> <small>pg 414</small></li>
+            <li className={styles.tocSub}><span>6.2 Document Structure (JSON / BSON)</span> <small>pg 418</small></li>
+            <li className={styles.tocSub}><span>6.3 Connecting MongoDB with Mongoose</span> <small>pg 422</small></li>
+            <li className={styles.tocSub}><span>6.4 Mongoose Schema & Models</span> <small>pg 428</small></li>
+            <li className={styles.tocSub}><span>6.5 CRUD Operations</span> <small>pg 434</small></li>
+            <li className={styles.tocSub}><span>6.6 Query Filters & Operators</span> <small>pg 442</small></li>
+            <li className={styles.tocSub}><span>6.7 Population (Ref & populate())</span> <small>pg 448</small></li>
+            <li className={styles.tocSub}><span>6.8 Mongoose Hooks (Pre / Post)</span> <small>pg 454</small></li>
+            <li className={styles.tocSub}><span>6.9 Validation in Mongoose</span> <small>pg 460</small></li>
+            <li className={styles.tocSub}><span>6.10 Aggregation Pipeline</span> <small>pg 466</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 7 (REST API Design)</strong></li>
+            <li className={styles.tocSub}><span>7.1 What is a REST API?</span> <small>pg 472</small></li>
+            <li className={styles.tocSub}><span>7.2 HTTP Methods (GET, POST, PUT, DELETE)</span> <small>pg 476</small></li>
+            <li className={styles.tocSub}><span>7.3 HTTP Status Codes</span> <small>pg 480</small></li>
+            <li className={styles.tocSub}><span>7.4 Request & Response Object</span> <small>pg 484</small></li>
+            <li className={styles.tocSub}><span>7.5 RESTful URL Design</span> <small>pg 490</small></li>
+            <li className={styles.tocSub}><span>7.6 CORS & Headers</span> <small>pg 494</small></li>
+            <li className={styles.tocSub}><span>7.7 Postman Testing</span> <small>pg 498</small></li>
+            <li className={styles.tocSub}><span>7.8 Consistent Error Response Format</span> <small>pg 504</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 6: Table of Contents - Part 6
+      pages.push(
+        <div className={styles.pageInner} key="toc6_fs">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 8 (Authentication & Security)</strong></li>
+            <li className={styles.tocSub}><span>8.1 Authentication vs Authorization</span> <small>pg 510</small></li>
+            <li className={styles.tocSub}><span>8.2 Password Hashing with bcrypt</span> <small>pg 514</small></li>
+            <li className={styles.tocSub}><span>8.3 JWT (JSON Web Tokens)</span> <small>pg 520</small></li>
+            <li className={styles.tocSub}><span>8.4 Auth Middleware (Protecting Routes)</span> <small>pg 526</small></li>
+            <li className={styles.tocSub}><span>8.5 Cookie & Session-based Auth</span> <small>pg 532</small></li>
+            <li className={styles.tocSub}><span>8.6 Input Validation (Joi / express-validator)</span> <small>pg 538</small></li>
+            <li className={styles.tocSub}><span>8.7 Security Best Practices</span> <small>pg 544</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 9 (Git & GitHub)</strong></li>
+            <li className={styles.tocSub}><span>9.1 Introduction to Git</span> <small>pg 550</small></li>
+            <li className={styles.tocSub}><span>9.2 Basic Git Commands</span> <small>pg 554</small></li>
+            <li className={styles.tocSub}><span>9.3 Branching & Merging</span> <small>pg 560</small></li>
+            <li className={styles.tocSub}><span>9.4 Remote Repositories</span> <small>pg 566</small></li>
+            <li className={styles.tocSub}><span>9.5 Pull Requests & Code Review</span> <small>pg 572</small></li>
+            <li className={styles.tocSub}><span>9.6 .gitignore Setup</span> <small>pg 576</small></li>
+            <li className={styles.tocSub}><span>9.7 Git Feature Branch Workflow</span> <small>pg 580</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 10 (Deployment)</strong></li>
+            <li className={styles.tocSub}><span>10.1 Deploying React App on Vercel</span> <small>pg 586</small></li>
+            <li className={styles.tocSub}><span>10.2 Deploying Node/Express on Render</span> <small>pg 592</small></li>
+            <li className={styles.tocSub}><span>10.3 MongoDB Atlas Setup</span> <small>pg 598</small></li>
+            <li className={styles.tocSub}><span>10.4 Environment Variables in Production</span> <small>pg 604</small></li>
+            <li className={styles.tocSub}><span>10.5 Domain & DNS Basics</span> <small>pg 610</small></li>
+            <li className={styles.tocSub}><span>10.6 CI/CD Basic</span> <small>pg 616</small></li>
+          </ul>
+        </div>
+      );
+
+      return pages;
+    }
+
+    // CUSTOM CONTENT FOR MERN STACK BOOK (ID: 5)
+    if (book.id === 5) {
+      const pages = [];
+
+      // Page 1: Table of Contents - Part 1
+      pages.push(
+        <div className={styles.pageInner} key="toc1_mern">
+          <h3 className={styles.tocTitle}>Table of Contents</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 1 (HTML)</strong></li>
             <li className={styles.tocSub}><span>1.1 Introduction</span> <small>pg 8</small></li>
             <li className={styles.tocSub}><span>1.2 Structure of HTML</span> <small>pg 11</small></li>
             <li className={styles.tocSub}><span>1.3 Semantic Tags</span> <small>pg 12</small></li>
@@ -727,7 +925,7 @@ export default function BookDetailsPage() {
             <li className={styles.tocChapter}><strong>Chapter 2 (CSS)</strong></li>
             <li className={styles.tocSub}><span>2.1 CSS Introduction</span> <small>pg 43</small></li>
             <li className={styles.tocSub}><span>2.2 CSS Selectors</span> <small>pg 44</small></li>
-            <li className={styles.tocSub}><span>2.3 Colors& Backgrounds</span> <small>pg 46</small></li>
+            <li className={styles.tocSub}><span>2.3 Colors & Backgrounds</span> <small>pg 46</small></li>
             <li className={styles.tocSub}><span>2.4 Typography (Google Fonts, Line Height, etc.)</span> <small>pg 48</small></li>
             <li className={styles.tocSub}><span>2.5 CSS Units (px, rem, em, vh, vw)</span> <small>pg 51</small></li>
           </ul>
@@ -736,7 +934,7 @@ export default function BookDetailsPage() {
 
       // Page 2: Table of Contents - Part 2
       pages.push(
-        <div className={styles.pageInner} key="toc2_fs">
+        <div className={styles.pageInner} key="toc2_mern">
           <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
@@ -767,7 +965,7 @@ export default function BookDetailsPage() {
 
       // Page 3: Table of Contents - Part 3
       pages.push(
-        <div className={styles.pageInner} key="toc3_fs">
+        <div className={styles.pageInner} key="toc3_mern">
           <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
@@ -799,7 +997,7 @@ export default function BookDetailsPage() {
 
       // Page 4: Table of Contents - Part 4
       pages.push(
-        <div className={styles.pageInner} key="toc4_fs">
+        <div className={styles.pageInner} key="toc4_mern">
           <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
@@ -830,7 +1028,7 @@ export default function BookDetailsPage() {
 
       // Page 5: Table of Contents - Part 5
       pages.push(
-        <div className={styles.pageInner} key="toc5_fs">
+        <div className={styles.pageInner} key="toc5_mern">
           <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
@@ -862,7 +1060,7 @@ export default function BookDetailsPage() {
 
       // Page 6: Table of Contents - Part 6
       pages.push(
-        <div className={styles.pageInner} key="toc6_fs">
+        <div className={styles.pageInner} key="toc6_mern">
           <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
           <div className={styles.tocDivider} style={{ background: book.color }} />
           <ul className={styles.tocList}>
@@ -913,8 +1111,161 @@ export default function BookDetailsPage() {
       return pages;
     }
 
-    // CUSTOM CONTENT FOR HR TRAINING BOOK (ID: 6)
+    // CUSTOM CONTENT FOR MEAN STACK BOOK (ID: 6)
     if (book.id === 6) {
+      const pages = [];
+
+      // Page 1: Chapters 1 & 2
+      pages.push(
+        <div className={styles.pageInner} key="toc1_mean">
+          <h3 className={styles.tocTitle}>Table of Contents</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 1 (HTML)</strong></li>
+            <li className={styles.tocSub}><span>1.1 Introduction</span> <small>pg 5</small></li>
+            <li className={styles.tocSub}><span>1.2 Structure of HTML</span> <small>pg 6</small></li>
+            <li className={styles.tocSub}><span>1.3 Semantic Tags</span> <small>pg 8</small></li>
+            <li className={styles.tocSub}><span>1.4 Text Formatting Tags</span> <small>pg 10</small></li>
+            <li className={styles.tocSub}><span>1.5 Working with Hyperlinks</span> <small>pg 12</small></li>
+            <li className={styles.tocSub}><span>1.6 HTML Lists</span> <small>pg 14</small></li>
+            <li className={styles.tocSub}><span>1.7 HTML Form Elements</span> <small>pg 16</small></li>
+            <li className={styles.tocSub}><span>1.8 HTML Tables</span> <small>pg 18</small></li>
+            <li className={styles.tocSub}><span>1.9 Images and Multimedia</span> <small>pg 20</small></li>
+            <li className={styles.tocSub}><span>1.10 HTML Attributes</span> <small>pg 22</small></li>
+            <li className={styles.tocSub}><span>1.11 Block vs Inline Elements</span> <small>pg 24</small></li>
+            <li className={styles.tocSub}><span>1.12 HTML Entities & Special Characters</span> <small>pg 26</small></li>
+            <li className={styles.tocSub}><span>1.13 Meta Tags</span> <small>pg 28</small></li>
+            <li className={styles.tocSub}><span>1.14 Web Accessibility</span> <small>pg 30</small></li>
+            <li className={styles.tocSub}><span>1.15 Iframes & Embedding Content</span> <small>pg 32</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 2: Chapter 2 (CSS)
+      pages.push(
+        <div className={styles.pageInner} key="toc2_mean">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 2 (CSS)</strong></li>
+            <li className={styles.tocSub}><span>2.1 CSS Introduction</span> <small>pg 36</small></li>
+            <li className={styles.tocSub}><span>2.2 CSS Selectors</span> <small>pg 38</small></li>
+            <li className={styles.tocSub}><span>2.3 Colors & Backgrounds</span> <small>pg 40</small></li>
+            <li className={styles.tocSub}><span>2.4 CSS Box Model</span> <small>pg 42</small></li>
+            <li className={styles.tocSub}><span>2.5 Typography and Fonts</span> <small>pg 44</small></li>
+            <li className={styles.tocSub}><span>2.6 CSS Units and Values</span> <small>pg 46</small></li>
+            <li className={styles.tocSub}><span>2.7 Positioning</span> <small>pg 48</small></li>
+            <li className={styles.tocSub}><span>2.8 Flexbox Layout</span> <small>pg 50</small></li>
+            <li className={styles.tocSub}><span>2.9 CSS Grid Layout</span> <small>pg 52</small></li>
+            <li className={styles.tocSub}><span>2.10 Pseudo-classes & Pseudo-elements</span> <small>pg 54</small></li>
+            <li className={styles.tocSub}><span>2.11 CSS Transitions and Animations</span> <small>pg 56</small></li>
+            <li className={styles.tocSub}><span>2.12 Responsive Design & Media Queries</span> <small>pg 58</small></li>
+            <li className={styles.tocSub}><span>2.13 CSS Variables</span> <small>pg 60</small></li>
+            <li className={styles.tocSub}><span>2.14 CSS Specificity & Cascade</span> <small>pg 62</small></li>
+            <li className={styles.tocSub}><span>2.15 CSS Frameworks Overview</span> <small>pg 64</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 3: Chapter 3 (JavaScript & TypeScript Essentials)
+      pages.push(
+        <div className={styles.pageInner} key="toc3_mean">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 3 (JS & TS Essentials)</strong></li>
+            <li className={styles.tocSub}><span>3.1 Modern JS Intro</span> <small>pg 68</small></li>
+            <li className={styles.tocSub}><span>3.2 Variables, Scope (let/const)</span> <small>pg 70</small></li>
+            <li className={styles.tocSub}><span>3.3 Functions & Arrow Functions</span> <small>pg 72</small></li>
+            <li className={styles.tocSub}><span>3.4 Arrays & Array Methods</span> <small>pg 74</small></li>
+            <li className={styles.tocSub}><span>3.5 Objects & OOP JavaScript</span> <small>pg 76</small></li>
+            <li className={styles.tocSub}><span>3.6 Destructuring & Spread/Rest</span> <small>pg 78</small></li>
+            <li className={styles.tocSub}><span>3.7 Template Literals</span> <small>pg 80</small></li>
+            <li className={styles.tocSub}><span>3.8 Promises & Async/Await</span> <small>pg 82</small></li>
+            <li className={styles.tocSub}><span>3.9 Modules (Import/Export)</span> <small>pg 84</small></li>
+            <li className={styles.tocSub}><span>3.10 Classes in JS</span> <small>pg 86</small></li>
+            <li className={styles.tocSub}><span>3.11 JSON Handling</span> <small>pg 88</small></li>
+            <li className={styles.tocSub}><span>3.12 Error Handling</span> <small>pg 90</small></li>
+            <li className={styles.tocSub}><span>3.13 Introduction to TS</span> <small>pg 92</small></li>
+            <li className={styles.tocSub}><span>3.14 Types, Interfaces & Generics</span> <small>pg 94</small></li>
+            <li className={styles.tocSub}><span>3.15 Setup Development Env</span> <small>pg 96</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 4: Chapter 4 & 5 (Node.js & Express.js)
+      pages.push(
+        <div className={styles.pageInner} key="toc4_mean">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 4 (Node.js)</strong></li>
+            <li className={styles.tocSub}><span>4.1 Intro to Node.js & Event Loop</span> <small>pg 102</small></li>
+            <li className={styles.tocSub}><span>4.3 NPM & Installation</span> <small>pg 106</small></li>
+            <li className={styles.tocSub}><span>4.4 Node.js Modules & File System</span> <small>pg 110</small></li>
+            <li className={styles.tocSub}><span>4.9 Streams & Buffers</span> <small>pg 112</small></li>
+            
+            <li className={styles.tocChapter}><strong>Chapter 5 (Express.js)</strong></li>
+            <li className={styles.tocSub}><span>5.1 Intro & App Setup</span> <small>pg 116</small></li>
+            <li className={styles.tocSub}><span>5.3 Routing & Middleware</span> <small>pg 118</small></li>
+            <li className={styles.tocSub}><span>5.6 Query & Route Parameters</span> <small>pg 120</small></li>
+            <li className={styles.tocSub}><span>5.10 Body Parsing & Error Handling</span> <small>pg 122</small></li>
+            <li className={styles.tocSub}><span>5.12 RESTful APIs with Express</span> <small>pg 124</small></li>
+            <li className={styles.tocSub}><span>5.18 Hashing & JWT Authentication</span> <small>pg 126</small></li>
+            <li className={styles.tocSub}><span>5.22 Protected Routes & Security</span> <small>pg 128</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 5: Chapter 6, 7 & 8 (MongoDB, REST APIs, Angular)
+      pages.push(
+        <div className={styles.pageInner} key="toc5_mean">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 6 (MongoDB)</strong></li>
+            <li className={styles.tocSub}><span>6.1 MongoDB & CRUD operations</span> <small>pg 132</small></li>
+            <li className={styles.tocSub}><span>6.7 Aggregations & Models</span> <small>pg 138</small></li>
+            <li className={styles.tocSub}><span>6.11 Mongoose Schemas & ODM</span> <small>pg 140</small></li>
+            
+            <li className={styles.tocChapter}><strong>Chapter 7 (RESTful APIs with MEAN Backend)</strong></li>
+            <li className={styles.tocSub}><span>7.1 connecting Express & Mongo</span> <small>pg 144</small></li>
+            <li className={styles.tocSub}><span>7.4 Implementing CRUD APIs</span> <small>pg 146</small></li>
+            <li className={styles.tocSub}><span>7.9 Swagger Documentation & Postman</span> <small>pg 148</small></li>
+
+            <li className={styles.tocChapter}><strong>Chapter 8 (Angular)</strong></li>
+            <li className={styles.tocSub}><span>8.1 Angular CLI & Components</span> <small>pg 152</small></li>
+            <li className={styles.tocSub}><span>8.4 Data Binding & Directives</span> <small>pg 154</small></li>
+            <li className={styles.tocSub}><span>8.7 DI, Services & Routing</span> <small>pg 156</small></li>
+            <li className={styles.tocSub}><span>8.10 Forms & HttpClient API</span> <small>pg 158</small></li>
+          </ul>
+        </div>
+      );
+
+      // Page 6: Chapter 9 (Integrating the MEAN Stack)
+      pages.push(
+        <div className={styles.pageInner} key="toc6_mean">
+          <h3 className={styles.tocTitle}>Table of Contents (Cont.)</h3>
+          <div className={styles.tocDivider} style={{ background: book.color }} />
+          <ul className={styles.tocList}>
+            <li className={styles.tocChapter}><strong>Chapter 9 (Integrating MEAN Stack)</strong></li>
+            <li className={styles.tocSub}><span>9.1 MEAN Architecture Overview</span> <small>pg 162</small></li>
+            <li className={styles.tocSub}><span>9.2 Connecting Angular to Express</span> <small>pg 164</small></li>
+            <li className={styles.tocSub}><span>9.3 Environment & Proxy Config</span> <small>pg 166</small></li>
+            <li className={styles.tocSub}><span>9.5 End-to-End JWT Auth Flow</span> <small>pg 168</small></li>
+            <li className={styles.tocSub}><span>9.6 File Upload Integration</span> <small>pg 170</small></li>
+            <li className={styles.tocSub}><span>9.7 Real-time with Socket.IO</span> <small>pg 172</small></li>
+            <li className={styles.tocSub}><span>9.8 Building a CRUD App</span> <small>pg 174</small></li>
+            <li className={styles.tocSub}><span>9.9 Error Handling Across Stack</span> <small>pg 176</small></li>
+          </ul>
+        </div>
+      );
+
+      return pages;
+    }
+
+    // CUSTOM CONTENT FOR HR TRAINING BOOK (ID: 10)
+    if (book.id === 10) {
       const pages = [];
 
       // Page 1: Table of Contents - Part 1
@@ -1046,11 +1397,26 @@ export default function BookDetailsPage() {
         </div>
       );
 
-
-
       return pages;
     }
-  });
+
+    // FALLBACK RETURN FOR OTHER BOOKS (PREVENTS CRASHES)
+    const fallbackPages = [];
+    fallbackPages.push(
+      <div className={styles.pageInner} key="fallback_title">
+        <h3 className={styles.tocTitle}>{book.title} Outline</h3>
+        <div className={styles.tocDivider} style={{ background: book.color }} />
+        <ul className={styles.tocList}>
+          {book.chapters.map((ch, i) => (
+            <li key={i} className={styles.tocChapter} style={{ margin: "12px 0" }}>
+              <strong>{ch}</strong>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+    return fallbackPages;
+  }, [book]);
   const handleNext = () => { if (currentPage < bookPages.length - 2) { setDirection(1); setCurrentPage(p => p + 2); } };
   const handlePrev = () => { if (currentPage > 0) { setDirection(-1); setCurrentPage(p => p - 2); } };
 

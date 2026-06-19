@@ -127,7 +127,7 @@ const COURSE_DATA = {
     title: "Full-Stack Development",
     category: "Development",
     duration: "4 MONTHS",
-    image: "/Images/Course/Full Stack.webp",
+    image: "/Images/Course/mern-stack.png",
     overview: "Full Stack Development covers everything from the front-end user interface to the back-end server logic and database management. You'll learn to build complete, dynamic web applications from scratch using modern technologies like React, Node.js, and MongoDB.",
     modules: [
       {
@@ -316,13 +316,149 @@ const COURSE_DATA = {
         lessons: ["Use SEO and Google Ads", "Market via social media", "Create engaging content", "Track results with analytics", "Run email/WhatsApp campaigns."]
       }
     ]
+  },
+  "mern-stack-development": {
+    title: "MERN Stack Development",
+    category: "Development",
+    duration: "4 MONTHS",
+    image: "/Images/Course/mern-stack.png",
+    overview: "MERN Stack Development training is designed to provide students with knowledge of how to build full-stack web applications from scratch using MongoDB, Express.js, React, and Node.js. Students gain hands-on experience in real-time projects in front-end and back-end development, database management, RESTful APIs, authentication, and modern development practices.",
+    modules: [
+      {
+        id: "01",
+        title: "Introduction to Front-end (HTML, CSS)",
+        lessons: ["HTML5 Semantic Elements", "Advanced CSS Layouts", "Responsive Design Patterns", "CSS Preprocessors (Sass)", "Modern CSS Frameworks"]
+      },
+      {
+        id: "02",
+        title: "Design of BS5 & Basic of JS",
+        lessons: ["Bootstrap 5 Mastery", "JS Fundamentals", "ES6+ Features", "Async JavaScript (Promises/Async-Await)", "Working with APIs (Fetch)"]
+      },
+      {
+        id: "03",
+        title: "Domain as REACT",
+        lessons: ["React Hooks", "State Management (Context/Redux)", "React Router", "Component Lifecycle", "Performance Optimization"]
+      },
+      {
+        id: "04",
+        title: "BACK-End: Node JS & Express JS",
+        lessons: ["Node.js Runtime", "Express Framework", "RESTful API Design", "Authentication & JWT", "Middleware & Routing"]
+      },
+      {
+        id: "05",
+        title: "MongoDB (Database)",
+        lessons: ["NoSQL Concepts", "Mongoose ODM", "CRUD Operations", "Aggregation Pipeline", "Data Modeling"]
+      }
+    ]
+  },
+  "python-full-stack-development": {
+    title: "Python Full Stack Development",
+    category: "Development",
+    duration: "4 MONTHS",
+    image: "/Images/Course/python-full-stack.png",
+    overview: "Our full-stack Python development training provides students with the competencies to construct comprehensive web applications utilizing Python, front-end technologies, and databases. Students acquire practical experience in Django, REST APIs, user interface development, database management, authentication, and real-time project execution.",
+    modules: [
+      {
+        id: "01",
+        title: "Introduction to Front-end (HTML, CSS)",
+        lessons: ["HTML5 Semantic Elements", "Advanced CSS Layouts", "Responsive Design Patterns", "CSS Preprocessors (Sass)", "Modern CSS Frameworks"]
+      },
+      {
+        id: "02",
+        title: "Design of BS5 & Basic of JS",
+        lessons: ["Bootstrap 5 Mastery", "JS Fundamentals", "ES6+ Features", "Async JavaScript (Promises/Async-Await)", "Working with APIs (Fetch)"]
+      },
+      {
+        id: "03",
+        title: "Introduction of Python",
+        lessons: ["Python Syntax and Data Types", "Control Flow & Loops", "Functions and Modules", "Object-Oriented Programming (OOP)", "File Handling & Error Handling"]
+      },
+      {
+        id: "04",
+        title: "Django Framework & Libraries",
+        lessons: ["Django Project Setup & Architecture", "Models, Views, and Templates", "Django Admin & ORM", "Forms & Authentication", "Django REST Framework (DRF) for APIs"]
+      },
+      {
+        id: "05",
+        title: "MySQL/PostgreSQL for Database",
+        lessons: ["Relational Database Concepts", "SQL Queries (DDL, DML)", "Joins & Relationships", "Database Design & Optimization", "Connecting Python/Django with SQL Databases"]
+      }
+    ]
+  },
+  "data-analytics": {
+    title: "Data Analytics",
+    category: "Development",
+    duration: "4 MONTHS",
+    image: "/Images/Course/data-analytics.png",
+    overview: "Learn data collection, cleaning, analysis, and visualization using Python, SQL, and Power BI.Gain hands-on experience with real-world datasets and interactive dashboards.",
+     modules:[ 
+      {
+        id: "01",
+        title: "Introduction to Excel & Statistics",
+        lessons: ["Excel Basics & Formulas", "Data Cleaning in Excel", "Descriptive Statistics", "Probability Concepts", "Data Visualization in Excel"]
+      },
+      {
+        id: "02",
+        title: "SQL Database & Querying",
+        lessons: ["SQL Basics & Installation", "CRUD Operations", "Joins, Unions & Subqueries", "Aggregate Functions & Grouping", "Database Views & Indexing"]
+      },
+      {
+        id: "03",
+        title: "Python for Data Analysis",
+        lessons: ["Python Basics for Data Science", "Data Types & Structures", "Control Flow & Functions", "File Handling in Python", "Jupyter Notebooks Setup"]
+      },
+      {
+        id: "04",
+        title: "Data Analytics Libraries (Pandas, NumPy)",
+        lessons: ["NumPy Arrays & Operations", "Pandas DataFrames", "Data Wrangling & Cleaning", "Handling Missing Data", "Data Aggregation & Grouping"]
+      },
+      {
+        id: "05",
+        title: "Data Visualization (Power BI/Tableau)",
+        lessons: ["Introduction to Power BI", "Data Modeling & DAX", "Creating Interactive Dashboards", "Tableau Basics & Charts", "Storytelling with Data"]
+      }
+    ]
+  },
+  "mean-stack-development": {
+    title: "MEAN Stack Development",
+    category: "Development",
+    duration: "4 MONTHS",
+    image: "/Images/Course/mean-stack.png",
+    overview: "MEAN Stack Development training is designed to provide students with knowledge of how to build full-stack web applications from scratch using MongoDB, Express.js, Angular, and Node.js. Students gain hands-on experience in real-time projects in front-end and back-end development, database management, RESTful APIs, authentication, and modern development practices.",
+    modules: [
+      {
+        id: "01",
+        title: "Introduction to Front-end (HTML, CSS)",
+        lessons: ["HTML5 Semantic Elements", "Advanced CSS Layouts", "Responsive Design Patterns", "CSS Preprocessors (Sass)", "Modern CSS Frameworks"]
+      },
+      {
+        id: "02",
+        title: "Design of BS5 & Basic of JS",
+        lessons: ["Bootstrap 5 Mastery", "JS Fundamentals", "ES6+ Features", "Async JavaScript (Promises/Async-Await)", "Working with APIs (Fetch)"]
+      },
+      {
+        id: "03",
+        title: "Domain as ANGULAR",
+        lessons: ["Angular CLI & Setup", "Components & Directives", "Services & Dependency Injection", "Routing & Navigation", "State Management & RxJS"]
+      },
+      {
+        id: "04",
+        title: "BACK-End: Node JS & Express JS",
+        lessons: ["Node.js Runtime", "Express Framework", "RESTful API Design", "Authentication & JWT", "Middleware & Routing"]
+      },
+      {
+        id: "05",
+        title: "MongoDB (Database)",
+        lessons: ["NoSQL Concepts", "Mongoose ODM", "CRUD Operations", "Aggregation Pipeline", "Data Modeling"]
+      }
+    ]
   }
 };
 
 export default function CourseDetailPage({ params }) {
   const router = useRouter();
   const { id } = React.use(params);
-  const courseId = id || "web-design";
+  const courseId = (id || "web-design").toLowerCase();
   const course = COURSE_DATA[courseId] || COURSE_DATA["web-design"];
   
   const [activeTab, setActiveTab] = useState(course.modules[0].title);

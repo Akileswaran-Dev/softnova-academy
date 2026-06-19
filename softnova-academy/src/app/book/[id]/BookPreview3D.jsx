@@ -215,9 +215,9 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
                     fontSize: "0.9rem",
                     fontWeight: 600,
                     letterSpacing: "1px",
-                    background: "#eef2f7",
-                    boxShadow: "6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff",
-                    border: "1px solid rgba(255, 255, 255, 0.6)",
+                    background: "var(--background)",
+                    boxShadow: "var(--neumorph-shadow-sm)",
+                    border: "1px solid rgba(255, 255, 255, 0.4)",
                     padding: "12px 28px",
                     borderRadius: "30px",
                   }}

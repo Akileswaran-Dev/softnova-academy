@@ -179,7 +179,7 @@ export default function Team() {
               <h3>{member.name}</h3>
               <div className={styles.memberDomain}>{member.domain}</div>
               {member.bio && (
-                <ReadMoreBio bio={member.bio} style={{ textAlign: "center" }} bioClass={styles.memberBio} />
+                <ReadMoreBio bio={member.bio} style={{ textAlign: "left" }} bioClass={styles.memberBio} />
               )}
             </div>
           </div>

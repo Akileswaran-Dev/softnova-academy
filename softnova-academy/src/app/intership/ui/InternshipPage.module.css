@@ -360,7 +360,7 @@
 .card {
   background: var(--background);
   border-radius: 40px;
-  padding: 40px 35px;
+  padding: 30px 25px;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -382,7 +382,7 @@
 }
 
 .iconWrapper {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   display: flex;
   justify-content: flex-start;
 }
@@ -473,7 +473,7 @@
 }
 
 .cardFooter {
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   justify-content: stretch;
 }

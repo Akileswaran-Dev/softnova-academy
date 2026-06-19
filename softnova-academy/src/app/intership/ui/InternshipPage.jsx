@@ -12,41 +12,41 @@ import { Instagram } from '@/components/Icons';
 
 const INTERNSHIPS = [
   {
-    id: 3, title: 'Front-End Developer', description: 'Design and develop highly responsive, interactive, and performance-optimized web interfaces using modern front-end technologies. Work on real-time projects to strengthen skills in UI development, API integration, and building scalable, user-friendly web applications.',
-    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>)
-  },
-  {
-    id: 5, title: 'Full Stack Development', description: 'Build complete web applications by developing both client-side interfaces and server-side logic for seamless user experiences. Work on real-time projects to gain expertise in front-end, back-end, databases, and deployment of scalable applications.',
-    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 16V4a2 2 0 0 1 2-2h11"></path><path d="M22 18v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2"></path><rect x="8" y="7" width="14" height="11" rx="2"></rect></svg>)
-  },
-  {
-    id: 8, title: 'HR Training', description: 'HR Training is a structured program that builds essential skills for effective human resource management. It covers recruitment strategies, onboarding processes, and accurate payroll handling. Participants learn to manage performance through goal setting, feedback, and fair appraisals. The program also emphasizes legal compliance and understanding of labor laws. Overall, it prepares HR professionals to support both employees and organizational goals efficiently.',
-    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>)
-  },
-  {
-    id: 1, title: 'Web Design', description: 'The web design internship program offers comprehensive practical training in modern website development, responsive design, and user-centric digital experiences. Through real-time industry projects and expert mentorship, students strengthen their creative thinking, technical expertise, and professional readiness for successful careers.',
+    id: 1, title: 'Web Design', description: 'Gain practical experience in web design, responsive layouts, and UI development. Enhance your creativity and technical skills through real-time projects.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>)
   },
   {
-    id: 2, title: 'UI/UX Designer', description: 'Develop modern, user-centric interfaces by applying UX research, interaction design principles, and usability standards. Work on real-world product design projects to enhance practical skills in wireframing, prototyping, and design systems.',
+    id: 2, title: 'UI/UX Designer', description: 'Learn wireframing, prototyping, and user interface design with industry-standard tools. Gain hands-on experience to build a successful career as a UI/UX Designer.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>)
   },
   {
-    id: 4, 
-    title: 'Python    Full Stack Development', 
-    description: 'Develop end-to-end web applications by working on both front-end interfaces and robust back-end systems using Java technologies. Gain hands-on experience in building, integrating, and deploying scalable applications with databases, APIs, and modern development frameworks.',
+    id: 3, title: 'Front-End Developer', description: 'Create and implement highly responsive, interactive, and performance-optimized web interfaces using modern front-end technologies.',
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>)
+  },
+  {
+    id: 4,
+    title: 'Python Full Stack Development',
+    description: 'Develop full-stack web applications using Python, Django, database integration, REST APIs, and modern front-end frameworks.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"></path><path d="M8 7h8"></path><path d="M8 11h8"></path><path d="M8 15h4"></path></svg>)
   },
   {
-    id: 6, title: 'Desktop Support Engineer', description: 'Provide technical support for desktops, laptops, and IT systems by troubleshooting hardware and software issues efficiently. Gain hands-on experience in system maintenance, network support, and ensuring smooth IT operations in real-time environments.',
+    id: 5, title: 'Full Stack Development', description: 'Build complete web applications by developing responsive client-side interfaces and robust server-side systems for seamless user experiences.',
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M2 16V4a2 2 0 0 1 2-2h11"></path><path d="M22 18v4a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-2"></path><rect x="8" y="7" width="14" height="11" rx="2"></rect></svg>)
+  },
+  {
+    id: 6, title: 'Desktop Support Engineer', description: 'Learn computer hardware, software installation, networking, and system troubleshooting.Gain hands-on experience to build job-ready skills as a Desktop Support Engineer.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>)
   },
   {
-    id: 7, title: 'CISCO', description: '“Gain hands-on networking skills with industry-standard Cisco technologies.Learn routing, switching, network security, and real-time infrastructure management.Build a strong foundation for a successful career in networking and IT.”',
+    id: 7, title: 'MERN', description: 'Build dynamic full-stack web applications with the MERN stack. Learn API integration, databases, authentication, and real-time project development.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>)
   },
   {
-    id: 9, title: 'Business Development Executive', description: '“Master the art of communication, sales, and client relationships.Learn practical business strategies, lead generation, and market analysis.Build the skills needed to grow businesses and succeed in the corporate world.”',
+    id: 8, title: 'HR Training', description: 'Develop essential HR skills in recruitment, onboarding, payroll, and employee engagement. Prepare for a successful HR career with practical training.',
+    icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>)
+  },
+  {
+    id: 9, title: 'Business Development Executive', description: 'Master corporate communication, sales, and client relationships. Learn practical business strategies, lead generation, and market analysis.',
     icon: (<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>)
   }
 ];
@@ -160,7 +160,7 @@ const InternshipPage = () => {
                       {activeItem?.title}
                     </h1>
                     <p className={styles.mainDesc}>
-                      {activeItem?.description?.substring(0, 160)}...
+                      {activeItem?.description}
                     </p>
                   </div>
                   <button className={styles.exploreBtn} onClick={handleApplyClick} suppressHydrationWarning>
@@ -230,7 +230,7 @@ const InternshipPage = () => {
               </div>
               <div className={styles.cardContent}>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardText}>{item.description.substring(0, 150)}...</p>
+                <p className={styles.cardText}>{item.description}</p>
               </div>
               <div className={styles.cardFooter}>
                 <button className={styles.applyButton} onClick={handleApplyClick} suppressHydrationWarning>

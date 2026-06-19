@@ -51,18 +51,18 @@ const COURSES = [
   },
   {
     id: 4,
-    title: "Full Stack Development",
-    slug: "full-stack-development",
-    description: "Our Full Stack Development training helps students build complete web applications with both front-end and back-end technologies. Students learn databases, server-side programming, APIs, and modern frameworks through practical real-time projects. The program develops industry-ready coding and development skills for successful careers in software and web development.",
+    title: "MERN Stack Development",
+    slug: "mern-stack-development",
+    description: "Our MERN Stack Development training is designed to provide students with knowledge of how to build full-stack web applications from scratch using MongoDB, Express.js, React, and Node.js. Students gain hands-on experience in real-time projects in front-end and back-end development, database management, RESTful APIs, authentication, and modern development practices. The programme is designed to equip students with coding skills that are ready for industry, providing practical experience to succeed in a career in full-stack web development.",
     icon: <Layers size={32} color="#ff7eb3" />,
     blobClass: styles.pinkBlob,
     tag: "4 months"
   },
   {
     id: 5,
-    title: "Java Full Stack Development",
-    slug: "java-full-stack-development",
-    description: "Our Java Full Stack Development training teaches students to build complete web applications using Java, front-end technologies, and databases. Students gain hands-on experience in Spring Boot, APIs, UI development, and real-time project implementation. The program develops strong full-stack programming skills to prepare learners for successful software development careers.",
+    title: "Python Full Stack Development",
+    slug: "python-full-stack-development",
+    description: "Our full-stack Python development training provides students with the competencies to construct comprehensive web applications utilizing Python, front-end technologies, and databases. Students acquire practical experience in Django, REST APIs, user interface development, database management, authentication, and real-time project execution. The program cultivates robust full-stack programming competencies and applicable industry expertise to equip learners for prosperous careers in software and web development.",
     icon: <Terminal size={32} color="#4facfe" />,
     blobClass: styles.blueBlob,
     tag: "4 months"

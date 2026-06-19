@@ -35,7 +35,7 @@
 
 .card {
   position: relative;
-  padding: 100px 40px 60px;
+  padding: 80px 30px 35px;
   background: var(--background);
   border-radius: var(--radius-lg);
   box-shadow: var(--neumorph-shadow);
@@ -99,7 +99,7 @@
   .grid { grid-template-columns: 1fr; gap: 60px; }
   .heading { font-size: 2.2rem; }
   .lead { font-size: 1rem; }
-  .card { padding: 80px 30px 40px; }
+  .card { padding: 70px 25px 25px; }
   .iconCircle { width: 65px; height: 65px; top: -30px; left: 20px; }
   .iconInner { width: 45px; height: 45px; font-size: 1.5rem; }
   .iconInner svg { width: 24px; height: 24px; }
@@ -129,7 +129,7 @@
     gap: 40px; /* Reduced gap between stacked cards */
   }
   .card {
-    padding: 60px 20px 30px;
+    padding: 55px 15px 20px;
   }
   .iconCircle {
     width: 55px;

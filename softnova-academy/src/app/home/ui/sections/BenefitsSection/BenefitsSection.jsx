@@ -45,7 +45,7 @@ const BENEFITS = [
   {
     number: "01",
     title: "Flexible Learning Schedule",
-    description: "1 Our flexible learning schedule allows students to learn at their own pace with convenient class timings.It helps learners balance education, work, and personal commitments without affecting their training progress.",
+    description: "Our flexible learning schedule allows students to learn at their own pace with convenient class timings.It helps learners balance education, work, and personal commitments without affecting their training progress.",
     icon: ICONS.clock
   },
   {

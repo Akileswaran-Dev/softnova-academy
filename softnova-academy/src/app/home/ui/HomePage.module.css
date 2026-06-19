@@ -323,7 +323,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
   height: 100%;
 }
 
@@ -521,7 +522,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  align-items: center;
+  align-items: flex-start;
+  text-align: left;
   height: 100%;
 }
 
