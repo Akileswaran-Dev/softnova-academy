@@ -153,7 +153,7 @@ export const BOOKS = [
        imgColor: '#ff7eb3',
        hue: 330,
        color: '#ff7eb3',
-       coverImage: '/Images/Course/mean-stack.png',
+       coverImage: '/Images/Book/Mean.webp',
        pages: 320,
        Chapter: '9',
        progress: 25,

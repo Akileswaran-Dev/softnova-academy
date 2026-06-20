@@ -68,16 +68,17 @@ const matchesCategory = (book, selectedCategory) => {
 
 const BookPage = () => {
   // Hero Carousel State
+  const HERO_BOOKS = BOOKS.slice(0, 5);
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % BOOKS.length);
+      setActiveIndex((current) => (current + 1) % HERO_BOOKS.length);
     }, 8000); // Slower cycle for reading content
     return () => clearInterval(interval);
   }, []);
 
-  const activeItem = BOOKS[activeIndex];
+  const activeItem = HERO_BOOKS[activeIndex];
 
   // Dashboard state
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -96,148 +97,199 @@ const BookPage = () => {
   return (
     <div className={styles.section} suppressHydrationWarning>
       
-      {/* GLASSMORPHISM HERO CAROUSEL */}
-      <div className={styles.heroGlassContainer}>
-        <div className={styles.ambientBackground} style={{ background: `radial-gradient(circle at 30% 70%, ${activeItem.color}88, transparent 50%)` }}></div>
+      {/* 3D THEATER HERO CAROUSEL */}
+      <div className={styles.theaterContainer}>
+        {/* Soft background ambient light */}
+        <div className={styles.ambientGlow} style={{ background: `radial-gradient(circle, ${activeItem.color}33 0%, transparent 70%)` }} />
+        
+        {/* Header Text Section */}
+        <div className={styles.theaterHeader}>
+          <span className={styles.theaterBadge} style={{ color: activeItem.color, borderColor: `${activeItem.color}33`, background: `${activeItem.color}11` }}>
+            SOFTNOVA LIBRARY
+          </span>
+          <h1 className={styles.theaterTitle}>
+            Explore Our Library, <br />
+            <span className={styles.gradientTitle} style={{ color: activeItem.color }}>Supercharge Your Skills</span>
+          </h1>
+          <p className={styles.theaterSubtitle}>
+            All-in-one resource center to learn, design, and master modern technologies — faster and smarter.
+          </p>
+        </div>
 
-        <div className={styles.glassCard}>
+        {/* Curved Cover Shelf */}
+        <div className={styles.curveShelfWrapper}>
+          <div className={styles.curveShelf}>
+            {HERO_BOOKS.map((book, idx) => {
+              const isCenter = idx === activeIndex;
+              
+              // Calculate circular wrapping difference for 5 books
+              let diff = idx - activeIndex;
+              if (diff < -2) {
+                diff += 5;
+              } else if (diff > 2) {
+                diff -= 5;
+              }
 
-          {/* Left Content */}
-          <div className={styles.leftContent}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeIndex}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 30 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              >
-                <h1 className={styles.mainTitle}>
-                  {activeItem.title} <br />
-                  <span className={styles.subtitle}>{activeItem.subtitle}</span>
-                </h1>
-                <p className={styles.heroDesc}>{activeItem.desc}</p>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+              let rotateY = 0;
+              let translateX = 0;
+              let translateZ = 0;
+              let scale = 1;
+              let zIndex = 10 - Math.abs(diff);
+              let opacity = 1;
 
-          {/* Center 3D Showcase (Orbital Carousel) */}
-          <div className={styles.centerShowcase}>
-            <div className={styles.milkSplash}></div>
+              if (diff === 0) {
+                rotateY = 0;
+                translateX = 0;
+                translateZ = 80;
+                scale = 1.15;
+              } else if (diff < 0) {
+                // progressive sweep left
+                rotateY = 25 + (diff + 1) * -5;
+                translateX = diff * 175 - 15;
+                translateZ = diff * -40;
+                scale = 0.95 + diff * 0.05;
+                opacity = 0.9 + diff * 0.2;
+              } else {
+                // progressive sweep right
+                rotateY = -25 + (diff - 1) * 5;
+                translateX = diff * 175 + 15;
+                translateZ = diff * -40;
+                scale = 0.95 - diff * 0.05;
+                opacity = 0.9 - diff * 0.2;
+              }
 
-            <LayoutGroup>
-              {/* The Orbiting Ring */}
-              <div className={styles.orbitContainer}>
-                {BOOKS.map((book, idx) => {
-                  if (idx === activeIndex) return null;
-
-                  let orbitIdx = idx;
-                  if (idx > activeIndex) orbitIdx = idx - 1;
-
-                  const totalOrbiting = BOOKS.length - 1;
-                  const angle = totalOrbiting > 0 ? (orbitIdx * (360 / totalOrbiting)) : 0;
-                  const radius = 180; 
-
-                  return (
-                    <div
-                      key={`orbit-wrapper-${book.id}`}
-                      className={styles.orbitItemWrapper}
-                      style={{ transform: `rotate(${angle}deg) translateX(${radius}px)` }}
+              return (
+                <motion.div
+                  key={book.id}
+                  className={`${styles.shelfCard} ${isCenter ? styles.shelfCardActive : ''}`}
+                  animate={{
+                    x: translateX,
+                    z: translateZ,
+                    rotateY: rotateY,
+                    scale: scale,
+                    opacity: opacity,
+                  }}
+                  whileHover={{
+                    y: -12,
+                    scale: isCenter ? 1.20 : scale * 1.08,
+                    z: translateZ + 15,
+                  }}
+                  transition={{ type: "spring", stiffness: 150, damping: 22 }}
+                  style={{
+                    zIndex: zIndex,
+                    transformStyle: 'preserve-3d',
+                  }}
+                  onClick={() => setActiveIndex(idx)}
+                >
+                  <div 
+                    className={styles.shelfCardCover} 
+                    style={{ 
+                      borderColor: isCenter ? book.color : 'rgba(255,255,255,0.08)',
+                      boxShadow: isCenter ? `0 20px 40px ${book.color}25` : '0 10px 20px rgba(0,0,0,0.15)'
+                    }}
+                  >
+                    <div 
+                      className={styles.shelfCardImage} 
+                      style={{ 
+                        backgroundImage: `url(${book.coverImage})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        borderLeft: `6px solid ${book.color}`
+                      }}
                     >
-                      <div className={styles.counterRotate}>
-                        <motion.img
-                          layoutId={`book-img-${book.id}`}
-                          src={book.coverImage || "/3d_book_icon_transparent.webp"}
-                          className={styles.orbitBookImage}
-                          onClick={() => setActiveIndex(idx)}
-                          whileHover={{ scale: 1.2 }}
-                          style={{
-                            filter: `drop-shadow(0 10px 15px rgba(0,0,0,0.2))`,
-                            cursor: 'pointer'
-                          }}
-                        />
-                      </div>
+                      {!book.coverImage && (
+                        <div className={styles.fallbackShelfText}>
+                          <h4>{book.title}</h4>
+                          <p>{book.subtitle}</p>
+                        </div>
+                      )}
+                      <div className={styles.shelfCardOverlay} />
+                      <div className={styles.shelfCardBrand}>SOFTNOVA</div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                  {/* Subtle active glow light indicator */}
+                  {isCenter && (
+                    <motion.div 
+                      className={styles.glowLight} 
+                      layoutId="activeGlow"
+                      style={{ backgroundColor: book.color }} 
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
 
-              {/* Center Book Slot */}
-              <div className={styles.centerSlot}>
-                <motion.img
-                  key={`center-book-${activeItem.id}`}
-                  layoutId={`book-img-${activeItem.id}`}
-                  src={activeItem.coverImage || "/3d_book_icon_transparent.webp"}
-                  className={styles.centerBookImage}
-                  style={{ filter: `drop-shadow(0 20px 40px rgba(0,0,0,0.4))` }}
-                />
-              </div>
-            </LayoutGroup>
-
-            {/* Floating Orbs */}
-            <div className={styles.floatingOrb1} style={{ background: activeItem.color }}></div>
-            <div className={styles.floatingOrb2} style={{ background: activeItem.color }}></div>
+        {/* Dynamic Column Insights Section (Below Shelf) */}
+        <div className={styles.insightsRow}>
+          
+          {/* Column 1: Book Info */}
+          <div className={styles.insightCol}>
+            <div className={styles.colBadge} style={{ color: activeItem.color, background: `${activeItem.color}15` }}>
+              {activeItem.category}
+            </div>
+            <h2 className={styles.colBookTitle}>{activeItem.title} {activeItem.subtitle}</h2>
+            <p className={styles.colBookDesc}>{activeItem.desc}</p>
           </div>
 
-          {/* RIGHT PANEL: BOOK CONTENTS */}
-          <div className={styles.rightInsightsPanel}>
-            <div className={styles.panelHeader}>
-              <h3>Book Index</h3>
-              <div className={styles.liveBadge}>CHAPTERS</div>
-            </div>
-
-            <div className={styles.statsGrid}>
-              <div className={styles.statBox}>
-                <span className={styles.statVal}>{activeItem.pages}</span>
-                <span className={styles.statLab}>Pages</span>
+          {/* Column 2: Stats & Rating */}
+          <div className={styles.insightCol}>
+            <h3 className={styles.colHeading}>Resource Overview</h3>
+            <div className={styles.shelfStatsGrid}>
+              <div className={styles.shelfStatBox}>
+                <span className={styles.shelfStatVal}>{activeItem.pages}</span>
+                <span className={styles.shelfStatLab}>Pages</span>
               </div>
-              <div className={styles.statBox}>
-                <span className={styles.statVal}>{activeItem.Chapter}</span>
-                <span className={styles.statLab}>Chapters</span>
+              <div className={styles.shelfStatBox}>
+                <span className={styles.shelfStatVal}>{activeItem.Chapter}</span>
+                <span className={styles.shelfStatLab}>Chapters</span>
               </div>
             </div>
-
-            <div className={styles.chaptersSection}>
-              <h4 className={styles.chaptersTitle}>Contents Index</h4>
-              <div className={styles.chaptersList}>
-                {activeItem.chapters.slice(0, 6).map((chapter, i) => (
-                  <div key={i} className={styles.chapterItem}>
-                    <div className={styles.chapterDot} style={{ background: i === 0 ? activeItem.color : 'rgba(255,255,255,0.2)' }}></div>
-                    <span>{chapter}</span>
-                  </div>
+            
+            <div className={styles.ratingRow}>
+              <div className={styles.starsWrapper}>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star 
+                    key={i} 
+                    size={16} 
+                    fill={i < activeItem.rating ? activeItem.color : 'none'} 
+                    color={i < activeItem.rating ? activeItem.color : '#cbd5e1'} 
+                  />
                 ))}
               </div>
+              <span className={styles.votersText}>{activeItem.voters} Readers</span>
             </div>
+          </div>
 
-            <Link href={`/book/${activeItem.id}`}>
-              <button className={styles.readMoreBtn} style={{ color: activeItem.color, border: `1px solid ${activeItem.color}44` }}>
-                View Full Outline
+          {/* Column 3: Syllabus Preview */}
+          <div className={styles.insightCol}>
+            <h3 className={styles.colHeading}>Syllabus Preview</h3>
+            <div className={styles.previewList}>
+              {activeItem.chapters.slice(0, 3).map((chapter, i) => (
+                <div key={i} className={styles.previewItem}>
+                  <span className={styles.previewItemDot} style={{ background: activeItem.color }} />
+                  <span className={styles.previewItemText}>{chapter}</span>
+                </div>
+              ))}
+            </div>
+            
+            <Link href={`/book/${activeItem.id}`} className={styles.outlineLink}>
+              <button 
+                className={styles.outlineBtn}
+                style={{ 
+                  backgroundColor: activeItem.color,
+                  boxShadow: `0 8px 20px ${activeItem.color}33`
+                }}
+              >
+                <span>View Full Outline</span>
+                <ArrowRight size={16} />
               </button>
             </Link>
           </div>
 
-          {/* Bottom List */}
-          <div className={styles.bottomList}>
-            {BOOKS.map((book, idx) => (
-              <div
-                key={book.id}
-                className={idx === activeIndex ? styles.bottomItemActive : styles.bottomItem}
-                onClick={() => setActiveIndex(idx)}
-              >
-                <div className={styles.bottomIcon} style={{ color: idx === activeIndex ? book.color : 'rgba(255,255,255,0.5)' }}>
-                  <BookOpen size={20} />
-                </div>
-                <span className={styles.bottomTitleText}>{book.title}</span>
-                <span className={styles.bottomSubtitleText}>{book.subtitle}</span>
-                <div className={styles.dots}>
-                  <span style={{ background: idx === activeIndex ? book.color : 'rgba(255,255,255,0.2)' }}></span>
-                  <span style={{ background: idx === activeIndex ? book.color : 'rgba(255,255,255,0.2)' }}></span>
-                </div>
-              </div>
-            ))}
-          </div>
-
         </div>
+
       </div>
 
       {/* DASHBOARD CONTENT GRID */}

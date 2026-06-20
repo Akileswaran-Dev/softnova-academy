@@ -20,7 +20,8 @@
   justify-content: space-between;
 }
 
-.heroSection::before, .heroSection::after {
+.heroSection::before,
+.heroSection::after {
   content: '';
   position: absolute;
   width: 500px;
@@ -85,7 +86,7 @@
   font-weight: 800;
   border: none;
   cursor: pointer;
-  box-shadow: 10px 10px 30px rgba(0,0,0,0.05), -10px -10px 30px var(--white);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.05), -10px -10px 30px var(--white);
   transition: all 0.3s ease;
 }
 
@@ -101,392 +102,414 @@
   transition: all 0.3s ease;
 }
 
-.coverLink { display: block; width: fit-content; margin: 0 auto; text-decoration: none; cursor: pointer; transition: transform 0.3s ease; }
-.coverLink:hover { transform: translateY(-5px); }
-.coverLink:active { transform: translateY(0) scale(0.98); }
+.coverLink {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
 
-.heroGlassContainer {
+.coverLink:hover {
+  transform: translateY(-5px);
+}
+
+.coverLink:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* 3D THEATER HERO CAROUSEL */
+.theaterContainer {
   position: relative;
   width: 100%;
+  height: 100vh;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center; /* Center everything inside the viewport height */
+  padding: 60px 5% 30px; /* Tighter padding for 100vh viewport */
   overflow: hidden;
-  padding-top: 40px;
+  background: var(--background); /* Perfect blending background for light neumorphism */
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  font-family: 'Outfit', sans-serif;
 }
 
-.ambientBackground {
+.ambientGlow {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 1;
-  transition: background 0.8s ease;
-  mix-blend-mode: overlay;
-  opacity: 0.7;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 60%;
+  opacity: 0.22;
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.8s ease-in-out;
 }
 
-.glassCard {
+.theaterHeader {
   position: relative;
-  width: 90%;
-  max-width: 1300px;
-  height: 650px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 40px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15), inset 0 0 30px rgba(255, 255, 255, 0.2);
   z-index: 2;
-  display: flex;
-  overflow: hidden;
-}
-
-/* Left Content */
-.leftContent {
-  flex: 1.2;
-  padding: 60px;
+  max-width: 800px;
+  text-align: center;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  z-index: 5;
+  align-items: center;
 }
 
-.heroDesc {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 500px;
-  margin-bottom: 40px;
+.theaterBadge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  padding: 8px 18px;
+  border-radius: 100px;
+  border: none;
+  background: var(--background);
+  box-shadow: var(--neumorph-inset-sm); /* Sunken/pressed into the page background */
+  margin-bottom: 20px;
+  display: inline-block;
+  transition: all 0.5s ease;
 }
 
-.mainTitle {
-  font-size: 5rem;
-  font-weight: 900;
-  line-height: 1.1;
-  margin-bottom: 40px;
-  text-shadow: 0 10px 20px rgba(0,0,0,0.15);
-  letter-spacing: -2px;
+.theaterTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem); /* Reduced size to prevent overflow in 100vh */
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
 }
 
-.subtitle {
-  font-weight: 500;
-  opacity: 0.9;
+.gradientTitle {
+  transition: color 0.5s ease;
 }
 
-/* Center Showcase */
-.centerShowcase {
-  flex: 1.5;
+.theaterSubtitle {
+  font-size: 0.95rem; /* Tighter text size */
+  line-height: 1.5;
+  color: #6E6D7A;
+  max-width: 540px;
+  margin: 0 auto;
+  font-weight: 450;
+}
+
+/* Curved Shelf Layout */
+.curveShelfWrapper {
   position: relative;
+  width: 100%;
+  height: 275px; /* Shorter to support card height 225px and fit 100vh */
+  margin-bottom: 35px; /* Tighter margin */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 5;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  overflow: visible;
+  z-index: 2;
+}
+
+.curveShelf {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
   overflow: visible;
 }
 
-.milkSplash {
+.shelfCard {
   position: absolute;
-  width: 380px;
-  height: 380px;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 60px rgba(255,255,255,0.1), inset 0 0 40px rgba(255,255,255,0.05);
+  width: 155px; /* Reduced card width to make it narrower */
+  height: 220px; /* Reduced card height to fit 100vh */
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: filter 0.3s ease;
+  user-select: none;
+  will-change: transform, opacity;
+  filter: brightness(0.65) contrast(0.95);
+}
+
+.shelfCard:hover {
+  filter: brightness(0.85) contrast(1);
+  z-index: 100 !important; /* Bring hovered card to front of 3D stack for clean mouse interaction/clicking */
+}
+
+.shelfCardActive {
+  filter: brightness(1) contrast(1) !important;
+}
+
+.shelfCardCover {
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+  background: #111;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover shadow pop out effect matching resource item behaviors */
+.shelfCard:hover .shelfCardCover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.shelfCardImage {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.shelfCardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%);
   z-index: 1;
+  pointer-events: none;
 }
 
-/* ORBITAL CAROUSEL STYLES */
-.orbitContainer {
-  position: absolute;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  border: 1px dashed rgba(255,255,255,0.25);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  will-change: transform;
-  animation: rotateRing 40s linear infinite;
+.fallbackShelfText {
+  position: relative;
+  z-index: 2;
+  color: white;
 }
 
-@keyframes rotateRing {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.fallbackShelfText h4 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+  font-weight: 700;
 }
 
-.orbitItemWrapper {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-origin: center center;
-}
-
-.counterRotate {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  will-change: transform;
-  animation: rotateRingCounter 40s linear infinite;
-}
-
-@keyframes rotateRingCounter {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
-.orbitBookImage {
-  width: 75px;
-  height: 75px;
-  object-fit: contain;
-  transition: transform 0.3s;
-  filter: drop-shadow(0 5px 10px rgba(0,0,0,0.25));
-}
-
-.centerSlot {
-  position: absolute;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.centerBookImage {
-  width: 200px;
-  height: 200px;
-  object-fit: contain;
-  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.4));
-}
-
-.floatingOrb1, .floatingOrb2, .floatingOrb3 {
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2), 0 20px 40px rgba(0,0,0,0.2);
-  z-index: 15;
-  mix-blend-mode: multiply;
+.fallbackShelfText p {
+  font-size: 0.75rem;
   opacity: 0.8;
 }
 
-.floatingOrb1 {
-  width: 80px; height: 100px; border-radius: 40% 60% 50% 50%;
-  left: 10%; top: 30%;
-  transform: rotate(20deg);
-  animation: floatOrb1 6s ease-in-out infinite;
-}
-
-@keyframes floatOrb1 {
-  0%, 100% { transform: translateY(0) rotate(20deg); }
-  50% { transform: translateY(-15px) rotate(25deg); }
-}
-
-.floatingOrb2 {
-  width: 120px; height: 80px; border-radius: 60% 40% 50% 50%;
-  right: 5%; bottom: 35%;
-  transform: rotate(-15deg);
-  animation: floatOrb2 7s ease-in-out infinite;
-}
-
-@keyframes floatOrb2 {
-  0%, 100% { transform: translateY(0) rotate(-15deg); }
-  50% { transform: translateY(-20px) rotate(-10deg); }
-}
-
-/* Right Insights Panel */
-.rightInsightsPanel {
-  width: 280px;
-  padding: 25px 20px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  z-index: 5;
-}
-
-.panelHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.panelHeader h3 {
-  font-size: 1.2rem;
-  font-weight: 800;
-  color: white;
-}
-
-.liveBadge {
-  background: #ff4757;
-  font-size: 0.65rem;
+.shelfCardBrand {
+  position: relative;
+  z-index: 2;
+  font-size: 0.6rem;
   font-weight: 900;
-  padding: 4px 8px;
-  border-radius: 6px;
-  letter-spacing: 1px;
-  color: white;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-top: auto;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
-.statsGrid {
+.glowLight {
+  position: absolute;
+  bottom: -15px;
+  left: 10%;
+  width: 80%;
+  height: 8px;
+  border-radius: 50%;
+  filter: blur(14px);
+  opacity: 0.75;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Insights Columns Section */
+.insightsRow {
+  width: 100%;
+  max-width: 1100px;
+  margin: 10px auto 0;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 3;
 }
 
-.statBox {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 10px 5px;
-  border-radius: 15px;
+.insightCol {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  align-items: flex-start;
+  background: var(--background); /* Match parent background */
+  border: none; /* Neumorphic elements blend borders using light-and-shadow */
+  padding: 22px 20px; /* Tighter padding to fit 100vh screen beautifully */
+  border-radius: 22px; /* Smooth rounded corners */
+  box-shadow: var(--neumorph-shadow); /* Raised neumorphic card */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.statVal {
-  font-weight: 800;
-  font-size: 1.1rem;
-  color: white;
+.insightCol:hover {
+  background: var(--background);
+  box-shadow: var(--neumorph-shadow-lg); /* Elevates further on hover */
+  transform: translateY(-4px);
 }
 
-.statLab {
+.colBadge {
   font-size: 0.7rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.6);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 5px 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  transition: all 0.4s ease;
 }
 
-.chaptersSection {
-  margin-top: 0px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+.colBookTitle {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  line-height: 1.25;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
 }
 
-.chaptersTitle {
-  font-size: 0.75rem;
-  font-weight: 700;
+.colBookDesc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #6E6D7A;
+}
+
+.colHeading {
+  font-size: 0.95rem;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: rgba(255,255,255,0.7);
+  color: #1A1A1A;
+  margin-bottom: 18px;
 }
 
-.chaptersList {
+.shelfStatsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 12px; /* Tighter margin */
+}
+
+.shelfStatBox {
+  background: var(--background);
+  border: none;
+  border-radius: 14px;
+  padding: 10px 8px; /* Tighter padding for 100vh height spacing */
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--neumorph-inset-sm); /* Sunken/inset depth field */
 }
 
-.chapterItem {
+.shelfStatVal {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.shelfStatLab {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6E6D7A;
+  margin-top: 2px;
+}
+
+.ratingRow {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.85rem;
+  width: 100%;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.starsWrapper {
+  display: flex;
+  gap: 4px;
+}
+
+.votersText {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: white;
-  transition: transform 0.2s;
-  cursor: pointer;
+  color: #6E6D7A;
 }
 
-.chapterItem:hover {
-  transform: translateX(5px);
-  color: var(--primary);
+.previewList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 12px; /* Tighter margin */
 }
 
-.chapterDot {
+.previewItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.previewItemDot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   flex-shrink: 0;
+  transition: background 0.4s ease;
 }
 
-.readMoreBtn {
+.previewItemText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #2D3436;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.outlineLink {
+  width: 100%;
+  text-decoration: none;
   margin-top: auto;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 12px;
-  border-radius: 12px;
+}
+
+.outlineBtn {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  color: white;
   font-size: 0.85rem;
   font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s;
-  text-align: center;
-}
-
-.readMoreBtn:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-/* Bottom List */
-.bottomList {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: calc(100% - 282px);
-  height: 140px;
   display: flex;
-  padding: 0 60px;
-  gap: 50px;
   align-items: center;
-  background: linear-gradient(to top, rgba(0,0,0,0.15), transparent);
-  z-index: 10;
-}
-
-.bottomItem, .bottomItemActive {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
   gap: 8px;
   cursor: pointer;
-  transition: all 0.3s;
-  flex: 1;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.12), -4px -4px 10px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.bottomItem {
-  opacity: 0.6;
+.outlineBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.15), -6px -6px 14px rgba(255, 255, 255, 0.9);
+  filter: brightness(1.08);
 }
 
-.bottomItem:hover {
-  opacity: 1;
-  transform: translateY(-5px);
-}
-
-.bottomItemActive {
-  opacity: 1;
-  transform: translateY(-8px);
-}
-
-.bottomIcon {
-  color: white;
-  margin-bottom: 5px;
-  transition: color 0.3s;
-}
-
-.bottomTitleText {
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: center;
-  white-space: nowrap;
-  color: white;
-}
-
-.bottomSubtitleText {
-  font-size: 0.75rem;
-  text-align: center;
-  white-space: nowrap;
-  color: rgba(255,255,255,0.7);
-}
-
-.dots {
-  display: flex;
-  gap: 6px;
-  margin-top: 5px;
-}
-
-.dots span {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  transition: background 0.3s;
+.outlineBtn:active {
+  transform: translateY(1px);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.18), inset -3px -3px 6px rgba(255, 255, 255, 0.25);
 }
 
 /* ══════════════════════════════════════════ */
@@ -891,68 +914,39 @@
 
 /* RESPONSIVE DESIGN */
 @media (max-width: 1200px) {
-  .glassCard {
-    height: auto;
-    flex-direction: column;
-    padding-bottom: 40px;
+  .insightsRow {
+    max-width: 900px;
+    gap: 20px;
   }
   
-  .rightInsightsPanel {
-    width: 100%;
-    height: auto;
-    border-left: none;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 40px 20px;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-  }
-  
-  .statsGrid {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .chaptersSection {
-    width: 100%;
-    align-items: center;
-  }
-
-  .chaptersList {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .chapterItem {
-    justify-content: center;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .centerShowcase {
-    display: none;
-  }
-  
-  .bottomList {
-    position: relative;
-    width: 100%;
+  .insightCol {
     padding: 20px;
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
+  }
+
+  .colBookTitle {
+    font-size: 1.25rem;
   }
 }
 
 @media (max-width: 1024px) {
-  .mainTitle {
-    font-size: 3.5rem;
+  .curveShelf {
+    transform: scale(0.85);
+  }
+
+  .curveShelfWrapper {
+    height: 280px;
+    margin-bottom: 40px;
+  }
+
+  .insightsRow {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+    gap: 20px;
   }
   
-  .heroGlassContainer {
-    padding-top: 100px;
+  /* Make column 1 span both grids for cleaner balance */
+  .insightsRow > .insightCol:first-child {
+    grid-column: span 2;
   }
 
   .dashboardContainer {
@@ -988,29 +982,36 @@
 }
 
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 3rem;
+  .theaterContainer {
+    padding-top: 80px;
+    padding-bottom: 60px;
   }
-  
-  .mainTitle {
-    font-size: 2.5rem;
-    text-align: center;
+
+  .theaterTitle {
+    font-size: 2.2rem;
   }
-  
-  .btnGroup {
-    flex-direction: column;
-    align-items: center;
+
+  .theaterSubtitle {
+    font-size: 1rem;
   }
-  
-  .primaryBtn, .secondaryBtn {
-    width: 80%;
-    padding: 15px;
+
+  .curveShelf {
+    transform: scale(0.7);
   }
-  
-  .leftContent {
-    padding: 40px 20px;
-    align-items: center;
-    text-align: center;
+
+  .curveShelfWrapper {
+    height: 240px;
+    margin-bottom: 30px;
+  }
+
+  .insightsRow {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .insightsRow > .insightCol:first-child {
+    grid-column: span 1;
   }
 
   .bookListItem {
@@ -1033,5 +1034,16 @@
   .bookMetaRow {
     flex-wrap: wrap;
     width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .curveShelf {
+    transform: scale(0.55);
+  }
+
+  .curveShelfWrapper {
+    height: 200px;
+    margin-bottom: 20px;
   }
 }
