@@ -128,10 +128,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Center everything inside the viewport height */
-  padding: 60px 5% 30px; /* Tighter padding for 100vh viewport */
+  justify-content: center;
+  /* Center everything inside the viewport height */
+  padding: 60px 5% 30px;
+  /* Tighter padding for 100vh viewport */
   overflow: hidden;
-  background: var(--background); /* Perfect blending background for light neumorphism */
+  background: var(--background);
+  /* Perfect blending background for light neumorphism */
   perspective: 1200px;
   transform-style: preserve-3d;
   font-family: 'Outfit', sans-serif;
@@ -171,7 +174,8 @@
   border-radius: 100px;
   border: none;
   background: var(--background);
-  box-shadow: var(--neumorph-inset-sm); /* Sunken/pressed into the page background */
+  box-shadow: var(--neumorph-inset-sm);
+  /* Sunken/pressed into the page background */
   margin-bottom: 20px;
   display: inline-block;
   transition: all 0.5s ease;
@@ -179,7 +183,8 @@
 
 .theaterTitle {
   font-family: 'Outfit', sans-serif;
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem); /* Reduced size to prevent overflow in 100vh */
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  /* Reduced size to prevent overflow in 100vh */
   font-weight: 800;
   color: #1A1A1A;
   line-height: 1.15;
@@ -192,7 +197,8 @@
 }
 
 .theaterSubtitle {
-  font-size: 0.95rem; /* Tighter text size */
+  font-size: 0.95rem;
+  /* Tighter text size */
   line-height: 1.5;
   color: #6E6D7A;
   max-width: 540px;
@@ -204,8 +210,10 @@
 .curveShelfWrapper {
   position: relative;
   width: 100%;
-  height: 275px; /* Shorter to support card height 225px and fit 100vh */
-  margin-bottom: 35px; /* Tighter margin */
+  height: 275px;
+  /* Shorter to support card height 225px and fit 100vh */
+  margin-bottom: 35px;
+  /* Tighter margin */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,8 +237,10 @@
 
 .shelfCard {
   position: absolute;
-  width: 155px; /* Reduced card width to make it narrower */
-  height: 220px; /* Reduced card height to fit 100vh */
+  width: 155px;
+  /* Reduced card width to make it narrower */
+  height: 220px;
+  /* Reduced card height to fit 100vh */
   cursor: pointer;
   transform-style: preserve-3d;
   transition: filter 0.3s ease;
@@ -241,7 +251,8 @@
 
 .shelfCard:hover {
   filter: brightness(0.85) contrast(1);
-  z-index: 100 !important; /* Bring hovered card to front of 3D stack for clean mouse interaction/clicking */
+  z-index: 100 !important;
+  /* Bring hovered card to front of 3D stack for clean mouse interaction/clicking */
 }
 
 .shelfCardActive {
@@ -282,7 +293,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.55) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.55) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -313,7 +324,7 @@
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
   margin-top: auto;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .glowLight {
@@ -345,17 +356,23 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background: var(--background); /* Match parent background */
-  border: none; /* Neumorphic elements blend borders using light-and-shadow */
-  padding: 22px 20px; /* Tighter padding to fit 100vh screen beautifully */
-  border-radius: 22px; /* Smooth rounded corners */
-  box-shadow: var(--neumorph-shadow); /* Raised neumorphic card */
+  background: var(--background);
+  /* Match parent background */
+  border: none;
+  /* Neumorphic elements blend borders using light-and-shadow */
+  padding: 22px 20px;
+  /* Tighter padding to fit 100vh screen beautifully */
+  border-radius: 22px;
+  /* Smooth rounded corners */
+  box-shadow: var(--neumorph-shadow);
+  /* Raised neumorphic card */
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .insightCol:hover {
   background: var(--background);
-  box-shadow: var(--neumorph-shadow-lg); /* Elevates further on hover */
+  box-shadow: var(--neumorph-shadow-lg);
+  /* Elevates further on hover */
   transform: translateY(-4px);
 }
 
@@ -399,19 +416,22 @@
   grid-template-columns: 1fr 1fr;
   gap: 12px;
   width: 100%;
-  margin-bottom: 12px; /* Tighter margin */
+  margin-bottom: 12px;
+  /* Tighter margin */
 }
 
 .shelfStatBox {
   background: var(--background);
   border: none;
   border-radius: 14px;
-  padding: 10px 8px; /* Tighter padding for 100vh height spacing */
+  padding: 10px 8px;
+  /* Tighter padding for 100vh height spacing */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: var(--neumorph-inset-sm); /* Sunken/inset depth field */
+  box-shadow: var(--neumorph-inset-sm);
+  /* Sunken/inset depth field */
 }
 
 .shelfStatVal {
@@ -452,7 +472,8 @@
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  margin-bottom: 12px; /* Tighter margin */
+  margin-bottom: 12px;
+  /* Tighter margin */
 }
 
 .previewItem {
@@ -918,7 +939,7 @@
     max-width: 900px;
     gap: 20px;
   }
-  
+
   .insightCol {
     padding: 20px;
   }
@@ -943,9 +964,9 @@
     max-width: 700px;
     gap: 20px;
   }
-  
+
   /* Make column 1 span both grids for cleaner balance */
-  .insightsRow > .insightCol:first-child {
+  .insightsRow>.insightCol:first-child {
     grid-column: span 2;
   }
 
@@ -1010,7 +1031,7 @@
     padding: 0 20px;
   }
 
-  .insightsRow > .insightCol:first-child {
+  .insightsRow>.insightCol:first-child {
     grid-column: span 1;
   }
 

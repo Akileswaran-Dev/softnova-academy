@@ -62,11 +62,11 @@ const Navbar = () => {
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isOpen ? styles.navOpen : ''}`}>
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
-            <Image 
-              src="/Images/logo.png" 
-              alt="Softnova Academy Logo" 
-              width={160} 
-              height={50} 
+            <Image
+              src="/Images/logo.png"
+              alt="Softnova Academy Logo"
+              width={360}
+              height={80}
               className={styles.logoImage}
               priority
             />
@@ -94,7 +94,7 @@ const Navbar = () => {
             <Link href="/enroll" className={styles.ctaButton}>
               Join Now
             </Link>
-           
+
             {/* Mobile Toggle */}
             <button className={styles.mobileToggle} onClick={toggleMenu} aria-label="Toggle Menu" suppressHydrationWarning>
               <div className={`${styles.hamburger} ${isOpen ? styles.hamburgerOpen : ''}`}>
