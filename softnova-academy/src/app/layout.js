@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
+import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata = {
   title: "Softnova Academy",
@@ -13,9 +14,11 @@ export default function RootLayout({ children }) {
       <body>
         <Navbar />
 
-        <main style={{ paddingTop: "80px", minHeight: "100vh" }}>
-          {children}
-        </main>
+        <SmoothScroll>
+          <main style={{ paddingTop: "80px", minHeight: "100vh" }}>
+            {children}
+          </main>
+        </SmoothScroll>
 
         <Footer />
       </body>

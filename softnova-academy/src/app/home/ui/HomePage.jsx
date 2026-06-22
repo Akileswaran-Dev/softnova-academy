@@ -29,9 +29,6 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    // Normalize scroll for mobile touch events
-    ScrollTrigger.normalizeScroll(true);
-
     let ctx = gsap.context(() => {
 
       // --- Fade from LEFT ---

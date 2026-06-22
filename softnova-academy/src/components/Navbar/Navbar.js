@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
             <Image
-              src="/Images/logo.png"
+              src="/Images/soft.webp"
               alt="Softnova Academy Logo"
               width={360}
               height={80}

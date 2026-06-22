@@ -68,6 +68,18 @@
   transition: all 0.5s ease;
 }
 
+@media (min-width: 1600px) {
+  .glassCard {
+    max-width: 1550px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .glassCard {
+    max-width: 1850px;
+  }
+}
+
 .glassCard:hover {
   transform: translateY(-5px);
   box-shadow: 15px 15px 40px var(--shadow-dark), -15px -15px 40px var(--shadow-light);
@@ -289,16 +301,29 @@
 }
 
 .joinBtn:hover {
-  transform: translateY(-5px);
-  box-shadow: 15px 15px 35px rgba(255, 124, 48, 0.5), -15px -15px 35px var(--white);
+  transform: translateY(1px);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.25), inset -5px -5px 10px rgba(255, 255, 255, 0.2);
 }
 
 /* CARDS SECTION ICONS */
 .cardsSection {
+  width: 100%;
   max-width: 1300px;
   margin: 30px auto 60px;
   text-align: center;
   padding: 0 5%;
+}
+
+@media (min-width: 1600px) {
+  .cardsSection {
+    max-width: 1550px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .cardsSection {
+    max-width: 1850px;
+  }
 }
 
 .cardsTitle {
@@ -488,17 +513,11 @@
 }
 
 .joinBtn:hover {
-  transform: translateY(-5px);
-  box-shadow: 15px 15px 35px rgba(255, 124, 48, 0.5), -15px -15px 35px var(--white);
+  transform: translateY(1px);
+  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.25), inset -5px -5px 10px rgba(255, 255, 255, 0.2);
 }
 
-/* CARDS SECTION ICONS */
-.cardsSection {
-  max-width: 1300px;
-  margin: 30px auto 60px;
-  text-align: center;
-  padding: 0 5%;
-}
+/* CARDS SECTION ICONS - DUP REMOVED */
 
 .cardsTitle {
   font-size: 3rem;

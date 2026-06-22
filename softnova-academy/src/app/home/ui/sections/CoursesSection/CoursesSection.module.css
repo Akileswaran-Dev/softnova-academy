@@ -6,8 +6,21 @@
 }
 
 .container {
-  max-width: 1400px;
+  width: 100%;
+  max-width: 1300px;
   margin: 0 auto;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1550px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1850px;
+  }
 }
 
 .header {
@@ -171,9 +184,10 @@
 }
 
 .viewBtn:hover {
-  background: #333;
-  color: white;
-  transform: scale(1.05);
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.25), inset -3px -3px 6px rgba(255, 255, 255, 0.25);
+  background: #f0f0f0;
+  color: #111;
+  transform: scale(0.99);
 }
 
 @media (max-width: 1024px) {
@@ -280,11 +294,9 @@
 }
 
 .exploreMoreBtn:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--neumorph-shadow-lg);
+  transform: translateY(1px);
+  box-shadow: var(--neumorph-inset);
   color: #e65100;
-  background: #fff;
-  border-color: #ff7c30;
 }
 
 @media (max-width: 768px) {

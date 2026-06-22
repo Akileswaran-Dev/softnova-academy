@@ -18,7 +18,7 @@ const teamMembers = [
     role: "Team Lead",
     domain: "TEAM LEAD",
     bio: "Guiding the team with dedication and professionalism. She plays an important role in project coordination, team management, and maintaining workflow efficiency. With strong communication and leadership skills, she supports both clients and team members effectively. Her commitment and teamwork contribute to the successful growth of Softnova.",
-    image: "/Images/about/TL.webp",
+    image: "/Images/about/image.png",
   },
   {
     name: "Adhithyan",
@@ -166,7 +166,7 @@ export default function Team() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 priority={
                   member.image === "/Images/about/Akka.webp" ||
-                  member.image === "/Images/about/dharshika_new_v4.webp"
+                  member.image === "/Images/about/dharshika_cropped.webp"
                 }
               />
               <div className={styles.orangeSplash} />

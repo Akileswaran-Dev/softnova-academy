@@ -164,7 +164,9 @@
 }
 
 .subscribeBtn:hover {
-  color: var(--secondary);
+  box-shadow: var(--neumorph-inset-sm);
+  color: var(--primary);
+  transform: translateY(1px);
 }
 
 .subscribeBtn:active {

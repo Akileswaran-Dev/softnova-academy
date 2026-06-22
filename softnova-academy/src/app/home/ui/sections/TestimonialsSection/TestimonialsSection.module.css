@@ -4,9 +4,22 @@
 }
 
 .container {
+  width: 100%;
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 5%;
+}
+
+@media (min-width: 1600px) {
+  .container {
+    max-width: 1550px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1850px;
+  }
 }
 
 .header {
