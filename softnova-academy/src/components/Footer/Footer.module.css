@@ -427,7 +427,6 @@
   justify-content: space-between;
   align-items: center;
   color: var(--foreground);
-  opacity: 0.7;
   font-size: 0.85rem;
   background: var(--background);
   box-shadow: var(--neumorph-shadow-sm);
@@ -436,19 +435,34 @@
   margin-top: 20px;
 }
 
+.bottomBar p {
+  opacity: 0.8;
+}
+
 .bottomLinks {
   display: flex;
-  gap: 20px;
+  gap: 15px;
 }
 
 .bottomLinks a {
   text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
+  color: var(--foreground);
+  background: var(--background);
+  box-shadow: var(--neumorph-shadow-sm);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bottomLinks a:hover {
+  box-shadow: var(--neumorph-inset-sm);
   color: var(--primary);
+  transform: translateY(1px);
 }
 
 @media (max-width: 1024px) {

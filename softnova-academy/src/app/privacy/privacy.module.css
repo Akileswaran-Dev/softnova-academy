@@ -1,0 +1,165 @@
+.privacyPage {
+  min-height: 100vh;
+  padding: var(--section-padding) 5%;
+  background: var(--background);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Background Blobs for depth */
+.blob1, .blob2 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 1;
+  opacity: 0.15;
+}
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+  background: var(--primary);
+  top: -100px;
+  right: -100px;
+}
+
+.blob2 {
+  width: 400px;
+  height: 400px;
+  background: var(--secondary);
+  bottom: -100px;
+  left: -100px;
+}
+
+/* Header section */
+.headerCard {
+  text-align: center;
+  padding: 40px;
+  background: var(--background);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neumorph-shadow);
+  margin-bottom: 40px;
+  border: 1px solid rgba(255, 124, 48, 0.05);
+}
+
+.headerCard h1 {
+  font-size: var(--font-h2);
+  color: var(--primary);
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.headerCard p {
+  color: var(--foreground);
+  opacity: 0.8;
+  font-size: 1.1rem;
+}
+
+/* Content Container Card */
+.contentCard {
+  background: var(--background);
+  border-radius: var(--radius-md);
+  box-shadow: var(--neumorph-shadow);
+  padding: 50px 40px;
+  border: 1px solid rgba(255, 124, 48, 0.05);
+}
+
+/* Back button */
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--foreground);
+  background: var(--background);
+  box-shadow: var(--neumorph-shadow-sm);
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.backBtn:hover {
+  box-shadow: var(--neumorph-inset-sm);
+  color: var(--primary);
+  transform: translateY(1px);
+}
+
+.section {
+  margin-bottom: 35px;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+/* Sub-card inside sections */
+.subCard {
+  background: var(--background);
+  box-shadow: var(--neumorph-inset-sm);
+  padding: 25px;
+  border-radius: var(--radius-sm);
+  margin-top: 15px;
+}
+
+.sectionTitle {
+  font-size: 1.3rem;
+  color: var(--primary);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.sectionText {
+  color: var(--foreground);
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+.bulletList {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bulletItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--foreground);
+  line-height: 1.5;
+}
+
+.bulletItem svg {
+  color: var(--primary);
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .privacyPage {
+    padding: 40px 20px;
+  }
+  .headerCard {
+    padding: 30px 20px;
+  }
+  .contentCard {
+    padding: 30px 20px;
+    border-radius: var(--radius-sm);
+  }
+}

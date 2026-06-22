@@ -61,14 +61,21 @@
 }
 
 .logoImage {
-  height: 45px;
+  height: 56px;
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
 }
 
+.scrolled .logoImage {
+  height: 48px;
+}
+
 @media (max-width: 768px) {
   .logoImage {
+    height: 44px;
+  }
+  .scrolled .logoImage {
     height: 38px;
   }
 }

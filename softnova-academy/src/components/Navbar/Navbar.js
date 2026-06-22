@@ -65,8 +65,8 @@ const Navbar = () => {
             <Image 
               src="/Images/logo.png" 
               alt="Softnova Academy Logo" 
-              width={160} 
-              height={50} 
+              width={200} 
+              height={60} 
               className={styles.logoImage}
               priority
             />
