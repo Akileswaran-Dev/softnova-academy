@@ -2,17 +2,17 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, LayoutGroup } from 'framer-motion';
 import Link from 'next/link';
-import { 
-  ArrowRight, 
-  BookOpen, 
-  Search, 
-  LayoutGrid, 
-  Palette, 
-  Smartphone, 
-  Code, 
-  Monitor, 
-  Layers, 
-  Lightbulb, 
+import {
+  ArrowRight,
+  BookOpen,
+  Search,
+  LayoutGrid,
+  Palette,
+  Smartphone,
+  Code,
+  Monitor,
+  Layers,
+  Lightbulb,
   FileText,
   Star
 } from 'lucide-react';
@@ -87,8 +87,8 @@ const BookPage = () => {
   // Filter books based on category and search term
   const filteredBooks = BOOKS.filter((book) => {
     const matchesCat = matchesCategory(book, selectedCategory);
-    const matchesSearch = 
-      book.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    const matchesSearch =
+      book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (book.subtitle && book.subtitle.toLowerCase().includes(searchTerm.toLowerCase()));
     return matchesCat && matchesSearch;
@@ -96,12 +96,12 @@ const BookPage = () => {
 
   return (
     <div className={styles.section} suppressHydrationWarning>
-      
+
       {/* 3D THEATER HERO CAROUSEL */}
       <div className={styles.theaterContainer}>
         {/* Soft background ambient light */}
         <div className={styles.ambientGlow} style={{ background: `radial-gradient(circle, ${activeItem.color}33 0%, transparent 70%)` }} />
-        
+
         {/* Header Text Section */}
         <div className={styles.theaterHeader}>
           <span className={styles.theaterBadge} style={{ color: activeItem.color, borderColor: `${activeItem.color}33`, background: `${activeItem.color}11` }}>
@@ -121,7 +121,7 @@ const BookPage = () => {
           <div className={styles.curveShelf}>
             {HERO_BOOKS.map((book, idx) => {
               const isCenter = idx === activeIndex;
-              
+
               // Calculate circular wrapping difference for 5 books
               let diff = idx - activeIndex;
               if (diff < -2) {
@@ -181,16 +181,16 @@ const BookPage = () => {
                   }}
                   onClick={() => setActiveIndex(idx)}
                 >
-                  <div 
-                    className={styles.shelfCardCover} 
-                    style={{ 
+                  <div
+                    className={styles.shelfCardCover}
+                    style={{
                       borderColor: isCenter ? book.color : 'rgba(255,255,255,0.08)',
                       boxShadow: isCenter ? `0 20px 40px ${book.color}25` : '0 10px 20px rgba(0,0,0,0.15)'
                     }}
                   >
-                    <div 
-                      className={styles.shelfCardImage} 
-                      style={{ 
+                    <div
+                      className={styles.shelfCardImage}
+                      style={{
                         backgroundImage: `url(${book.coverImage})`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
@@ -209,10 +209,10 @@ const BookPage = () => {
                   </div>
                   {/* Subtle active glow light indicator */}
                   {isCenter && (
-                    <motion.div 
-                      className={styles.glowLight} 
+                    <motion.div
+                      className={styles.glowLight}
                       layoutId="activeGlow"
-                      style={{ backgroundColor: book.color }} 
+                      style={{ backgroundColor: book.color }}
                     />
                   )}
                 </motion.div>
@@ -223,7 +223,7 @@ const BookPage = () => {
 
         {/* Dynamic Column Insights Section (Below Shelf) */}
         <div className={styles.insightsRow}>
-          
+
           {/* Column 1: Book Info */}
           <div className={styles.insightCol}>
             <div className={styles.colBadge} style={{ color: activeItem.color, background: `${activeItem.color}15` }}>
@@ -246,15 +246,15 @@ const BookPage = () => {
                 <span className={styles.shelfStatLab}>Chapters</span>
               </div>
             </div>
-            
+
             <div className={styles.ratingRow}>
               <div className={styles.starsWrapper}>
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <Star 
-                    key={i} 
-                    size={16} 
-                    fill={i < activeItem.rating ? activeItem.color : 'none'} 
-                    color={i < activeItem.rating ? activeItem.color : '#cbd5e1'} 
+                  <Star
+                    key={i}
+                    size={16}
+                    fill={i < activeItem.rating ? activeItem.color : 'none'}
+                    color={i < activeItem.rating ? activeItem.color : '#cbd5e1'}
                   />
                 ))}
               </div>
@@ -273,11 +273,11 @@ const BookPage = () => {
                 </div>
               ))}
             </div>
-            
+
             <Link href={`/book/${activeItem.id}`} className={styles.outlineLink}>
-              <button 
+              <button
                 className={styles.outlineBtn}
-                style={{ 
+                style={{
                   backgroundColor: activeItem.color,
                   boxShadow: `0 8px 20px ${activeItem.color}33`
                 }}
@@ -294,7 +294,7 @@ const BookPage = () => {
 
       {/* DASHBOARD CONTENT GRID */}
       <div className={styles.dashboardContainer}>
-        
+
         {/* LEFT SIDEBAR */}
         <aside className={styles.sidebar}>
           <div className={styles.brandSection}>
@@ -303,7 +303,7 @@ const BookPage = () => {
             </div>
             <h1 className={styles.sidebarTitle}>Library Collection</h1>
           </div>
-          
+
           <p className={styles.sidebarSubtitle}>
             Handpicked resources to help you learn, design, and build amazing products.
           </p>
@@ -357,9 +357,9 @@ const BookPage = () => {
                   {/* Left Side: Book Cover Link */}
                   <Link href={`/book/${book.id}`} className={styles.bookCoverLink}>
                     <div className={styles.bookCoverWrapper}>
-                      <div 
-                        className={styles.bookCoverInner} 
-                        style={{ 
+                      <div
+                        className={styles.bookCoverInner}
+                        style={{
                           borderTop: `8px solid ${book.imgColor}`,
                           backgroundImage: `url(${book.coverImage})`,
                           backgroundSize: 'cover',
@@ -374,15 +374,15 @@ const BookPage = () => {
 
                   {/* Right Side: Book Info */}
                   <div className={styles.bookInfoSide}>
-                    <span 
-                      className={styles.bookCategoryBadge} 
+                    <span
+                      className={styles.bookCategoryBadge}
                       style={{ color: book.color }}
                     >
                       {book.category.toUpperCase()}
                     </span>
                     <h2 className={styles.bookTitle}>{getDisplayTitle(book)}</h2>
                     <p className={styles.bookDescription}>{book.desc}</p>
-                    
+
                     <div className={styles.bookMetaRow}>
                       <div className={styles.bookMetaItem}>
                         <BookOpen size={16} />
@@ -393,9 +393,9 @@ const BookPage = () => {
                         <FileText size={16} />
                         <span>{book.pages} Pages</span>
                       </div>
-                      
-                      <Link 
-                        href={`/book/${book.id}`} 
+
+                      <Link
+                        href={`/book/${book.id}`}
                         className={styles.bookLearnMoreLink}
                         style={{ color: book.color }}
                       >

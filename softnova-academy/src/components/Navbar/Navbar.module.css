@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 1200;
-  padding: 1.2rem 0;
+  padding: 0.5rem 0;
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2.5rem;
+  padding: 0.5rem 2.5rem;
   background: var(--background);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -61,7 +61,9 @@
 }
 
 .logoImage {
-  height: 56px;
+  height: 60px;
+  transform: scale(2.5);
+  transform-origin: left center;
   width: auto;
   object-fit: contain;
   transition: all 0.3s ease;
@@ -73,16 +75,15 @@
 
 @media (max-width: 768px) {
   .logoImage {
-    height: 44px;
-  }
-  .scrolled .logoImage {
-    height: 38px;
+    height: 45px;
+    transform: scale(2);
   }
 }
 
 @media (max-width: 480px) {
   .logoImage {
-    height: 32px;
+    height: 35px;
+    transform: scale(1.8);
   }
 }
 
@@ -434,9 +435,10 @@
   .navContainer {
     width: 300px !important;
     padding: 0.5rem 0.8rem !important;
-    border-radius: 15px;   
+    border-radius: 15px;
   }
-  .navbar{
+
+  .navbar {
     width: 90%;
     margin-left: 10px;
   }
