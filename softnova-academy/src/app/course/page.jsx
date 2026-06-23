@@ -67,7 +67,7 @@ const COURSES = [
     image: "/Images/Course/Fronend developer.webp",
     description: "Front-end developers build responsive, interactive user interfaces with HTML, CSS, JavaScript, and frameworks like React.",
     author: "Softnova Academy",
-    duration: "3 - 3.5 MONTHS",
+    duration: "3 - 4 MONTHS",
     icon: <Code size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to HTML & CSS" },
@@ -85,7 +85,7 @@ const COURSES = [
     image: "/Images/Course/Mern.webp",
     description: "Full Stack Developers build web apps, handling front-end, back-end, and databases using various technologies.",
     author: "Softnova Academy",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     icon: <Layers size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to Front-end (HTML, CSS)" },
@@ -100,10 +100,10 @@ const COURSES = [
     category: "Development",
     title: "MEAN-Stack Development",
     slug: "mean-stack-development",
-    image: "/Images/Course/mean-stack.png",
+    image: "/Images/Course/MEAN.webp",
     description: "Learn to build robust full-stack web applications from scratch using MongoDB, Express.js, Angular, and Node.js. Gain hands-on project experience.",
     author: "Softnova Academy",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     icon: <Layers size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to Front-end (HTML, CSS)" },
@@ -121,7 +121,7 @@ const COURSES = [
     image: "/Images/Course/Python.webp",
     description: "Covers building and managing both front-end and back-end using Python, Django, and modern web technologies.",
     author: "Softnova Academy",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     icon: <Terminal size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to Front-end (HTML, CSS)" },
@@ -139,7 +139,7 @@ const COURSES = [
     image: "/Images/Course/Data.webp",
     description: "Learn Python, SQL, and Power BI data collection, cleansing, analysis, and visualization. Practice with real datasets and interactive dashboards.",
     author: "Softnova Academy",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     icon: <Terminal size={60} />,
     curriculum: [
       { id: "01", text: "Introduction to Excel & Statistics" },
