@@ -126,7 +126,7 @@ const COURSE_DATA = {
   "full-stack-development": {
     title: "Full-Stack Development",
     category: "Development",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     image: "/Images/Course/mern-stack.png",
     overview: "Full Stack Development covers everything from the front-end user interface to the back-end server logic and database management. You'll learn to build complete, dynamic web applications from scratch using modern technologies like React, Node.js, and MongoDB.",
     modules: [
@@ -160,7 +160,7 @@ const COURSE_DATA = {
   "front-end-development": {
     title: "Front-End Development",
     category: "Development",
-    duration: "3 - 3.5 MONTHS",
+    duration: "3 - 4 MONTHS",
     image: "/Images/Course/Fronend developer.webp",
     overview: "Front-End Developer – Building the user side of the Web. Front-end developers create the visual and interactive elements of websites using HTML, CSS, and Java-script.",
     modules: [
@@ -188,40 +188,6 @@ const COURSE_DATA = {
         id: "05",
         title: "Domain as REACT",
         lessons: ["Basic Of React, Installation Method", "Structure of React, Inline Styling, Functions", "Condition, Loop, Events, Routing", "Form Handling, React Hooks", "Oral & Practical Test & Certification"]
-      }
-    ]
-  },
-  "java-full-stack-development": {
-    title: "Java Full Stack Development",
-    category: "Development",
-    duration: "4 MONTHS",
-    image: "/Images/Course/Java Full stack.webp",
-    overview: "Java Full Stack Development involves building both front-end and back-end of web applications using Java and related technologies. It includes using HTML, CSS, JavaScript (Angular/React) for UI, and Java with Spring Boot for server-side logic. Developers also manage databases (MySQL/MongoDB), APIs, and version control (Git). They handle the full application lifecycle from design to deployment.",
-    modules: [
-      {
-        id: "01",
-        title: "Introduction to Front-end (HTML, CSS)",
-        lessons: ["Basic of HTML Tags, List, Table, Form, Grid", "Class, Id, Inline, Internal, External Styles", "CSS Tag Styling, Selectors, Grid, Table", "Animation (key frames)", "Mobile Responsive"]
-      },
-      {
-        id: "02",
-        title: "Design of BS5 & Basic of JS",
-        lessons: ["Layout System (Form, Navbar, etc.,)", "Components, Grid Responsive (Table, Image structure)", "DataTypes, Variables, Conditions", "Loops (Forloop, ForEach, Map, find, filter)", "Functions, Form Handling"]
-      },
-      {
-        id: "03",
-        title: "Introduction of JAVA",
-        lessons: ["Java Methods (Scope, Recursion)", "Java Classes (OOPs), Java Errors (Debug, Exceptions)", "Java File Handling (CRUD)", "Java Data Structure(List, Tree, Sort, Hash)", "Advance JAVA Concepts"]
-      },
-      {
-        id: "04",
-        title: "Spring Boot Framework & Libraries",
-        lessons: ["Spring Boot Basics & Project Setup", "Creating REST APIs", "Database Integration (CRUD)", "Application Configuration & Properties", "Spring Boot with Security & Validation"]
-      },
-      {
-        id: "05",
-        title: "MySQL for Database",
-        lessons: ["MySQL Basics & Installation", "DATABASE & Table Operations", "CRUD Operations(SQL Commands)", "Joins & Relationships", "Advance Concepts"]
       }
     ]
   },
@@ -320,7 +286,7 @@ const COURSE_DATA = {
   "mern-stack-development": {
     title: "MERN Stack Development",
     category: "Development",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     image: "/Images/Course/mern-stack.png",
     overview: "MERN Stack Development training is designed to provide students with knowledge of how to build full-stack web applications from scratch using MongoDB, Express.js, React, and Node.js. Students gain hands-on experience in real-time projects in front-end and back-end development, database management, RESTful APIs, authentication, and modern development practices.",
     modules: [
@@ -354,7 +320,7 @@ const COURSE_DATA = {
   "python-full-stack-development": {
     title: "Python Full Stack Development",
     category: "Development",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     image: "/Images/Course/python-full-stack.png",
     overview: "Our full-stack Python development training provides students with the competencies to construct comprehensive web applications utilizing Python, front-end technologies, and databases. Students acquire practical experience in Django, REST APIs, user interface development, database management, authentication, and real-time project execution.",
     modules: [
@@ -388,7 +354,7 @@ const COURSE_DATA = {
   "data-analytics": {
     title: "Data Analytics",
     category: "Development",
-    duration: "4 MONTHS",
+    duration: "5 MONTHS",
     image: "/Images/Course/data-analytics.png",
     overview: "Learn data collection, cleaning, analysis, and visualization using Python, SQL, and Power BI.Gain hands-on experience with real-world datasets and interactive dashboards.",
      modules:[ 
@@ -422,8 +388,8 @@ const COURSE_DATA = {
   "mean-stack-development": {
     title: "MEAN Stack Development",
     category: "Development",
-    duration: "4 MONTHS",
-    image: "/Images/Course/mean-stack.png",
+    duration: "5 MONTHS",
+    image: "/Images/Course/MEAN.webp",
     overview: "MEAN Stack Development training is designed to provide students with knowledge of how to build full-stack web applications from scratch using MongoDB, Express.js, Angular, and Node.js. Students gain hands-on experience in real-time projects in front-end and back-end development, database management, RESTful APIs, authentication, and modern development practices.",
     modules: [
       {
