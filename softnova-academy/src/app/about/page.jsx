@@ -23,6 +23,7 @@ const AboutPage = () => {
   const containerRef = useRef(null);
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   const handlePlayToggle = () => {
     if (videoRef.current) {
@@ -156,21 +157,39 @@ const AboutPage = () => {
                 to build innovative products and shape the future of technology.
               </p>
             </div>
-            <div className={`${styles.aboutImageWrapper} gsap-fade-right`} onClick={handlePlayToggle} style={{ cursor: "pointer" }}>
-              <video
-                ref={videoRef}
-                src="/Images/gallery/about.mp4"
-                loop
-                playsInline
-                controls={isPlaying}
-                className={styles.aboutVideo}
-              />
-              {!isPlaying && (
-                <div className={styles.playOverlay}>
-                  <div className={styles.playButton}>
+            <div
+              className={`${styles.aboutImageWrapper} gsap-fade-right`}
+              onClick={!videoError ? handlePlayToggle : undefined}
+              style={{ cursor: videoError ? "default" : "pointer" }}
+            >
+              {videoError ? (
+                <div className={styles.videoFallback}>
+                  <div className={styles.playButton} style={{ opacity: 0.4, cursor: "default" }}>
                     <Play fill="currentColor" size={32} />
                   </div>
+                  <p style={{ color: "var(--text-muted)", marginTop: "1rem", fontSize: "0.9rem" }}>
+                    Video coming soon
+                  </p>
                 </div>
+              ) : (
+                <>
+                  <video
+                    ref={videoRef}
+                    src="/Images/gallery/about.mp4"
+                    loop
+                    playsInline
+                    controls={isPlaying}
+                    className={styles.aboutVideo}
+                    onError={() => setVideoError(true)}
+                  />
+                  {!isPlaying && (
+                    <div className={styles.playOverlay}>
+                      <div className={styles.playButton}>
+                        <Play fill="currentColor" size={32} />
+                      </div>
+                    </div>
+                  )}
+                </>
               )}
             </div>
           </div>

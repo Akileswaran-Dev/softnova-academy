@@ -14,7 +14,9 @@ import {
   Layers,
   Lightbulb,
   FileText,
-  Star
+  Star,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import styles from './BookPage.module.css';
 import { BOOKS } from '../data/books';
@@ -74,9 +76,12 @@ const BookPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((current) => (current + 1) % HERO_BOOKS.length);
-    }, 8000); // Slower cycle for reading content
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
+
+  const goPrev = () => setActiveIndex((i) => (i - 1 + HERO_BOOKS.length) % HERO_BOOKS.length);
+  const goNext = () => setActiveIndex((i) => (i + 1) % HERO_BOOKS.length);
 
   const activeItem = HERO_BOOKS[activeIndex];
 
@@ -117,108 +122,116 @@ const BookPage = () => {
         </div>
 
         {/* Curved Cover Shelf */}
-        <div className={styles.curveShelfWrapper}>
-          <div className={styles.curveShelf}>
-            {HERO_BOOKS.map((book, idx) => {
-              const isCenter = idx === activeIndex;
+        <div className={styles.carouselNav}>
+          {/* Prev Button */}
+          <button
+            className={`${styles.carouselBtn} ${styles.prevBtn}`}
+            onClick={goPrev}
+            style={{ '--active-color': activeItem.color }}
+            aria-label="Previous book"
+          >
+            <ChevronLeft size={22} />
+          </button>
 
-              // Calculate circular wrapping difference for 5 books
-              let diff = idx - activeIndex;
-              if (diff < -2) {
-                diff += 5;
-              } else if (diff > 2) {
-                diff -= 5;
-              }
+          <div className={styles.curveShelfWrapper}>
+            <div className={styles.curveShelf}>
+              {HERO_BOOKS.map((book, idx) => {
+                const isCenter = idx === activeIndex;
+                let diff = idx - activeIndex;
+                if (diff < -2) diff += 5;
+                else if (diff > 2) diff -= 5;
 
-              let rotateY = 0;
-              let translateX = 0;
-              let translateZ = 0;
-              let scale = 1;
-              let zIndex = 10 - Math.abs(diff);
-              let opacity = 1;
+                let rotateY = 0, translateX = 0, translateZ = 0, scale = 1;
+                let zIndex = 10 - Math.abs(diff);
+                let opacity = 1;
 
-              if (diff === 0) {
-                rotateY = 0;
-                translateX = 0;
-                translateZ = 80;
-                scale = 1.15;
-              } else if (diff < 0) {
-                // progressive sweep left
-                rotateY = 25 + (diff + 1) * -5;
-                translateX = diff * 175 - 15;
-                translateZ = diff * -40;
-                scale = 0.95 + diff * 0.05;
-                opacity = 0.9 + diff * 0.2;
-              } else {
-                // progressive sweep right
-                rotateY = -25 + (diff - 1) * 5;
-                translateX = diff * 175 + 15;
-                translateZ = diff * -40;
-                scale = 0.95 - diff * 0.05;
-                opacity = 0.9 - diff * 0.2;
-              }
+                if (diff === 0) {
+                  rotateY = 0; translateX = 0; translateZ = 80; scale = 1.15;
+                } else if (diff < 0) {
+                  rotateY = 25 + (diff + 1) * -5;
+                  translateX = diff * 175 - 15;
+                  translateZ = 80 - Math.abs(diff) * 40;
+                  scale = 0.95 + diff * 0.05;
+                  opacity = 0.9 + diff * 0.2;
+                } else {
+                  rotateY = -25 + (diff - 1) * 5;
+                  translateX = diff * 175 + 15;
+                  translateZ = 80 - Math.abs(diff) * 40;
+                  scale = 0.95 - diff * 0.05;
+                  opacity = 0.9 - diff * 0.2;
+                }
 
-              return (
-                <motion.div
-                  key={book.id}
-                  className={`${styles.shelfCard} ${isCenter ? styles.shelfCardActive : ''}`}
-                  animate={{
-                    x: translateX,
-                    z: translateZ,
-                    rotateY: rotateY,
-                    scale: scale,
-                    opacity: opacity,
-                  }}
-                  whileHover={{
-                    y: -12,
-                    scale: isCenter ? 1.20 : scale * 1.08,
-                    z: translateZ + 15,
-                  }}
-                  transition={{ type: "spring", stiffness: 150, damping: 22 }}
-                  style={{
-                    zIndex: zIndex,
-                    transformStyle: 'preserve-3d',
-                  }}
-                  onClick={() => setActiveIndex(idx)}
-                >
-                  <div
-                    className={styles.shelfCardCover}
-                    style={{
-                      borderColor: isCenter ? book.color : 'rgba(255,255,255,0.08)',
-                      boxShadow: isCenter ? `0 20px 40px ${book.color}25` : '0 10px 20px rgba(0,0,0,0.15)'
-                    }}
+                return (
+                  <motion.div
+                    key={book.id}
+                    className={`${styles.shelfCard} ${isCenter ? styles.shelfCardActive : ''}`}
+                    animate={{ x: translateX, z: translateZ, rotateY, scale, opacity }}
+                    whileHover={{ y: -12, scale: isCenter ? 1.20 : scale * 1.08, z: translateZ + 15 }}
+                    transition={{ type: "spring", stiffness: 150, damping: 22 }}
+                    style={{ zIndex, transformStyle: 'preserve-3d' }}
+                    onClick={() => setActiveIndex(idx)}
                   >
                     <div
-                      className={styles.shelfCardImage}
+                      className={styles.shelfCardCover}
                       style={{
-                        backgroundImage: `url(${book.coverImage})`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        borderLeft: `6px solid ${book.color}`
+                        borderColor: isCenter ? book.color : 'rgba(255,255,255,0.08)',
+                        boxShadow: isCenter ? `0 20px 40px ${book.color}25` : '0 10px 20px rgba(0,0,0,0.15)'
                       }}
                     >
-                      {!book.coverImage && (
-                        <div className={styles.fallbackShelfText}>
-                          <h4>{book.title}</h4>
-                          <p>{book.subtitle}</p>
-                        </div>
-                      )}
-                      <div className={styles.shelfCardOverlay} />
-                      <div className={styles.shelfCardBrand}>SOFTNOVA</div>
+                      <div
+                        className={styles.shelfCardImage}
+                        style={{
+                          backgroundImage: `url(${book.coverImage})`,
+                          backgroundSize: 'cover',
+                          backgroundPosition: 'center',
+                          borderLeft: `6px solid ${book.color}`
+                        }}
+                      >
+                        {!book.coverImage && (
+                          <div className={styles.fallbackShelfText}>
+                            <h4>{book.title}</h4>
+                            <p>{book.subtitle}</p>
+                          </div>
+                        )}
+                        <div className={styles.shelfCardOverlay} />
+                        <div className={styles.shelfCardBrand}>SOFTNOVA</div>
+                      </div>
                     </div>
-                  </div>
-                  {/* Subtle active glow light indicator */}
-                  {isCenter && (
-                    <motion.div
-                      className={styles.glowLight}
-                      layoutId="activeGlow"
-                      style={{ backgroundColor: book.color }}
-                    />
-                  )}
-                </motion.div>
-              );
-            })}
+                    {isCenter && (
+                      <motion.div
+                        className={styles.glowLight}
+                        layoutId="activeGlow"
+                        style={{ backgroundColor: book.color }}
+                      />
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
+
+          {/* Next Button */}
+          <button
+            className={`${styles.carouselBtn} ${styles.nextBtn}`}
+            onClick={goNext}
+            style={{ '--active-color': activeItem.color }}
+            aria-label="Next book"
+          >
+            <ChevronRight size={22} />
+          </button>
+        </div>
+
+        {/* Dot Indicators */}
+        <div className={styles.carouselDots}>
+          {HERO_BOOKS.map((_, idx) => (
+            <button
+              key={idx}
+              className={`${styles.dot} ${idx === activeIndex ? styles.dotActive : ''}`}
+              onClick={() => setActiveIndex(idx)}
+              aria-label={`Go to book ${idx + 1}`}
+              style={idx === activeIndex ? { backgroundColor: activeItem.color } : {}}
+            />
+          ))}
         </div>
 
         {/* Dynamic Column Insights Section (Below Shelf) */}

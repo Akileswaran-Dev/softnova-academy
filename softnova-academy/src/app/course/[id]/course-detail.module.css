@@ -349,7 +349,109 @@
     text-align: center;
     gap: 30px;
   }
-  .overviewGrid {
-    grid-template-columns: 1fr;
+  .headerVisual { flex: 0 0 auto; width: 100%; }
+  .overviewGrid { grid-template-columns: 1fr; }
+  .meta { justify-content: center; }
+  .enrollBtn { margin: 0 auto; }
+}
+
+@media (max-width: 768px) {
+  .detailPage {
+    padding: 90px 14px 60px;
   }
+  .backBtn {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+    margin-bottom: 22px;
+    border-radius: 10px;
+  }
+  .header {
+    padding: 22px 18px;
+    border-radius: 24px;
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .headerVisual { flex: 0 0 auto; width: 100%; }
+  /* Image — bigger on mobile (was too small) */
+  .headerImgWrapper {
+    height: 220px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+  .categoryTag {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .title {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .overviewText {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 16px;
+  }
+  .meta { gap: 14px; }
+  .metaItem { font-size: 0.82rem; gap: 6px; }
+  .headerAction { margin-top: 18px; }
+  .enrollBtn {
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 16px;
+  }
+  /* Tabs */
+  .tabsWrapper {
+    padding: 6px;
+    border-radius: 16px;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .tabsContainer { gap: 10px; padding: 8px 4px; }
+  .tab {
+    padding: 8px 14px;
+    font-size: 0.78rem;
+    border-radius: 10px;
+    gap: 6px;
+  }
+  .tabNum { font-size: 0.65rem; padding: 2px 5px; }
+  .navBtn { width: 34px; height: 34px; }
+  /* Module cards */
+  .syllabusGrid { gap: 16px; }
+  .moduleCard {
+    padding: 18px 14px;
+    border-radius: 18px;
+  }
+  .moduleHeader {
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+  }
+  .modNumCrater { width: 36px; height: 36px; font-size: 0.85rem; }
+  .modTitle { font-size: 1.1rem; }
+  .lessonList { gap: 10px; }
+  .lessonItem {
+    padding: 12px 14px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  .lessonTitle { font-size: 0.88rem; }
+  .lessonSub { font-size: 0.7rem; margin-top: 2px; }
+  /* Overview cards */
+  .overviewGrid { gap: 16px; }
+  .textCard { padding: 18px 16px; border-radius: 18px; }
+  .textCard h3 { font-size: 1rem; margin-bottom: 10px; }
+  .placeholderCard { height: 180px; border-radius: 18px; gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .detailPage { padding: 80px 10px 50px; }
+  .headerImgWrapper { height: 180px; }
+  .title { font-size: 1.2rem; }
+  .overviewText { font-size: 0.82rem; }
+  .enrollBtn { padding: 10px 22px; font-size: 0.9rem; }
+  .modTitle { font-size: 1rem; }
+  .lessonTitle { font-size: 0.82rem; }
+  .tab { padding: 7px 10px; font-size: 0.72rem; }
 }

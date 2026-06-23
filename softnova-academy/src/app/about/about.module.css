@@ -463,6 +463,18 @@
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
 }
 
+.videoFallback {
+  width: 100%;
+  min-height: 280px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--background);
+  box-shadow: inset 4px 4px 10px rgba(0,0,0,0.08), inset -4px -4px 10px rgba(255,255,255,0.6);
+}
+
 .playOverlay {
   position: absolute;
   inset: 15px;

@@ -169,6 +169,15 @@ export default function BookDetailsPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(1);
   const [wishlisted, setWishlisted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = isPreviewOpen ? 'hidden' : '';
@@ -1721,7 +1730,7 @@ export default function BookDetailsPage() {
   );
 
   return (
-    <div className={styles.pageWrapper}>
+    <div className={styles.pageWrapper} suppressHydrationWarning>
       <div className={styles.blob1} style={{ background: `${book.imgColor}25` }} />
       <div className={styles.blob2} style={{ background: `${book.color}18` }} />
       <div className={styles.mouseGlow} id="mouse-glow" />
@@ -1737,7 +1746,7 @@ export default function BookDetailsPage() {
 
         {/* HERO */}
         <section className={styles.hero}>
-          <Book3D book={book} />
+          <Book3D book={book} width={isMobile ? 180 : 300} height={isMobile ? 250 : 420} />
           <motion.div className={styles.heroInfo} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15, duration: 0.45, ease: "easeOut" }}>
             <span className={styles.categoryBadge} style={{ background: `${book.color}20`, color: book.color }}>{book.category}</span>
             <h1 className={styles.mainTitle}>{book.title}</h1>

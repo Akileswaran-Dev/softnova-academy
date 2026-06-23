@@ -46,6 +46,8 @@ function Dust({ color }) {
 }
 
 export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
+  const [isMobile, setIsMobile] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
   const [spread, setSpread] = useState(0);
   const [flipping, setFlipping] = useState(false);
   const [flipDir, setFlipDir] = useState(1);
@@ -54,8 +56,17 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
   const totalSpreads = Math.ceil((bookPages?.length || 0) / 2);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  useEffect(() => {
     if (isOpen) {
       setSpread(0);
+      setCurrentPage(0);
       setFlipping(false);
       setIsOpenState(false);
       setIsOpening(false);
@@ -127,83 +138,123 @@ export default function BookPreview3D({ book, isOpen, onClose, bookPages }) {
               exit={{ opacity: 0, scale: 0.95 }}
             >
               {isOpenState && !isOpening ? (
-                <>
-                  {/* Book Open Base */}
-                  <div className={styles.bookOpenContainer}>
-                    <div className={styles.bookOpenBase}>
-                      {/* Left Page */}
-                      <div className={styles.openPageLeft}>
+                isMobile ? (
+                  <>
+                    {/* Mobile Single Page Container */}
+                    <div className={styles.mobilePageContainer}>
+                      <div className={styles.mobilePage}>
                         <div className={styles.pageInnerContent}>
-                          {bookPages[leftIdx] || (
+                          {bookPages[currentPage] || (
                             <div className={styles.emptyPage}>
                               <p>No content on this page.</p>
                             </div>
                           )}
                         </div>
                       </div>
-
-                      {/* Open Spine */}
-                      <div className={styles.openSpine} />
-
-                      {/* Right Page */}
-                      <div className={styles.openPageRight}>
-                        <div className={styles.pageInnerContent}>
-                          {bookPages[rightIdx] || (
-                            <div className={styles.emptyPage}>
-                              {/* <p>End of preview.</p> */}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      {/* Flipping animation sheet */}
-                      {flipping && (
-                        <div
-                          className={`${styles.flipSheet} ${flipDir === 1 ? styles.flipNext : styles.flipPrev
-                            }`}
-                        >
-                          <div className={styles.flipFront}>
-                            <div className={styles.pageInnerContent}>
-                              {flipDir === 1
-                                ? (bookPages[leftIdx - 2] || null)
-                                : (bookPages[leftIdx] || null)}
-                            </div>
-                          </div>
-                          <div className={styles.flipBack}>
-                            <div className={styles.pageInnerContent}>
-                              {flipDir === 1
-                                ? (bookPages[rightIdx] || null)
-                                : (bookPages[rightIdx + 2] || null)}
-                            </div>
-                          </div>
-                        </div>
-                      )}
                     </div>
-                  </div>
 
-                  {/* Navigation */}
-                  <div className={styles.readerNav}>
-                    <button
-                      className={styles.navBtn}
-                      onClick={() => flip(-1)}
-                      disabled={spread === 0 || flipping}
-                    >
-                      <ChevronLeft size={18} />
-                      <span>Prev</span>
-                    </button>
-                    <span className={styles.pageIndicator}>
-                      {spread + 1} / {totalSpreads}
-                    </span>
-                    <button
-                      className={styles.navBtn}
-                      onClick={() => flip(1)}
-                      disabled={spread >= totalSpreads - 1 || flipping}
-                    >
-                      <span>Next</span>
-                      <ChevronRight size={18} />
-                    </button>
-                  </div>
-                </>
+                    {/* Mobile Navigation */}
+                    <div className={styles.readerNav}>
+                      <button
+                        className={styles.navBtn}
+                        onClick={() => setCurrentPage(p => Math.max(0, p - 1))}
+                        disabled={currentPage === 0}
+                      >
+                        <ChevronLeft size={18} />
+                        <span>Prev</span>
+                      </button>
+                      <span className={styles.pageIndicator}>
+                        {currentPage + 1} / {bookPages?.length || 0}
+                      </span>
+                      <button
+                        className={styles.navBtn}
+                        onClick={() => setCurrentPage(p => Math.min((bookPages?.length || 1) - 1, p + 1))}
+                        disabled={currentPage >= (bookPages?.length || 1) - 1}
+                      >
+                        <span>Next</span>
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    {/* Book Open Base */}
+                    <div className={styles.bookOpenContainer}>
+                      <div className={styles.bookOpenBase}>
+                        {/* Left Page */}
+                        <div className={styles.openPageLeft}>
+                          <div className={styles.pageInnerContent}>
+                            {bookPages[leftIdx] || (
+                              <div className={styles.emptyPage}>
+                                <p>No content on this page.</p>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Open Spine */}
+                        <div className={styles.openSpine} />
+
+                        {/* Right Page */}
+                        <div className={styles.openPageRight}>
+                          <div className={styles.pageInnerContent}>
+                            {bookPages[rightIdx] || (
+                              <div className={styles.emptyPage}>
+                                {/* <p>End of preview.</p> */}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Flipping animation sheet */}
+                        {flipping && (
+                          <div
+                            className={`${styles.flipSheet} ${flipDir === 1 ? styles.flipNext : styles.flipPrev
+                              }`}
+                          >
+                            <div className={styles.flipFront}>
+                              <div className={styles.pageInnerContent}>
+                                {flipDir === 1
+                                  ? (bookPages[leftIdx - 2] || null)
+                                  : (bookPages[leftIdx] || null)}
+                              </div>
+                            </div>
+                            <div className={styles.flipBack}>
+                              <div className={styles.pageInnerContent}>
+                                {flipDir === 1
+                                  ? (bookPages[rightIdx] || null)
+                                  : (bookPages[rightIdx + 2] || null)}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Navigation */}
+                    <div className={styles.readerNav}>
+                      <button
+                        className={styles.navBtn}
+                        onClick={() => flip(-1)}
+                        disabled={spread === 0 || flipping}
+                      >
+                        <ChevronLeft size={18} />
+                        <span>Prev</span>
+                      </button>
+                      <span className={styles.pageIndicator}>
+                        {spread + 1} / {totalSpreads}
+                      </span>
+                      <button
+                        className={styles.navBtn}
+                        onClick={() => flip(1)}
+                        disabled={spread >= totalSpreads - 1 || flipping}
+                      >
+                        <span>Next</span>
+                        <ChevronRight size={18} />
+                      </button>
+                    </div>
+                  </>
+                )
               ) : (
                 /* Loading State */
                 <motion.div
