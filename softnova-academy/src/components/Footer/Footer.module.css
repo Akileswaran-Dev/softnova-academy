@@ -104,6 +104,10 @@
   gap: 12px;
 }
 
+.linksWrapper {
+  display: contents;
+}
+
 .linkList a {
   text-decoration: none;
   color: var(--foreground);
@@ -472,6 +476,16 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
   }
+  
+  .linksWrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .newsletterCol {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -503,6 +517,14 @@
   .socialIcons {
     justify-content: center;
   }
+  
+  .linksWrapper {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+  }
+  
   .newsletterCol {
     grid-column: span 1;
   }

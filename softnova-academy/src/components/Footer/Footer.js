@@ -172,26 +172,29 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className={styles.linksCol}>
-              <h4 className={styles.heading}>Home</h4>
-              <ul className={styles.linkList}>
-                <li><Link href="/#benefits">Benefits</Link></li>
-                <li><Link href="/course">Our Courses</Link></li>
-                <li><Link href="/#faq">Our FAQ</Link></li>
-                <li><Link href="/gallery">Gallery</Link></li>
-              </ul>
-            </div>
+            {/* Links Wrapper for flex on mobile/tablet */}
+            <div className={styles.linksWrapper}>
+              {/* Quick Links */}
+              <div className={styles.linksCol}>
+                <h4 className={styles.heading}>Home</h4>
+                <ul className={styles.linkList}>
+                  <li><Link href="/#benefits">Benefits</Link></li>
+                  <li><Link href="/course">Our Courses</Link></li>
+                  <li><Link href="/#faq">Our FAQ</Link></li>
+                  <li><Link href="/gallery">Gallery</Link></li>
+                </ul>
+              </div>
 
-            {/* Company Links */}
-            <div className={styles.linksCol}>
-              <h4 className={styles.heading}>About Us</h4>
-              <ul className={styles.linkList}>
-                <li><Link href="/#achievements">Achievement</Link></li>
-                <li><Link href="/#about">Our Goals</Link></li>
-                <li><Link href="/intership">Internship</Link></li>
-                <li><Link href="/contact-us">Contact Us</Link></li>
-              </ul>
+              {/* Company Links */}
+              <div className={styles.linksCol}>
+                <h4 className={styles.heading}>About Us</h4>
+                <ul className={styles.linkList}>
+                  <li><Link href="/#achievements">Achievement</Link></li>
+                  <li><Link href="/#about">Our Goals</Link></li>
+                  <li><Link href="/intership">Internship</Link></li>
+                  <li><Link href="/contact-us">Contact Us</Link></li>
+                </ul>
+              </div>
             </div>
 
             {/* Newsletter Column */}
