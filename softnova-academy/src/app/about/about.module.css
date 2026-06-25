@@ -544,8 +544,8 @@
 
 @media (max-width: 900px) {
   .featureGrid {
-    display: flex !important;
-    flex-direction: column !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    display: grid !important;
   }
 }
 
@@ -1065,45 +1065,118 @@
   }
 }
 
+/* TABLET PORTRAIT (1024px) */
 @media (max-width: 1024px) {
   .hero3d {
-    min-height: 80vh;
-    padding-top: 100px;
+    min-height: 70vh;
+    padding-top: 80px;
   }
 
   .centralScreenWrapper {
     width: 90%;
-    height: 420px;
+    height: 380px;
     border-radius: 25px;
   }
 
   .mainTitle {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
   }
 
   .aboutSplit {
     grid-template-columns: 1fr;
     gap: 40px;
+    text-align: center;
+  }
+
+  .aboutText p {
+    text-align: center;
+  }
+
+  .aboutImageWrapper {
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .aboutContainer {
-    padding: 50px 30px;
+    padding: 40px 30px;
+  }
+
+  .aboutText h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .aboutText p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+
+  .statsSection {
+    padding: 50px 5%;
+  }
+
+  .statItem {
+    padding: 2rem 1rem;
+  }
+
+  .statItem h3 {
+    font-size: 2.5rem;
+  }
+
+  .statItem p {
+    font-size: 0.9rem;
   }
 
   .visionGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .glassCard {
+    padding: 2.5rem 2rem;
+  }
+
+  .glassCard h2 {
+    font-size: 2rem;
+  }
+
+  .glassCard p {
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
 
   .founderSection {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 30px;
-    margin-bottom: 60px;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 35px;
+    padding: 30px 25px;
+    margin-bottom: 50px;
+    align-items: flex-start;
+  }
+
+  .founderImageWrapper {
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .founderName {
     font-size: 2.2rem;
-    text-align: center;
+    text-align: left;
+  }
+
+  .founderRole {
+    font-size: 1.05rem;
+    letter-spacing: 2px;
+    text-align: left;
+  }
+
+  .founderHeader {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  .founderBio {
+    font-size: 1.05rem;
+    line-height: 1.6;
   }
 
   .leftSphere {
@@ -1205,8 +1278,25 @@
     gap: 15px;
   }
 
+  .ctaFooter {
+    padding: 40px 20px;
+    margin: 40px auto;
+    width: 95%;
+  }
+
   .ctaFooter h2 {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+  }
+
+  .ctaFooter p {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .ctaButton {
+    padding: 0.9rem 2.2rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
   }
 
   .podiumBase {
@@ -1215,13 +1305,103 @@
   }
 
   .featureGrid {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
 
   .featureCard {
     padding: 2rem !important;
     min-height: auto !important;
+  }
+
+  .founderSection {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+
+  .founderImageWrapper {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .founderName {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .founderRole {
+    text-align: center;
+  }
+
+  .founderHeader {
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .visionGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .glassCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .glassCard h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .glassCard p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .iconWrapper {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 16px !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .iconWrapper svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .teamStickyStackContainer {
+    gap: 30px;
+    padding: 20px 10px 10px;
+  }
+
+  .teamCard {
+    padding: 1.2rem;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .teamImageContainer {
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .teamInfo h3 {
+    font-size: 1.4rem;
+  }
+
+  .memberRole {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .featureGrid {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -1335,6 +1515,21 @@
   .learnMoreHint {
     margin-top: 5px;
     margin-bottom: 20px;
+  }
+
+  .ctaFooter {
+    padding: 30px 15px;
+    margin: 30px auto;
+  }
+
+  .ctaFooter h2 {
+    font-size: 1.4rem;
+  }
+
+  .ctaButton {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.95rem;
+    margin-top: 0.8rem;
   }
 }
 
@@ -1594,4 +1789,24 @@
   .ctaFooter h2 {
     font-size: 6rem;
   }
+}
+
+/* =========================================
+   TEAM STICKY STACK FOR MOBILE ONLY
+   ========================================= */
+.teamStickyStackContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  padding: 40px 10px 20px;
+}
+
+.teamStickyStackContainer .teamCard {
+  position: sticky;
+  width: 100%;
+  background: var(--background);
+  box-shadow: var(--neumorph-shadow);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  overflow: hidden;
 }

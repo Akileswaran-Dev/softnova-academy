@@ -59,19 +59,21 @@ const Navbar = () => {
 
   return (
     <>
+      <div className={styles.stickyLogoContainer}>
+        <Link href="/" className={styles.logo}>
+          <Image
+            src="/Images/soft.webp"
+            alt="Softnova Academy Logo"
+            width={360}
+            height={80}
+            className={styles.logoImage}
+            priority
+          />
+        </Link>
+      </div>
+
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isOpen ? styles.navOpen : ''}`}>
         <div className={styles.navContainer}>
-          <Link href="/" className={styles.logo}>
-            <Image
-              src="/Images/soft.webp"
-              alt="Softnova Academy Logo"
-              width={360}
-              height={80}
-              className={styles.logoImage}
-              priority
-            />
-          </Link>
-
           {/* Desktop Links */}
           <div className={styles.navLinks}>
             {navLinks.map((link) => {
@@ -124,6 +126,13 @@ const Navbar = () => {
             </Link>
           );
         })}
+        <Link 
+          href="/enroll" 
+          className={styles.mobileCtaButton}
+          onClick={() => setIsOpen(false)}
+        >
+          Join Now
+        </Link>
       </div>
     </>
   );

@@ -304,8 +304,10 @@
     border-radius: 24px;
   }
   .cardLeft {
-    height: 160px;
-    flex: 0 0 160px;
+    width: 100%;
+    max-width: 280px;
+    height: 260px;
+    flex: 0 0 260px;
     border-radius: 20px;
     padding: 10px;
   }
@@ -375,8 +377,10 @@
     border-radius: 18px;
   }
   .cardLeft {
-    height: 140px;
-    flex: 0 0 140px;
+    width: 100%;
+    max-width: 240px;
+    height: 220px;
+    flex: 0 0 220px;
   }
   .courseTitle { font-size: 1.05rem; }
   .courseDesc { font-size: 0.8rem; margin-bottom: 10px; }

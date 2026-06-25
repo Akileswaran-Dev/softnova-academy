@@ -152,11 +152,9 @@ export default function HomePage() {
         <div className={styles.heroBackground}></div>
 
         {/* Top Header/Background */}
-        {!isMobile && (
-          <div className={styles.topYellowBg}>
-            <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
-          </div>
-        )}
+        <div className={styles.topYellowBg}>
+          <h1 className={styles.mainTitleUpper}>Softnova Academy</h1>
+        </div>
 
         {/* Main Central Glass Card */}
         <div className={styles.glassCard}>

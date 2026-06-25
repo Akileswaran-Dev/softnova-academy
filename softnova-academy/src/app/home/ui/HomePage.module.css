@@ -37,17 +37,16 @@
 }
 
 .mainTitleUpper {
-  position: absolute;
-  top: 20px;
-  width: 100%;
   text-align: center;
-  font-size: clamp(2rem, 3.5vw, 4.5rem);
-  font-weight: 900;
-  color: var(--primary);
-  letter-spacing: -2px;
+  width: 100%;
+  color: #f68e52;
+  letter-spacing: -1px;
   text-transform: uppercase;
   z-index: 2;
-  text-shadow: 4px 4px 0px var(--white), 8px 8px 15px rgba(255, 124, 48, 0.2);
+  font-size: clamp(1.5rem, 2.5vw, 3.2rem);
+  font-weight: 900;
+  position: absolute;
+  top: 10px;
 }
 
 /* CLAYMORPHIC CARD */
@@ -115,7 +114,8 @@
   width: 65px;
   height: 65px;
   background: var(--background);
-  border-radius: 50%; /* Circle like 2nd image */
+  border-radius: 50%;
+  /* Circle like 2nd image */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,7 +178,7 @@
   height: auto;
   z-index: 2;
   /* Masking/Removing background feel */
-  mix-blend-mode: multiply; 
+  mix-blend-mode: multiply;
   filter: contrast(1.1);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 75%;
@@ -249,8 +249,13 @@
 }
 
 @keyframes rotateOrbit {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .orbitItem {
@@ -276,8 +281,13 @@
 }
 
 @keyframes counterRotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(-360deg);
+  }
 }
 
 .orbitItem:hover {
@@ -285,6 +295,7 @@
   box-shadow: 12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light);
   color: var(--primary);
 }
+
 .joinBtn {
   background: var(--primary);
   color: white;
@@ -357,7 +368,8 @@
   width: 90px;
   height: 90px;
   background: var(--background);
-  border-radius: 50%; /* Circle like ref image */
+  border-radius: 50%;
+  /* Circle like ref image */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -404,7 +416,7 @@
   height: auto;
   z-index: 2;
   /* Masking/Removing background feel */
-  mix-blend-mode: multiply; 
+  mix-blend-mode: multiply;
   filter: contrast(1.1);
   transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   border-radius: 75%;
@@ -550,7 +562,8 @@
   width: 90px;
   height: 90px;
   background: var(--background);
-  border-radius: 50%; /* Circle like ref image */
+  border-radius: 50%;
+  /* Circle like ref image */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -578,7 +591,7 @@
     max-width: 1100px;
     gap: 30px;
   }
-  
+
   .academyTitle {
     font-size: 3rem;
   }
@@ -589,6 +602,7 @@
   .productHero {
     padding-top: 100px;
   }
+
   .glassCard {
     grid-template-columns: 1fr;
     max-width: 800px;
@@ -620,173 +634,253 @@
 
 /* TABLET PORTRAIT (1024px) */
 @media (max-width: 1024px) {
+  .main {
+    padding: 20px 4%;
+    gap: 30px;
+  }
+
   .productHero {
-    padding-top: 120px;
-  }
-
-  .mainTitleUpper {
-    font-size: 3rem;
-    top: 30px;
-  }
-
-  .academyTitle {
-    font-size: 2.8rem;
-  }
-
-  .tagline {
-    text-align: center;
-    font-size: 1.1rem;
-  }
-
-  .imageCircle {
-    width: 320px;
-    height: 320px;
-  }
-
-  .techStackContainer {
-    width: 250px;
-    height: 250px;
-  }
-
-  .techOrbit {
-    width: 180px;
-    height: 180px;
-  }
-
-  .orbitItem {
-    width: 60px;
-    height: 60px;
-    font-size: 1.8rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(90px) rotate(calc(var(--i) * (-360deg / 5)));
-  }
-
-  .joinBtn {
-    font-size: 1.1rem;
-    padding: 14px 28px;
-  }
-}
-
-/* MOBILE LARGE (768px) */
-@media (max-width: 768px) {
-  .productHero {
-    padding: 60px 4% 80px;
-  }
-
-  .blob1, .blob2, .blob3 {
-    display: none; /* Hide background blobs for cleaner mobile look */
+    padding: 40px 4% 15px;
   }
 
   .topYellowBg {
     top: 15px;
-    left: 10px;
-    right: 10px;
-    height: 50%;
-    border-radius: var(--radius-md);
+    height: 90px;
+    left: 15px;
+    right: 15px;
   }
 
   .mainTitleUpper {
-    font-size: 1.8rem;
-    top: 10px;
-    letter-spacing: -1px;
-    text-shadow: 2px 2px 0px var(--white);
+    font-size: 2rem;
+    top: 20px;
   }
 
   .glassCard {
-    grid-template-columns: 1fr;
-    padding: 50px 20px 40px;
-    gap: 30px;
+    padding: 30px 20px;
     margin-top: 20px;
-    border-radius: var(--radius-md);
+    gap: 25px;
   }
 
   .academyTitle {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 12px;
   }
 
   .tagline {
-    font-size: 1rem;
-    margin-bottom: 25px;
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
   }
 
   .imageCircle {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 260px;
   }
 
   .priceTag {
-    width: 140px;
     font-size: 1rem;
+    width: 150px;
     left: 50%;
     transform: translateX(-50%);
     bottom: -15px;
   }
 
   .techStackContainer {
-    width: 240px;
-    height: 240px;
+    width: 200px;
+    height: 200px;
   }
 
   .techOrbit {
-    width: 160px;
-    height: 160px;
+    width: 140px;
+    height: 140px;
   }
 
   .orbitItem {
-    width: 55px;
-    height: 55px;
-    font-size: 1.6rem;
-    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(85px) rotate(calc(var(--i) * (-360deg / 5)));
+    width: 45px;
+    height: 45px;
+    font-size: 1.3rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(70px) rotate(calc(var(--i) * (-360deg / 5)));
   }
 
   .joinBtn {
-    font-size: 1.1rem;
-    padding: 14px 30px;
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .cardsSection {
+    margin: 15px auto 30px;
+    padding: 0 4%;
+  }
+
+  .cardsTitle {
+    font-size: 2rem;
+    margin-bottom: 25px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .featureCard {
+    padding: 30px 20px;
+    gap: 12px;
+  }
+
+  .cardIconRow {
+    width: 65px;
+    height: 65px;
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+}
+
+/* TABLET LARGE (1024px) */
+@media (max-width: 1024px) {
+  .productHero {
+    padding: 100px 4% 50px;
+  }
+  .topYellowBg {
+    top: 60px;
+  }
+  .glassCard {
+    margin-top: 40px;
+  }
+}
+
+/* MOBILE LARGE (768px) */
+@media (max-width: 768px) {
+  .productHero {
+    padding: 73px 4% 40px;
+  }
+
+  .blob1,
+  .blob2,
+  .blob3 {
+    display: none;
+  }
+
+  .topYellowBg {
+    top: 20px;
+    left: 10px;
+    right: 10px;
+    height: 90px;
+    border-radius: var(--radius-md);
+  }
+
+  .mainTitleUpper {
+    font-size: 1.5rem;
+    top: 25px;
+    letter-spacing: -0.5px;
+    text-shadow: 2px 2px 0px var(--white), 4px 4px 10px rgba(255, 124, 48, 0.2);
+  }
+
+  .glassCard {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 30px;
+    gap: 25px;
+    margin-top: 10px;
+    border-radius: var(--radius-md);
+  }
+
+  .academyTitle {
+    font-size: 2rem;
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+
+  .imageCircle {
+    width: 260px;
+    height: 260px;
+  }
+
+  .priceTag {
+    width: 130px;
+    font-size: 0.95rem;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -12px;
+  }
+
+  .techStackContainer {
+    width: 220px;
+    height: 220px;
+  }
+
+  .techOrbit {
+    width: 140px;
+    height: 140px;
+  }
+
+  .orbitItem {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    transform: translate(-50%, -50%) rotate(calc(var(--i) * (360deg / 5))) translate(75px) rotate(calc(var(--i) * (-360deg / 5)));
+  }
+
+  .joinBtn {
+    font-size: 1rem;
+    padding: 12px 25px;
     width: 100%;
-    max-width: 280px;
+    max-width: 250px;
     letter-spacing: 1px;
   }
 
   .cardsSection {
     padding: 0 4%;
-    margin: 40px auto;
+    margin: 15px auto 30px;
   }
 
   .cardsTitle {
-    font-size: 2rem;
-    margin-bottom: 50px;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
     line-height: 1.2;
   }
 
   .cardsGrid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
 
   .featureCard {
-    padding: 40px 25px;
+    padding: 30px 20px;
+    gap: 12px;
   }
 
   .main {
-    padding: 40px 4%;
-    gap: 40px;
+    padding: 30px 4%;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 480px) {
   .productHero {
-    padding: 50px 3% 60px;
+    padding: 63px 3% 40px;
   }
 
   .mainTitleUpper {
-    display: none; /* Hide on small mobile to avoid header overlap */
+    display: block;
+    font-size: 1.25rem;
+    top: 20px;
   }
 
   .topYellowBg {
-    height: 45%;
+    height: 80px;
+    top: 10px;
   }
 
   .glassCard {
-    padding: 40px 15px 30px;
+    padding: 30px 15px 25px;
     gap: 20px;
     margin-top: 10px;
   }
@@ -811,7 +905,8 @@
   }
 
   .techStackContainer {
-    display: none; /* Hide tech stack on small mobile for simplicity */
+    display: none;
+    /* Hide tech stack on small mobile for simplicity */
   }
 
   .cardsTitle {
@@ -832,32 +927,39 @@
   .productHero {
     padding: 30px 2% 40px;
   }
+
   .main {
     padding: 10px 3%;
     gap: 15px;
   }
+
   .cardsSection {
     margin: 10px auto 30px;
     padding: 0 3%;
   }
+
   .cardsTitle {
     font-size: 1.3rem;
     margin-bottom: 25px;
   }
+
   .featureCard {
     padding: 25px 15px;
     gap: 10px;
   }
+
   .cardIconRow {
     width: 60px;
     height: 60px;
     font-size: 1.8rem;
     margin-bottom: 10px;
   }
+
   .featureCard h4 {
     font-size: 1rem;
     margin: 0;
   }
+
   .featureCard p {
     font-size: 0.75rem;
     margin: 0;

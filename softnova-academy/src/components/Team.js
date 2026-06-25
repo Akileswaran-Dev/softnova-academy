@@ -107,6 +107,15 @@ function ReadMoreFounderBio({ paras }) {
 }
 
 export default function Team() {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => setIsMobileOrTablet(window.innerWidth < 1025);
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
   return (
     <section className={styles.section}>
       <div className="gsap-fade-up">
@@ -154,37 +163,78 @@ export default function Team() {
         <h2 className={styles.sectionTitle}>Meet Our Team</h2>
       </div>
 
-      <div className={`${styles.teamGrid} gsap-stagger-group`}>
-        {teamMembers.map((member, index) => (
-          <div key={index} className={`${styles.teamCard} gsap-card`}>
-            <div className={styles.teamImageContainer}>
-              <Image
-                src={member.image}
-                alt={member.name}
-                fill
-                className={styles.teamImage}
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                priority={
-                  member.image === "/Images/about/Akka.webp" ||
-                  member.image === "/Images/about/dharshika_cropped.webp"
-                }
-              />
-              <div className={styles.orangeSplash} />
-              <div className={styles.teamOverlay}>
-                <span className={styles.memberRole}>{member.role}</span>
+      {isMobileOrTablet ? (
+        <div className={styles.teamStickyStackContainer}>
+          {teamMembers.map((member, index) => (
+            <div 
+              key={index} 
+              className={`${styles.teamCard} gsap-card`}
+              style={{
+                top: `${100 + index * 25}px`,
+                zIndex: index + 1
+              }}
+            >
+              <div className={styles.teamImageContainer}>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className={styles.teamImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={
+                    member.image === "/Images/about/Akka.webp" ||
+                    member.image === "/Images/about/dharshika_cropped.webp"
+                  }
+                />
+                <div className={styles.orangeSplash} />
+                <div className={styles.teamOverlay}>
+                  <span className={styles.memberRole}>{member.role}</span>
+                </div>
+              </div>
+
+              <div className={styles.teamInfo}>
+                <h3>{member.name}</h3>
+                <div className={styles.memberDomain}>{member.domain}</div>
+                {member.bio && (
+                  <ReadMoreBio bio={member.bio} style={{ textAlign: "left" }} bioClass={styles.memberBio} />
+                )}
               </div>
             </div>
+          ))}
+        </div>
+      ) : (
+        <div className={`${styles.teamGrid} gsap-stagger-group`}>
+          {teamMembers.map((member, index) => (
+            <div key={index} className={`${styles.teamCard} gsap-card`}>
+              <div className={styles.teamImageContainer}>
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className={styles.teamImage}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  priority={
+                    member.image === "/Images/about/Akka.webp" ||
+                    member.image === "/Images/about/dharshika_cropped.webp"
+                  }
+                />
+                <div className={styles.orangeSplash} />
+                <div className={styles.teamOverlay}>
+                  <span className={styles.memberRole}>{member.role}</span>
+                </div>
+              </div>
 
-            <div className={styles.teamInfo}>
-              <h3>{member.name}</h3>
-              <div className={styles.memberDomain}>{member.domain}</div>
-              {member.bio && (
-                <ReadMoreBio bio={member.bio} style={{ textAlign: "left" }} bioClass={styles.memberBio} />
-              )}
+              <div className={styles.teamInfo}>
+                <h3>{member.name}</h3>
+                <div className={styles.memberDomain}>{member.domain}</div>
+                {member.bio && (
+                  <ReadMoreBio bio={member.bio} style={{ textAlign: "left" }} bioClass={styles.memberBio} />
+                )}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

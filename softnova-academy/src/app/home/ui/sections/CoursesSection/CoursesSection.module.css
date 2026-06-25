@@ -191,6 +191,14 @@
 }
 
 @media (max-width: 1024px) {
+  .section {
+    padding: 40px 4%;
+  }
+
+  .header {
+    margin-bottom: 40px;
+  }
+
   .header h2 {
     font-size: 2.5rem;
   }
@@ -367,5 +375,65 @@
     padding: 15px 40px;
     border-radius: 40px;
     margin-top: 30px;
+  }
+}
+
+/* =========================================
+   CAROUSEL FOR MOBILE & TABLET VIEWS
+   ========================================= */
+.carouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  margin-top: 30px;
+  position: relative;
+}
+
+.activeCourseWrapper {
+  flex: 1;
+  max-width: 480px;
+  display: flex;
+  justify-content: center;
+}
+
+.carouselBtn {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1A1A1A;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+}
+
+.carouselBtn:hover {
+  background: var(--primary, #ff7c30);
+  border-color: var(--primary, #ff7c30);
+  color: #ffffff;
+  transform: scale(1.1);
+  box-shadow: 0 10px 24px rgba(255, 124, 48, 0.25);
+}
+
+.carouselBtn:active {
+  transform: scale(0.95);
+}
+
+@media (max-width: 480px) {
+  .carouselContainer {
+    gap: 10px;
+  }
+  
+  .carouselBtn {
+    width: 38px;
+    height: 38px;
   }
 }

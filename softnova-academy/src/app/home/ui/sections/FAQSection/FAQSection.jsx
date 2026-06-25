@@ -1,5 +1,4 @@
-"use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './FAQSection.module.css';
 
 const FAQS = [
@@ -77,30 +76,45 @@ import FloatingElement from "@/components/FloatingElement";
 const FAQSection = () => {
   const [openId, setOpenId] = useState(null);
   const [showAll, setShowAll] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    // Default open first tab on mobile so answer area isn't blank
+    if (isMobile && !openId && FAQS.length > 0) {
+      setOpenId(FAQS[0].id);
+    }
+  }, [isMobile, openId]);
 
   const toggleOpen = (id) => {
-    // Only one accordion open at a time
     setOpenId(openId === id ? null : id);
   };
 
-  const visibleFaqs = showAll ? FAQS : FAQS.slice(0, 6);
+  const initialCount = isMobile ? 4 : 6;
+  const visibleFaqs = showAll ? FAQS : FAQS.slice(0, initialCount);
 
   const renderFaq = ({ faq, originalIndex }) => {
     const isOpen = openId === faq.id;
     const numberString = String(originalIndex + 1).padStart(2, '0');
 
     return (
-      <FloatingElement key={faq.id} yRange={[6, -6]} duration={4.5 + (originalIndex % 2)} delay={originalIndex * 0.15}>
+      <FloatingElement key={faq.id} yRange={[4, -4]} duration={4.5 + (originalIndex % 2)} delay={originalIndex * 0.15}>
         <div className={styles.accordionItemWrapper}>
-          <div className={styles.purpleBlock}>
-            {numberString}
-          </div>
           <div
             className={`${styles.glassCard} ${isOpen ? styles.open : ''}`}
             onClick={() => toggleOpen(faq.id)}
           >
             <div className={styles.accordionHeader}>
-              <h3 className={styles.question}>{faq.question}</h3>
+              <h3 className={styles.question}>
+                <span className={styles.faqNumber}>{numberString}.</span> {faq.question}
+              </h3>
               <div className={styles.iconWrapper}>
                 {isOpen ? '−' : '+'}
               </div>
@@ -146,7 +160,7 @@ const FAQSection = () => {
         </div>
 
         {/* Action Button */}
-        {FAQS.length > 6 && (
+        {FAQS.length > initialCount && (
           <div className={styles.buttonContainer}>
             <button className={styles.moreButton} onClick={() => setShowAll(!showAll)} suppressHydrationWarning>
               {showAll ? 'Show Less' : 'More FAQs'}

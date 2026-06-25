@@ -1,51 +1,46 @@
 .navbar {
   position: fixed;
-  top: 0;
+  top: 15px;
   left: 0;
   width: 100%;
   z-index: 1200;
-  padding: 0.5rem 0;
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 5%;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .scrolled {
-  padding: 0;
+  top: 5px;
 }
 
 .navContainer {
-  width: 90%;
+  width: 100%;
   max-width: 1300px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2.5rem;
+  padding: 10px 25px;
   background: var(--background);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-  box-shadow: 0 8px 32px 0 rgba(100, 80, 60, 0.1), var(--neumorph-shadow);
-  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 60px;
+  box-shadow: var(--neumorph-shadow-lg);
+  transition: all 0.5s ease;
 }
 
 .scrolled .navContainer {
-  width: 100%;
-  max-width: 100%;
-  padding: 0.8rem 5%;
-  border-radius: 0;
-  border-color: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--neumorph-shadow);
+  padding: 8px 25px;
 }
 
-.navOpen .navContainer {
-  background: transparent !important;
-  box-shadow: none !important;
-  border: none !important;
+.stickyLogoContainer {
+  position: fixed;
+  top: 15px;
+  left: 20px;
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
 }
 
 .logo {
@@ -60,71 +55,43 @@
   transform: scale(1.02);
 }
 
+@keyframes glowPulse {
+  0% {
+    filter: drop-shadow(1px 1px 0px var(--white)) drop-shadow(4px 4px 10px #ff7c3026);
+    transform: scale(2.8) translateY(0);
+  }
+
+  50% {
+    filter: drop-shadow(1px 1px 0px var(--white)) drop-shadow(6px 6px 15px rgba(255, 124, 48, 0.35));
+    transform: scale(2.8) translateY(-3px);
+  }
+
+  100% {
+    filter: drop-shadow(1px 1px 0px var(--white)) drop-shadow(4px 4px 10px #ff7c3026);
+    transform: scale(2.8) translateY(0);
+  }
+}
+
 .logoImage {
-  height: 70px;
-  transform: scale(2.5);
+  height: 80px;
+  transform: scale(2.8);
   transform-origin: left center;
   width: auto;
   object-fit: contain;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  top:10px;
+  top: 10px;
   right: 30px;
-  
+  animation: glowPulse 4s infinite ease-in-out;
 }
 
 .scrolled .logoImage {
-  height: 48px;
-}
-
-@media (max-width: 768px) {
-  .logoImage {
-    height: 45px;
-    transform: scale(2);
-  }
-}
-
-@media (max-width: 480px) {
-  .logoImage {
-    height: 35px;
-    transform: scale(1.8);
-  }
-}
-
-.logoIcon {
-  width: 40px;
-  height: 40px;
-  background: var(--background);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--neumorph-shadow-sm);
-  position: relative;
-}
-
-.logoDot {
-  width: 14px;
-  height: 14px;
-  background: var(--primary);
-  border-radius: 50%;
-  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
-}
-
-.logoText {
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--foreground);
-  letter-spacing: -0.5px;
-}
-
-.logoText span {
-  color: var(--primary);
+  height: 55px;
 }
 
 .navLinks {
   display: flex;
-  gap: 0.8rem;
+  gap: 12px;
   align-items: center;
 }
 
@@ -132,24 +99,25 @@
   text-decoration: none;
   color: var(--foreground);
   font-size: 0.95rem;
-  font-weight: 600;
-  padding: 0.7rem 1.4rem;
-  border-radius: var(--radius-sm);
+  font-weight: 700;
+  padding: 10px 22px;
+  border-radius: 40px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  background: var(--background);
+  background: transparent;
+  box-shadow: transparent;
 }
 
 .navLink:hover {
   box-shadow: var(--neumorph-shadow-sm);
   color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .activeLink,
 .activeLink:hover {
   color: var(--primary);
   box-shadow: var(--neumorph-inset);
-  background: var(--background);
+  transform: translateY(0);
 }
 
 .navActions {
@@ -162,36 +130,39 @@
   background: var(--background);
   color: var(--primary);
   text-decoration: none;
-  padding: 0.8rem 1.8rem;
-  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  border-radius: 40px;
   font-size: 0.95rem;
-  font-weight: 700;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 800;
+  transition: all 0.3s ease;
   box-shadow: var(--neumorph-shadow);
-  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .ctaButton:hover {
-  box-shadow: var(--neumorph-inset);
-  color: var(--primary);
-  transform: translateY(1px);
+  box-shadow: var(--neumorph-shadow-lg);
+  transform: translateY(-2px);
 }
 
 .ctaButton:active {
   box-shadow: var(--neumorph-inset);
+  transform: translateY(1px);
 }
 
 .mobileToggle {
   display: none;
   background: var(--background);
-  border-radius: var(--radius-sm);
+  border-radius: 50%;
   box-shadow: var(--neumorph-shadow-sm);
   border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 12px;
   width: 45px;
   height: 45px;
   transition: all 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobileToggle:active {
@@ -199,36 +170,34 @@
 }
 
 .hamburger {
-  width: 25px;
-  height: 20px;
+  width: 20px;
+  height: 16px;
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 0 auto;
 }
 
 .hamburger span {
   display: block;
   width: 100%;
-  height: 3px;
+  height: 2px;
   background: var(--foreground);
   border-radius: 2px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s ease;
 }
 
 .hamburgerOpen span:nth-child(1) {
-  transform: translateY(8.5px) rotate(45deg);
+  transform: translateY(7px) rotate(45deg);
   background: var(--primary);
 }
 
 .hamburgerOpen span:nth-child(2) {
   opacity: 0;
-  transform: translateX(10px);
 }
 
 .hamburgerOpen span:nth-child(3) {
-  transform: translateY(-8.5px) rotate(-45deg);
+  transform: translateY(-7px) rotate(-45deg);
   background: var(--primary);
 }
 
@@ -240,38 +209,33 @@
   z-index: 1100;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding-top: 80px;
+  justify-content: flex-start;
+  padding-top: 100px;
+  padding-bottom: 40px;
   align-items: center;
-  gap: 1.5rem;
+  gap: 15px;
   overflow-y: auto;
-  transform: translateX(100%);
-  transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-  /* Hide scrollbar for IE, Edge and Firefox */
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.mobileMenu::-webkit-scrollbar {
-  display: none;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .mobileMenuOpen {
-  transform: translateX(0);
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .mobileNavLink {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--foreground);
   text-decoration: none;
-  padding: 1rem 3rem;
-  border-radius: var(--radius-md);
+  padding: 12px 30px;
+  border-radius: 40px;
   box-shadow: var(--neumorph-shadow);
   transition: all 0.3s ease;
   background: var(--background);
-  width: 80%;
+  width: 220px;
   text-align: center;
 }
 
@@ -284,221 +248,97 @@
   box-shadow: var(--neumorph-inset);
 }
 
-.closeButton {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: var(--background);
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--foreground);
-  cursor: pointer;
-  box-shadow: var(--neumorph-shadow-sm);
+.mobileCtaButton {
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--white);
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 40px;
+  background: var(--primary);
+  box-shadow: 5px 5px 15px rgba(255, 124, 48, 0.4), -5px -5px 15px rgba(255, 255, 255, 0.6);
   transition: all 0.3s ease;
+  width: 220px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.closeButton:active {
-  box-shadow: var(--neumorph-inset-sm);
-}
-
-@media (min-width: 2560px) {
-  .navContainer {
-    max-width: 2200px;
-    padding: 1.5rem 4rem;
-  }
-
-  .logoText {
-    font-size: 2.2rem;
-  }
-
-  .logoIcon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .navLink {
-    font-size: 1.4rem;
-    padding: 1rem 2rem;
-  }
+.mobileCtaButton:active {
+  transform: translateY(2px);
+  box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.2), inset -4px -4px 10px rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 1024px) {
-  .navLinks {
+  .navLinks,
+  .ctaButton {
     display: none;
   }
 
   .mobileToggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 
   .navContainer {
-    width: 92%;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .scrolled .navContainer {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    padding: 0.8rem 2rem;
-    border-left: none;
-    border-right: none;
-    border-top: none;
+    width: auto;
+    margin-left: auto;
+    gap: 15px;
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem 0;
+    padding: 0 4%;
+    top: 15px;
   }
-
+  
   .navContainer {
-    width: 92%;
-    padding: 0.8rem 1.2rem;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: var(--background) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+    padding: 8px 15px;
+    border-radius: 40px;
+    margin-left: auto;
   }
 
   .scrolled {
-    padding: 0;
-    animation: none;
+    top: 10px;
+  }
+  
+  .logoImage {
+    height: 55px;
+    transform: scale(2.3);
   }
 
-  .scrolled .navContainer {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    padding: 0.8rem 1.2rem;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-    background: var(--background) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  .ctaButton {
+    padding: 10px 18px;
+    font-size: 0.85rem;
   }
 }
 
 @media (max-width: 486px) {
-  .logoText {
-    font-size: 1rem;
-  }
-
-  .logoText span {
-    display: block;
-    font-size: 0.65rem;
-    line-height: 1;
-    margin-top: -2px;
-  }
-
   .navContainer {
-    width: 94% !important;
-    padding: 0.6rem 1rem !important;
-    border-radius: 20px;
+    padding: 6px 12px;
   }
 
-  .scrolled {
-    padding: 0;
-    animation: none;
-  }
-
-  .scrolled .navContainer {
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 0 !important;
-    padding: 0.6rem 1rem !important;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-  }
-
-  .ctaButton {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.85rem;
+  .logoImage {
+    height: 45px;
+    transform: scale(2.1);
   }
 
   .mobileToggle {
-    width: 38px;
-    height: 38px;
-    padding: 8px;
-  }
-
-  .mobileMenu {
-    gap: 0.5rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .navContainer {
-    width: 300px !important;
-    padding: 0.5rem 0.8rem !important;
-    border-radius: 15px;
-  }
-
-  .navbar {
-    width: 90%;
-    margin-left: 10px;
-  }
-
-  .scrolled {
-    padding: 0 !important;
-    animation: none !important;
-  }
-
-  .scrolled .navContainer {
-    width: 100% !important;
-    max-width: 100% !important;
-    border-radius: 0 !important;
-    padding: 0.5rem 0.8rem !important;
-    border-left: none;
-    border-right: none;
-    border-top: none;
-  }
-
-  .logoIcon {
-    width: 32px;
-    height: 32px;
-  }
-
-  .logoDot {
-    width: 10px;
-    height: 10px;
-  }
-
-  .logoText {
-    font-size: 0.85rem;
-  }
-
-  .logoText span {
-    font-size: 0.6rem;
-  }
-
-  .ctaButton {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.75rem;
-  }
-
-  .mobileToggle {
-    width: 34px;
-    height: 34px;
-    padding: 6px;
-  }
-
-  .navActions {
-    gap: 8px !important;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
   }
 
   .hamburger {
-    width: 20px;
-    height: 16px;
+    width: 18px;
+    height: 14px;
+  }
+  
+  .hamburgerOpen span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  
+  .hamburgerOpen span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
   }
 }

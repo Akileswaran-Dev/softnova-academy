@@ -72,6 +72,15 @@
   font-weight: 800;
   color: var(--foreground);
   line-height: 1.4;
+  display: flex;
+  align-items: center;
+}
+
+.faqNumber {
+  color: var(--primary);
+  font-weight: 900;
+  margin-right: 12px;
+  opacity: 0.8;
 }
 
 .iconWrapper {
@@ -140,25 +149,134 @@
 }
 
 @media (max-width: 1024px) {
-  .heading { font-size: 1.6rem; }
-  .sectionHeader { margin-bottom: 25px; }
-  .grid { gap: 12px; }
+  .section {
+    padding: 15px 0;
+  }
+  .heading {
+    font-size: 1.8rem;
+  }
+  .sectionHeader {
+    margin-bottom: 20px;
+  }
+  .grid {
+    gap: 15px;
+  }
+  .glassCard {
+    padding: 16px 20px;
+  }
+  .question {
+    font-size: 1.05rem;
+  }
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .heading { font-size: 1.4rem; }
-  .subtitle { font-size: 0.85rem; }
-  .question { font-size: 0.95rem; }
-  .glassCard { padding: 12px 15px; }
-  .iconWrapper { width: 28px; height: 28px; font-size: 1rem; }
-  .grid { grid-template-columns: 1fr; gap: 10px; }
-  .heading { font-size: 2.2rem; }
-  .subtitle { font-size: 1.1rem; }
-  .question { font-size: 1.2rem; }
-  .glassCard { padding: 30px 25px; }
-  .iconWrapper { width: 35px; height: 35px; font-size: 1.2rem; }
-  .iconWrapper svg { width: 18px; height: 18px; }
-  .grid { grid-template-columns: 1fr; gap: 20px; }
+  .heading {
+    font-size: 1.5rem;
+  }
+  .subtitle {
+    font-size: 0.88rem;
+  }
+  .question {
+    font-size: 0.98rem;
+  }
+  .glassCard {
+    padding: 14px 18px;
+  }
+  .iconWrapper {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+  .iconWrapper svg {
+    width: 14px;
+  }
+  .mobileSelectContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .customSelectWrapper {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+  .customSelectButton {
+    width: 100%;
+    background: var(--background);
+    border: none;
+    padding: 18px 40px 18px 20px;
+    border-radius: var(--radius-sm);
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--foreground);
+    box-shadow: var(--neumorph-shadow-sm);
+    outline: none;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .customSelectText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .selectIcon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--primary);
+    font-size: 0.8rem;
+  }
+  .customSelectList {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    width: 100%;
+    background: var(--background);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--neumorph-shadow);
+    max-height: 300px;
+    overflow-y: auto;
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+  }
+  .customSelectOption {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    color: var(--foreground);
+    cursor: pointer;
+    line-height: 1.4;
+    transition: background 0.2s ease;
+  }
+  .customSelectOption:hover, .selectedOption {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .mobileAnswerCard {
+    background: var(--background);
+    padding: 20px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--neumorph-inset);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .accordionItemWrapper {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -182,7 +300,10 @@
     font-size: 0.9rem;
   }
   .grid {
-    gap: 15px;
+    gap: 10px;
+  }
+  .accordionItemWrapper {
+    width: 100%;
   }
   .glassCard {
     padding: 15px 15px;

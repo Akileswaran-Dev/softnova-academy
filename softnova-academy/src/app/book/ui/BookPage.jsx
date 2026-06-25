@@ -68,6 +68,27 @@ const matchesCategory = (book, selectedCategory) => {
   return bookCategoryLower === categoryLower;
 };
 
+const HighlightText = ({ text, highlight }) => {
+  if (!highlight || !highlight.trim()) return <>{text}</>;
+  
+  // Escape special regex characters in the search term just in case
+  const escapeRegExp = (string) => string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escapeRegExp(highlight)})`, 'gi');
+  const parts = text.split(regex);
+  
+  return (
+    <>
+      {parts.map((part, i) => 
+        regex.test(part) ? (
+          <mark key={i} className={styles.highlightWord}>{part}</mark>
+        ) : (
+          <span key={i}>{part}</span>
+        )
+      )}
+    </>
+  );
+};
+
 const BookPage = () => {
   // Hero Carousel State
   const HERO_BOOKS = BOOKS.slice(0, 5);
@@ -246,36 +267,7 @@ const BookPage = () => {
             <p className={styles.colBookDesc}>{activeItem.desc}</p>
           </div>
 
-          {/* Column 2: Stats & Rating */}
-          <div className={styles.insightCol}>
-            <h3 className={styles.colHeading}>Resource Overview</h3>
-            <div className={styles.shelfStatsGrid}>
-              <div className={styles.shelfStatBox}>
-                <span className={styles.shelfStatVal}>{activeItem.pages}</span>
-                <span className={styles.shelfStatLab}>Pages</span>
-              </div>
-              <div className={styles.shelfStatBox}>
-                <span className={styles.shelfStatVal}>{activeItem.Chapter}</span>
-                <span className={styles.shelfStatLab}>Chapters</span>
-              </div>
-            </div>
-
-            <div className={styles.ratingRow}>
-              <div className={styles.starsWrapper}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    size={16}
-                    fill={i < activeItem.rating ? activeItem.color : 'none'}
-                    color={i < activeItem.rating ? activeItem.color : '#cbd5e1'}
-                  />
-                ))}
-              </div>
-              <span className={styles.votersText}>{activeItem.voters} Readers</span>
-            </div>
-          </div>
-
-          {/* Column 3: Syllabus Preview */}
+          {/* Column 2: Syllabus Preview */}
           <div className={styles.insightCol}>
             <h3 className={styles.colHeading}>Syllabus Preview</h3>
             <div className={styles.previewList}>
@@ -393,8 +385,12 @@ const BookPage = () => {
                     >
                       {book.category.toUpperCase()}
                     </span>
-                    <h2 className={styles.bookTitle}>{getDisplayTitle(book)}</h2>
-                    <p className={styles.bookDescription}>{book.desc}</p>
+                    <h2 className={styles.bookTitle}>
+                      <HighlightText text={getDisplayTitle(book)} highlight={searchTerm} />
+                    </h2>
+                    <p className={styles.bookDescription}>
+                      <HighlightText text={book.desc} highlight={searchTerm} />
+                    </p>
 
                     <div className={styles.bookMetaRow}>
                       <div className={styles.bookMetaItem}>

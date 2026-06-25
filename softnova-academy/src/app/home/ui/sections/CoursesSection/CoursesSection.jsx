@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   PenTool, 
@@ -8,7 +8,9 @@ import {
   Code, 
   Layers, 
   Terminal, 
-  Users 
+  Users,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import styles from "./CoursesSection.module.css";
 
@@ -70,6 +72,24 @@ const COURSES = [
 ];
 
 const CoursesSection = () => {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+  const [activeCourseIndex, setActiveCourseIndex] = useState(0);
+
+  useEffect(() => {
+    const checkSize = () => setIsMobileOrTablet(window.innerWidth < 1025);
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
+  const handlePrev = () => {
+    setActiveCourseIndex((prev) => (prev - 1 + COURSES.length) % COURSES.length);
+  };
+
+  const handleNext = () => {
+    setActiveCourseIndex((prev) => (prev + 1) % COURSES.length);
+  };
+
   return (
     <section className={styles.section} id="courses">
       <div className={styles.container}>
@@ -80,27 +100,75 @@ const CoursesSection = () => {
           </p>
         </div>
 
-        <div className={`${styles.coursesGrid} gsap-stagger-group`}>
-          {COURSES.map((course, index) => (
-            <div className={`${styles.courseBlobCard} gsap-card`} key={course.id}>
-              <div className={`${styles.blob} ${course.blobClass}`}></div>
-              <div className={styles.contentWrapper}>
-                <div className={styles.circleIcon}>
-                  {course.icon}
-                  <span>{course.title.split(' ')[0]}</span>
-                </div>
-                <div className={styles.textSide}>
-                  <span className={styles.courseTag}>{course.tag}</span>
-                  <h3 className={styles.courseTitle}>{course.title}</h3>
-                  <p className={styles.courseDesc}>{course.description}</p>
-                  <Link href={`/course/${course.slug}`}>
-                    <span className={styles.viewBtn}>Learn More</span>
-                  </Link>
+        {isMobileOrTablet ? (
+          <div className={styles.carouselContainer}>
+            {/* Prev Button */}
+            <button 
+              className={styles.carouselBtn} 
+              onClick={handlePrev} 
+              aria-label="Previous Course"
+            >
+              <ChevronLeft size={22} />
+            </button>
+
+            {/* Active Course Card Wrapper */}
+            <div className={styles.activeCourseWrapper}>
+              {COURSES.map((course, index) => {
+                if (index !== activeCourseIndex) return null;
+                return (
+                  <div className={styles.courseBlobCard} key={course.id}>
+                    <div className={`${styles.blob} ${course.blobClass}`}></div>
+                    <div className={styles.contentWrapper}>
+                      <div className={styles.circleIcon}>
+                        {course.icon}
+                        <span>{course.title.split(' ')[0]}</span>
+                      </div>
+                      <div className={styles.textSide}>
+                        <span className={styles.courseTag}>{course.tag}</span>
+                        <h3 className={styles.courseTitle}>{course.title}</h3>
+                        <p className={styles.courseDesc}>{course.description}</p>
+                        <Link href={`/course/${course.slug}`}>
+                          <span className={styles.viewBtn}>Learn More</span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Next Button */}
+            <button 
+              className={styles.carouselBtn} 
+              onClick={handleNext} 
+              aria-label="Next Course"
+            >
+              <ChevronRight size={22} />
+            </button>
+          </div>
+        ) : (
+          <div className={`${styles.coursesGrid} gsap-stagger-group`}>
+            {COURSES.map((course, index) => (
+              <div className={`${styles.courseBlobCard} gsap-card`} key={course.id}>
+                <div className={`${styles.blob} ${course.blobClass}`}></div>
+                <div className={styles.contentWrapper}>
+                  <div className={styles.circleIcon}>
+                    {course.icon}
+                    <span>{course.title.split(' ')[0]}</span>
+                  </div>
+                  <div className={styles.textSide}>
+                    <span className={styles.courseTag}>{course.tag}</span>
+                    <h3 className={styles.courseTitle}>{course.title}</h3>
+                    <p className={styles.courseDesc}>{course.description}</p>
+                    <Link href={`/course/${course.slug}`}>
+                      <span className={styles.viewBtn}>Learn More</span>
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
 
         {/* Explore More Button */}
         <div className={styles.buttonContainer}>

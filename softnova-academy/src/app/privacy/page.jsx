@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
         {/* Header Card */}
         <section className={styles.headerCard}>
           <h1>Privacy Policy</h1>
-          <p>Last updated: June 22, 2026</p>
+          <p>Last updated: NOV 03, 2025</p>
           <p>
             Your privacy is highly important to us. This Privacy Policy details the types of personal information 
             Softnova Academy collects, how we use it, and the security measures we take to protect it.

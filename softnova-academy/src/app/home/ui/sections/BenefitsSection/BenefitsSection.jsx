@@ -1,3 +1,5 @@
+import React, { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./BenefitsSection.module.css";
 import FloatingElement from "@/components/FloatingElement";
 
@@ -81,6 +83,15 @@ const BENEFITS = [
 ];
 
 export default function BenefitsSection() {
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false);
+
+  useEffect(() => {
+    const checkSize = () => setIsMobileOrTablet(window.innerWidth < 1025);
+    checkSize();
+    window.addEventListener("resize", checkSize);
+    return () => window.removeEventListener("resize", checkSize);
+  }, []);
+
   return (
     <section className={styles.section} aria-labelledby="benefits-title">
       <div className={styles.header}>
@@ -94,26 +105,54 @@ export default function BenefitsSection() {
         </p>
       </div>
 
-      <div className={styles.grid}>
-        {BENEFITS.map((b, index) => (
-          <article className={styles.card} key={b.number}>
-            <div className={styles.iconCircle}>
-               <div className={styles.iconInner}>
-                   {b.icon}
-               </div>
-            </div>
-            
-            <div className={styles.stepWrapper}>
-                <span className={styles.stepText}>STEP</span>
-                <span className={styles.stepNumber}>{b.number}</span>
-            </div>
+      {isMobileOrTablet ? (
+        <div className={styles.stickyStackContainer}>
+          {BENEFITS.map((b, index) => (
+            <article 
+              className={styles.card} 
+              key={b.number}
+              style={{
+                top: `120px`,
+                zIndex: index + 1
+              }}
+            >
+              <div className={styles.iconCircle}>
+                 <div className={styles.iconInner}>
+                     {b.icon}
+                 </div>
+              </div>
+              
+              <div className={styles.stepWrapper}>
+                  <span className={styles.stepText}>STEP</span>
+                  <span className={styles.stepNumber}>{b.number}</span>
+              </div>
 
-            <h3 className={styles.cardTitle}>{b.title}</h3>
-            <p className={styles.cardDesc}>{b.description}</p>
-            
-          </article>
-        ))}
-      </div>
+              <h3 className={styles.cardTitle}>{b.title}</h3>
+              <p className={styles.cardDesc}>{b.description}</p>
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.grid}>
+          {BENEFITS.map((b, index) => (
+            <article className={styles.card} key={b.number}>
+              <div className={styles.iconCircle}>
+                 <div className={styles.iconInner}>
+                     {b.icon}
+                 </div>
+              </div>
+              
+              <div className={styles.stepWrapper}>
+                  <span className={styles.stepText}>STEP</span>
+                  <span className={styles.stepNumber}>{b.number}</span>
+              </div>
+
+              <h3 className={styles.cardTitle}>{b.title}</h3>
+              <p className={styles.cardDesc}>{b.description}</p>
+            </article>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

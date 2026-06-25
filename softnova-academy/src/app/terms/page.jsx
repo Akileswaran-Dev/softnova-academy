@@ -34,7 +34,7 @@ const TermsAndConditions = () => {
         {/* Header Card */}
         <section className={styles.headerCard}>
           <h1>Terms & Conditions</h1>
-          <p>Last updated: June 22, 2026</p>
+          <p>Last updated: NOV 03, 2025</p>
           <p>
             Please read these Terms and Conditions carefully before using our website or enrolling in courses and internships 
             offered by Softnova Academy.
